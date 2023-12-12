@@ -1,5 +1,6 @@
 # ReciPal
-![title1](https://github.com/DinaBader/ReciPal/assets/131765110/5b828ee5-6e45-4cdf-b7a6-918934fca0cc)
+
+![title1](https://github.com/DinaBader/ReciPal/assets/131765110/4eebbb24-057c-4e21-bc0b-0bf339eb0eff)
 ![title2](https://github.com/DinaBader/ReciPal/assets/131765110/b556ec97-2796-4941-937e-327c8ffa67bd)
 ![title3](https://github.com/DinaBader/ReciPal/assets/131765110/e31c9532-e8af-438a-beae-0ca8e801eb5a)
 ![title4](https://github.com/DinaBader/ReciPal/assets/131765110/640e5324-0f66-448e-b369-c8aa9ef531c6)
