@@ -5,4 +5,3 @@
 ![title4](https://github.com/DinaBader/ReciPal/assets/131765110/25b8cf31-424d-4403-add6-7f0d06fcb808)
 ![title5](https://github.com/DinaBader/ReciPal/assets/131765110/d24b798d-0485-4c78-821a-772291a74352)
 ![title6](https://github.com/DinaBader/ReciPal/assets/131765110/457799c8-44c3-42e4-92eb-f6a0b993c2a6)
-[README.md](https://github.com/DinaBader/ReciPal/files/13755238/README.md)
