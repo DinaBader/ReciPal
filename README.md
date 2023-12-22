@@ -11,8 +11,8 @@
 - As a user, I want to be able to save my recipes so that I can access them whenever without having to look for it in a field of other recipes.
 <br><br>
 
--As an admin, I want to be able to add new recipes based on the dieteray restrictions of each user.
--As an admin, I want to be able to receive feedback to ensure a smooth user experience.
+- As an admin, I want to be able to add new recipes based on the dieteray restrictions of each user.
+- As an admin, I want to be able to receive feedback to ensure a smooth user experience.
 
 ![title3](https://github.com/DinaBader/ReciPal/assets/131765110/04db1aa7-1f5e-4482-aa9a-2fab6fd3de50)
 > We designed ReciPal using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
