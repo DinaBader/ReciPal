@@ -6,13 +6,13 @@
 > A mobile app for getting recipes, making it easier for food lovers to get their favorite recipes without the hassle of searching online.
 
 ### User Stories
-#User:
+**User**:
 - As a user, I want to be able to get recipes based on the ingredients that I have at home.
 - As a user, I want cooking to be more fun, so that I get excited to save money and make home cooked meals more often.
 - As a user, I want to be able to save my recipes so that I can access them whenever without having to look for it in a field of other recipes.
 <br><br>
 
-#Admin:
+**Admin**:
 - As an admin, I want to be able to add new recipes based on the dieteray restrictions of each user.
 - As an admin, I want to be able to receive feedback to ensure a smooth user experience.
 
