@@ -26,6 +26,10 @@ const userSchema=new mongoose.Schema({
         type:Number,
         default:2,
     },
+    image:{
+        type:String,
+        default:"",
+    },
     finshed_recipes:[{
         recipe:{
             type:mongoose.Schema.Types.ObjectId,
