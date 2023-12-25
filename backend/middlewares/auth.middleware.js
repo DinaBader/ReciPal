@@ -11,7 +11,12 @@ const authMiddleware=async(req,res,next)=>{
             "-password"
         );
         req.user=user;
-        next();
+        if(user.role==2){
+            next();
+        }else{
+            res.status(403).send("Forbidden");
+        }
+        
     }
 };
 
