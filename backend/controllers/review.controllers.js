@@ -31,7 +31,22 @@ const removeReview=async(req,res)=>{
     }
 };
 
+const getReviews=async(req,res)=>{
+    try{
+        const reviews=Review.find({});
+        res.status(200).send({reviews});
+    }catch(error){
+        res.status(400).send({ 
+            error: {
+                message: 'Error',
+                details: error.message, 
+            },
+        });
+    }
+}
+
 module.exports={
     addReview,
-    removeReview
+    removeReview,
+    getReviews
 }
