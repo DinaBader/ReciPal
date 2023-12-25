@@ -14,8 +14,16 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
+    age:{
+        type:Number,
+    },
+    password:{
+        type:String,
+        required:true,
+        minlength:6,
+    },
     role:{
-        type:Integer,
+        type:Number,
         default:2,
     },
     finshed_recipes:[{
