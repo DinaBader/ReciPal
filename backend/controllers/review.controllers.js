@@ -17,6 +17,21 @@ const addReview=async(req,res)=>{
     }
 };
 
+const removeReview=async(req,res)=>{
+    const reviewId=req.params.id;
+
+    try{
+        const result=await Review.deleteOne({_is:reviewId});
+        if(result.deletedCount==0){
+            res.status(400).send("review not found");
+        }
+        res.status(200).send("review deleted successfully");
+    }catch(error){
+        res.status(500).send({error});
+    }
+};
+
 module.exports={
-    addReview
+    addReview,
+    removeReview
 }

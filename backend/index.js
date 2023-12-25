@@ -10,6 +10,9 @@ require("dotenv").config();
 const UserRoutes=require("../backend/routes/auth.routes");
 app.use("/auth",UserRoutes);
 
+const ReviewRoutes=require("../backend/routes/review.routes");
+app.use("/review",ReviewRoutes);
+
 app.listen(8000,()=>{
     console.log("Server listening on PORT: ",8000);
     connectToMongoDB();
