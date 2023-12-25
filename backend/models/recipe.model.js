@@ -18,7 +18,7 @@ const recipeSchema =new mongoose.Schema({
         required:true,
     },
     serving:{
-        type:number,
+        type:Number,
         required:true,
     },
     difficulty:{
@@ -27,7 +27,6 @@ const recipeSchema =new mongoose.Schema({
     },
     image:{
         type:String,
-        required:true,
     },
     categorie:{
         type:String,
