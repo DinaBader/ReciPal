@@ -21,7 +21,7 @@ const removeReview=async(req,res)=>{
     const reviewId=req.params.id;
 
     try{
-        const result=await Review.deleteOne({_is:reviewId});
+        const result=await Review.deleteOne({_id:reviewId});
         if(result.deletedCount==0){
             res.status(400).send("review not found");
         }

@@ -26,6 +26,26 @@ const addRecipe = async (req,res)=>{
     }
 };
 
+const deleteRecipe=async(req,res)=>{
+    const recipeId=req.params.id;
+    try{
+        const recipe=await Recipe.deleteOne({_id:recipeId});
+        if(recipe.deletedCount==0){
+            res.status(200).send("couldnt delete recipe");
+        }else{
+            res.status(500).send("Recipe deleted succsfully");
+        }
+    }catch(error){
+        res.status(200).send({
+            error:{
+                message:"error occured",
+                details:error.message
+            }
+        })
+    }
+}
+
 module.exports={
-    addRecipe
+    addRecipe,
+    deleteRecipe
 };
