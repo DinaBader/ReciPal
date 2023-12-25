@@ -5,19 +5,17 @@ const bcrypt = require("bcrypt");
 const login=async (req,res)=>{
   const {usernameOrEmail,password}=req.body;
 
-  const isEmail = userNameOrEmail.includes('@');
-
   let user;
-  if (isEmail) {
-    user = await User.findOne({ email: userNameOrEmail });
+  if (usernameOrEmail.includes('@')) {
+    user = await User.findOne({ email: usernameOrEmail });
   } else {
-    user = await User.findOne({ userName: userNameOrEmail });
+    user = await User.findOne({ username: usernameOrEmail });
   }
 
   if (!user) {
     return res.status(400).send({ message: "Invalid username/email or password" });
   }
-  
+
   const isValidPassword = await bcrypt.compare(password, user.password);
   if (!isValidPassword) {
     return res.status(400).send({ message: "Invalid username/email or password" });
@@ -40,8 +38,8 @@ const login=async (req,res)=>{
 
 
 const register = async (req, res) => {
-    const { firstname, lastname, email,age,password,role} = req.body;
-    if (!firstname || !lastname || !password || !age || !email) {
+    const { firstname, lastname, email,age,password,role,username} = req.body;
+    if (!firstname || !lastname || !password || !age || !email ||!username) {
       res.status(400).send({ message: "all fields are required" });
     }
     
@@ -53,7 +51,8 @@ const register = async (req, res) => {
         age,
         password,
         role,
-        image:""
+        image:"",
+        username
       });
   
       await user.save();
