@@ -47,14 +47,35 @@ const addRecipe = async (req,res)=>{
     }
 };
 
+
+const deleteRecipeFromUser=async (recipeId)=>{
+    const users = await User.find({ role: 1 });
+
+    const promises = users.map(async (user) => {
+        const update = {
+            $pull: {
+                finshed_recipes: {
+                    recipe: recipeId,
+                },
+            },
+        };
+        await User.findByIdAndUpdate(user._id, update);
+    });
+    
+    await Promise.all(promises);
+}
+
 const deleteRecipe=async(req,res)=>{
     const recipeId=req.params.id;
     try{
         const recipe=await Recipe.deleteOne({_id:recipeId});
         if(recipe.deletedCount==0){
             res.status(200).send("couldnt delete recipe");
+
         }else{
             res.status(500).send("Recipe deleted succsfully");
+            await deleteRecipeFromUser(recipeId);
+
         }
     }catch(error){
         res.status(200).send({
