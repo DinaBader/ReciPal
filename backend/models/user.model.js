@@ -42,9 +42,15 @@ const userSchema=new mongoose.Schema({
         completed:{type:Boolean,default:false},
     },],
     rewards:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"recipe",
-    }]
+        recipe: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "recipe",
+        },
+        country: {
+            type: String,
+            required: true,
+        },
+    }]   
 
 });
 
