@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const Recipe=require("../models/recipe.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -42,8 +43,8 @@ const register = async (req, res) => {
     if (!firstname || !lastname || !password || !age || !email ||!username) {
       res.status(400).send({ message: "all fields are required" });
     }
-    
     try {  
+      const recipes = await Recipe.find();
       const user = new User({
         firstname,
         lastname,
@@ -52,8 +53,11 @@ const register = async (req, res) => {
         password,
         role,
         image:"",
-        username
+        username,
+        finshed_recipes: recipes.map((recipe) => ({ recipe: recipe._id, completed: false }))
       });
+
+
   
       await user.save();
       const { password: hashedPassword, ...userDetails } = user.toJSON();
