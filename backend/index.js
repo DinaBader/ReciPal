@@ -15,6 +15,9 @@ app.use("/review",ReviewRoutes);
 const RecipeRoutes=require("../backend/routes/recipe.routes");
 app.use("/recipe",authMiddleware,RecipeRoutes);
 
+const RewardRoutes=require("../backend/routes/user.routes");
+app.use("/reward",RewardRoutes);
+
 app.listen(8000,()=>{
     console.log("Server listening on PORT: ",8000);
     connectToMongoDB();
