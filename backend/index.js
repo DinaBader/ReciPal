@@ -19,6 +19,9 @@ app.use("/recipe",authMiddleware,RecipeRoutes);
 const RewardRoutes=require("../backend/routes/user.routes");
 app.use("/reward",authMiddleware,RewardRoutes);
 
+const PasswordResetRoutes=require("../backend/routes/password.routes");
+app.use("/api/password-reset",PasswordResetRoutes);
+
 app.listen(8000,()=>{
     console.log("Server listening on PORT: ",8000);
     connectToMongoDB();
