@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import axios from 'axios';
 
 const Login = () => {
-    const [name,setName]=useState('');
+    const [usernameOrEmail,setName]=useState('');
     const [password,setPassword]=useState('');
     const handleNameChange=(text)=>{
         setName(text);
@@ -11,20 +11,15 @@ const Login = () => {
     const handlePasswordChange=(text)=>{
         setPassword(text);
     }
-    const navigateToMainPage = (role)=>{
-        if(role=="2"){
-            navigation.navigate('AdminDahsboard');
-        }
-        else{
-            navigation.navigate('UserDashboard');
-        }
-    }
+    
     const handleSubmit=()=>{
+        console.log("Request Payload:", { usernameOrEmail, password });
+
         axios.post(
-            "http://127.0.0.1:8000/auth/login",
+            "http://192.168.0.100:8000/auth/login",
             {
-                name,
-                password  
+                "usernameOrEmail": usernameOrEmail,
+                "password": password
             },
             {
                 headers:{
@@ -32,11 +27,9 @@ const Login = () => {
                 }
             }
         ).then((res)=>{
+            console.log("Axios Response:", res);
             const {token,user}=res.data;
-            AsyncStorage.setItem("jwt",res.data.token);
-            AsyncStorage.setItem("user",JSON.stringify(res.data.user));
-            const role=user.Role;
-            navigateToMainPage(role)
+            console.log("LoggedIN");
         }).catch((error)=>{
             setName("");
             setPassword("");
@@ -52,7 +45,7 @@ const Login = () => {
         style={styles.reg_input}
         placeholder="Email/Username"
         onChangeText={handleNameChange}
-        value={name}
+        value={usernameOrEmail}
       />
         <TextInput
         style={styles.reg_input}
