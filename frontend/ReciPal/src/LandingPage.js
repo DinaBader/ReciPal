@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text,Image } from 'react-native'
+import {StyleSheet, View,Image } from 'react-native'
 import React ,{ useEffect }from 'react'
 
 const LandingPage = ({ navigation }) => {

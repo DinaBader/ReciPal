@@ -1,5 +1,6 @@
-import { StyleSheet, View, Text,TextInput,TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text,TextInput,TouchableOpacity,AsyncStorage  } from 'react-native';
 import React,{useState} from 'react';
+import axios from 'axios';
 
 const Login = () => {
     const [name,setName]=useState('');
@@ -7,10 +8,41 @@ const Login = () => {
     const handleNameChange=(text)=>{
         setName(text);
     }
-    const handlePassowrdChange=(text)=>{
+    const handlePasswordChange=(text)=>{
         setPassword(text);
     }
+    const navigateToMainPage = (role)=>{
+        if(role=="2"){
+            navigation.navigate('AdminDahsboard');
+        }
+        else{
+            navigation.navigate('UserDashboard');
+        }
+    }
     const handleSubmit=()=>{
+        axios.post(
+            "http://127.0.0.1:8000/auth/login",
+            {
+                name,
+                password  
+            },
+            {
+                headers:{
+                    "Content-Type":"application/json",
+                }
+            }
+        ).then((res)=>{
+            const {token,user}=res.data;
+            AsyncStorage.setItem("jwt",res.data.token);
+            AsyncStorage.setItem("user",JSON.stringify(res.data.user));
+            const role=user.Role;
+            navigateToMainPage(role)
+        }).catch((error)=>{
+            setName("");
+            setPassword("");
+            console.error("Login failed", error);
+            return;
+        })
     }
   return (
     <View style={styles.container}>
@@ -19,13 +51,13 @@ const Login = () => {
         <TextInput
         style={styles.reg_input}
         placeholder="Email/Username"
-        onChange={handleNameChange}
+        onChangeText={handleNameChange}
         value={name}
       />
         <TextInput
         style={styles.reg_input}
         placeholder="Password "
-        onChange={handlePassowrdChange}
+        onChangeText={handlePasswordChange}
         value={password}
         secureTextEntry
       />

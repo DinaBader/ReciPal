@@ -2,9 +2,13 @@ const express=require("express");
 const {connectToMongoDB} =require("./configs/mongoDb.configs");
 const {authMiddleware}=require("./middlewares/auth.middleware");
 const app=express();
-app.use(express.json());
 require("dotenv").config();
 const fileUpload = require("express-fileupload");
+var cors = require('cors')
+
+app.use(cors()) 
+app.use(express.json());
+
 app.use(fileUpload());
 
 const UserRoutes=require("../backend/routes/auth.routes");
