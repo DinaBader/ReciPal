@@ -1,6 +1,6 @@
 const Recipe=require("../models/recipe.model");
 const User=require("../models/user.model");
-  
+
 //when i add a recipe add it to the user
 //check if he already has a reward for that country
 const addRecipeToUser = async(recipeId,country)=>{
@@ -87,7 +87,48 @@ const deleteRecipe=async(req,res)=>{
     }
 }
 
+const searchRecipes = async (req, res) => {
+    const { name } = req.body;
+
+    try {
+        const recipes = await Recipe.find({
+            $or: [
+                { name: { $regex: new RegExp(name, 'i') } },
+                { country: { $regex: new RegExp(name, 'i') } }
+            ]
+        });
+
+        console.log("Query:", { name });
+        console.log("Recipes found:", recipes);
+
+        if (recipes.length === 0) {
+            console.log("No recipes found");
+            res.status(200).send({
+                message: "No recipes found",
+                recipes: []
+            });
+        } else {
+            res.status(200).send({
+                message: "Recipes found",
+                recipes
+            });
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).send({
+            error: {
+                message: "Error",
+                details: error.message
+            }
+        });
+    }
+};
+
+
+
+  
 module.exports={
     addRecipe,
-    deleteRecipe
+    deleteRecipe,
+    searchRecipes
 };
