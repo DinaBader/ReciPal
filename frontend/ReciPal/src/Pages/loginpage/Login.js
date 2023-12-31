@@ -2,7 +2,7 @@ import {View, Text,TextInput,TouchableOpacity,ImageBackground  } from 'react-nat
 import React,{useState} from 'react';
 import axios from 'axios';
 import styles from './styles';
-import common from '../utils/common'
+import common from '../../utils/common'
 const Login = ({navigation}) => {
     const [usernameOrEmail,setName]=useState('');
     const [password,setPassword]=useState('');
@@ -51,7 +51,7 @@ const Login = ({navigation}) => {
         })
     }
   return (
-    <ImageBackground source={require('../../assets/login.png')} style={{ flex: 1, width: '100%', height: '100%' }}>
+    <ImageBackground source={require('../../../assets/login.png')} style={{ flex: 1, width: '100%', height: '100%' }}>
       <View style={styles.container}>
         <Text style={styles.login}>LOGIN</Text>
           <TextInput
@@ -77,6 +77,8 @@ const Login = ({navigation}) => {
         <TouchableOpacity onPress={redirectToSignUp} style={[styles.signup,common.yellow_bg]}>
           <Text style={[common.black,common.bold]}>Sign Up</Text>
         </TouchableOpacity>
+        
+        
       </View>
     </ImageBackground>
   );

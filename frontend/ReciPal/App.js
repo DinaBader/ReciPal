@@ -1,9 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import LandingPage from './src/landingpage/LandingPage';
-import LoginPage from './src/loginpage/Login';
-import SignupPage from './src/signinpage/Signup';
+import LandingPage from './src/Pages/landingpage/LandingPage';
+import LoginPage from './src/Pages/loginpage/Login';
+import SignupPage from './src/Pages/signinpage/Signup';
 const Stack = createStackNavigator();
 
 export default function App() {

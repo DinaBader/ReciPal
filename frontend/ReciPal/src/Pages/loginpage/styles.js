@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
       marginTop: 10,
     },
     signup:{
-      // backgroundColor:"#FFBF4D",
       width:280,
       marginLeft:50,
       height:40,
