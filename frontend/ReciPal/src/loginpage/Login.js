@@ -2,7 +2,8 @@ import {View, Text,TextInput,TouchableOpacity,ImageBackground  } from 'react-nat
 import React,{useState} from 'react';
 import axios from 'axios';
 import styles from './styles';
-const Login = () => {
+
+const Login = ({navigation}) => {
     const [usernameOrEmail,setName]=useState('');
     const [password,setPassword]=useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -15,7 +16,9 @@ const Login = () => {
         setPassword(text);
         setErrorMessage('');
     }
-    
+    const redirectToSignUp=()=>{
+      navigation.navigate('SignupPage');
+    }
     const handleSubmit=()=>{
         console.log("Request Payload:", { usernameOrEmail, password });
 
@@ -39,7 +42,7 @@ const Login = () => {
             setPassword("");
             console.error("Login failed wrong credentials", error);
             if (error.response && error.response.data && error.response.data.message) {
-              setErrorMessage(error.response.data.message);
+              setErrorMessage("Incorrect inputs");
           } else {
               setErrorMessage("Incorrect inputs");
           }
@@ -72,7 +75,10 @@ const Login = () => {
       {errorMessage ? (
                 <Text style={styles.errorMessage}>{errorMessage}</Text>
       ) : null}
-
+      <Text>OR</Text>
+      <TouchableOpacity onPress={redirectToSignUp} style={styles.submit}>
+         <Text style={{ color: '#FFFFFF' }}>Sign in</Text>
+      </TouchableOpacity>
     </View>
     </ImageBackground>
   );
