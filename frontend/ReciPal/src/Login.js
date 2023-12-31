@@ -18,8 +18,8 @@ const Login = () => {
         axios.post(
             "http://192.168.0.100:8000/auth/login",
             {
-                "usernameOrEmail": usernameOrEmail,
-                "password": password
+              "usernameOrEmail": usernameOrEmail,
+              "password": password
             },
             {
                 headers:{
@@ -33,7 +33,7 @@ const Login = () => {
         }).catch((error)=>{
             setName("");
             setPassword("");
-            console.error("Login failed", error);
+            console.error("Login failed wrong credentials", error);
             return;
         })
     }
