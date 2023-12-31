@@ -78,7 +78,7 @@ const upload_image = async (req, res) => {
   image.mv(image_dir);
 
   await User.findByIdAndUpdate(userId, {
-    imageUrl: imageName,
+    image: imageName,
   });
 
   res.status(200).send("Image uploaded");
