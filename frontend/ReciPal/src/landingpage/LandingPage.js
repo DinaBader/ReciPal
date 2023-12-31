@@ -1,6 +1,6 @@
-import {StyleSheet, View,Image } from 'react-native'
+import {View,Image } from 'react-native'
 import React ,{ useEffect }from 'react'
-
+import styles from './styles'
 const LandingPage = ({ navigation }) => {
     useEffect(() => {
       const timeoutId = setTimeout(() => {
@@ -13,7 +13,7 @@ const LandingPage = ({ navigation }) => {
     return (
       <View style={styles.container}>
         <Image
-          source={require('../assets/logo.png')}
+          source={require('../../assets/logo.png')}
           style={{width: 200, height: 200}}
         />
       </View>
@@ -24,11 +24,3 @@ const LandingPage = ({ navigation }) => {
 export default LandingPage
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor:'#FFBF4D',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

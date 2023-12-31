@@ -1,7 +1,7 @@
-import { StyleSheet, View, Text,TextInput,TouchableOpacity,ImageBackground  } from 'react-native';
+import {View, Text,TextInput,TouchableOpacity,ImageBackground  } from 'react-native';
 import React,{useState} from 'react';
 import axios from 'axios';
-
+import styles from './styles';
 const Login = () => {
     const [usernameOrEmail,setName]=useState('');
     const [password,setPassword]=useState('');
@@ -49,7 +49,7 @@ const Login = () => {
         })
     }
   return (
-    <ImageBackground source={require('../assets/login.png')} style={{ flex: 1, width: '100%', height: '100%' }}>
+    <ImageBackground source={require('../../assets/login.png')} style={{ flex: 1, width: '100%', height: '100%' }}>
     <View style={styles.container}>
        <Text style={styles.login}>LOGIN</Text>
         <View style={styles.shape}></View>
@@ -80,46 +80,3 @@ const Login = () => {
 
 export default Login;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  
-    position: 'relative',
-    gap:20
-  },
-  login: {
-    fontWeight: 'bold',
-    fontSize: 30,
-    paddingLeft:40,
-    paddingTop:50,
-  },
-  reg_input: {
-    backgroundColor: 'rgba(101, 101, 101, 0.2)',
-    width: 200,
-    height: 34,
-    borderRadius: 50,
-    marginLeft: 35,
-    color: '#000', 
-    paddingLeft:20
-},
-  shape: {
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-    height: '40%',
-  },
-  submit:{
-    backgroundColor:"black",
-    width:200,
-    marginLeft:35,
-    height:30,
-    borderRadius:50,
-    justifyContent:"center",
-    alignItems:"center",
-    fontWeight:"bold"
-  },
-  errorMessage: {
-    color: 'red',
-    marginTop: 10,
-  },
-});
