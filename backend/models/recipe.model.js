@@ -31,6 +31,10 @@ const recipeSchema =new mongoose.Schema({
     categorie:{
         type:String,
     },
+    image:{
+        type:String,
+        default:"",
+    },
     ingredients:[{
         type:String,
         required:true,
