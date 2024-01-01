@@ -20,6 +20,19 @@ const common = StyleSheet.create({
     },
     bold:{
         fontWeight:'bold'
+    },
+    raduis:{
+        borderRadius:50
+    },
+    button_w:{
+        width:280
+    },
+    button_h:{
+        height:40
+    },
+    center:{
+        justifyContent:"center",
+        alignItems:"center"
     }
   });
 
