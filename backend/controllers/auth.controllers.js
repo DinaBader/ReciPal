@@ -43,6 +43,13 @@ const register = async (req, res) => {
     if (!password|| !email ||!username) {
       res.status(400).send({ message: "all fields are required" });
     }
+    const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+
+    if (existingUser) {
+        res.status(400).send({ message: "Email or username already exists" });
+        return;
+    }
+    
     try {  
       const recipes = await Recipe.find();
       const user = new User({
