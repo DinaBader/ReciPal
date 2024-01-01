@@ -39,17 +39,14 @@ const login=async (req,res)=>{
 
 
 const register = async (req, res) => {
-    const { firstname, lastname, email,age,password,role,username} = req.body;
-    if (!firstname || !lastname || !password || !age || !email ||!username) {
+    const { email,password,role,username} = req.body;
+    if (!password|| !email ||!username) {
       res.status(400).send({ message: "all fields are required" });
     }
     try {  
       const recipes = await Recipe.find();
       const user = new User({
-        firstname,
-        lastname,
         email,
-        age,
         password,
         role,
         image:"",
