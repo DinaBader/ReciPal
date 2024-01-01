@@ -1,15 +1,29 @@
 import { View, Text,ImageBackground,TouchableOpacity } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import common from "../../utils/common";
 import style from "./style"
 import Input from "../../Components/Inputs/input"
 import Button from "../../Components/button/buttoncomp"
+import axios from 'axios';
+
 const Signin = ({navigation}) => {
+  const [username,setUsername]=useState('');
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('')
   const navigateToLogin=()=>{
     navigation.navigate('Login')
   }
+  const handleusernameChange=(text)=>{
+    setUsername(text);
+  }
+  const handleemailChange=(text)=>{
+    setEmail(text);
+  }
+  const handlePasswordChange=(text)=>{
+    setPassword(text);
+  }
   const handleSubmit=()=>{
-
+    
   }
   return (
     <ImageBackground source={require("../../../assets/signup.png")} style={{ flex: 1, width: '100%', height: '100%' }}> 
@@ -20,10 +34,10 @@ const Signin = ({navigation}) => {
         </TouchableOpacity>
         <Text style={[common.yellow,style.signup,common.bold]}>Sign up with</Text>
         <Text style={[common.yellow,style.logoname,common.bold]}>ReciPal</Text>
-        <Input label="username" placeholder='Username'/>
-        <Input label="Email" placeholder='Email'/>
-        <Input label="Password" placeholder='Password' secureTextEntry/>
-        <Button text="signUp" onPress={handleSubmit}/>
+        <Input label="username" placeholder='Username' value={username} onChangeText={handleusernameChange}/>
+        <Input label="Email" placeholder='Email' value={email} onChangeText={handleemailChange}/>
+        <Input label="Password" placeholder='Password' value={password} onChangeText={handlePasswordChange}secureTextEntry/>
+        <Button text="Sign Up" onPress={handleSubmit}/>
       </View>
 
     </ImageBackground>
