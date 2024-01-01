@@ -23,7 +23,22 @@ const Signin = ({navigation}) => {
     setPassword(text);
   }
   const handleSubmit=()=>{
-    
+    axios.post(
+      "http://192.168.0.100:8000/auth/register",
+      {
+        username,
+        email,
+        password
+      },{
+        headers:{
+          "Content-Type":"application/json"
+        }
+      }
+    ).then((res)=>{
+      console.log("Signed in")
+    }).catch((error)=>{
+      console.log("Error: ",error);
+    })
   }
   return (
     <ImageBackground source={require("../../../assets/signup.png")} style={{ flex: 1, width: '100%', height: '100%' }}> 

@@ -21,8 +21,6 @@ const Login = ({navigation}) => {
       navigation.navigate('SignupPage');
     }
     const handleSubmit=()=>{
-        console.log("Request Payload:", { usernameOrEmail, password });
-
         axios.post(
             "http://192.168.0.100:8000/auth/login",
             {
