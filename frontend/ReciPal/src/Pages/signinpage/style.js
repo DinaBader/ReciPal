@@ -2,8 +2,6 @@ import { StyleSheet } from "react-native";
 
 const styles= StyleSheet.create({
     signup_container:{
-        flex: 1,
-        position: 'relative',
         gap:20
     },
     eu:{
@@ -15,6 +13,15 @@ const styles= StyleSheet.create({
     },
     login:{
         marginLeft:45
+    },
+    signup:{
+        paddingTop:120,
+        paddingLeft:50,
+        fontSize:25
+    },
+    logoname:{
+        paddingLeft:50,
+        fontSize:45
     }
 })
 
