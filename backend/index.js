@@ -20,7 +20,7 @@ const RecipeRoutes=require("../backend/routes/recipe.routes");
 app.use("/recipe",authMiddleware,RecipeRoutes);
 
 const RewardRoutes=require("../backend/routes/user.routes");
-app.use("/reward",authMiddleware,RewardRoutes);
+app.use("/reward",RewardRoutes);
 
 
 app.listen(8000,()=>{
