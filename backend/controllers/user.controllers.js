@@ -56,6 +56,33 @@ const addReward = async (req, res) => {
   }
 };
 
+const saveRecipe = async (req, res) => {
+  const userId = req.params.userId;
+  const recipeId = req.params.recipeId;
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    const isRecipeSaved = user.saved.some(savedRecipe => savedRecipe.recipe.toString() === recipeId);
+
+    if (isRecipeSaved) {
+      return res.status(400).json({ error: 'Recipe already saved' });
+    }
+
+    user.saved.push({ recipe: recipeId });
+
+    await user.save();
+
+    return res.status(200).json({ message: 'Recipe saved successfully' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
 
 const upload_image = async (req, res) => {
@@ -120,5 +147,6 @@ module.exports = {
     addReward,
     upload_image,
     get_user,
-    update_image
+    update_image,
+    saveRecipe
 };

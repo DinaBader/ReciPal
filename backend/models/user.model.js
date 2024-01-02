@@ -40,6 +40,12 @@ const userSchema=new mongoose.Schema({
             type: String,
             required: true,
         },
+    }],
+    saved:[{
+        recipe:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"recipe",
+        },
     }]   
 
 });
