@@ -10,6 +10,7 @@ const input = ({value,onChangeText,placeholder,secureTextEntry}) => {
           placeholder={placeholder}
           value={value}
           onChangeText={onChangeText}
+          autoCapitalize="none" 
         />
   )
 }

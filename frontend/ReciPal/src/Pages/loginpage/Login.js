@@ -35,6 +35,7 @@ const Login = ({navigation}) => {
         ).then((res)=>{
             console.log("Axios Response:", res);
             console.log("LoggedIN");
+            navigation.navigate('UserPage')
         }).catch((error)=>{
             setName("");
             setPassword("");
@@ -58,6 +59,7 @@ const Login = ({navigation}) => {
           placeholder="Email/Username"
           onChangeText={handleNameChange}
           value={usernameOrEmail}
+          autoCapitalize="none" 
         />
           <TextInput
           style={[styles.reg_input, common.transparent_inputs,common.black]}
@@ -65,6 +67,7 @@ const Login = ({navigation}) => {
           onChangeText={handlePasswordChange}
           value={password}
           secureTextEntry
+          autoCapitalize="none" 
         />
         <TouchableOpacity onPress={handleSubmit} style={styles.submit}>
           <Text style={[common.white,common.bold]}>Sign in</Text>
@@ -76,8 +79,6 @@ const Login = ({navigation}) => {
         <TouchableOpacity onPress={redirectToSignUp} style={[styles.signup,common.yellow_bg]}>
           <Text style={[common.black,common.bold]}>Sign Up</Text>
         </TouchableOpacity>
-        
-        
       </View>
     </ImageBackground>
   );
