@@ -36,7 +36,8 @@ const Signin = ({navigation}) => {
         }
       }
     ).then((res)=>{
-      console.log("Signed in")
+      console.log("Signed in");
+      navigator.navigate('UserPage')
     }).catch((error)=>{
       console.log("Error: ",error);
     })
