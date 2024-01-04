@@ -4,7 +4,7 @@ const User=require("../models/user.model");
 //when i add a recipe add it to the user
 //check if he already has a reward for that country
 const addRecipeToUser = async(recipeId,country)=>{
-    const users = await User.find({ role: 1 });
+    const users = await User.find({ role: 2 });
     const promises = users.map(async (user) => {
         const completed = user.rewards.some((reward) => reward.country === country);
         const update = {
@@ -49,7 +49,7 @@ const addRecipe = async (req,res)=>{
 
 
 const deleteRecipeFromUser=async (recipeId)=>{
-    const users = await User.find({ role: 1 });
+    const users = await User.find({ role: 2 });
 
     const promises = users.map(async (user) => {
         const update = {
@@ -98,11 +98,8 @@ const searchRecipes = async (req, res) => {
             ]
         });
 
-        console.log("Query:", { name });
-        console.log("Recipes found:", recipes);
 
         if (recipes.length === 0) {
-            console.log("No recipes found");
             res.status(200).send({
                 message: "No recipes found",
                 recipes: []
