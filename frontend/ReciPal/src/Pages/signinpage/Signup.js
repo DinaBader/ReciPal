@@ -1,5 +1,7 @@
 import { View, Text,ImageBackground,TouchableOpacity} from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import React,{useState} from 'react'
 import common from "../../utils/common";
 import style from "./style"
@@ -23,6 +25,23 @@ const Signin = ({navigation}) => {
   const handlePasswordChange=(text)=>{
     setPassword(text);
   }
+
+  const _retrieveData = async () => {
+    try {
+      const userString = await AsyncStorage.getItem('user');
+      if (userString !== null) {
+        const user = JSON.parse(userString);
+        if (user && user.role === 2) {
+          navigation.navigate('UserPage');
+        } else {
+          navigation.navigate("AdminPage");
+        }
+      }
+    } catch (error) {
+      console.error("Error retrieving data:", error);
+    }
+  };
+
   const handleSubmit=()=>{
     axios.post(
       "http://192.168.0.100:8000/auth/register",
@@ -37,7 +56,17 @@ const Signin = ({navigation}) => {
       }
     ).then((res)=>{
       console.log("Signed in");
-      navigation.navigate('UserPage')
+      _storeData=async()=>{
+        try{
+          await AsyncStorage.setItem("jwt",res.data.token);
+          await AsyncStorage.setItem("user",JSON.stringify(res.data.user))
+          _retrieveData();
+        }catch(error){
+          console.error("Error storing token:", error);
+        }
+      }
+      _storeData(); 
+      _retrieveData();  
     }).catch((error)=>{
       console.log("Error: ",error);
     })
