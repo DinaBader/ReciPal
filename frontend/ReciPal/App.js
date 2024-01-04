@@ -1,24 +1,62 @@
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import LandingPage from './src/Pages/landingpage/LandingPage';
 import LoginPage from './src/Pages/loginpage/Login';
 import SignupPage from './src/Pages/signinpage/Signup';
-import UserPage from './src/Pages/userpage/User'
-import AdminPage from './src/Pages/adminpage/Admin'
+import UserPage from './src/Pages/userpage/User';
+import AdminPage from './src/Pages/adminpage/Admin';
+import MainContainer from './src/UserNavigation/MainContainer';
+
 const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState(null);
+
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        const role = await AsyncStorage.getItem('userRole');
+        const loggedIn = await AsyncStorage.getItem('isLoggedIn');
+  
+        console.log('Role:', role);
+        console.log('LoggedIn:', loggedIn);
+  
+        if (loggedIn && role === '2') {
+          setIsLoggedIn(true);
+          setUserRole(role);
+        } else {
+          setIsLoggedIn(false);
+          setUserRole(null);
+        }
+      } catch (error) {
+        console.error('Error checking authentication:', error);
+      }
+    };
+  
+    checkAuthentication();
+  }, []);
+    
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LandingPage">
-        <Stack.Screen name="LandingPage" component={LandingPage} options={{ headerShown: false }}/>
-        <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }}/>
-        <Stack.Screen name="SignupPage" component={SignupPage} options={{ headerShown: false }}/>
-        <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }}/>
-        <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }}/>
+        {isLoggedIn ? (
+          <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
+        ) : (
+          <>
+            <Stack.Screen name="LandingPage" component={LandingPage} options={{ headerShown: false }} />
+            <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
+            <Stack.Screen name="SignupPage" component={SignupPage} options={{ headerShown: false }} />
+            <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
+            <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
+export default App;

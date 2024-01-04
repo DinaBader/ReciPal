@@ -55,7 +55,9 @@ const Login = ({navigation}) => {
             _storeData=async()=>{
               try{
                 await AsyncStorage.setItem("jwt",res.data.token);
-                await AsyncStorage.setItem("user",JSON.stringify(res.data.user))
+                await AsyncStorage.setItem("user",JSON.stringify(res.data.user));
+                await AsyncStorage.setItem("userRole", res.data.user.role.toString());
+                await AsyncStorage.setItem("isLoggedIn", "true");
                 _retrieveData();
               }catch(error){
                 console.error("Error storing token:", error);
