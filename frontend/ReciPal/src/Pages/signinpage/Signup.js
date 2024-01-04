@@ -37,7 +37,7 @@ const Signin = ({navigation}) => {
       }
     ).then((res)=>{
       console.log("Signed in");
-      navigator.navigate('UserPage')
+      navigation.navigate('UserPage')
     }).catch((error)=>{
       console.log("Error: ",error);
     })
@@ -48,7 +48,7 @@ const Signin = ({navigation}) => {
         <View style={style.signup_container}>
           <Text style={style.eu}>Existing user?</Text>
           <TouchableOpacity onPress={navigateToLogin} style={[common.black_bg, common.raduis, common.button_h, common.button_w, common.center, style.login]}>
-            <Text style={common.yellow}>LOGIN</Text>
+            <Text style={[common.yellow,common.bold]}>Log in</Text>
           </TouchableOpacity>
           <Text style={[common.yellow, style.signup, common.bold]}>Sign up with</Text>
           <Text style={[common.yellow, style.logoname, common.bold]}>ReciPal</Text>

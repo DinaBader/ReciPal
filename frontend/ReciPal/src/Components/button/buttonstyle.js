@@ -4,9 +4,9 @@ const styles = StyleSheet.create({
         borderRadius:50,
         justifyContent:"center",
         alignItems:"center",
-        height:40,
+        height:50,
         width:280,
-        marginLeft:50
+        marginLeft:50,
     },
   });
 

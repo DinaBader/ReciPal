@@ -14,17 +14,18 @@ const styles = StyleSheet.create({
     },
     reg_input: {
       width: 280,
-      height: 40,
-      borderRadius: 50,
+      height: 50,
+      borderRadius: 10,
       marginLeft: 50,
       paddingLeft:20,
-      marginBottom:10
+      marginBottom:10,
+      backgroundColor:'#FFFFFF'
     },
     submit:{
       backgroundColor:"black",
       width:280,
       marginLeft:50,
-      height:40,
+      height:50,
       borderRadius:50,
       justifyContent:"center",
       alignItems:"center",
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     signup:{
       width:280,
       marginLeft:50,
-      height:40,
+      height:50,
       borderRadius:50,
       justifyContent:"center",
       alignItems:"center",

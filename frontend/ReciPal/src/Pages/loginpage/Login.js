@@ -55,14 +55,14 @@ const Login = ({navigation}) => {
       <View style={styles.container}>
         <Text style={styles.login}>LOGIN</Text>
           <TextInput
-          style={[styles.reg_input,common.transparent_inputs]}
+          style={[styles.reg_input]}
           placeholder="Email/Username"
           onChangeText={handleNameChange}
           value={usernameOrEmail}
           autoCapitalize="none" 
         />
           <TextInput
-          style={[styles.reg_input, common.transparent_inputs,common.black]}
+          style={[styles.reg_input, common.black]}
           placeholder="Password "
           onChangeText={handlePasswordChange}
           value={password}
@@ -70,7 +70,7 @@ const Login = ({navigation}) => {
           autoCapitalize="none" 
         />
         <TouchableOpacity onPress={handleSubmit} style={styles.submit}>
-          <Text style={[common.white,common.bold]}>Sign in</Text>
+          <Text style={[common.yellow,common.bold]}>Log in</Text>
         </TouchableOpacity>
         {errorMessage ? (
                   <Text style={styles.errorMessage}>{errorMessage}</Text>
