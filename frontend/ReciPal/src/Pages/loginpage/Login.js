@@ -1,4 +1,5 @@
-import {View, Text,TextInput,TouchableOpacity,ImageBackground  } from 'react-native';
+import {View, Text,TextInput,TouchableOpacity,ImageBackground} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React,{useState} from 'react';
 import axios from 'axios';
 import styles from './styles';
@@ -33,9 +34,18 @@ const Login = ({navigation}) => {
                 }
             }
         ).then((res)=>{
-            console.log("Axios Response:", res);
             console.log("LoggedIN");
-            navigation.navigate('UserPage')
+            _storeData=async()=>{
+              try{
+                await AsyncStorage.setItem("jwt",res.data.token);
+                await AsyncStorage.setItem("user",JSON.stringify(res.data.user))
+                _retrieveData();
+              }catch(error){
+                console.error("Error storing token:", error);
+              }
+            }
+            _storeData(); 
+            navigation.navigate('UserPage');            
         }).catch((error)=>{
             setName("");
             setPassword("");
@@ -50,6 +60,7 @@ const Login = ({navigation}) => {
         }, 3000);
         })
     }
+  
   return (
     <ImageBackground source={require('../../../assets/login.png')} style={{ flex: 1, width: '100%', height: '100%' }}>
       <View style={styles.container}>
