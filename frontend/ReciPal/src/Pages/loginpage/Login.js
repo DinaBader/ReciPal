@@ -36,8 +36,7 @@ const Login = ({navigation}) => {
       } catch (error) {
         console.error("Error retrieving data:", error);
       }
-    };
-
+    };  
     const handleSubmit=()=>{
         axios.post(
             "http://192.168.0.100:8000/auth/login",
