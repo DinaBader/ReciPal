@@ -21,6 +21,23 @@ const Login = ({navigation}) => {
     const redirectToSignUp=()=>{
       navigation.navigate('SignupPage');
     }
+
+    const _retrieveData = async () => {
+      try {
+        const userString = await AsyncStorage.getItem('user');
+        if (userString !== null) {
+          const user = JSON.parse(userString);
+          if (user && user.role === 2) {
+            navigation.navigate('UserPage');
+          } else {
+            navigation.navigate("AdminPage");
+          }
+        }
+      } catch (error) {
+        console.error("Error retrieving data:", error);
+      }
+    };
+
     const handleSubmit=()=>{
         axios.post(
             "http://192.168.0.100:8000/auth/login",
@@ -45,7 +62,7 @@ const Login = ({navigation}) => {
               }
             }
             _storeData(); 
-            navigation.navigate('UserPage');            
+            _retrieveData();            
         }).catch((error)=>{
             setName("");
             setPassword("");
