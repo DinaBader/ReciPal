@@ -6,6 +6,9 @@ const common = StyleSheet.create({
     black_bg:{
         backgroundColor:'#000000',
     },
+    backgroundColor:{
+        backgroundColor:'#161616'
+    },
     transparent_inputs:{
         backgroundColor: 'rgba(101, 101, 101, 0.2)',
     },
