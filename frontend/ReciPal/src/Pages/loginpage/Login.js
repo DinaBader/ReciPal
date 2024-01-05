@@ -1,6 +1,6 @@
 import {View, Text,TextInput,TouchableOpacity,ImageBackground} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import styles from './styles';
 import common from '../../utils/common'
@@ -21,6 +21,18 @@ const Login = ({navigation}) => {
     const redirectToSignUp=()=>{
       navigation.navigate('SignupPage');
     }
+
+    const clearAsyncStorage = async () => {
+      try {
+        await AsyncStorage.clear();
+      } catch (error) {
+        console.error('Error clearing AsyncStorage:', error);
+      }
+    };
+  
+    useEffect(() => {
+      clearAsyncStorage();
+    }, [navigation]);
 
     const _retrieveData = async () => {
       try {
