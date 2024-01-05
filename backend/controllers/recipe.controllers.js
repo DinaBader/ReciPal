@@ -86,9 +86,8 @@ const deleteRecipe=async(req,res)=>{
         })
     }
 }
-
 const searchRecipes = async (req, res) => {
-    const { name } = req.body;
+    const { name } = req.query;
 
     try {
         const recipes = await Recipe.find({
@@ -97,7 +96,6 @@ const searchRecipes = async (req, res) => {
                 { country: { $regex: new RegExp(name, 'i') } }
             ]
         });
-
 
         if (recipes.length === 0) {
             res.status(200).send({
@@ -120,6 +118,7 @@ const searchRecipes = async (req, res) => {
         });
     }
 };
+
   
 
 const addRecipePhoto=async(req,res)=>{

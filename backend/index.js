@@ -17,7 +17,7 @@ const ReviewRoutes=require("../backend/routes/review.routes");
 app.use("/review",ReviewRoutes);
 
 const RecipeRoutes=require("../backend/routes/recipe.routes");
-app.use("/recipe",authMiddleware,RecipeRoutes);
+app.use("/recipe",RecipeRoutes);
 
 const RewardRoutes=require("../backend/routes/user.routes");
 app.use("/reward",RewardRoutes);
