@@ -7,7 +7,8 @@ const common = StyleSheet.create({
         backgroundColor:'#000000',
     },
     backgroundColor:{
-        backgroundColor:'#161616'
+        backgroundColor:'#161616',
+        flex:1
     },
     transparent_inputs:{
         backgroundColor: 'rgba(101, 101, 101, 0.2)',
