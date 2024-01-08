@@ -9,6 +9,8 @@ import SignupPage from './src/Pages/signinpage/Signup';
 import UserPage from './src/Pages/userpage/User';
 import AdminPage from './src/Pages/adminpage/Admin';
 import MainContainer from './src/UserNavigation/MainContainer';
+import RecipeDetail from './src/Pages/recipedetailpage/Recipedetail'
+
 
 const Stack = createStackNavigator();
 
@@ -52,6 +54,7 @@ const App = () => {
             <Stack.Screen name="SignupPage" component={SignupPage} options={{ headerShown: false }} />
             <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
+            <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ headerShown: false }}/>
           </>
         )}
       </Stack.Navigator>
