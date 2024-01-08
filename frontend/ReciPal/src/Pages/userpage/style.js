@@ -15,7 +15,12 @@ const styles=StyleSheet.create({
         marginTop: 20,
         marginLeft:50,
         gap:45
-      },
+    },
+    recipeText:{
+        marginLeft:50,
+        marginTop:20,
+        fontSize:30
+    }
     
 })
  
