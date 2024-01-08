@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView,TouchableOpacity } from 'react-native';
 import React,{useState} from 'react';
 import common from "../../utils/common";
 import styles from "./style";
 import Search from "../../Components/search/searchcomp"
 import Foodcircle from "../../Components/foodcircle/food"
+import FoodCard from  "../../Components/foodcard/foodcardcomp"
 const User = () => {
   const [selectedFood, setSelectedFood] = useState(null);
 
@@ -15,7 +16,7 @@ const User = () => {
   };
 
   return (
-    <View style={[common.backgroundColor,styles.container]}>
+    <ScrollView style={[common.backgroundColor,styles.container]}>
       <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
       <Search/>
       <View style={styles.foodCircleContainer}>
@@ -35,7 +36,16 @@ const User = () => {
 
       </View>
       <Text style={[common.white,common.bold,styles.recipeText]}>Recipes</Text>
-    </View>
+      <View style={styles.foodCard}>
+        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"/>
+        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"/>
+        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"/>
+        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"/>
+        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"/>
+        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"/>
+        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"/>
+      </View>
+    </ScrollView>
   );
 }
 

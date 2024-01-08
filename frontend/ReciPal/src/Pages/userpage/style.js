@@ -20,6 +20,10 @@ const styles=StyleSheet.create({
         marginLeft:50,
         marginTop:20,
         fontSize:30
+    },
+    foodCard:{
+        flexDirection:'row',
+        flexWrap:'wrap'
     }
     
 })
