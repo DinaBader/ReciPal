@@ -9,7 +9,14 @@ const styles=StyleSheet.create({
         paddingTop:55,
         color:'#FFFFFF',
         fontSize:30
-    }
+    },
+    foodCircleContainer: {
+        flexDirection: 'row', 
+        marginTop: 20,
+        marginLeft:50,
+        gap:45
+      },
+    
 })
  
 export default styles;
