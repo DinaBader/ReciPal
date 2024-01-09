@@ -7,7 +7,13 @@ const style = StyleSheet.create({
         borderRadius:200,
         marginTop:70,
         marginLeft:90
+    },
+    ChangeProfile:{
+        fontSize:30,
+        textAlign:'center',
+        marginTop:10
     }
+
 
 })
 
