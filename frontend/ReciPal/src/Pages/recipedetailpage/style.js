@@ -5,6 +5,10 @@ const styles = StyleSheet.create({
         fontSize:20,
         left:30,
         marginTop:20
+    },
+    ingredientsText:{
+        marginLeft:30,
+        marginTop:10
     }
 
 })
