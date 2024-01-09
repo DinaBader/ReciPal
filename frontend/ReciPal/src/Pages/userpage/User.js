@@ -40,13 +40,13 @@ const User = () => {
       </View>
       <Text style={[common.white,common.bold,styles.recipeText]}>Recipes</Text>
       <View style={styles.foodCard}>
-        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beef.jpg")} text="Beef"  onPress={()=>NavigateTodetails()}/>
+        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
+        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
+        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
+        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
+        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
+        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
+        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
       </View>
     </ScrollView>
   );
