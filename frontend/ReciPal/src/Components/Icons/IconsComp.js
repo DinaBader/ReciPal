@@ -1,7 +1,12 @@
 import { View, Text,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
-const IconsComp = () => {
+const IconsComp = ({navigation}) => {
+
+  const navigateToLogout = () =>{
+    navigation.navigate('Login')
+  }
+
   return (
     <View>
         <TouchableOpacity>
@@ -44,7 +49,7 @@ const IconsComp = () => {
       </View>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={navigateToLogout}>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
           source={require("../../../assets/logout.png")}

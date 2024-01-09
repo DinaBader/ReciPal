@@ -46,7 +46,9 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LandingPage">
         {isLoggedIn ? (
-          <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
+          <>
+            <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
+          </>
         ) : (
           <>
             <Stack.Screen name="LandingPage" component={LandingPage} options={{ headerShown: false }} />
