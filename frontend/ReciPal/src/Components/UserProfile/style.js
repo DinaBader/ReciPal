@@ -12,6 +12,13 @@ const style = StyleSheet.create({
         fontSize:30,
         textAlign:'center',
         marginTop:10
+    },
+
+    Icon:{
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        marginLeft: 30,
+        marginTop: 10
     }
 
 
