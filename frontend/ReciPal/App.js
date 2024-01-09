@@ -23,18 +23,18 @@ const App = () => {
       try {
         const role = await AsyncStorage.getItem('userRole');
         const loggedIn = await AsyncStorage.getItem('isLoggedIn');
-        
+
         console.log('Role:', role);
         console.log('LoggedIn:', loggedIn);
 
-        if (JSON.parse(loggedIn) === true && role === 2) {
+        if (loggedIn && role === '2') {
           setIsLoggedIn(true);
           setUserRole(role);
         } else {
           setIsLoggedIn(false);
           setUserRole(null);
         }
-        } catch (error) {
+      } catch (error) {
         console.error('Error checking authentication:', error);
       }
     };
@@ -45,7 +45,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LandingPage">
-      {isLoggedIn ? (
+        {isLoggedIn ? (
           <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
         ) : (
           <>

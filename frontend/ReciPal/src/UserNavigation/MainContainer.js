@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import HomeScreen from '../Pages/userpage/User'
 import ImageScreen from './screens/ImageScreen'
-import UserProfileScreen from '../Pages/userpage/User'
+import UserProfileScreen from '../Pages/userProfilePage/UserProfile'
 
 const homeName='Home';
 const imageName='Image';
