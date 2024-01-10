@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
         marginTop:30,
         marginLeft:50,
         fontSize:25
-    }
-
+    },
+    
 })
 
 
