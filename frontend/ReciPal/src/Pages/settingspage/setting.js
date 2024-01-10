@@ -8,6 +8,7 @@ const Setting = () => {
       <Text style={[common.white, style.settingsTitle]}>Settings</Text>
       <Text style={[common.white,style.editProfile]}>Edit  Profile</Text>
       <Text style={[common.white,style.languages]}>Languages</Text>
+      <Text style={[common.white,style.languages]}>FeedBack</Text>
     </View>
   )
 }
