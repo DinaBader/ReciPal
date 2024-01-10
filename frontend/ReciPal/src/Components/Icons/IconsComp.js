@@ -7,9 +7,13 @@ const IconsComp = ({navigation}) => {
     navigation.navigate('Login')
   }
 
+  const navigateToSettings = () =>{
+    navigation.navigate('Settings')
+  }
+
   return (
     <View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={navigateToSettings}>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
           source={require("../../../assets/settings.png")}
