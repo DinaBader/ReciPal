@@ -9,21 +9,21 @@ const Setting = () => {
 
         <View style={style.next}>
           <Text style={[common.white,style.editProfile]}>Edit  Profile</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigateToEditProfile}>
            <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
           </TouchableOpacity>
         </View>
 
         <View style={style.next}>
         <Text style={[common.white,style.languages]}>Languages</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={navigateToLanguages}>
           <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
         </TouchableOpacity>
         </View>
 
         <View style={style.next}>
         <Text style={[common.white,style.languages]}>FeedBack  </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={navigateToFeedBack}>
           <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
         </TouchableOpacity>
         </View>
