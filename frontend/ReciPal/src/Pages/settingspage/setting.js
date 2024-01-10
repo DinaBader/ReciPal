@@ -6,8 +6,10 @@ const Setting = () => {
   return (
     <View style={common.backgroundColor}>
       <Text style={[common.white, style.settingsTitle]}>Settings</Text>
-      <Image source={require("../../../assets/back.png")} style={{width:20,height:20}}/>
-      <Text style={[common.white,style.editProfile]}>Edit  Profile</Text>
+      <View style={style.next}>
+        <Text style={[common.white,style.editProfile]}>Edit  Profile</Text>
+        <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
+      </View>
       <Text style={[common.white,style.languages]}>Languages</Text>
       <Text style={[common.white,style.languages]}>FeedBack</Text>
     </View>

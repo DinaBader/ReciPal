@@ -19,6 +19,16 @@ const styles = StyleSheet.create({
         marginLeft:50,
         fontSize:25
     },
+    next:{
+        flexDirection:"row",
+        alignItems:"baseline",
+    },
+
+    backIcon:{
+        width:25,
+        height:25,
+        marginLeft:140,
+    }
     
 })
 
