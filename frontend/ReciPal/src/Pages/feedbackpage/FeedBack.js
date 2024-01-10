@@ -12,7 +12,7 @@ const FeedBack = () => {
            style={[style.TextInput]}
            multiline={true}
            textAlignVertical="top"
-           placeholder='Enter message...'
+           placeholder='Enter message'
       />
       <TouchableOpacity style={[style.button,common.center]}>
         <Text style={[common.bold]}>Submit</Text>
