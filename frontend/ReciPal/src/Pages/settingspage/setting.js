@@ -2,7 +2,12 @@ import { View, Text,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
 import style from "./style"
-const Setting = () => {
+const Setting = ({navigation}) => {
+
+  const navigateToEditProfile = () =>{
+    navigation.navigate('EditProfile');
+  }
+
   return (
     <View style={common.backgroundColor}>
       <Text style={[common.white, style.settingsTitle]}>Settings</Text>
