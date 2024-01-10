@@ -12,6 +12,10 @@ const Setting = ({navigation}) => {
     navigation.navigate('Languages');
   }
 
+  const navigateToFeedBack = () =>{
+    navigation.navigate('FeedBack');
+  }
+
   return (
     <View style={common.backgroundColor}>
       <Text style={[common.white, style.settingsTitle]}>Settings</Text>
