@@ -10,7 +10,8 @@ import UserPage from './src/Pages/userpage/User';
 import AdminPage from './src/Pages/adminpage/Admin';
 import MainContainer from './src/UserNavigation/MainContainer';
 import RecipeDetail from './src/Pages/recipedetailpage/Recipedetail'
-import Settings from "./src/Pages/settingspage/Setting"
+import Settings from "./src/Pages/settingspage/Setting";
+import EditProfile from './src/Pages/editProfilepage/EditProfile'
 
 const Stack = createStackNavigator();
 
@@ -49,6 +50,7 @@ const App = () => {
           <>
             <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
+            <Stack.Screen name="EditProfile" component={EditProfile} options={{headerShown:false}} />
 
           </>
         ) : (
