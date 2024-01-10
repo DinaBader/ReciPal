@@ -6,6 +6,7 @@ const Setting = () => {
   return (
     <View style={common.backgroundColor}>
       <Text style={[common.white, style.settingsTitle]}>Settings</Text>
+      <Text style={[common.white,style.editProfile]}>Edit  Profile</Text>
     </View>
   )
 }

@@ -2,10 +2,16 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     settingsTitle:{
-        marginTop:20,
+        marginTop:25,
         marginLeft:80,
-        fontSize:40,
+        fontSize:35,
         letterSpacing:1
+    },
+
+    editProfile:{
+        marginTop:50,
+        marginLeft:50,
+        fontSize:25
     }
 
 })
