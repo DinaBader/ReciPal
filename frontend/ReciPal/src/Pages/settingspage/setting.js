@@ -10,8 +10,18 @@ const Setting = () => {
         <Text style={[common.white,style.editProfile]}>Edit  Profile</Text>
         <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
       </View>
+
+      <View style={style.next}>
       <Text style={[common.white,style.languages]}>Languages</Text>
-      <Text style={[common.white,style.languages]}>FeedBack</Text>
+      <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
+      </View>
+
+      <View style={style.next}>
+      <Text style={[common.white,style.languages]}>FeedBack  </Text>
+      <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
+      </View>
+
+
     </View>
   )
 }
