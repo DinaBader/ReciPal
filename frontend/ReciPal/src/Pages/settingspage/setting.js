@@ -18,7 +18,7 @@ const Setting = ({navigation}) => {
 
   return (
     <View style={common.backgroundColor}>
-      <Text style={[common.white, style.settingsTitle]}>Settings</Text>
+      <Text style={[common.white, common.header]}>Settings</Text>
 
         <View style={style.next}>
           <Text style={[common.white,style.editProfile]}>Edit  Profile</Text>

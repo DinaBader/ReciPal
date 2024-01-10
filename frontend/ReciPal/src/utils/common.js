@@ -37,6 +37,13 @@ const common = StyleSheet.create({
     center:{
         justifyContent:"center",
         alignItems:"center"
+    },
+    header:{
+        marginTop:25,
+        marginLeft:80,
+        fontSize:35,
+        letterSpacing:1
+
     }
   });
 
