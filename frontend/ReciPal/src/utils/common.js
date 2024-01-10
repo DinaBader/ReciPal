@@ -19,6 +19,9 @@ const common = StyleSheet.create({
     black:{
         color:'#000000',
     },
+    gray:{
+        color:'#5F5E5E'
+    } ,
     white:{
         color:'#FFFFFF'
     },
