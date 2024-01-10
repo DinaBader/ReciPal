@@ -12,6 +12,12 @@ const styles = StyleSheet.create({
         marginTop:50,
         marginLeft:50,
         fontSize:25
+    },
+
+    languages:{
+        marginTop:30,
+        marginLeft:50,
+        fontSize:25
     }
 
 })
