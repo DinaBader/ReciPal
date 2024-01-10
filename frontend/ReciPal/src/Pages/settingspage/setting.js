@@ -1,10 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-
+import common from "../../utils/common"
+import style from "./style"
 const Setting = () => {
   return (
-    <View>
-      <Text>setting</Text>
+    <View style={common.backgroundColor}>
+      <Text style={[common.white, style.settingsTitle]}>Settings</Text>
     </View>
   )
 }
