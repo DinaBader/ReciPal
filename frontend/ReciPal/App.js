@@ -13,6 +13,7 @@ import RecipeDetail from './src/Pages/recipedetailpage/Recipedetail'
 import Settings from "./src/Pages/settingspage/Setting";
 import EditProfile from './src/Pages/editProfilepage/EditProfile'
 import Languages from './src/Pages/languagesPage/Languages';
+import FeedBack from './src/Pages/feedbackpage/FeedBack';
 
 const Stack = createStackNavigator();
 
@@ -53,6 +54,7 @@ const App = () => {
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             <Stack.Screen name="EditProfile" component={EditProfile} options={{headerShown:false}} />
             <Stack.Screen name="Languages" component={Languages} options={{headerShown:false}} />
+            <Stack.Screen name="FeedBack" component={FeedBack} options={{headerShown:false}} />
 
           </>
         ) : (
