@@ -8,6 +8,10 @@ const Setting = ({navigation}) => {
     navigation.navigate('EditProfile');
   }
 
+  const navigateToLanguages = () =>{
+    navigation.navigate('Languages');
+  }
+
   return (
     <View style={common.backgroundColor}>
       <Text style={[common.white, style.settingsTitle]}>Settings</Text>
