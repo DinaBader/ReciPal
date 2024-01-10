@@ -10,7 +10,7 @@ import UserPage from './src/Pages/userpage/User';
 import AdminPage from './src/Pages/adminpage/Admin';
 import MainContainer from './src/UserNavigation/MainContainer';
 import RecipeDetail from './src/Pages/recipedetailpage/Recipedetail'
-
+import Settings from "./src/Pages/settingspage/Setting"
 
 const Stack = createStackNavigator();
 
@@ -48,6 +48,8 @@ const App = () => {
         {isLoggedIn ? (
           <>
             <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
+            <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
+
           </>
         ) : (
           <>
@@ -57,6 +59,7 @@ const App = () => {
             <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
             <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ headerShown: false }}/>
+            <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
           </>
         )}
       </Stack.Navigator>
