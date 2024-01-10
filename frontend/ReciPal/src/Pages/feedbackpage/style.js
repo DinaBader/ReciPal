@@ -16,8 +16,15 @@ const styles = StyleSheet.create({
         marginLeft:40,
         marginTop:20,
         borderRadius:10
-    }
-    
+    },
+    button:{
+        backgroundColor:"#A62E2E",
+        width:300,
+        height:40,
+        marginTop:20,
+        marginLeft:40,
+        borderRadius:10
+    }    
 })
 
 

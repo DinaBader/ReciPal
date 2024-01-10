@@ -1,4 +1,4 @@
-import { View, Text,TextInput } from 'react-native'
+import { View, Text,TextInput, TouchableOpacity} from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
 import style from "./style"
@@ -12,7 +12,11 @@ const FeedBack = () => {
            style={[style.TextInput]}
            multiline={true}
            textAlignVertical="top"
-           />
+           placeholder='Enter message...'
+      />
+      <TouchableOpacity style={[style.button,common.center]}>
+        <Text style={[common.bold]}>Submit</Text>
+      </TouchableOpacity>
     </View>
   )
 }
