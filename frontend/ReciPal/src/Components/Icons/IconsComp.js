@@ -11,6 +11,10 @@ const IconsComp = ({navigation}) => {
     navigation.navigate('Settings')
   }
 
+  const 
+  navigateToSaved =()=>{
+    
+  }
   return (
     <View>
         <TouchableOpacity onPress={navigateToSettings}>
@@ -23,7 +27,7 @@ const IconsComp = ({navigation}) => {
       </View>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={navigateToSaved}>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
           source={require("../../../assets/save.png")}
