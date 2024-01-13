@@ -23,14 +23,15 @@ const FeedBack = () => {
       ).then((res) => {
         try {
           console.log("Feedback submitted successfully:", res.data);
+          setFeedback("")
         } catch (error) {
-          console.error("Error handling successful response:", error);
+          console.error("Error", error);
         }
       }).catch((error) => {
         try {
           console.error("Error submitting feedback:", error);
         } catch (error) {
-          console.error("Error handling error response:", error);
+          console.error("Error:", error);
         }
       });
   }
