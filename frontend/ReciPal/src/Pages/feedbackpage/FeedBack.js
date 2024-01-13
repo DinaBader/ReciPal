@@ -3,7 +3,10 @@ import React,{useState} from 'react'
 import common from "../../utils/common"
 import style from "./style"
 const FeedBack = () => {
-   const [feedback,setFeedback]=useState("");
+  const [feedback,setFeedback]=useState("");
+  const handleFeedback =()=>{
+    
+  }
   return (
     <View style={common.backgroundColor}>
       <Text style={[common.white,common.header]}>FeedBack</Text>
@@ -14,6 +17,7 @@ const FeedBack = () => {
            multiline={true}
            textAlignVertical="top"
            placeholder='Enter message'
+           onChange={handleFeedback}
       />
       <TouchableOpacity style={[style.button,common.center]}>
         <Text style={[common.bold]}>Submit</Text>
