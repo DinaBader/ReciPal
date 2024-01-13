@@ -1,8 +1,9 @@
 import { View, Text,TextInput, TouchableOpacity} from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import common from "../../utils/common"
 import style from "./style"
 const FeedBack = () => {
+   const [feedback,setFeedback]=useState("");
   return (
     <View style={common.backgroundColor}>
       <Text style={[common.white,common.header]}>FeedBack</Text>
