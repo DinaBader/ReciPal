@@ -17,8 +17,8 @@ const IconsComp = ({navigation}) => {
   }
 
   const navigateToAwards =()=>{
-    
-  }
+    navigation.navigate('Awards');
+  } 
   return (
     <View>
         <TouchableOpacity onPress={navigateToSettings}>
