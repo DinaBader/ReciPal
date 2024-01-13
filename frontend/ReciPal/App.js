@@ -14,7 +14,7 @@ import Settings from "./src/Pages/settingspage/Setting";
 import EditProfile from './src/Pages/editProfilepage/EditProfile'
 import Languages from './src/Pages/languagesPage/Languages';
 import FeedBack from './src/Pages/feedbackpage/FeedBack';
-
+import Saved  from './src/Pages/savedpage/Saved'
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -55,6 +55,7 @@ const App = () => {
             <Stack.Screen name="EditProfile" component={EditProfile} options={{headerShown:false}} />
             <Stack.Screen name="Languages" component={Languages} options={{headerShown:false}} />
             <Stack.Screen name="FeedBack" component={FeedBack} options={{headerShown:false}} />
+            <Stack.Screen name="Saved" component={Saved} options={{headerShown:false}} />
 
           </>
         ) : (

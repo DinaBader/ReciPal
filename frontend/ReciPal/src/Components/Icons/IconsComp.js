@@ -13,7 +13,7 @@ const IconsComp = ({navigation}) => {
 
   const 
   navigateToSaved =()=>{
-    
+    navigation.navigate('Saved')
   }
   return (
     <View>
