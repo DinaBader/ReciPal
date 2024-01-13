@@ -10,6 +10,7 @@ const EditProfile = () => {
       <Text style={[common.gray,style.title]}>Username</Text>
       <TextInput
         style={[style.input]}/>
+      <Text style={[common.gray,style.title]}>Email</Text>
     </View>
   )
 }
