@@ -11,6 +11,8 @@ const EditProfile = () => {
       <TextInput
         style={[style.input]}/>
       <Text style={[common.gray,style.title]}>Email</Text>
+      <TextInput
+        style={[style.input]}/>
     </View>
   )
 }
