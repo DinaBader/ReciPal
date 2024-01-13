@@ -4,9 +4,14 @@ import common from "../../utils/common"
 import style from "./style"
 const FeedBack = () => {
   const [feedback,setFeedback]=useState("");
-  const handleFeedback =()=>{
+  const handleFeedback =(text)=>{
+    setFeedback(text)
+  }
+   
+  const handleSubmit =()=>{
     
   }
+
   return (
     <View style={common.backgroundColor}>
       <Text style={[common.white,common.header]}>FeedBack</Text>
@@ -17,9 +22,9 @@ const FeedBack = () => {
            multiline={true}
            textAlignVertical="top"
            placeholder='Enter message'
-           onChange={handleFeedback}
+           onChangeText ={handleFeedback}
       />
-      <TouchableOpacity style={[style.button,common.center]}>
+      <TouchableOpacity style={[style.button,common.center]} onPress={handleSubmit}>
         <Text style={[common.bold]}>Submit</Text>
       </TouchableOpacity>
     </View>
