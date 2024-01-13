@@ -2,6 +2,7 @@ import { View, Text,TextInput, TouchableOpacity} from 'react-native'
 import React,{useState} from 'react'
 import common from "../../utils/common"
 import style from "./style"
+import axios from 'axios';
 const FeedBack = () => {
   const [feedback,setFeedback]=useState("");
   const handleFeedback =(text)=>{
@@ -9,7 +10,29 @@ const FeedBack = () => {
   }
    
   const handleSubmit =()=>{
-    
+    axios.post(
+        "http://192.168.0.100:8000/review/addReview",
+        {
+          feedback
+        },
+        {
+            headers:{
+                "Content-Type":"application/json",
+            }
+        }
+      ).then((res) => {
+        try {
+          console.log("Feedback submitted successfully:", res.data);
+        } catch (error) {
+          console.error("Error handling successful response:", error);
+        }
+      }).catch((error) => {
+        try {
+          console.error("Error submitting feedback:", error);
+        } catch (error) {
+          console.error("Error handling error response:", error);
+        }
+      });
   }
 
   return (
