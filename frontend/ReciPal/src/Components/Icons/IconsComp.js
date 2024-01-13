@@ -15,6 +15,10 @@ const IconsComp = ({navigation}) => {
   navigateToSaved =()=>{
     navigation.navigate('Saved')
   }
+
+  const navigateToAwards =()=>{
+    
+  }
   return (
     <View>
         <TouchableOpacity onPress={navigateToSettings}>
@@ -47,7 +51,7 @@ const IconsComp = ({navigation}) => {
       </View>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity  onPress={navigateToAwards}>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
           source={require("../../../assets/award.png")}
