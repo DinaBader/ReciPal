@@ -7,14 +7,14 @@ const Saved = () => {
   return ( 
     <View style={[common.backgroundColor]}>
         
-        <View style={[styles.item]}>
+        <View style={[styles.item,styles.background ]}>
             <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"/>
             <TouchableOpacity style={[styles.deleteButton,common.center]}>
                 <Text style={common.bold}>Delete </Text>
             </TouchableOpacity>
         </View>
 
-        <View style={styles.item}>
+        <View style={[styles.item,styles.background]}>
             <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"/>
             <TouchableOpacity style={[styles.deleteButton,common.center]}>
                 <Text style={common.bold}>Delete </Text>
