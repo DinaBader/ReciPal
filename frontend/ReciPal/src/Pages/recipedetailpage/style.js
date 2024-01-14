@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     ingredientsText:{
         marginLeft:30,
         marginTop:10
-    }
+    },
+    
 
 })
 

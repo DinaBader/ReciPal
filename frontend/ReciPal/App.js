@@ -59,6 +59,7 @@ const App = () => {
             <Stack.Screen name="FeedBack" component={FeedBack} options={{headerShown:false}} />
             <Stack.Screen name="Saved" component={Saved} options={{headerShown:false}} />
             <Stack.Screen name="Awards" component={Awards} options={{headerShown:false}} />
+            <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ headerShown: false }}/>
 
           </>
         ) : (

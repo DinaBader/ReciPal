@@ -2,6 +2,7 @@ import { View, Text , ScrollView,FlatList } from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
 import ImageHeader from "../../Components/ImageHeader/imageheader"
+import Cylinder from "../../Components/cylinder/CylinderComp.js"
 import style from "./style.js"
 
 const Recipedetail = () => {
@@ -45,6 +46,7 @@ const Recipedetail = () => {
         renderItem={InstructionItem}
         ListEmptyComponent={<Text>No Instructions available</Text>}
       />
+      <Cylinder/>
     </>
   )
 }
