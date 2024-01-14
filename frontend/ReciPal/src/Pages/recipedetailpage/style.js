@@ -14,8 +14,11 @@ const styles = StyleSheet.create({
         marginLeft:30,
         marginTop:10
     },
-    
-
+    cylinder:{
+        marginLeft:20,
+        marginTop:20,
+        gap:20
+    }
 })
 
 export default styles;

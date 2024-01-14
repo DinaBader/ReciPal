@@ -47,6 +47,9 @@ const common = StyleSheet.create({
         fontSize:35,
         letterSpacing:1
 
+    },
+    flex:{
+        flexDirection:'row'
     }
   });
 

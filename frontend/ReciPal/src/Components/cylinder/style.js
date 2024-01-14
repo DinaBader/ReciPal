@@ -4,14 +4,9 @@ const styles = StyleSheet.create({
     cylinder:{
         backgroundColor:'#A62E2E',
         width:70,
-        height:120,
+        height:140,
         borderRadius:90
     },
-    absoluteContainer: {
-        ...StyleSheet.absoluteFillObject,
-        zIndex: 1,
-        paddingTop:600
-      },
     
 })
 

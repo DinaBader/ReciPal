@@ -28,7 +28,12 @@ const Recipedetail = () => {
             </Text>
           ))}
         </>
-      <Cylinder />
+      <View style={[common.flex,style.cylinder]}>
+        <Cylinder/>
+        <Cylinder/>
+        <Cylinder/>
+        <Cylinder/>
+      </View>
       </ScrollView>
 
   );
