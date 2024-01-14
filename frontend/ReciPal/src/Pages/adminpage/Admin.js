@@ -1,4 +1,4 @@
-import { View, Text,Image,TouchableOpacity } from 'react-native'
+import { View, Text,Image,TouchableOpacity, ScrollView } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import * as ImagePicker from 'expo-image-picker';
 import common from "../../utils/common"
@@ -128,43 +128,45 @@ const pickImage = async () => {
 
 
   return (
-    <View style={[common.backgroundColor]}>
+    <ScrollView style={[common.backgroundColor]}>
       <Text style={[style.text]}>Add Recipes</Text>
-      <Input placeholder="name"
-                value={name}
-               onChangeText={handleNameChange}/>
-      <Input placeholder="calories"
-                value={calories.toString()}
-             onChangeText={handleCaloriesChange} />
-      <Input placeholder="country"
-                value={country}
-              onChangeText={handleCountrychange}/>
-      <Input placeholder="total time"
-                value={total_time.toString()}
-              onChangeText={handleTimeChange}/>
-      <Input placeholder="serving"
-                value={serving.toString()}
-              onChangeText={handleServingChange}/>
-      <Input placeholder="difficulty"
-                value={difficulty}
-              onChangeText={handleDifficultyChange}/>
-      <Input placeholder="category"
-                value={category}
-              onChangeText={handleCategoryChange}/>
-      <Input placeholder="ingredients"
-         value={ingredients.join(', ')}
-         onChangeText={handleIngredientsChange}/>
-      <Input placeholder="instructions"
-                value={instructions.join(',')}
-              onChangeText={handleInstructionsChange}/>
+      <View style={[style.inputs]}>
+          <Input placeholder="name"
+                    value={name}
+                  onChangeText={handleNameChange}/>
+          <Input placeholder="calories"
+                    value={calories.toString()}
+                onChangeText={handleCaloriesChange} />
+          <Input placeholder="country"
+                    value={country}
+                  onChangeText={handleCountrychange}/>
+          <Input placeholder="total time"
+                    value={total_time.toString()}
+                  onChangeText={handleTimeChange}/>
+          <Input placeholder="serving"
+                    value={serving.toString()}
+                  onChangeText={handleServingChange}/>
+          <Input placeholder="difficulty"
+                    value={difficulty}
+                  onChangeText={handleDifficultyChange}/>
+          <Input placeholder="category"
+                    value={category}
+                  onChangeText={handleCategoryChange}/>
+          <Input placeholder="ingredients"
+            value={ingredients.join(', ')}
+            onChangeText={handleIngredientsChange}/>
+          <Input placeholder="instructions"
+                    value={instructions.join(',')}
+                  onChangeText={handleInstructionsChange}/>
+      </View>
       <TouchableOpacity style={[common.center]} 
                 onPress={pickImage}> 
-                <Text style={[common.yellow_bg]}> 
+                <Text style={[common.yellow_bg,style.button,common.bold]}> 
                     Choose Image 
                 </Text> 
       </TouchableOpacity> 
       <TouchableOpacity style={[common.center]} onPress={handleSubmit}>
-        <Text style={[common.yellow_bg]}>Upload Recipe</Text>
+        <Text style={[common.yellow_bg,style.button,common.bold]}>Upload Recipe</Text>
       </TouchableOpacity>
             {file ? ( 
                 <View style={style.imageContainer}> 
@@ -174,7 +176,7 @@ const pickImage = async () => {
             ) : ( 
                 <Text style={style.errorText}>{error}</Text> 
             )} 
-    </View>
+    </ScrollView>
   )
 }
 
