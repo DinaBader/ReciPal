@@ -32,6 +32,9 @@ const handleTimeChange=(text)=>{
 const handleServingChange=(text)=>{
         setServing(text)
 }
+const handleDifficultyChange=(text)=>{
+        setDifficulty(text)
+}
 
 const pickImage = async () => { 
   const { status } = await ImagePicker. 
@@ -68,7 +71,7 @@ const pickImage = async () => {
       <Input placeholder="serving"
               onChangeText={handleServingChange}/>
       <Input placeholder="difficulty"
-              />
+              onChangeText={handleDifficultyChange}/>
       <Input placeholder="category"
               />
       <Input placeholder="ingredients"
