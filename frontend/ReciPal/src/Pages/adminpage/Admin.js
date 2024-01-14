@@ -34,6 +34,9 @@ const handleNameChange =(text)=>{
 const handleCaloriesChange=(text)=>{
         setCalories(text);
 }
+const handleCountrychange=(text)=>{
+        setCountry(text)
+}
 const pickImage = async () => { 
   const { status } = await ImagePicker. 
       requestMediaLibraryPermissionsAsync(); 
@@ -130,7 +133,7 @@ const pickImage = async () => {
       <Input placeholder="calories"
              onChangeText={handleCaloriesChange} />
       <Input placeholder="country"
-              />
+              onChangeText={handleCountrychange}/>
       <Input placeholder="total time"
               />
       <Input placeholder="serving"
