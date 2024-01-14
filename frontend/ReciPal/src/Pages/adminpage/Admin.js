@@ -39,7 +39,8 @@ const handleCategoryChange=(text)=>{
         setCategory(text)
 }
 const handleIngredientsChange=(text)=>{
-        setIngredients(text)
+        const ingredientsArray = text.split(',').map(item => item.trim());
+        setIngredients(ingredientsArray)
 }
 
 const pickImage = async () => { 
