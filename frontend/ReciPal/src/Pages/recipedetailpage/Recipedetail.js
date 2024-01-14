@@ -6,12 +6,11 @@ import Cylinder from '../../Components/cylinder/CylinderComp.js';
 import style from './style.js';
 
 const Recipedetail = () => {
-  const ingredients = ['Beef', 'Beans', 'Tomato paste'];
+  const ingredients = ['Beef', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste'];
   const instructions = ['Cut the beef', 'Fry the meat', 'Mix the ingredients'];
 
   return (
-    <View style={style.container}>
-      <ScrollView style={common.backgroundColor}>
+      <ScrollView style={[common.backgroundColor,style.container]}>
         <>
           <ImageHeader source={require('../../../assets/beefchili.jpeg')} text="Beef chili" />
           <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
@@ -29,9 +28,9 @@ const Recipedetail = () => {
             </Text>
           ))}
         </>
-      </ScrollView>
       <Cylinder />
-    </View>
+      </ScrollView>
+
   );
 };
 
