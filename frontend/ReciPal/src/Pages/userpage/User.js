@@ -38,7 +38,7 @@ const User = () => {
 
 
       </View>
-      <Text style={[common.white,common.bold,styles.recipeText]}>Recipes</Text>
+      <Text style={[common.white,styles.recipeText]}>Recipes</Text>
       <View style={styles.foodCard}>
         <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
         <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
