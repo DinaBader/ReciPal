@@ -8,9 +8,9 @@ const Admin = () => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
   const [name,setName]=useState("");
-  const [calories,serCalories]=useState("");
+  const [calories,setCalories]=useState(0);
   const [country,setCountry]=useState("");
-  const [totaltime,setTotalTime]=useState("");
+  const [totaltime,setTotalTime]=useState(0);
   const [difficulty,setDifficulty]=useState("");
   const [category,setCategory]=useState("");
   const [ingredients,setIngredients]=useState([]);
@@ -28,7 +28,12 @@ const Admin = () => {
 //     instructions: [],
 //   });
 
-
+const handleNameChange =(text)=>{
+        setName(text);
+}
+const handleCaloriesChange=(text)=>{
+        setCalories(text);
+}
 const pickImage = async () => { 
   const { status } = await ImagePicker. 
       requestMediaLibraryPermissionsAsync(); 
@@ -121,9 +126,9 @@ const pickImage = async () => {
     <View style={[common.backgroundColor]}>
       <Text style={[style.text]}>Add Recipes</Text>
       <Input placeholder="name"
-               />
+               onChangeText={handleNameChange}/>
       <Input placeholder="calories"
-              />
+             onChangeText={handleCaloriesChange} />
       <Input placeholder="country"
               />
       <Input placeholder="total time"
