@@ -50,37 +50,62 @@ const handleInstructionsChange=(text)=>{
 }
 
 const handleSubmit = async () => {
-        try {
-          const response = await axios.post(
-            "http://192.168.0.100:8000/recipe/addRecipe",
-            {
-              name,
-              calories,
-              country,
-              total_time,
-              serving,
-              category,
-              ingredients,
-              instructions,
-              difficulty
-            }
-          );
-      
-          const addedRecipeId = response.data.id;
-      
-          await axios.post(
-            `http://192.168.0.100:8000/recipe/addRecipePhoto/${addedRecipeId}`,
-            {
-              image: file
-            }
-          );
-      
-          console.log("Recipe uploaded successfully!");
-        } catch (error) {
-          console.log("Error adding items", error.response);
-        }
-      };
-      
+  let recipeResponse;  
+
+  try {
+    recipeResponse = await axios.post(
+      "http://192.168.0.100:8000/recipe/addRecipe",
+      {
+        name,
+        calories,
+        country,
+        total_time,
+        serving,
+        category,
+        ingredients,
+        instructions,
+        difficulty
+      }
+    );
+
+    console.log("Recipe response:", recipeResponse);
+
+    if (recipeResponse.data.recipe && recipeResponse.data.recipe._id) {
+      const addedRecipeId = recipeResponse.data.recipe._id;
+      console.log("Recipe added successfully. Recipe ID:", addedRecipeId);
+    
+      if (file) {
+        const formData = new FormData();
+        formData.append("image", {
+          uri: file,
+          name: `recipe_photo_${addedRecipeId}.jpg`,
+          type: "image/jpg",
+        });
+
+        console.log("FormData created:", formData);
+
+        const photoResponse = await axios.post(
+          `http://192.168.0.100:8000/recipe/addRecipePhoto/${addedRecipeId}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        console.log("Recipe photo uploaded successfully:", photoResponse.data);
+      }
+
+      console.log("Recipe uploaded successfully!");
+    } else {
+      console.error("Error adding recipe. Response:", recipeResponse);
+    }
+  } catch (error) {
+    console.error("Error adding items", error);
+  }
+};
+                        
 const pickImage = async () => { 
   const { status } = await ImagePicker. 
       requestMediaLibraryPermissionsAsync(); 
