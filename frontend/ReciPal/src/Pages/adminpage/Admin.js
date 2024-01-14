@@ -38,6 +38,9 @@ const handleDifficultyChange=(text)=>{
 const handleCategoryChange=(text)=>{
         setCategory(text)
 }
+const handleIngredientsChange=(text)=>{
+        setIngredients(text)
+}
 
 const pickImage = async () => { 
   const { status } = await ImagePicker. 
@@ -78,7 +81,7 @@ const pickImage = async () => {
       <Input placeholder="category"
               onChangeText={handleCategoryChange}/>
       <Input placeholder="ingredients"
-         />
+         onChangeText={handleIngredientsChange}/>
       <Input placeholder="instructions"
               />
       <TouchableOpacity style={[common.center]} 
