@@ -16,18 +16,6 @@ const Admin = () => {
   const [ingredients,setIngredients]=useState([]);
   const [instructions,setInstructions]=useState([]);
 
-//   const [recipeData, setRecipeData] = useState({
-//     name: '',
-//     calories: '',
-//     country: '',
-//     totalTime: '',
-//     serving: '',
-//     difficulty: '',
-//     category: '',
-//     ingredients: [],
-//     instructions: [],
-//   });
-
 const handleNameChange =(text)=>{
         setName(text);
 }
@@ -37,6 +25,10 @@ const handleCaloriesChange=(text)=>{
 const handleCountrychange=(text)=>{
         setCountry(text)
 }
+const handleTimeChange=(text)=>{
+        setCountry(text)
+}
+
 const pickImage = async () => { 
   const { status } = await ImagePicker. 
       requestMediaLibraryPermissionsAsync(); 
@@ -57,73 +49,6 @@ const pickImage = async () => {
   } 
 }; 
 
-// const handleUpload = async () => {
-//   try {
-//     const imageFormData = new FormData();
-
-//     if (file) {
-//       const fileExtension = file.split('.').pop();
-
-//       imageFormData.append('image', {
-//         uri: file,
-//         name: `photo.${fileExtension}`,
-//         type: `image/${fileExtension}`,
-//       });
-//     }
-//   const otherData = {
-//     name: recipeData.name,
-//     calories: recipeData.calories,
-//     country: recipeData.country,
-//     totalTime: recipeData.totalTime,
-//     serving: recipeData.serving,
-//     difficulty: recipeData.difficulty,
-//     category: recipeData.category,
-//     ingredients: recipeData.ingredients,
-//     instructions: recipeData.instructions,
-//   };
-
-  
-//   const queryString = new URLSearchParams(imageFormData).toString();
-
-//   const imageResponse = await fetch(`http://192.168.0.100:8000/recipe/addRecipePhoto/${recipeId}`, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'multipart/form-data',
-//     },
-//     body: imageFormData,
-//   });
-
-//   if (imageResponse.ok) {
-//     console.log('Image uploaded successfully!');
-//   } else {
-//     console.error('Failed to upload image. Check the backend response.');
-//     return; 
-//   }
-
-// } catch (error) {
-//   console.error('Error uploading image:', error.message);
-//   return; 
-// }
-
-//   try {
-//     const otherDataResponse = await fetch('http://192.168.0.100:8000/recipe/addRecipe', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(otherData),
-//     });
-
-//     if (otherDataResponse.ok) {
-//       console.log('Other data uploaded successfully!');
-//     } else {
-//       console.error('Failed to upload other data. Check the backend response.');
-//     }
-//   } catch (error) {
-//     console.error('Error uploading other data:', error.message);
-//   }
-// };
-
 
   return (
     <View style={[common.backgroundColor]}>
@@ -135,7 +60,7 @@ const pickImage = async () => {
       <Input placeholder="country"
               onChangeText={handleCountrychange}/>
       <Input placeholder="total time"
-              />
+              onChangeText={handleTimeChange}/>
       <Input placeholder="serving"
               />
       <Input placeholder="difficulty"
