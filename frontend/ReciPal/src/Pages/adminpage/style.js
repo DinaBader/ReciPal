@@ -9,7 +9,10 @@ const styles= StyleSheet.create({
     },
     image:{
         width:150,
-        height:150
+        height:150,
+    },
+    imageContainer:{
+        paddingLeft:120
     },
     button:{
         width:200,
@@ -18,7 +21,7 @@ const styles= StyleSheet.create({
         borderRadius:10,
         marginTop:10,
         textAlign:'center',
-    },
+    }
 })
 
 export default styles;
