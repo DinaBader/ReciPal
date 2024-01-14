@@ -4,9 +4,15 @@ const styles = StyleSheet.create({
     cylinder:{
         backgroundColor:'#A62E2E',
         width:70,
-        height:140,
+        height:130,
         borderRadius:90
     },
+    text:{
+        textAlign:'center',
+        fontSize:16,
+        marginTop:5
+    }
+
     
 })
 

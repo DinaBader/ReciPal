@@ -29,10 +29,10 @@ const Recipedetail = () => {
           ))}
         </>
       <View style={[common.flex,style.cylinder]}>
-        <Cylinder/>
-        <Cylinder/>
-        <Cylinder/>
-        <Cylinder/>
+        <Cylinder text="35 Min"/>
+        <Cylinder text="03 People"/>
+        <Cylinder text="200 Cal"/>
+        <Cylinder text="Easy"/>
       </View>
       </ScrollView>
 
