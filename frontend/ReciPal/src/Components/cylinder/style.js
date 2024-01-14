@@ -6,7 +6,13 @@ const styles = StyleSheet.create({
         width:70,
         height:120,
         borderRadius:90
-    }    
+    },
+    absoluteContainer: {
+        ...StyleSheet.absoluteFillObject,
+        zIndex: 1,
+        paddingTop:600
+      },
+    
 })
 
 export default styles;

@@ -3,9 +3,8 @@ import React from 'react'
 import style from "./style"
 const CylinderComp = () => {
   return (
-    <View>
+    <View style={style.absoluteContainer}>
       <TouchableOpacity style={style.cylinder}>
-
       </TouchableOpacity>
     </View>
   )
