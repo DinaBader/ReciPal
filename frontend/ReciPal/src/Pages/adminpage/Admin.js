@@ -3,6 +3,7 @@ import React,{useState,useEffect} from 'react'
 import * as ImagePicker from 'expo-image-picker';
 import common from "../../utils/common"
 import style from "./style"
+import axios from 'axios';
 import Input from "../../Components/Inputs/input"
 const Admin = () => {
   const [file, setFile] = useState(null); 
@@ -10,8 +11,8 @@ const Admin = () => {
   const [name,setName]=useState("");
   const [calories,setCalories]=useState(0);
   const [country,setCountry]=useState("");
-  const [totaltime,setTotalTime]=useState(0);
-  const [serving,setServing]=useState("");
+  const [total_time,setTotalTime]=useState(0);
+  const [serving,setServing]=useState(0);
   const [difficulty,setDifficulty]=useState("");
   const [category,setCategory]=useState("");
   const [ingredients,setIngredients]=useState([]);
@@ -21,16 +22,17 @@ const handleNameChange =(text)=>{
         setName(text);
 }
 const handleCaloriesChange=(text)=>{
-        setCalories(text);
+        setCalories(/^\d+$/.test(text) ? parseInt(text, 10) : "");
+
 }
 const handleCountrychange=(text)=>{
         setCountry(text)
 }
 const handleTimeChange=(text)=>{
-        setTotalTime(text)
+        setTotalTime(/^\d+$/.test(text) ? parseInt(text, 10) : "")
 }
 const handleServingChange=(text)=>{
-        setServing(text)
+        setServing(/^\d+$/.test(text) ? parseInt(text, 10) : "")
 }
 const handleDifficultyChange=(text)=>{
         setDifficulty(text)
@@ -44,9 +46,41 @@ const handleIngredientsChange=(text)=>{
 }
 const handleInstructionsChange=(text)=>{
         const instructionsArray = text.split(',').map(item => item.trim());
-        setIngredients(instructionsArray)
+        setInstructions(instructionsArray)
 }
 
+const handleSubmit = async () => {
+        try {
+          const response = await axios.post(
+            "http://192.168.0.100:8000/recipe/addRecipe",
+            {
+              name,
+              calories,
+              country,
+              total_time,
+              serving,
+              category,
+              ingredients,
+              instructions,
+              difficulty
+            }
+          );
+      
+          const addedRecipeId = response.data.id;
+      
+          await axios.post(
+            `http://192.168.0.100:8000/recipe/addRecipePhoto/${addedRecipeId}`,
+            {
+              image: file
+            }
+          );
+      
+          console.log("Recipe uploaded successfully!");
+        } catch (error) {
+          console.log("Error adding items", error.response);
+        }
+      };
+      
 const pickImage = async () => { 
   const { status } = await ImagePicker. 
       requestMediaLibraryPermissionsAsync(); 
@@ -60,7 +94,7 @@ const pickImage = async () => {
   } else { 
       const result = 
           await ImagePicker.launchImageLibraryAsync(); 
-      if (!result.cancelled) { 
+      if (!result.canceled) { 
           setFile(result.uri); 
           setError(null); 
       } 
@@ -75,16 +109,16 @@ const pickImage = async () => {
                 value={name}
                onChangeText={handleNameChange}/>
       <Input placeholder="calories"
-                value={calories}
+                value={calories.toString()}
              onChangeText={handleCaloriesChange} />
       <Input placeholder="country"
                 value={country}
               onChangeText={handleCountrychange}/>
       <Input placeholder="total time"
-                value={totaltime}
+                value={total_time.toString()}
               onChangeText={handleTimeChange}/>
       <Input placeholder="serving"
-                value={serving}
+                value={serving.toString()}
               onChangeText={handleServingChange}/>
       <Input placeholder="difficulty"
                 value={difficulty}
@@ -104,7 +138,7 @@ const pickImage = async () => {
                     Choose Image 
                 </Text> 
       </TouchableOpacity> 
-      <TouchableOpacity style={[common.center]} >
+      <TouchableOpacity style={[common.center]} onPress={handleSubmit}>
         <Text style={[common.yellow_bg]}>Upload Recipe</Text>
       </TouchableOpacity>
             {file ? ( 
