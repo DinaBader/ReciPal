@@ -11,6 +11,7 @@ const Admin = () => {
   const [calories,setCalories]=useState(0);
   const [country,setCountry]=useState("");
   const [totaltime,setTotalTime]=useState(0);
+  const [serving,setServing]=useState("");
   const [difficulty,setDifficulty]=useState("");
   const [category,setCategory]=useState("");
   const [ingredients,setIngredients]=useState([]);
@@ -26,7 +27,10 @@ const handleCountrychange=(text)=>{
         setCountry(text)
 }
 const handleTimeChange=(text)=>{
-        setCountry(text)
+        setTotalTime(text)
+}
+const handleServingChange=(text)=>{
+        setServing(text)
 }
 
 const pickImage = async () => { 
@@ -62,7 +66,7 @@ const pickImage = async () => {
       <Input placeholder="total time"
               onChangeText={handleTimeChange}/>
       <Input placeholder="serving"
-              />
+              onChangeText={handleServingChange}/>
       <Input placeholder="difficulty"
               />
       <Input placeholder="category"
