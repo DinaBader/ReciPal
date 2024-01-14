@@ -42,6 +42,10 @@ const handleIngredientsChange=(text)=>{
         const ingredientsArray = text.split(',').map(item => item.trim());
         setIngredients(ingredientsArray)
 }
+const handleInstructionsChange=(text)=>{
+        const instructionsArray = text.split(',').map(item => item.trim());
+        setIngredients(instructionsArray)
+}
 
 const pickImage = async () => { 
   const { status } = await ImagePicker. 
@@ -84,7 +88,7 @@ const pickImage = async () => {
       <Input placeholder="ingredients"
          onChangeText={handleIngredientsChange}/>
       <Input placeholder="instructions"
-              />
+              onChangeText={handleInstructionsChange}/>
       <TouchableOpacity style={[common.center]} 
                 onPress={pickImage}> 
                 <Text style={[common.yellow_bg]}> 
