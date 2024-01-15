@@ -11,6 +11,7 @@ import {BASE_URL} from '@env'
 const Recipedetail = ({route,navigation}) => {
   const [recipeDetails,setRecipeDetails]=useState([]);
   const [userId, setUserId] = useState(null);
+  const [saved,setSaved]=useState('false');
   const navigateToHome=()=>{
     navigation.goBack();
   }
@@ -41,12 +42,26 @@ const Recipedetail = ({route,navigation}) => {
   }
 
   const saveRecipe=()=>{
-    axios.post(`${BASE_URL}/saveRecipe/${userId}/${recipeId}`
-    ).then((res)=>{
-      console.log("recipe saved");
-    }).catch((error)=>{
-      console.log("error saving recipe",error);
-    })
+    if(saved=="false"){
+      axios.post(`${BASE_URL}/reward/saveRecipe/${userId}/${recipeId}`
+      ).then((res)=>{
+        console.log("recipe saved");
+        setSaved("true")
+      }).catch((error)=>{
+        console.log("error saving recipe",error);
+      })
+  
+    }
+    else{
+      axios.post(`${BASE_URL}/reward/unsaveRecipe/${userId}/${recipeId}`
+      ).then((res)=>{
+        console.log("recipe unsaved");
+        setSaved("false")
+      }).catch((error)=>{
+        console.log("error unsaving recipe",error);
+      })
+
+    }
   }
 
   useEffect(()=>{
