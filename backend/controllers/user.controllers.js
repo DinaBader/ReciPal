@@ -170,6 +170,26 @@ const update_image=async(req,res)=>{
 
 }
 
+
+const getSavedRecipes = async (req, res) => {
+  const userId = req.params.userId;
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    const savedRecipes = user.saved;
+
+    res.status(200).json({ savedRecipes });
+  } catch (error) {
+    console.error('Error getting saved recipes:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 module.exports = {
     findByIdAndUpdate,
     addReward,
@@ -177,5 +197,6 @@ module.exports = {
     get_user,
     update_image,
     saveRecipe,
-    unsaveRecipe
+    unsaveRecipe,
+    getSavedRecipes
 };
