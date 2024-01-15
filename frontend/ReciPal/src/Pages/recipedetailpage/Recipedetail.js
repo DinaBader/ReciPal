@@ -1,20 +1,34 @@
 import { View, Text, ScrollView,TouchableOpacity, Image} from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
 import common from '../../utils/common';
 import ImageHeader from '../../Components/ImageHeader/imageheader';
 import Cylinder from '../../Components/cylinder/CylinderComp.js';
 import style from './style.js';
-import { useEffect } from 'react';
-
+import {BASE_URL} from '@env'
 
 const Recipedetail = ({route,navigation}) => {
+  const [recipeDetails,setRecipeDetails]=useState([]);
   const ingredients = ['Beef', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste'];
   const instructions = ['Cut the beef', 'Fry the meat', 'Mix the ingredients'];
   const navigateToHome=()=>{
     navigation.goBack();
   }
   const { recipeId } = route.params;
-  
+
+  const getRecipeDetails=()=>{
+    axios.get(`${BASE_URL}/recipe/getRecipeById/${recipeId}`
+    ).then((res)=>{
+      setRecipeDetails(res.data.recipeDetails);
+    }).catch((error)=>{
+      console.log("error",error);
+    })
+  }
+
+  useEffect(()=>{
+    getRecipeDetails();
+  },[]);
+
   return (
       <ScrollView style={[common.backgroundColor,style.container]}>
         <>
