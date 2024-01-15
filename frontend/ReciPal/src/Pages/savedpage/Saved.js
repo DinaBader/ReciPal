@@ -1,6 +1,8 @@
 import { View, Text, TouchableOpacity,Image } from 'react-native'
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {BASE_URL} from '@env'
 import common from "../../utils/common"
 import FoodCard from "../../Components/foodcard/FoodCardComp"
 import styles from "./style"
@@ -28,7 +30,13 @@ const Saved = ({navigation}) => {
 
       
     const getSavedRecipes=()=>{
-
+        axios.get(`${BASE_URL}/reward/getSavedRecipes/${userId}`
+        ).then((res)=>{
+             const {recipe} =res.data;
+             getRecipes(recipe)
+        }).catch((error)=>{
+            console.log("Error fetching saved recipes",error);
+        })
     }
 
 
