@@ -151,7 +151,7 @@ const addRecipePhoto=async(req,res)=>{
 const getRecipe=async(req,res)=>{
     try{
         const recipes=Recipe.find({});
-        res.status(200).send({reviews});
+        res.status(200).send({recipes});
     }catch(error){
         res.status(400).send({ 
             error: {
