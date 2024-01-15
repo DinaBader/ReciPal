@@ -42,14 +42,24 @@ const common = StyleSheet.create({
         alignItems:"center"
     },
     header:{
-        marginTop:25 ,
-        marginLeft:50,
-        fontSize:35,
-        letterSpacing:1
-
+        marginTop:40 ,
+        marginLeft:30,
+        fontSize:39,
+        letterSpacing:1,
     },
     flex:{
         flexDirection:'row'
+    },
+    title:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems: 'baseline'
+    },
+    back_Icon:{
+        width:33,
+        height:33,
+        marginLeft:40,
+        marginTop:20
     }
   });
 

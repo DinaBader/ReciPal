@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput,Image } from 'react-native'
 import React,{useEffect, useState} from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import common from "../../utils/common"
@@ -29,7 +29,10 @@ const EditProfile = () => {
 
   return (
     <View style={common.backgroundColor}>
+      <View style={[common.title]}>
+      <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
       <Text style={[common.header,common.white]}>Profile</Text>
+      </View>
       <Text style={[common.gray,style.title]}>Username</Text>
       <TextInput
         style={[style.input]}
