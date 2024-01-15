@@ -16,6 +16,10 @@ const Setting = ({navigation}) => {
     navigation.navigate('FeedBack');
   }
 
+  const navigatoToHome=()=>{
+    navigation.goBack();
+  }
+
   return (
     <View style={common.backgroundColor}>
       <View style={style.title}>
