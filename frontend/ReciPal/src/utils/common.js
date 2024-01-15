@@ -42,8 +42,8 @@ const common = StyleSheet.create({
         alignItems:"center"
     },
     header:{
-        marginTop:25,
-        marginLeft:80,
+        marginTop:25 ,
+        marginLeft:50,
         fontSize:35,
         letterSpacing:1
 

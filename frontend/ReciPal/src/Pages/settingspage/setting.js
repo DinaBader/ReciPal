@@ -18,8 +18,10 @@ const Setting = ({navigation}) => {
 
   return (
     <View style={common.backgroundColor}>
+      <View style={style.title}>
+        <Image source={require("../../../assets/back.png")} style={{width:40,height:40,marginLeft:40,marginTop:20}}/>
       <Text style={[common.white, common.header]}>Settings</Text>
-
+      </View>
         <View style={style.next}>
           <Text style={[common.white,style.editProfile]}>Edit  Profile</Text>
           <TouchableOpacity onPress={navigateToEditProfile}>

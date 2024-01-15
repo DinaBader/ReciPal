@@ -28,6 +28,11 @@ const styles = StyleSheet.create({
         width:25,
         height:25,
         marginLeft:140,
+    },
+    title:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'baseline'
     }
     
 })
