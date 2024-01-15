@@ -1,5 +1,6 @@
 import { View, Text, ScrollView,TouchableOpacity, Image} from 'react-native';
 import React, { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios'
 import common from '../../utils/common';
 import ImageHeader from '../../Components/ImageHeader/imageheader';
@@ -9,10 +10,25 @@ import {BASE_URL} from '@env'
 
 const Recipedetail = ({route,navigation}) => {
   const [recipeDetails,setRecipeDetails]=useState([]);
+  const [userId, setUserId] = useState(null);
   const navigateToHome=()=>{
     navigation.goBack();
   }
   const { recipeId } = route.params;
+  
+  const _retrieveData = async () => {
+    try {
+      const userString = await AsyncStorage.getItem('user');
+      if (userString !== null) {
+        const user = JSON.parse(userString);
+        const retrievedUserId = user._id;
+        setUserId(retrievedUserId); 
+        console.log('User ID:', retrievedUserId);
+        }
+    } catch (error) {
+      console.error("Error retrieving data:", error);
+    }
+  };  
 
   const getRecipeDetails=()=>{
     axios.get(`${BASE_URL}/recipe/getRecipeById/${recipeId}`
@@ -24,8 +40,13 @@ const Recipedetail = ({route,navigation}) => {
     })
   }
 
+  const saveRecipe=()=>{
+    
+  }
+
   useEffect(()=>{
     getRecipeDetails();
+    _retrieveData()
   },[]);
 
   return (
@@ -35,7 +56,7 @@ const Recipedetail = ({route,navigation}) => {
           <TouchableOpacity onPress={navigateToHome}>
             <Image source={require("../../../assets/back.png")} style={[common.back_Icon]} />
           </TouchableOpacity>
-          <TouchableOpacity >
+          <TouchableOpacity onPress={saveRecipe}>
             <Image source={require("../../../assets/save-recipe.png")} style={[common.back_Icon]} />
           </TouchableOpacity>
         </View>
