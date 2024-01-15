@@ -41,7 +41,12 @@ const Recipedetail = ({route,navigation}) => {
   }
 
   const saveRecipe=()=>{
-    
+    axios.post(`${BASE_URL}/saveRecipe/${userId}/${recipeId}`
+    ).then((res)=>{
+      console.log("recipe saved");
+    }).catch((error)=>{
+      console.log("error saving recipe",error);
+    })
   }
 
   useEffect(()=>{
