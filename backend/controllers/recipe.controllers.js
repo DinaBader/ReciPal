@@ -149,7 +149,7 @@ const addRecipePhoto=async(req,res)=>{
 
 const update_image=async(req,res)=>{
     const {image}=req.files;
-    const recipeId=req.user._id;
+    const recipeId=req.params._id;
   
     if(!image) return res.sendStatus(400);
   
