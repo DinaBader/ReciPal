@@ -1,4 +1,4 @@
-import { View, Text, TextInput,Image } from 'react-native'
+import { View, Text, TextInput,Image, TouchableOpacity } from 'react-native'
 import React,{useEffect, useState} from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import common from "../../utils/common"
@@ -26,11 +26,15 @@ const EditProfile = () => {
     _retrieveData()
   },[])
   
-
+  const navigateToSettings=()=>{
+    
+  }
   return (
     <View style={common.backgroundColor}>
       <View style={[common.title]}>
-      <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
+      <TouchableOpacity onPress={navigateToSettings}>
+        <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
+      </TouchableOpacity>
       <Text style={[common.header,common.white]}>Profile</Text>
       </View>
       <Text style={[common.gray,style.title]}>Username</Text>
