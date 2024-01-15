@@ -9,7 +9,6 @@ import {BASE_URL} from '@env'
 
 const Recipedetail = ({route,navigation}) => {
   const [recipeDetails,setRecipeDetails]=useState([]);
-  const ingredients = ['Beef', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste'];
   const instructions = ['Cut the beef', 'Fry the meat', 'Mix the ingredients'];
   const navigateToHome=()=>{
     navigation.goBack();
@@ -40,11 +39,11 @@ const Recipedetail = ({route,navigation}) => {
         </View>
           <ImageHeader source={require('../../../assets/beefchili.jpeg')} text="Beef chili" />
           <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
-          {ingredients.map((item, index) => (
-            <Text key={index} style={[common.white, style.ingredientsText]}>
-              {item}
-            </Text>
-          ))}
+        {recipeDetails.ingredients && recipeDetails.ingredients.map((ingredient, index) => (
+         <Text key={index} style={[common.white, style.ingredientsText]}>
+              {ingredient}
+          </Text>
+        ))}
         </>
         <>
           <Text style={[common.white, common.bold, style.ingredientsTitle]}>Instructions</Text>
