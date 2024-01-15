@@ -1,17 +1,26 @@
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView,TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import common from '../../utils/common';
 import ImageHeader from '../../Components/ImageHeader/imageheader';
 import Cylinder from '../../Components/cylinder/CylinderComp.js';
 import style from './style.js';
 
-const Recipedetail = () => {
+
+const Recipedetail = ({navigation}) => {
   const ingredients = ['Beef', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste'];
   const instructions = ['Cut the beef', 'Fry the meat', 'Mix the ingredients'];
-
+  const navigateToHome=()=>{
+    navigation.goBack();
+  }
+  
   return (
       <ScrollView style={[common.backgroundColor,style.container]}>
         <>
+        <View style={style.backButtonContainer}>
+        <TouchableOpacity onPress={navigateToHome}>
+          <Image source={require("../../../assets/back.png")} style={[common.back_Icon, style.image]} />
+        </TouchableOpacity>
+        </View>
           <ImageHeader source={require('../../../assets/beefchili.jpeg')} text="Beef chili" />
           <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
           {ingredients.map((item, index) => (
