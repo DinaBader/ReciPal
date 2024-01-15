@@ -16,8 +16,8 @@ const User = () => {
     setSelectedFood((prevSelectedFood) => (prevSelectedFood === food ? null : food));
   };
 
-  const NavigateTodetails=()=>{
-    navigation.navigate('RecipeDetail');
+  const NavigateTodetails=(recipeId)=>{
+    navigation.navigate('RecipeDetail', { recipeId });
   }
 
   const getRecipes = async () => {
@@ -60,7 +60,7 @@ const User = () => {
             key={index}
             source={{ uri: `${BASE_URL}/public/recipe/${recipe.image}` }}
             text={recipe.name}
-            onPress={() => NavigateTodetails()}
+            onPress={() => NavigateTodetails(recipe._id)}
           />
         ))}
       </View>
