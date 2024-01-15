@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     cylinder:{
-        backgroundColor:'#A62E2E',
+        backgroundColor:'#FFBF4D',
         width:70,
         height:130,
         borderRadius:90
