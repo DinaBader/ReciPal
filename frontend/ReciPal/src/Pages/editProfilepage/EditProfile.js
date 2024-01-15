@@ -5,7 +5,7 @@ import common from "../../utils/common"
 import style from "./style";
 
 
-const EditProfile = () => {
+const EditProfile = ({navigation}) => {
   const [username,setUsername]=useState("");
   const _retrieveData = async () => {
     try {
@@ -27,7 +27,7 @@ const EditProfile = () => {
   },[])
   
   const navigateToSettings=()=>{
-    
+    navigation.goBack();
   }
   return (
     <View style={common.backgroundColor}>
