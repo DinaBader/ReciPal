@@ -30,28 +30,34 @@ const Recipedetail = ({route,navigation}) => {
 
   return (
       <ScrollView style={[common.backgroundColor,style.container]}>
-        <>
+
         <View style={style.backButtonContainer}>
-        <TouchableOpacity onPress={navigateToHome}>
-          <Image source={require("../../../assets/back.png")} style={[common.back_Icon, style.image]} />
-        </TouchableOpacity>
+          <TouchableOpacity onPress={navigateToHome}>
+            <Image source={require("../../../assets/back.png")} style={[common.back_Icon]} />
+          </TouchableOpacity>
+          <TouchableOpacity >
+            <Image source={require("../../../assets/save-recipe.png")} style={[common.back_Icon]} />
+          </TouchableOpacity>
         </View>
-          <ImageHeader source={require('../../../assets/beefchili.jpeg')} text="Beef chili" />
-          <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
+
+        <ImageHeader source={require('../../../assets/beefchili.jpeg')} text="Beef chili" />
+
+        <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
+
         {recipeDetails.ingredients && recipeDetails.ingredients.map((ingredient, index) => (
          <Text key={index} style={[common.white, style.ingredientsText]}>
               {ingredient}
           </Text>
         ))}
-        </>
-        <>
-          <Text style={[common.white, common.bold, style.ingredientsTitle]}>Instructions</Text>
-          {recipeDetails.instructions && recipeDetails.instructions.map((instruction,index)=>(
+
+        <Text style={[common.white, common.bold, style.ingredientsTitle]}>Instructions</Text>
+
+        {recipeDetails.instructions && recipeDetails.instructions.map((instruction,index)=>(
              <Text key={index} style={[common.white, style.ingredientsText]}>
                   {instruction}
               </Text>
-          ))}
-        </>
+        ))}
+
       <View style={[common.flex,style.cylinder]}>
         <Cylinder  text={recipeDetails.total_time ? recipeDetails.total_time.toString() : 'N/A'} />
         <Cylinder text={recipeDetails.serving ? recipeDetails.serving.toString() : 'N/A'}/>

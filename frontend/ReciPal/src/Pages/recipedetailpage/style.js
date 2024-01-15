@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
         gap:20
     },
     backButtonContainer: {
+        display:'flex',
+        flexDirection:'row',
+        gap:200,
         position: 'absolute',
         top: 20, 
         zIndex: 1,
