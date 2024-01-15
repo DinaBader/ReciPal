@@ -147,6 +147,33 @@ const addRecipePhoto=async(req,res)=>{
       res.status(200).send("Image uploaded");
 }
 
+const update_image=async(req,res)=>{
+    const {image}=req.files;
+    const recipeId=req.user._id;
+  
+    if(!image) return res.sendStatus(400);
+  
+    const lastIndex = image.name.lastIndexOf(".");
+    const extension = image.name.slice(lastIndex + 1);
+    const imageName = Date.now() + "." + extension;
+  
+    if (extension !== "png" && extension !== "jpg" && extension !== "jpeg") {
+      return res.status(400).send({ message: "Invalid image format" });
+    }
+  
+    const { dirname } = require("path");
+    const appDir = dirname(require.main.filename);
+    const image_dir = appDir + "/public/recipes/" + imageName;
+    image.mv(image_dir);
+  
+    await User.findByIdAndUpdate(recipeId, {
+      image: imageName,
+    });
+  
+    res.status(200).send("Image updated");
+  
+  }
+  
 
 const getRecipe=async(req,res)=>{
     try{
@@ -167,5 +194,6 @@ module.exports={
     deleteRecipe,
     searchRecipes,
     addRecipePhoto,
-    getRecipe
+    getRecipe,
+    update_image
 };
