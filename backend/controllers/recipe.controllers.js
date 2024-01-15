@@ -147,10 +147,25 @@ const addRecipePhoto=async(req,res)=>{
       res.status(200).send("Image uploaded");
 }
 
-  
+
+const getRecipe=async(req,res)=>{
+    try{
+        const recipes=Recipe.find({});
+        res.status(200).send({reviews});
+    }catch(error){
+        res.status(400).send({ 
+            error: {
+                message: 'Error',
+                details: error.message, 
+            },
+        });
+    }
+}
+
 module.exports={
     addRecipe,
     deleteRecipe,
     searchRecipes,
-    addRecipePhoto
+    addRecipePhoto,
+    getRecipe
 };
