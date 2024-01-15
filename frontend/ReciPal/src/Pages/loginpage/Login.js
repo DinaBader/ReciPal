@@ -5,6 +5,7 @@ import axios from 'axios';
 import styles from './styles';
 import common from '../../utils/common'
 import Button from "../../Components/button/buttoncomp"
+import {BASE_URL} from '@env'
 const Login = ({navigation}) => {
     const [usernameOrEmail,setName]=useState('');
     const [password,setPassword]=useState('');
@@ -51,7 +52,7 @@ const Login = ({navigation}) => {
     };  
     const handleSubmit=()=>{
         axios.post(
-            "http://192.168.0.100:8000/auth/login",
+            `${BASE_URL}/auth/login`,
             {
               "usernameOrEmail": usernameOrEmail,
               "password": password
