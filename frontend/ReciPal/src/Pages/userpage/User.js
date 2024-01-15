@@ -21,21 +21,16 @@ const User = () => {
   }
 
   const getRecipes = async () => {
-    try {
-      const response = await axios.get(
-        `${BASE_URL}/recipe/getRecipe`);
-      console.log("got recipes", response.data);
-      return response.data; 
-    } catch (error) {
-      console.error("Error", error);
-      throw error; 
-    }
+   
+      axios.get(
+        `${BASE_URL}/recipe/getRecipe`).then(function(res){
+          setRecipes(res.data.recipes)
+          console.log(res.data.recipes)
+        })
   };
 
   useEffect(()=>{
     getRecipes()
-    .then(data => setRecipes(data.recipes))
-      .catch(error => console.error('Error fetching recipes:', error));
   },[])
   
   return (
@@ -63,7 +58,7 @@ const User = () => {
         {recipes.map((recipe, index) => (
           <FoodCard
             key={index}
-            source={{ uri: `${BASE_URL}/${recipe.image}` }}
+            source={{ uri: `${BASE_URL}/public/recipe/${recipe.image}` }}
             text={recipe.name}
             onPress={() => NavigateTodetails()}
           />

@@ -20,7 +20,7 @@ import Awards  from './src/Pages/awardspage/Awards'
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userRole, setUserRole] = useState(null);
 
   useEffect(() => {
@@ -32,9 +32,9 @@ const App = () => {
         console.log('Role:', role);
         console.log('LoggedIn:', loggedIn);
 
-        if (loggedIn && role === '2') {
+        if (loggedIn ) {
           setIsLoggedIn(true);
-          setUserRole(role);
+          // setUserRole(JSON.parse(role));
         } else {
           setIsLoggedIn(false);
           setUserRole(null);
@@ -45,12 +45,17 @@ const App = () => {
     };
 
     checkAuthentication();
-  }, [isLoggedIn, userRole]);
+  }, []);
+
+  useEffect(()=>{
+    console.log(isLoggedIn);
+    console.log(typeof userRole);
+  },[isLoggedIn]);
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LandingPage">
-        {isLoggedIn ? (
+        {true ? (
           <>
             <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
