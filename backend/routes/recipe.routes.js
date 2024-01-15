@@ -7,6 +7,6 @@ router.delete('/deleteRecipe/:id',deleteRecipe);
 router.get('/searchRecipes',searchRecipes);
 router.post('/addRecipePhoto/:id',addRecipePhoto);
 router.post('/update_image/:id',update_image);
-router.get('/getRecipeById/:id',getRecipeById);
+router.get('/getRecipeById/:recipeId',getRecipeById);
 router.get('/getRecipe',getRecipe);
 module.exports=router;

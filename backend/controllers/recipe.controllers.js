@@ -190,9 +190,10 @@ const getRecipe=async(req,res)=>{
 }
 
 const getRecipeById = async (req, res) => {
-    const recipeId = req.params._id;
+    const recipeId = req.params.recipeId;
+
     try {
-        const recipe = await Recipe.findById(recipeId); 
+        const recipe = await Recipe.findById(recipeId);        
         if (!recipe) {
             return res.status(404).send({
                 error: {
@@ -202,6 +203,7 @@ const getRecipeById = async (req, res) => {
         }
         res.status(200).send({ recipe });
     } catch (error) {
+        console.error('Error fetching recipe by ID:', error);
         res.status(500).send({
             error: {
                 message: 'Error',
