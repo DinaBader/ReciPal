@@ -150,7 +150,7 @@ const addRecipePhoto=async(req,res)=>{
 
 const getRecipe=async(req,res)=>{
     try{
-        const recipes=Recipe.find({});
+        const recipes=await Recipe.find({});
         res.status(200).send({recipes});
     }catch(error){
         res.status(400).send({ 
