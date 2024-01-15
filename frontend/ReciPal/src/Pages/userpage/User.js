@@ -1,6 +1,8 @@
 import { View, Text, ScrollView,TouchableOpacity } from 'react-native';
 import React,{useState,useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
+import {BASE_URL} from '@env'
+import axios from 'axios'
 import common from "../../utils/common";
 import styles from "./style";
 import Search from "../../Components/search/searchcomp"
@@ -9,7 +11,7 @@ import FoodCard from  "../../Components/foodcard/FoodCardComp"
 const User = () => {
   const navigation = useNavigation();
   const [selectedFood, setSelectedFood] = useState(null);
-  const [recipes,SetRecipes]=useState([]);
+  const [recipes,setRecipes]=useState([]);
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => (prevSelectedFood === food ? null : food));
   };
@@ -29,6 +31,12 @@ const User = () => {
       throw error; 
     }
   };
+
+  useEffect(()=>{
+    getRecipes()
+    .then(data => setRecipes(data.recipes))
+      .catch(error => console.error('Error fetching recipes:', error));
+  },[])
   
   return (
     <ScrollView style={[common.backgroundColor,styles.container]}>
@@ -52,13 +60,14 @@ const User = () => {
       </View>
       <Text style={[common.white,styles.recipeText]}>Recipes</Text>
       <View style={styles.foodCard}>
-        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
-        <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"  onPress={()=>NavigateTodetails()}/>
+        {recipes.map((recipe, index) => (
+          <FoodCard
+            key={index}
+            source={{ uri: `${BASE_URL}/${recipe.image}` }}
+            text={recipe.name}
+            onPress={() => NavigateTodetails()}
+          />
+        ))}
       </View>
     </ScrollView>
   );
