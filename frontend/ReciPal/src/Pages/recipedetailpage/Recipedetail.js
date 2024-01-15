@@ -53,10 +53,10 @@ const Recipedetail = ({route,navigation}) => {
           ))}
         </>
       <View style={[common.flex,style.cylinder]}>
-        <Cylinder text="35 Min"/>
-        <Cylinder text="03 People"/>
-        <Cylinder text="200 Cal"/>
-        <Cylinder text="Easy"/>
+        <Cylinder  text={recipeDetails.total_time ? recipeDetails.total_time.toString() : 'N/A'} />
+        <Cylinder text={recipeDetails.serving ? recipeDetails.serving.toString() : 'N/A'}/>
+        <Cylinder text={recipeDetails.calories ? recipeDetails.calories.toString() : 'N/A'}/>
+        <Cylinder text={recipeDetails.difficulty ? recipeDetails.difficulty.toString() : 'N/A'}/>
       </View>
       </ScrollView>
 
