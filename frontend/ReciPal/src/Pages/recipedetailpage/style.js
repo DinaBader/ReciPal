@@ -26,8 +26,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 20, 
         zIndex: 1,
-      },
-    
+      },    
 })
 
 export default styles;

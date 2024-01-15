@@ -77,7 +77,11 @@ const Recipedetail = ({route,navigation}) => {
             <Image source={require("../../../assets/back.png")} style={[common.back_Icon]} />
           </TouchableOpacity>
           <TouchableOpacity onPress={saveRecipe}>
+          {saved === "true" ? (
+            <Image source={require("../../../assets/save-yellow.png")} style={[common.back_Icon]} />
+          ) : (
             <Image source={require("../../../assets/save-recipe.png")} style={[common.back_Icon]} />
+          )}
           </TouchableOpacity>
         </View>
 
