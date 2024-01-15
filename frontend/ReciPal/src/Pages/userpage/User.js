@@ -1,5 +1,5 @@
 import { View, Text, ScrollView,TouchableOpacity } from 'react-native';
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import common from "../../utils/common";
 import styles from "./style";
@@ -9,7 +9,7 @@ import FoodCard from  "../../Components/foodcard/FoodCardComp"
 const User = () => {
   const navigation = useNavigation();
   const [selectedFood, setSelectedFood] = useState(null);
-
+  const [recipes,SetRecipes]=useState([]);
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => (prevSelectedFood === food ? null : food));
   };
@@ -18,6 +18,18 @@ const User = () => {
     navigation.navigate('RecipeDetail');
   }
 
+  const getRecipes = async () => {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/recipe/getRecipe`);
+      console.log("got recipes", response.data);
+      return response.data; 
+    } catch (error) {
+      console.error("Error", error);
+      throw error; 
+    }
+  };
+  
   return (
     <ScrollView style={[common.backgroundColor,styles.container]}>
       <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
