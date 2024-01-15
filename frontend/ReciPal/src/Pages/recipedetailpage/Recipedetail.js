@@ -4,14 +4,16 @@ import common from '../../utils/common';
 import ImageHeader from '../../Components/ImageHeader/imageheader';
 import Cylinder from '../../Components/cylinder/CylinderComp.js';
 import style from './style.js';
+import { useEffect } from 'react';
 
 
-const Recipedetail = ({navigation}) => {
+const Recipedetail = ({route,navigation}) => {
   const ingredients = ['Beef', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste', 'Beans', 'Tomato paste'];
   const instructions = ['Cut the beef', 'Fry the meat', 'Mix the ingredients'];
   const navigateToHome=()=>{
     navigation.goBack();
   }
+  const { recipeId } = route.params;
   
   return (
       <ScrollView style={[common.backgroundColor,style.container]}>
