@@ -25,7 +25,6 @@ const User = () => {
       axios.get(
         `${BASE_URL}/recipe/getRecipe`).then(function(res){
           setRecipes(res.data.recipes)
-          console.log(res.data.recipes)
         })
   };
 
