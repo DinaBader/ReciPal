@@ -9,7 +9,6 @@ import {BASE_URL} from '@env'
 
 const Recipedetail = ({route,navigation}) => {
   const [recipeDetails,setRecipeDetails]=useState([]);
-  const instructions = ['Cut the beef', 'Fry the meat', 'Mix the ingredients'];
   const navigateToHome=()=>{
     navigation.goBack();
   }
@@ -47,10 +46,10 @@ const Recipedetail = ({route,navigation}) => {
         </>
         <>
           <Text style={[common.white, common.bold, style.ingredientsTitle]}>Instructions</Text>
-          {instructions.map((item, index) => (
-            <Text key={index} style={[common.white, style.ingredientsText]}>
-              {item}
-            </Text>
+          {recipeDetails.instructions && recipeDetails.instructions.map((instruction,index)=>(
+             <Text key={index} style={[common.white, style.ingredientsText]}>
+                  {instruction}
+              </Text>
           ))}
         </>
       <View style={[common.flex,style.cylinder]}>
