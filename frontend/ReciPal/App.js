@@ -45,7 +45,7 @@ const App = () => {
     };
 
     checkAuthentication();
-  }, []);
+  }, [isLoggedIn, userRole]);
 
   return (
     <NavigationContainer>
@@ -61,6 +61,8 @@ const App = () => {
             <Stack.Screen name="Awards" component={Awards} options={{headerShown:false}} />
             <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ headerShown: false }}/>
             <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
+            <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
+
 
           </>
         ) : (
@@ -74,7 +76,7 @@ const App = () => {
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             
           </>
-         )}  
+          )}   
       </Stack.Navigator>
     </NavigationContainer>
   );

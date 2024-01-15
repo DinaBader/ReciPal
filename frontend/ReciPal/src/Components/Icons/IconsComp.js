@@ -1,9 +1,16 @@
 import { View, Text,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const IconsComp = ({navigation}) => {
 
-  const navigateToLogout = () =>{
+  const navigateToLogout = async() =>{
+    try {
+          await AsyncStorage.clear();
+        } catch (error) {
+          console.error('Error clearing AsyncStorage:', error);
+        }
     navigation.navigate('Login')
   }
 

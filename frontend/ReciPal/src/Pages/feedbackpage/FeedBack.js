@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 import common from "../../utils/common"
 import style from "./style"
 import axios from 'axios';
-// import { BASE_URL } from '@env';
+import { BASE_URL } from '@env';
 const FeedBack = () => {
   const [feedback,setFeedback]=useState("");
   const handleFeedback =(text)=>{
@@ -12,7 +12,7 @@ const FeedBack = () => {
    
   const handleSubmit =()=>{
     axios.post(
-      "http://192.168.0.100:8000/review/addReview",
+      `${ BASE_URL }/review/addReview`,
         {
           feedback
         },

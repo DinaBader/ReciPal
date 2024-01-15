@@ -23,18 +23,6 @@ const Login = ({navigation}) => {
       navigation.navigate('SignupPage');
     }
 
-    const clearAsyncStorage = async () => {
-      try {
-        await AsyncStorage.clear();
-      } catch (error) {
-        console.error('Error clearing AsyncStorage:', error);
-      }
-    };
-  
-    useEffect(() => {
-      clearAsyncStorage();
-    }, [navigation]);
-
     const _retrieveData = async () => {
       try {
         const userString = await AsyncStorage.getItem('user');
