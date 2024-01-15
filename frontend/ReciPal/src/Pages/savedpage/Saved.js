@@ -6,13 +6,37 @@ import FoodCard from "../../Components/foodcard/FoodCardComp"
 import styles from "./style"
 const Saved = ({navigation}) => { 
     const [recipes,getRecipes]=useState([]);
+    const [userId, setUserId] = useState(null);
     const navigateToSettings=()=>{
         navigation.goBack();
     }
 
+
+    const _retrieveData = async () => {
+        try {
+          const userString = await AsyncStorage.getItem('user');
+          if (userString !== null) {
+            const user = JSON.parse(userString);
+            const retrievedUserId = user._id;
+            setUserId(retrievedUserId); 
+            console.log('User ID:', retrievedUserId);
+            }
+        } catch (error) {
+          console.error("Error retrieving data:", error);
+        }
+      };  
+
+      
     const getSavedRecipes=()=>{
 
     }
+
+
+
+    useEffect(()=>{
+        getSavedRecipes();
+        _retrieveData();
+    },[])
 
   return ( 
 
