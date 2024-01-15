@@ -5,6 +5,7 @@ import common from "../../utils/common"
 import style from "./style"
 import axios from 'axios';
 import Input from "../../Components/Inputs/input"
+// import {BASE_URL} from "@env"
 const Admin = () => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
@@ -51,6 +52,7 @@ const handleInstructionsChange=(text)=>{
 
 const handleSubmit = async () => {
   let recipeResponse;  
+  // const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL;
 
   try {
     recipeResponse = await axios.post(
@@ -102,7 +104,23 @@ const handleSubmit = async () => {
       console.error("Error adding recipe. Response:", recipeResponse);
     }
   } catch (error) {
-    console.error("Error adding items", error);
+    if (error.response) {
+      console.log("BASE_URL:", BASE_URL);
+
+      console.error("Response data:", error.response.data);
+      console.error("Response status:", error.response.status);
+      console.error("Response headers:", error.response.headers);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.log("BASE_URL:", BASE_URL);
+
+      console.error("Request data:", error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error("Error message:", error.message);
+    }
+  
+    console.error("Error config:", error.config);
   }
 };
                         

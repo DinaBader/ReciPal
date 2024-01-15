@@ -50,7 +50,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LandingPage">
-        {/* {isLoggedIn ? (
+        {isLoggedIn ? (
           <>
             <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
@@ -62,7 +62,7 @@ const App = () => {
             <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ headerShown: false }}/>
 
           </>
-        ) : ( */}
+        ) : (
           <>
             <Stack.Screen name="LandingPage" component={LandingPage} options={{ headerShown: false }} />
             <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
@@ -73,7 +73,7 @@ const App = () => {
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             
           </>
-        {/* )} */}
+         )}  
       </Stack.Navigator>
     </NavigationContainer>
   );
