@@ -1,12 +1,19 @@
 import { View, Text, TouchableOpacity,Image } from 'react-native'
-import React from 'react'
+import React,{useEffect,useState} from 'react'
+import axios from 'axios'
 import common from "../../utils/common"
 import FoodCard from "../../Components/foodcard/FoodCardComp"
 import styles from "./style"
 const Saved = ({navigation}) => { 
+    const [recipes,getRecipes]=useState([]);
     const navigateToSettings=()=>{
         navigation.goBack();
     }
+
+    const getSavedRecipes=()=>{
+
+    }
+
   return ( 
 
     <View style={[common.backgroundColor]}>
