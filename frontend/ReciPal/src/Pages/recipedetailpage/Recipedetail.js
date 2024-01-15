@@ -19,7 +19,8 @@ const Recipedetail = ({route,navigation}) => {
   const getRecipeDetails=()=>{
     axios.get(`${BASE_URL}/recipe/getRecipeById/${recipeId}`
     ).then((res)=>{
-      setRecipeDetails(res.data.recipeDetails);
+      const { recipe } = res.data;
+      setRecipeDetails(recipe);
     }).catch((error)=>{
       console.log("error",error);
     })
