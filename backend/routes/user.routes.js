@@ -9,7 +9,7 @@ router.post('/upload-image', authMiddlewareForUpload, upload_image);
 router.post('/update_image',authMiddlewareForUpload,update_image);
 router.post('/saveRecipe/:userId/:recipeId',saveRecipe);
 router.post('/unsaveRecipe/:userId/:recipeId',unsaveRecipe);
-router.post('/getSavedRecipes/:userId',getSavedRecipes);
+router.get('/getSavedRecipes/:userId',getSavedRecipes);
 
 router.get("/get-user", get_user);
 
