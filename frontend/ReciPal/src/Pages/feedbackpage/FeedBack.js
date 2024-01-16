@@ -1,13 +1,16 @@
-import { View, Text,TextInput, TouchableOpacity} from 'react-native'
+import { View, Text,TextInput, TouchableOpacity,Image} from 'react-native'
 import React,{useState} from 'react'
 import common from "../../utils/common"
 import style from "./style"
 import axios from 'axios';
 import { BASE_URL } from '@env';
-const FeedBack = () => {
+const FeedBack = ({navigation}) => {
   const [feedback,setFeedback]=useState("");
   const handleFeedback =(text)=>{
     setFeedback(text)
+  }
+  const navigateToSettings=()=>{
+    navigation.goBack();
   }
    
   const handleSubmit =()=>{
@@ -37,8 +40,13 @@ const FeedBack = () => {
   }
 
   return (
-    <View style={common.backgroundColor}>
-      <Text style={[common.white,common.header]}>FeedBack</Text>
+    <View style={[common.backgroundColor]}>
+      <View style={[common.title]}>
+        <TouchableOpacity onPress={navigateToSettings}>
+          <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
+        </TouchableOpacity>
+        <Text style={[common.header,common.white,style.feedback]}>Feedback</Text>
+      </View>
       <Text style={[common.white,style.title]}>Share your FeedBack</Text>
       <Text style={[common.white,style.text]}>Thank you for using ReciPal {"\n"} Please give us your feedback.</Text>
       <TextInput

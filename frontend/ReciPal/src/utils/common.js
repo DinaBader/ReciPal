@@ -44,7 +44,7 @@ const common = StyleSheet.create({
     header:{
         marginTop:40 ,
         marginLeft:30,
-        fontSize:34,
+        fontSize:32,
         letterSpacing:1,
     },
     flex:{
@@ -53,13 +53,12 @@ const common = StyleSheet.create({
     title:{
         display:'flex',
         flexDirection:'row',
-        alignItems: 'baseline'
     },
     back_Icon:{
         width:33,
         height:33,
         marginLeft:40,
-        marginTop:20
+        marginTop:47
     }
   });
 

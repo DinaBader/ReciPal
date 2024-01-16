@@ -24,7 +24,7 @@ const Setting = ({navigation}) => {
     <View style={common.backgroundColor}>
       <View style={[common.title]}>
         <TouchableOpacity onPress={navigatoToHome}>
-        <Image source={require("../../../assets/back.png")} style={{width:35,height:35,marginLeft:40,marginTop:20}}/>
+        <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
         </TouchableOpacity>
       <Text style={[common.white, common.header]}>Settings</Text>
       </View>
