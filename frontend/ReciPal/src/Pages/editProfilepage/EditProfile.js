@@ -5,7 +5,6 @@ import  axios from 'axios';
 import {BASE_URL} from "@env";
 import common from "../../utils/common";
 import style from "./style";
-import Button from "../../Components/button/buttoncomp";
 
 const EditProfile = ({navigation}) => {
   const [username,setUsername]=useState("");
@@ -27,9 +26,6 @@ const EditProfile = ({navigation}) => {
         const user = JSON.parse(userString);
         const retrievedUserId = user._id;
         setUserId(retrievedUserId);
-        if (user && user.username) {
-          setUsername(user.username);
-        }
       }
   
     } catch (error) {
@@ -48,6 +44,8 @@ const EditProfile = ({navigation}) => {
         email
        }).then((res)=>{
         console.log("changed",res.data); 
+        setUsername("");
+        setEmail("");
        }).catch((error)=>{
         console.log("error",error);
        })
