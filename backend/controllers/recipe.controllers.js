@@ -193,8 +193,7 @@ const getRecipeById = async (req, res) => {
     const recipeId = req.params.recipeId;
 
     try {
-        const recipe = await Recipe.findById(recipeId, 'name image');
-        
+        const recipe = await Recipe.findById(recipeId);        
         if (!recipe) {
             return res.status(404).send({
                 error: {
@@ -202,13 +201,7 @@ const getRecipeById = async (req, res) => {
                 },
             });
         }
-
-        res.status(200).send({
-            recipe: {
-                title: recipe.name,
-                image: recipe.image,
-            },
-        });
+        res.status(200).send({ recipe });
     } catch (error) {
         console.error('Error fetching recipe by ID:', error);
         res.status(500).send({
@@ -218,7 +211,7 @@ const getRecipeById = async (req, res) => {
             },
         });
     }
-};
+}
 
 
 module.exports={
@@ -229,4 +222,5 @@ module.exports={
     getRecipe,
     update_image,
     getRecipeById,
+    
 };
