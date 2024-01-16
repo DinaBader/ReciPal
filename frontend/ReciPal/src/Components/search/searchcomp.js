@@ -19,7 +19,7 @@ const SearchComp = () => {
         );
 
       console.log('API Response:', response.data);
-
+      setSearchQuery("")
       const results = response.data;
       setSearchResults(results);
     } catch (error) {

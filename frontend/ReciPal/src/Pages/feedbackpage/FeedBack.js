@@ -56,7 +56,7 @@ const FeedBack = ({navigation}) => {
            placeholder='Enter message'
            onChangeText ={handleFeedback}
       />
-      <TouchableOpacity style={[style.button,common.center]} onPress={handleSubmit}>
+      <TouchableOpacity style={[style.button,common.center,common.yellow_bg]} onPress={handleSubmit}>
         <Text style={[common.bold]}>Submit</Text>
       </TouchableOpacity>
     </View>
