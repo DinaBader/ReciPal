@@ -7,6 +7,7 @@ import Button from "../../Components/button/buttoncomp";
 
 const EditProfile = ({navigation}) => {
   const [username,setUsername]=useState("");
+  const [email,setEmail]=useState("");
   const _retrieveData = async () => {
     try {
       const userString = await AsyncStorage.getItem('user');
@@ -27,7 +28,7 @@ const EditProfile = ({navigation}) => {
   },[])
 
   const handleSubmit=()=>{
-    
+
   }
   
   const navigateToSettings=()=>{
@@ -44,11 +45,15 @@ const EditProfile = ({navigation}) => {
       <Text style={[common.gray,style.title]}>Username</Text>
       <TextInput
         style={[style.input]}
-        placeholder={username}/>
+        placeholder={username}
+        value={username}
+        />
       <Text style={[common.gray,style.title]}>Email</Text>
       <TextInput
-        style={[style.input]} onPress={handleSubmit}/>
-      <Button text="Submit"/>
+        style={[style.input]} 
+        value={email}
+        />
+      <Button text="Submit" onPress={handleSubmit}/>
     </View>
   )
 }
