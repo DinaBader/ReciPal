@@ -1,4 +1,4 @@
-import { View, Text, TextInput,Image, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput,Image, TouchableOpacity,Button, Alert } from 'react-native';
 import React,{useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import  axios from 'axios';
@@ -37,19 +37,40 @@ const EditProfile = ({navigation}) => {
     _retrieveData();
   },[])
 
+  const showAlert = () =>
+  Alert.alert(
+    'Empty Fields',
+    'Please enter either Username or Email',
+    [
+      {
+        text: 'OK',
+        style: 'cancel',
+      },
+    ],
+    
+  );
+
+
   const handleSubmit = ()=>{
-       axios.post(`${BASE_URL}/reward/editProfile/${userId}`,
-       {
-        username,
-        email
-       }).then((res)=>{
-        console.log("changed",res.data); 
-        setUsername("");
-        setEmail("");
-       }).catch((error)=>{
-        console.log("error",error);
-       })
+    if(username=="" || email==""){
+      showAlert(); 
+
     }
+    else{
+      axios.post(`${BASE_URL}/reward/editProfile/${userId}`,
+      {
+       username,
+       email
+      }).then((res)=>{
+       console.log("changed",res.data); 
+       setUsername("");
+       setEmail("");
+      }).catch((error)=>{
+       console.log("error",error);
+      })
+
+    }
+  }
 
   
   const navigateToSettings=()=>{
