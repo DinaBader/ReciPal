@@ -98,7 +98,7 @@ const Recipedetail = ({route,navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <ImageHeader source={require('../../../assets/beefchili.jpeg')} text="Beef chili" />
+        <ImageHeader source={require('../../../assets/beefchili.jpeg')} text={recipeDetails.name} />
 
         <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
 
