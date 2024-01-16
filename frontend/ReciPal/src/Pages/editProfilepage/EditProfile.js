@@ -8,13 +8,13 @@ import Button from "../../Components/button/buttoncomp";
 const EditProfile = ({navigation}) => {
   const [username,setUsername]=useState("");
   const [email,setEmail]=useState("");
-  
-  const handleEmail=()=>{
-     
+
+  const handleEmail=(text)=>{
+     setEmail(text);
   }
 
-  const handleUsername=()=>{
-     
+  const handleUsername=(text)=>{
+     setUsername(text);
   }
 
   const _retrieveData = async () => {
