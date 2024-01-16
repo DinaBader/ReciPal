@@ -43,7 +43,7 @@ const Setting = ({navigation}) => {
         </View>
 
         <View style={style.next}>
-        <Text style={[common.white,style.languages]}>FeedBack  </Text>
+        <Text style={[common.white,style.languages]}>Feedback  </Text>
         <TouchableOpacity onPress={navigateToFeedBack}>
           <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
         </TouchableOpacity>
