@@ -25,6 +25,10 @@ const EditProfile = ({navigation}) => {
   useEffect(()=>{
     _retrieveData()
   },[])
+
+  const handleSubmit=()=>{
+    
+  }
   
   const navigateToSettings=()=>{
     navigation.goBack();
@@ -43,7 +47,7 @@ const EditProfile = ({navigation}) => {
         placeholder={username}/>
       <Text style={[common.gray,style.title]}>Email</Text>
       <TextInput
-        style={[style.input]}/>
+        style={[style.input]} onPress={handleSubmit}/>
       <Button text="Submit"/>
     </View>
   )
