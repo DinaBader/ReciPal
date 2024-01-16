@@ -74,6 +74,16 @@ const Recipedetail = ({route,navigation}) => {
     fetchData();
   }, [userId]);
   
+  const updateSavedStatus = async (status) => {
+    try {
+      await AsyncStorage.setItem(`saved_${recipeId}`, status.toString());
+      setSaved(status);
+    } catch (error) {
+      console.error('Error updating saved status:', error);
+    }
+  };
+  
+
   return (
       <ScrollView style={[common.backgroundColor,style.container]}>
 

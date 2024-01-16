@@ -9,7 +9,6 @@ import styles from "./style"
 const Saved = ({navigation}) => { 
     const [recipes,getRecipes]=useState([]);
     const [userId, setUserId] = useState(null);
-    const [recipeId,setRecipeId]=useState([]);
     const navigateToSettings=()=>{
         navigation.goBack();
     }
@@ -43,7 +42,6 @@ const Saved = ({navigation}) => {
             if (savedRecipes && savedRecipes.length > 0) {
                 const recipeIds = savedRecipes.map((item) => item.recipe);
                 console.log('Recipe IDs:', recipeIds);
-                setRecipeId(recipeIds);
                 getRecipes(recipeIds); 
             }
           })
