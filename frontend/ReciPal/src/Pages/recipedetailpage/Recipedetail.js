@@ -64,13 +64,14 @@ const Recipedetail = ({route,navigation}) => {
   useEffect(() => {
     const fetchData = async () => {
       await _retrieveData();
-      console.log('userId', userId);
+      const savedStatus = await AsyncStorage.getItem(`saved_${recipeId}`);
+      setSaved(savedStatus || 'false');
       getRecipeDetails();
     };
-
+  
     fetchData();
   }, [userId]);
-  
+    
   const updateSavedStatus = async (status) => {
     try {
       await AsyncStorage.setItem(`saved_${recipeId}`, status.toString());
