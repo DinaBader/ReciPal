@@ -41,29 +41,26 @@ const Recipedetail = ({route,navigation}) => {
     })
   }
 
-  const saveRecipe=()=>{
-    if(saved=="false"){
-      axios.post(`${BASE_URL}/reward/saveRecipe/${userId}/${recipeId}`
-      ).then((res)=>{
-        console.log("recipe saved");
-        setSaved("true")
-      }).catch((error)=>{
-        console.log("error saving recipe",error);
-      })
+  const saveRecipe = async () => {
+    if (saved === 'false') {
+      try {
+        await axios.post(`${BASE_URL}/reward/saveRecipe/${userId}/${recipeId}`);
+        console.log('recipe saved');
+        updateSavedStatus('true');
+      } catch (error) {
+        console.log('error saving recipe', error);
+      }
+    } else {
+      try {
+        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${userId}/${recipeId}`);
+        console.log('recipe unsaved');
+        updateSavedStatus('false');
+      } catch (error) {
+        console.log('error unsaving recipe', error);
+      }
+    }
+  };
   
-    }
-    else{
-      axios.post(`${BASE_URL}/reward/unsaveRecipe/${userId}/${recipeId}`
-      ).then((res)=>{
-        console.log("recipe unsaved");
-        setSaved("false")
-      }).catch((error)=>{
-        console.log("error unsaving recipe",error);
-      })
-
-    }
-  }
-
   useEffect(() => {
     const fetchData = async () => {
       await _retrieveData();
@@ -79,7 +76,7 @@ const Recipedetail = ({route,navigation}) => {
       await AsyncStorage.setItem(`saved_${recipeId}`, status.toString());
       setSaved(status);
     } catch (error) {
-      console.error('Error updating saved status:', error);
+      console.error('Error:', error);
     }
   };
   
