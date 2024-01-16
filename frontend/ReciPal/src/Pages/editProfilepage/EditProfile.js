@@ -1,13 +1,16 @@
-import { View, Text, TextInput,Image, TouchableOpacity } from 'react-native'
-import React,{useEffect, useState} from 'react'
+import { View, Text, TextInput,Image, TouchableOpacity } from 'react-native';
+import React,{useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import common from "../../utils/common"
+import  axios from 'axios';
+import {BASE_URL} from "@env";
+import common from "../../utils/common";
 import style from "./style";
 import Button from "../../Components/button/buttoncomp";
 
 const EditProfile = ({navigation}) => {
   const [username,setUsername]=useState("");
   const [email,setEmail]=useState("");
+  const [userId, setUserId] = useState(null);
 
   const handleEmail=(text)=>{
      setEmail(text);
@@ -22,6 +25,8 @@ const EditProfile = ({navigation}) => {
       const userString = await AsyncStorage.getItem('user');
       if (userString !== null) {
         const user = JSON.parse(userString);
+        const retrievedUserId = user._id;
+        setUserId(retrievedUserId);
         if (user && user.username) {
           setUsername(user.username);
         }
@@ -33,11 +38,10 @@ const EditProfile = ({navigation}) => {
   };  
   
   useEffect(()=>{
-    _retrieveData()
+    _retrieveData();
   },[])
 
   const handleSubmit=()=>{
-
   }
 
   
