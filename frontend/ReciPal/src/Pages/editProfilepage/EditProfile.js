@@ -41,8 +41,17 @@ const EditProfile = ({navigation}) => {
     _retrieveData();
   },[])
 
-  const handleSubmit=()=>{
-  }
+  const handleSubmit = ()=>{
+       axios.post(`${BASE_URL}/reward/editProfile/${userId}`,
+       {
+        username,
+        email
+       }).then((res)=>{
+        console.log("changed",res.data); 
+       }).catch((error)=>{
+        console.log("error",error);
+       })
+    }
 
   
   const navigateToSettings=()=>{
