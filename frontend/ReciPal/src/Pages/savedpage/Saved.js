@@ -9,6 +9,7 @@ import styles from "./style"
 const Saved = ({navigation}) => { 
     const [recipes,getRecipes]=useState([]);
     const [userId, setUserId] = useState(null);
+    const [recipeId,setRecipeId]=useState([]);
     const navigateToSettings=()=>{
         navigation.goBack();
     }
@@ -20,7 +21,6 @@ const Saved = ({navigation}) => {
           if (userString !== null) {
             const user = JSON.parse(userString);
             const retrievedUserId = user._id;
-            console.log('User ID:', retrievedUserId); 
             setUserId(retrievedUserId);
           }
         } catch (error) {
@@ -37,9 +37,15 @@ const Saved = ({navigation}) => {
         axios
           .get(`${BASE_URL}/reward/getSavedRecipes/${userId}`)
           .then((res) => {
-            console.log(res.data);
-            const { recipe } = res.data;
-            getRecipes(recipe);
+            const { savedRecipes } = res.data;
+            console.log('Saved Recipes:', savedRecipes);
+
+            if (savedRecipes && savedRecipes.length > 0) {
+                const recipeIds = savedRecipes.map((item) => item.recipe);
+                console.log('Recipe IDs:', recipeIds);
+                setRecipeId(recipeIds);
+                getRecipes(recipeIds); 
+            }
           })
           .catch((error) => {
             console.log('Error fetching saved recipes', error);
@@ -55,7 +61,6 @@ const Saved = ({navigation}) => {
     
       useEffect(() => {
         if (userId !== null) {
-          console.log('userId in useEffect', userId);
           getSavedRecipes();
         }
       }, [userId]);
