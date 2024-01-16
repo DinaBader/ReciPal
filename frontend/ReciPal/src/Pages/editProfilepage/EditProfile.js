@@ -3,7 +3,7 @@ import React,{useEffect, useState} from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import common from "../../utils/common"
 import style from "./style";
-
+import Button from "../../Components/button/buttoncomp";
 
 const EditProfile = ({navigation}) => {
   const [username,setUsername]=useState("");
@@ -44,6 +44,7 @@ const EditProfile = ({navigation}) => {
       <Text style={[common.gray,style.title]}>Email</Text>
       <TextInput
         style={[style.input]}/>
+      <Button text="Submit"/>
     </View>
   )
 }
