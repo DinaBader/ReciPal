@@ -68,7 +68,6 @@ const EditProfile = ({navigation}) => {
       <Text style={[common.gray,style.title]}>Username</Text>
       <TextInput
         style={[style.input]}
-        placeholder={username}
         value={username}
         onChangeText={handleUsername}
         />
@@ -78,7 +77,9 @@ const EditProfile = ({navigation}) => {
         value={email}
         onChangeText={handleEmail}
         />
-      <Button text="Submit" onPress={handleSubmit}/>
+      <TouchableOpacity style={[common.yellow_bg,style.button,common.raduis,common.center]} onPress={handleSubmit}>
+        <Text style={[common.bold]}>Submit</Text>
+        </TouchableOpacity>
     </View>
   )
 }

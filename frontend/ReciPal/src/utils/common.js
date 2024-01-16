@@ -44,7 +44,7 @@ const common = StyleSheet.create({
     header:{
         marginTop:40 ,
         marginLeft:30,
-        fontSize:39,
+        fontSize:34,
         letterSpacing:1,
     },
     flex:{
