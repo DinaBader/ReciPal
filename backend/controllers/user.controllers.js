@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
 const Recipe = require("../models/recipe.model");
+const mongoose=require("mongoose")
 const findByIdAndUpdate = async (userId, update) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(userId, update, { new: true });
@@ -67,13 +68,32 @@ const saveRecipe = async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
+    user.saved = user.saved || [];
+
     const isRecipeSaved = user.saved.some(savedRecipe => savedRecipe.recipe.toString() === recipeId);
 
     if (isRecipeSaved) {
       return res.status(400).json({ error: 'Recipe already saved' });
     }
 
-    user.saved.push({ recipe: recipeId });
+    const recipe = await Recipe.findById(recipeId, 'image name');
+
+    if (!recipe) {
+      return res.status(404).json({ error: 'Recipe not found' });
+    }
+
+    console.log('Fetched Recipe:', recipe);
+    console.log("title",recipe.name)
+    console.log('Before push:', user.saved);
+    console.log('Title before push:', recipe.name);
+
+    user.saved.push({
+      title: recipe.name,
+      recipe: recipeId,
+      image: recipe.image,
+    });
+    console.log('After push:', user.saved);
+    console.log('Title After push:', recipe.name);
 
     await user.save();
 
