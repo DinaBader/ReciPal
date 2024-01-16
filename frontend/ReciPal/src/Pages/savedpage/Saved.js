@@ -20,32 +20,48 @@ const Saved = ({navigation}) => {
           if (userString !== null) {
             const user = JSON.parse(userString);
             const retrievedUserId = user._id;
-            setUserId(retrievedUserId); 
-            console.log('User ID:', retrievedUserId);
-            }
+            console.log('User ID:', retrievedUserId); 
+            setUserId(retrievedUserId);
+          }
         } catch (error) {
-          console.error("Error retrieving data:", error);
+          console.error('Error retrieving data:', error);
         }
-      };  
-
-      
-    const getSavedRecipes=()=>{
-        axios.get(`${BASE_URL}/reward/getSavedRecipes/${userId}`
-        ).then((res)=>{
-             const {recipe} =res.data;
-             getRecipes(recipe)
-        }).catch((error)=>{
-            console.log("Error fetching saved recipes",error);
-        })
-    }
-
-
-
-    useEffect(()=>{
-        getSavedRecipes();
-        _retrieveData();
-    },[])
-
+      };
+        
+      const getSavedRecipes = () => {
+        if (userId === null) {
+          console.error('User ID is null. Unable to fetch saved recipes.');
+          return;
+        }
+    
+        axios
+          .get(`${BASE_URL}/reward/getSavedRecipes/${userId}`)
+          .then((res) => {
+            console.log(res.data);
+            const { recipe } = res.data;
+            getRecipes(recipe);
+          })
+          .catch((error) => {
+            console.log('Error fetching saved recipes', error);
+          });
+      };
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          await _retrieveData();
+        };
+        fetchData();
+      }, []);
+    
+      useEffect(() => {
+        if (userId !== null) {
+          console.log('userId in useEffect', userId);
+          getSavedRecipes();
+        }
+      }, [userId]);
+            
+            
+            
   return ( 
 
     <View style={[common.backgroundColor]}>
@@ -62,12 +78,6 @@ const Saved = ({navigation}) => {
             </TouchableOpacity>
         </View>
 
-        <View style={[styles.item,styles.background]}>
-            <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"/>
-            <TouchableOpacity style={[styles.deleteButton,common.center]}>
-                <Text style={common.bold}>Delete </Text>
-            </TouchableOpacity>
-        </View>
 
     </View>
   )

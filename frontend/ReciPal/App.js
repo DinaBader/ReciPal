@@ -81,7 +81,7 @@ const App = () => {
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             
           </>
-          )}   
+          )}  
       </Stack.Navigator>
     </NavigationContainer>
   );

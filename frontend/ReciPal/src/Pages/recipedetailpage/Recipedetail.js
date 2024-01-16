@@ -23,13 +23,13 @@ const Recipedetail = ({route,navigation}) => {
       if (userString !== null) {
         const user = JSON.parse(userString);
         const retrievedUserId = user._id;
-        setUserId(retrievedUserId); 
-        console.log('User ID:', retrievedUserId);
-        }
+        console.log('User ID:', retrievedUserId); 
+        setUserId(retrievedUserId);
+      }
     } catch (error) {
-      console.error("Error retrieving data:", error);
+      console.error('Error retrieving data:', error);
     }
-  };  
+  };
 
   const getRecipeDetails=()=>{
     axios.get(`${BASE_URL}/recipe/getRecipeById/${recipeId}`
@@ -64,11 +64,16 @@ const Recipedetail = ({route,navigation}) => {
     }
   }
 
-  useEffect(()=>{
-    getRecipeDetails();
-    _retrieveData()
-  },[]);
+  useEffect(() => {
+    const fetchData = async () => {
+      await _retrieveData();
+      console.log('userId', userId);
+      getRecipeDetails();
+    };
 
+    fetchData();
+  }, [userId]);
+  
   return (
       <ScrollView style={[common.backgroundColor,style.container]}>
 
