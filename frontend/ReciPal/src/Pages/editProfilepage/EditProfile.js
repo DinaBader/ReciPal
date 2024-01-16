@@ -8,6 +8,15 @@ import Button from "../../Components/button/buttoncomp";
 const EditProfile = ({navigation}) => {
   const [username,setUsername]=useState("");
   const [email,setEmail]=useState("");
+  
+  const handleEmail=()=>{
+     
+  }
+
+  const handleUsername=()=>{
+     
+  }
+
   const _retrieveData = async () => {
     try {
       const userString = await AsyncStorage.getItem('user');
@@ -30,6 +39,7 @@ const EditProfile = ({navigation}) => {
   const handleSubmit=()=>{
 
   }
+
   
   const navigateToSettings=()=>{
     navigation.goBack();
@@ -47,11 +57,13 @@ const EditProfile = ({navigation}) => {
         style={[style.input]}
         placeholder={username}
         value={username}
+        onChangeText={handleUsername}
         />
       <Text style={[common.gray,style.title]}>Email</Text>
       <TextInput
         style={[style.input]} 
         value={email}
+        onChangeText={handleEmail}
         />
       <Button text="Submit" onPress={handleSubmit}/>
     </View>
