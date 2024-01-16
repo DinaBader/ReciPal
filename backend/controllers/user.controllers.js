@@ -210,6 +210,34 @@ const getSavedRecipes = async (req, res) => {
   }
 };
 
+const editProfile = async (req, res) => {
+  const { userId } = req.params;
+  const { username, email } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    if (username) {
+      user.username = username;
+    }
+
+    if (email) {
+      user.email = email;
+    }
+
+    await user.save();
+
+    return res.json({ message: 'Profile updated successfully', user });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
 module.exports = {
     findByIdAndUpdate,
     addReward,
@@ -218,5 +246,6 @@ module.exports = {
     update_image,
     saveRecipe,
     unsaveRecipe,
-    getSavedRecipes
+    getSavedRecipes,
+    editProfile
 };
