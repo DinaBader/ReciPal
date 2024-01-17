@@ -1,6 +1,7 @@
 import { View, Text, ScrollView,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
+import AwardsComp from '../../Components/awards/awards'
 const Awards = ({navigation}) => {
   const navigateBack=()=>{
     navigation.goBack();
@@ -13,6 +14,7 @@ const Awards = ({navigation}) => {
         </TouchableOpacity>
         <Text style={[common.header,common.white]}>Awards</Text>
       </View>
+      <AwardsComp/>
     </ScrollView>
   )
 }
