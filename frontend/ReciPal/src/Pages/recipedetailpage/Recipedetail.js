@@ -67,7 +67,10 @@ const Recipedetail = ({route,navigation}) => {
       await _retrieveData();
       const savedStatus = await AsyncStorage.getItem(`saved_${recipeId}`);
       setSaved(savedStatus || 'false');
-      getRecipeDetails();
+
+      // const Completed = await AsyncStorage.getItem(`completed_${recipeId}`);
+      // SetCompleted(Completed || 'false');
+      // getRecipeDetails();
     };
   
     fetchData();
@@ -84,13 +87,14 @@ const Recipedetail = ({route,navigation}) => {
 
   const showAlert = () =>
   Alert.alert(
-    'fdfd',
+    'Completed?',
     'Did you complete this recipe?',
     [
       {
         text: 'Yes',
         onPress: () => {
           SetCompleted(!completed);
+          // CompletedRecipe();
         },
         style: 'cancel',
       },
@@ -102,10 +106,20 @@ const Recipedetail = ({route,navigation}) => {
     
   );
 
+  // const CompletedRecipe = async () => {
+  //   try {
+  //     await AsyncStorage.setItem(`completed_${recipeId}`, completed.toString());
+  //     SetCompleted(completed);
+
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
   
   const handleCompleted=()=>{
     if(completed=='false'){
-      showAlert(); 
+      showAlert();
+
     }
     else{
       SetCompleted(!completed)
