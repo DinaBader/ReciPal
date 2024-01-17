@@ -11,7 +11,7 @@ router.post('/saveRecipe/:userId/:recipeId',saveRecipe);
 router.post('/unsaveRecipe/:userId/:recipeId',unsaveRecipe);
 router.get('/getSavedRecipes/:userId',getSavedRecipes);
 router.post('/editProfile/:userId',editProfile);
-router.get("/getRewards/:userId", getRewards);
+router.get("/getRewards", authMiddleware,getRewards);
 
 router.get("/get-user", get_user);
 
