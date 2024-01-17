@@ -1,10 +1,10 @@
 import { View, Text ,Image,TouchableOpacity} from 'react-native';
 import { RadioButton } from 'react-native-paper';
-import React from 'react'
+import React, { useEffect } from 'react'
 import common from '../../utils/common';
 import style from "./style.js"
 const Languages = () => {
-  const [checked, setChecked] = React.useState('first');
+  const [checked, setChecked] = React.useState('English');
 
   const handleRadioButtonChange = (value) => {
     setChecked(value);
@@ -23,15 +23,15 @@ const Languages = () => {
       <View style={[common.title,style.align]}>
        <RadioButton
           value="English"
-          status={ checked === 'first' ? 'checked' : 'unchecked' }
-          onPress={() => handleRadioButtonChange('first')}
+          status={ checked === 'English' ? 'checked' : 'unchecked' }
+          onPress={() => handleRadioButtonChange('English')}
           style={style.radiobutton}
         />
           <Text style={[style.radioButtonText,common.white]}>English</Text>
         <RadioButton
           value="Arabic"
-          status={ checked === 'second' ? 'checked' : 'unchecked' }
-          onPress={() => handleRadioButtonChange('second')}
+          status={ checked === 'Arabic' ? 'checked' : 'unchecked' }
+          onPress={() => handleRadioButtonChange('Arabic')}
         />
         <Text style={[style.radioButtonText,common.white]}>Arabic</Text>
        </View>
