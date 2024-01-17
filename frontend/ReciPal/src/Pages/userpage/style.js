@@ -13,8 +13,7 @@ const styles=StyleSheet.create({
     foodCircleContainer: {
         flexDirection: 'row', 
         marginTop: 20,
-        marginLeft:50,
-        gap:45
+        marginLeft:-140,
     },
     recipeText:{
         marginLeft:50,
@@ -24,8 +23,7 @@ const styles=StyleSheet.create({
     foodCard:{
         flexDirection:'row',
         flexWrap:'wrap'
-    }
-    
+    }    
 })
  
 export default styles;

@@ -1,13 +1,16 @@
-import { View, Text, ScrollView,TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView,TouchableOpacity,Dimensions  } from 'react-native';
 import React,{useState,useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {BASE_URL} from '@env'
 import axios from 'axios'
+const SLIDER_WIDTH = Dimensions.get('window').width/0.8;
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
 import common from "../../utils/common";
 import styles from "./style";
 import Search from "../../Components/search/searchcomp"
 import Foodcircle from "../../Components/foodcircle/food"
 import FoodCard from  "../../Components/foodcard/FoodCardComp"
+import Carousel from 'react-native-snap-carousel';
 const User = () => {
   const navigation = useNavigation();
   const [selectedFood, setSelectedFood] = useState(null);
@@ -19,9 +22,15 @@ const User = () => {
   const NavigateTodetails=(recipeId)=>{
     navigation.navigate('RecipeDetail', { recipeId });
   }
+  const foodCircleData = [
+    { key: 'Beef', source: require("../../../assets/beef.jpg") },
+    { key: 'Fish', source: require("../../../assets/fish.jpg") },
+    { key: 'Dips', source: require("../../../assets/dips.jpeg") },
+    { key: 'MoreFood', source: require("../../../assets/beef.jpg") },
+    { key: 'EvenMoreFood', source:  require("../../../assets/beef.jpg") },
+  ];
 
   const getRecipes = async () => {
-   
       axios.get(
         `${BASE_URL}/recipe/getRecipe`).then(function(res){
           setRecipes(res.data.recipes)
@@ -31,37 +40,35 @@ const User = () => {
   useEffect(()=>{
     getRecipes()
   },[])
-  
+
   return (
     <ScrollView style={[common.backgroundColor,styles.container]}>
       <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
       <Search/>
       <View style={styles.foodCircleContainer}>
-
-        <TouchableOpacity onPress={() => handleFoodPress("Beef")}>
-        <Foodcircle source={require("../../../assets/beef.jpg")} text="Beef" selected={selectedFood === "Beef"}/>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => handleFoodPress("Fish")}>
-        <Foodcircle source={require("../../../assets/fish.jpg")} text="Fish" selected={selectedFood === "Fish"}/>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => handleFoodPress("Dips")}>
-        <Foodcircle source={require("../../../assets/dips.jpeg")} text="Dips" selected={selectedFood === "Dips"} />
-        </TouchableOpacity>
+        <Carousel
+        data={foodCircleData}
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => handleFoodPress(item.key)}>
+            <Foodcircle source={item.source} text={item.key} selected={selectedFood === item.key} />
+          </TouchableOpacity>
+        )}
+        sliderWidth={SLIDER_WIDTH}
+        itemWidth={ITEM_WIDTH}
+      />
 
 
       </View>
-      <Text style={[common.white,styles.recipeText]}>Recipes</Text>
-      <View style={styles.foodCard}>
-        {recipes.map((recipe, index) => (
-          <FoodCard
-            key={index}
-            source={{ uri: `${BASE_URL}/public/recipe/${recipe.image}` }}
-            text={recipe.name}
-            onPress={() => NavigateTodetails(recipe._id)}
-          />
-        ))}
+        <Text style={[common.white,styles.recipeText]}>Recipes</Text>
+        <View style={styles.foodCard}>
+          {recipes.map((recipe, index) => (
+            <FoodCard
+              key={index}
+              source={{ uri: `${BASE_URL}/public/recipe/${recipe.image}` }}
+              text={recipe.name}
+              onPress={() => NavigateTodetails(recipe._id)}
+            />
+          ))}
       </View>
     </ScrollView>
   );
