@@ -79,16 +79,19 @@ const Saved = ({navigation}) => {
         </TouchableOpacity>
             <Text style={[common.white,common.header]}>Saved</Text>
         </View>
-        <View style={[styles.item,styles.background ]}>
           {recipeName.map((name, index) => (
-              <View key={index} style={styles.comp}>
-                  <FoodCard source={{uri: recipeImage[index]}} text={name}/>
-                  <TouchableOpacity style={[styles.deleteButton, common.center]}>
-                      <Text style={common.bold}>Delete </Text>
-                  </TouchableOpacity>
+              <View style={[styles.item,styles.background ]}>
+                <View key={index} style={styles.comp}>
+                    <FoodCard source={{uri: recipeImage[index]}} text={name}/>
+                    <TouchableOpacity style={[styles.deleteButton, common.center]}>
+                      <View style={styles.align}>
+                       <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
+                       <Text style={common.bold}>Delete</Text>
+                       </View>
+                    </TouchableOpacity>
+                </View>
               </View>
             ))}
-        </View>
 
 
     </View>

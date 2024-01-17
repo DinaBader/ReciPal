@@ -70,7 +70,7 @@ const Recipedetail = ({route,navigation}) => {
 
       // const Completed = await AsyncStorage.getItem(`completed_${recipeId}`);
       // SetCompleted(Completed || 'false');
-      // getRecipeDetails();
+      getRecipeDetails();
     };
   
     fetchData();
