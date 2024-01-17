@@ -5,6 +5,9 @@ const Style=StyleSheet.create({
         fontSize:25,
         paddingLeft:40,
         marginTop:10,
+    },
+    radiobutton:{
+        marginRight:50
     }
 });
 
