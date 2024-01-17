@@ -1,10 +1,18 @@
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
-const Awards = () => {
+const Awards = ({navigation}) => {
+  const navigateBack=()=>{
+    navigation.goBack();
+  }
   return (
     <ScrollView style={[common.backgroundColor]}>
-        <Text style={[common.white,common.header]}>Awards</Text>
+      <View style={[common.title]}>
+        <TouchableOpacity onPress={navigateBack}> 
+          <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
+        </TouchableOpacity>
+        <Text style={[common.header,common.white]}>Feedback</Text>
+      </View>
     </ScrollView>
   )
 }
