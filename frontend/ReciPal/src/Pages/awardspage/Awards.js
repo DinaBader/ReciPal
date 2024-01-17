@@ -11,7 +11,7 @@ const Awards = ({navigation}) => {
         <TouchableOpacity onPress={navigateBack}> 
           <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
         </TouchableOpacity>
-        <Text style={[common.header,common.white]}>Feedback</Text>
+        <Text style={[common.header,common.white]}>Awards</Text>
       </View>
     </ScrollView>
   )
