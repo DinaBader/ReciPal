@@ -101,9 +101,14 @@ const Recipedetail = ({route,navigation}) => {
     [
       {
         text: 'Yes',
-        onPress: () => {
-          console.log("Before:",completed)
+        onPress: async() => {
           SetCompleted(!completed);
+          try {
+            await axios.post(`${BASE_URL}/reward/addReward/${userId}/${recipeId}`);
+            console.log("Reward Added");
+          } catch (error) {
+            console.error('Error adding reward:', error);
+          }
         },
         style: 'cancel',
       },
@@ -121,12 +126,15 @@ const Recipedetail = ({route,navigation}) => {
 
   const CompletedRecipe = async () => {
     try {
+      // await axios.post(`${BASE_URL}/reward/addReward/${userId}/${recipeId}`);
+      // console.log("Reward Added");
+  
       await AsyncStorage.setItem(`completed_${recipeId}`, completed.toString());
     } catch (error) {
       console.error('Error:', error);
     }
   };
-  
+    
   const handleCompleted=()=>{
     if(!completed){
       showAlert();
