@@ -82,18 +82,11 @@ const saveRecipe = async (req, res) => {
       return res.status(404).json({ error: 'Recipe not found' });
     }
 
-    console.log('Fetched Recipe:', recipe);
-    console.log("title",recipe.name)
-    console.log('Before push:', user.saved);
-    console.log('Title before push:', recipe.name);
-
     user.saved.push({
       title: recipe.name,
       recipe: recipeId,
       image: recipe.image,
     });
-    console.log('After push:', user.saved);
-    console.log('Title After push:', recipe.name);
 
     await user.save();
 

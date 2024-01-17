@@ -46,6 +46,14 @@ const userSchema=new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"recipe",
         },
+        title:{
+            type:String,
+            required:true 
+        },
+        image:{
+            type:String,
+            required:false,
+        }
     }]   
 
 });
