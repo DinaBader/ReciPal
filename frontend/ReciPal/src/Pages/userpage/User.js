@@ -27,7 +27,6 @@ const User = ({navigation}) => {
       axios.get(
         `${BASE_URL}/recipe/getRecipe`).then(function(res){
           setRecipes(res.data.recipes)
-          console.log(recipes)
         })
   };
 
@@ -58,7 +57,7 @@ const User = ({navigation}) => {
           {recipes.map((recipe, index) => (
             <FoodCard
               key={index}
-              source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+              source={{ uri: `${BASE_URL}/recipes/1705329364451.jpg` }}
               text={recipe.name}
               onPress={() => NavigateTodetails(recipe._id)}
             />
