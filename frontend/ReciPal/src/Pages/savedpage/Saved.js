@@ -34,27 +34,27 @@ const Saved = ({navigation}) => {
           console.error('User ID is null. Unable to fetch saved recipes.');
           return;
         }
-    
+      
         axios
           .get(`${BASE_URL}/reward/getSavedRecipes/${userId}`)
           .then((res) => {
             const { savedRecipes } = res.data;
             console.log('Saved Recipes:', savedRecipes);
-            
+      
             if (savedRecipes && savedRecipes.length > 0) {
-              const recipeName = savedRecipes.map((item) => item.title);
-              setRecipeName(recipeName);
-              const recipeImage = savedRecipes.map((item) => item.image);
-              setRecipeImage(recipeImage);
-              const recipeIds = savedRecipes.map((item) => item.recipe);
-              getRecipes(recipeIds); 
+              const recipesData = savedRecipes.map((item) => ({
+                recipeId: item.recipe,
+                recipeName: item.title,
+                recipeImage: item.image,
+              }));
+              getRecipes(recipesData);
             }
           })
           .catch((error) => {
             console.log('Error fetching saved recipes', error);
           });
       };
-    
+          
       useEffect(() => {
         const fetchData = async () => {
           await _retrieveData();
@@ -68,6 +68,15 @@ const Saved = ({navigation}) => {
         }
       }, [userId]);
             
+    const DeleteRecipe=async()=>{
+      try {
+        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${userId}/${recipeId}`);
+        console.log('recipe unsaved');
+      } catch (error) {
+        console.log('error unsaving recipe', error);
+      }
+    }
+
             
             
   return ( 
@@ -79,11 +88,14 @@ const Saved = ({navigation}) => {
         </TouchableOpacity>
             <Text style={[common.white,common.header]}>Saved</Text>
         </View>
-          {recipeName.map((name, index) => (
-              <View style={[styles.item,styles.background ]}>
-                <View key={index} style={styles.comp}>
-                    <FoodCard source={{uri: recipeImage[index]}} text={name}/>
-                    <TouchableOpacity style={[styles.deleteButton, common.center]}>
+        {recipes.map((recipe, index) => (
+            <View style={[styles.item, styles.background]} key={index}>
+              <View style={styles.comp}>
+                <FoodCard source={{ uri: recipe.recipeImage }} text={recipe.recipeName} />
+                <TouchableOpacity
+                  style={[styles.deleteButton, common.center]}
+                  onPress={() => DeleteRecipe(recipe.recipeId)}
+              >
                       <View style={styles.align}>
                        <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
                        <Text style={common.bold}>Delete</Text>
