@@ -1,10 +1,7 @@
-import { View, Text, ScrollView,TouchableOpacity,Dimensions  } from 'react-native';
+import { View, Text, ScrollView,TouchableOpacity,Dimensions} from 'react-native';
 import React,{useState,useEffect} from 'react';
-import { useNavigation } from '@react-navigation/native';
 import {BASE_URL} from '@env'
 import axios from 'axios'
-const SLIDER_WIDTH = Dimensions.get('window').width/0.8;
-const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
 import foodCircleData from "../../Components/foodCircleData"
 import common from "../../utils/common";
 import styles from "./style";
@@ -12,6 +9,9 @@ import Search from "../../Components/search/searchcomp"
 import Foodcircle from "../../Components/foodcircle/food"
 import FoodCard from  "../../Components/foodcard/FoodCardComp"
 import Carousel from 'react-native-snap-carousel';
+const SLIDER_WIDTH = Dimensions.get('window').width/0.8;
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
+
 const User = ({navigation}) => {
   const [selectedFood, setSelectedFood] = useState(null);
   const [recipes,setRecipes]=useState([]);
