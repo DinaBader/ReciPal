@@ -230,6 +230,22 @@ const editProfile = async (req, res) => {
   }
 };
 
+const getRewards=async(req,res)=>{
+  const { userId } = req.params;
+  try{
+    const user=await User.findById(userId); 
+    if(!user){
+      console.log("user not found");
+    }
+    const Rewards = user.rewards;
+    res.status(200).json({ Rewards }); 
+
+  }catch(error){
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+
+  }
+}
 
 module.exports = {
     findByIdAndUpdate,
@@ -240,5 +256,6 @@ module.exports = {
     saveRecipe,
     unsaveRecipe,
     getSavedRecipes,
-    editProfile
+    editProfile,
+    getRewards
 };
