@@ -23,7 +23,14 @@ const styles=StyleSheet.create({
     foodCard:{
         flexDirection:'row',
         flexWrap:'wrap'
-    }    
+    },
+    foodCircleItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginBottom: 10,
+      },
+      
 })
  
 export default styles;

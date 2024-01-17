@@ -47,17 +47,17 @@ const User = () => {
       <Search/>
       <View style={styles.foodCircleContainer}>
         <Carousel
-        data={foodCircleData}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => handleFoodPress(item.key)}>
-            <Foodcircle source={item.source} text={item.key} selected={selectedFood === item.key} />
-          </TouchableOpacity>
-        )}
-        sliderWidth={SLIDER_WIDTH}
-        itemWidth={ITEM_WIDTH}
-      />
-
-
+          data={foodCircleData}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => handleFoodPress(item.key)}>
+              <View style={styles.foodCircleItem}>
+                <Foodcircle source={item.source} text={item.key} selected={selectedFood === item.key} />
+              </View>
+            </TouchableOpacity>
+          )}
+          sliderWidth={SLIDER_WIDTH}
+          itemWidth={ITEM_WIDTH}
+        />
       </View>
         <Text style={[common.white,styles.recipeText]}>Recipes</Text>
         <View style={styles.foodCard}>
