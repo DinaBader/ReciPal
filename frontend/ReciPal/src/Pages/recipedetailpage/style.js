@@ -27,6 +27,11 @@ const styles = StyleSheet.create({
         top: 20, 
         zIndex: 1,
       },    
+      button:{
+        borderRadius:10,
+        marginLeft:50,
+        marginTop:20,
+      }
 })
 
 export default styles;

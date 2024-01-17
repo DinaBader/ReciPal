@@ -81,6 +81,9 @@ const Recipedetail = ({route,navigation}) => {
     }
   };
   
+  const handleCompleted=()=>{
+    
+  }
 
   return (
       <ScrollView style={[common.backgroundColor,style.container]}>
@@ -122,6 +125,12 @@ const Recipedetail = ({route,navigation}) => {
         <Cylinder text={recipeDetails.calories ? recipeDetails.calories.toString() : 'N/A'}/>
         <Cylinder text={recipeDetails.difficulty ? recipeDetails.difficulty.toString() : 'N/A'}/>
       </View>
+      <TouchableOpacity
+       style={[common.yellow_bg,common.button_h,common.button_w,common.center,style.button]}
+       onPress={handleCompleted}
+       >
+        <Text style={[common.bold]}>Completed Recipe</Text>
+      </TouchableOpacity>
       </ScrollView>
 
   );
