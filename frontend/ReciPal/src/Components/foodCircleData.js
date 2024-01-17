@@ -5,3 +5,5 @@ const foodCircleData = [
     { key: 'MoreFood', source: require("../../assets/beef.jpg") },
     { key: 'EvenMoreFood', source:  require("../../assets/beef.jpg") },
   ];
+
+export default foodCircleData;
