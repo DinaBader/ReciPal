@@ -76,7 +76,8 @@ const Saved = ({navigation}) => {
     const DeleteRecipe=async(recipeId)=>{
       try {
         await axios.post(`${BASE_URL}/reward/unsaveRecipe/${userId}/${recipeId}`);
-        console.log('recipe unsaved');
+        console.log('recipe unsaved');    
+        await AsyncStorage.removeItem(`saved_${recipeId}`);
       } catch (error) {
         console.log('error unsaving recipe', error);
       }
