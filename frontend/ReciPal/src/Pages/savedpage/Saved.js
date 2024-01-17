@@ -80,13 +80,14 @@ const Saved = ({navigation}) => {
             <Text style={[common.white,common.header]}>Saved</Text>
         </View>
         <View style={[styles.item,styles.background ]}>
-              {recipeName.map((name, index) => (
-                    <FoodCard key={index} source={{uri: recipeImage[index]}} text={name}/>
-                ))}
-
-            <TouchableOpacity style={[styles.deleteButton,common.center]}>
-                <Text style={common.bold}>Delete </Text>
-            </TouchableOpacity>
+          {recipeName.map((name, index) => (
+              <View key={index} style={styles.comp}>
+                  <FoodCard source={{uri: recipeImage[index]}} text={name}/>
+                  <TouchableOpacity style={[styles.deleteButton, common.center]}>
+                      <Text style={common.bold}>Delete </Text>
+                  </TouchableOpacity>
+              </View>
+            ))}
         </View>
 
 

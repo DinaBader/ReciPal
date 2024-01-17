@@ -1,10 +1,6 @@
 import { StyleSheet } from "react-native";
 
 const styles=StyleSheet.create({
-    item:{
-        flexDirection:'row',
-
-    },
     deleteButton:{
         backgroundColor:'#A62E2E',
         textAlign:'baseline',
@@ -22,7 +18,10 @@ const styles=StyleSheet.create({
         marginLeft:15,
         paddingBottom:20,
         borderRadius:10
-    } 
+    } ,
+    comp:{
+        flexDirection:'row'
+    }
 })
  
 export default styles;
