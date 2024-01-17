@@ -11,6 +11,7 @@ import {BASE_URL} from '@env'
 const Recipedetail = ({route,navigation}) => {
   const [recipeDetails,setRecipeDetails]=useState([]);
   const [userId, setUserId] = useState(null);
+  const [completed,SetCompleted]=useState('false');
   const [saved,setSaved]=useState('false');
   const navigateToHome=()=>{
     navigation.goBack();
@@ -82,7 +83,7 @@ const Recipedetail = ({route,navigation}) => {
   };
   
   const handleCompleted=()=>{
-    
+    SetCompleted(!completed);
   }
 
   return (
@@ -126,7 +127,7 @@ const Recipedetail = ({route,navigation}) => {
         <Cylinder text={recipeDetails.difficulty ? recipeDetails.difficulty.toString() : 'N/A'}/>
       </View>
       <TouchableOpacity
-       style={[common.yellow_bg,common.button_h,common.button_w,common.center,style.button]}
+       style={[common.button_h,common.button_w,common.center,style.button, { backgroundColor: completed ? 'gray' : '#FFBF4D' }]}
        onPress={handleCompleted}
        >
         <Text style={[common.bold]}>Completed Recipe</Text>

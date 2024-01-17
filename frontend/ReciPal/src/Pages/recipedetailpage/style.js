@@ -31,6 +31,12 @@ const styles = StyleSheet.create({
         borderRadius:10,
         marginLeft:50,
         marginTop:20,
+      },
+      completed:{
+        backgroundColor:'#FFBF4D'
+      },
+      notCompleted:{
+        backgroundColor:'grey'
       }
 })
 
