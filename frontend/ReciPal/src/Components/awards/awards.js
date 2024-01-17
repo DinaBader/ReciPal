@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-
+import style from "./style"
 const countries = [
     'Afghanistan',
     'Albania',
@@ -201,9 +201,13 @@ const countries = [
 
 const awards = () => {
   return (
-    <View>
+    <View >
     {countries.map((country, index) => (
-      <Text key={index}>{country}</Text>
+      <>
+      <View style={style.container}>
+      <Text key={index}>Congrats you got an award from {country}</Text>
+      </View> 
+      </>
     ))}
   </View>
   )
