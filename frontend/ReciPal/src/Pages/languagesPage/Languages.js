@@ -15,19 +15,21 @@ const Languages = () => {
         <Text style={[common.white, common.header]}>Languages</Text>
       </View>
       <Text style={[common.gray,style.title]}>Current Language</Text>
-      <RadioButton
-        value="English"
-        status={ checked === 'first' ? 'checked' : 'unchecked' }
-        onPress={() => setChecked('first')}
-        style={style.radiobutton}
-      />
-        <Text style={style.radioButtonText}>English</Text>
-      <RadioButton
-        value="Arabic"
-        status={ checked === 'second' ? 'checked' : 'unchecked' }
-        onPress={() => setChecked('second')}
-      />
-       <Text style={style.radioButtonText}>English</Text>
+      <View style={[common.title,style.align]}>
+       <RadioButton
+          value="English"
+          status={ checked === 'first' ? 'checked' : 'unchecked' }
+          onPress={() => setChecked('first')}
+          style={style.radiobutton}
+        />
+          <Text style={[style.radioButtonText,common.white]}>English</Text>
+        <RadioButton
+          value="Arabic"
+          status={ checked === 'second' ? 'checked' : 'unchecked' }
+          onPress={() => setChecked('second')}
+        />
+        <Text style={[style.radioButtonText,common.white]}>Arabic</Text>
+       </View>
     </View>
   )
 }
