@@ -231,9 +231,10 @@ const editProfile = async (req, res) => {
 };
 
 const getRewards=async(req,res)=>{
-  const { userId } = req.params;
   try{
-    const user=await User.findById(userId); 
+    const userId = req.user._id;
+
+    const user = await User.findById(userId);
     if(!user){
       console.log("user not found");
     }
