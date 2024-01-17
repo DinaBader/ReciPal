@@ -2,6 +2,7 @@ import { View, Text, ScrollView,TouchableOpacity,Image } from 'react-native'
 import React,{ useEffect, useState } from 'react'
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {BASE_URL} from "@env"
 import common from "../../utils/common"
 import AwardsComp from '../../Components/awards/awards'
 const Awards = ({navigation}) => {
@@ -21,11 +22,25 @@ const Awards = ({navigation}) => {
     }
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      await _retrieveData();
+      console.log(userId)
+      getRewards();
+    };
 
-  useEffect(()=>{
-    _retrieveData();
-    console.log(userId); 
-  },[])
+    fetchData();
+  }, []);
+
+  const getRewards=()=>{
+    axios.get(`${BASE_URL}/reward/getRewards/${userId}`
+    ).then((res)=>{
+      console.log(res.data);
+      setRewards(res.data)
+    }).catch((error)=>{
+      console.log("Error getting rewards",error);
+    })
+  }
 
   const navigateBack=()=>{
     navigation.goBack();
