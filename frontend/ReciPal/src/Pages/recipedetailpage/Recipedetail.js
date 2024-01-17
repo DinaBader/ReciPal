@@ -1,4 +1,4 @@
-import { View, Text, ScrollView,TouchableOpacity, Image} from 'react-native';
+import { View, Text, ScrollView,TouchableOpacity, Image, Alert} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios'
@@ -61,7 +61,7 @@ const Recipedetail = ({route,navigation}) => {
       }
     }
   };
-  
+
   useEffect(() => {
     const fetchData = async () => {
       await _retrieveData();
@@ -81,9 +81,35 @@ const Recipedetail = ({route,navigation}) => {
       console.error('Error:', error);
     }
   };
+
+  const showAlert = () =>
+  Alert.alert(
+    'fdfd',
+    'Did you complete this recipe?',
+    [
+      {
+        text: 'Yes',
+        onPress: () => {
+          SetCompleted(!completed);
+        },
+        style: 'cancel',
+      },
+      {
+        text: 'NO',
+        style: 'cancel',
+      },
+    ],
+    
+  );
+
   
   const handleCompleted=()=>{
-    SetCompleted(!completed);
+    if(completed=='false'){
+      showAlert(); 
+    }
+    else{
+      SetCompleted(!completed)
+    }
   }
 
   return (
