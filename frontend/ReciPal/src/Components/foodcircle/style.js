@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         padding: 10,
       },
+      foodcircle:{
+        width: 70, 
+        height: 70, 
+        borderRadius: 100
+      }
 })
 
 export default styles;
