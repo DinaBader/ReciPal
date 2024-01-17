@@ -8,14 +8,15 @@ const Style=StyleSheet.create({
     },
     align:{
         alignItems:'center',
-        paddingLeft:30
+        paddingLeft:30,
+        paddingTop:10
     },
     radiobutton:{
         height:50,
         width:50
     },
     radioButtonText: {
-        fontSize: 18, 
+        fontSize: 20, 
         marginLeft: 8, 
     },
     

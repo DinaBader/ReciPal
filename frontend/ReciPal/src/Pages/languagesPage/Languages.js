@@ -6,6 +6,11 @@ import style from "./style.js"
 const Languages = () => {
   const [checked, setChecked] = React.useState('first');
 
+  const handleRadioButtonChange = (value) => {
+    setChecked(value);
+  };
+
+
   return (
     <View style={[common.backgroundColor]}>
       <View style={[common.title]}>
@@ -19,14 +24,14 @@ const Languages = () => {
        <RadioButton
           value="English"
           status={ checked === 'first' ? 'checked' : 'unchecked' }
-          onPress={() => setChecked('first')}
+          onPress={() => handleRadioButtonChange('first')}
           style={style.radiobutton}
         />
           <Text style={[style.radioButtonText,common.white]}>English</Text>
         <RadioButton
           value="Arabic"
           status={ checked === 'second' ? 'checked' : 'unchecked' }
-          onPress={() => setChecked('second')}
+          onPress={() => handleRadioButtonChange('second')}
         />
         <Text style={[style.radioButtonText,common.white]}>Arabic</Text>
        </View>
