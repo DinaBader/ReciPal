@@ -5,14 +5,14 @@ import {BASE_URL} from '@env'
 import axios from 'axios'
 const SLIDER_WIDTH = Dimensions.get('window').width/0.8;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
+import foodCircleData from "../../Components/foodCircleData"
 import common from "../../utils/common";
 import styles from "./style";
 import Search from "../../Components/search/searchcomp"
 import Foodcircle from "../../Components/foodcircle/food"
 import FoodCard from  "../../Components/foodcard/FoodCardComp"
 import Carousel from 'react-native-snap-carousel';
-const User = () => {
-  const navigation = useNavigation();
+const User = ({navigation}) => {
   const [selectedFood, setSelectedFood] = useState(null);
   const [recipes,setRecipes]=useState([]);
   const handleFoodPress = (food) => {
@@ -22,13 +22,6 @@ const User = () => {
   const NavigateTodetails=(recipeId)=>{
     navigation.navigate('RecipeDetail', { recipeId });
   }
-  const foodCircleData = [
-    { key: 'Beef', source: require("../../../assets/beef.jpg") },
-    { key: 'Fish', source: require("../../../assets/fish.jpg") },
-    { key: 'Dips', source: require("../../../assets/dips.jpeg") },
-    { key: 'MoreFood', source: require("../../../assets/beef.jpg") },
-    { key: 'EvenMoreFood', source:  require("../../../assets/beef.jpg") },
-  ];
 
   const getRecipes = async () => {
       axios.get(
