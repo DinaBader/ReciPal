@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity,Image } from 'react-native'
+import { View, Text, TouchableOpacity,Image, ScrollView } from 'react-native'
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -81,7 +81,7 @@ const Saved = ({navigation}) => {
             
   return ( 
 
-    <View style={[common.backgroundColor]}>
+    <ScrollView style={[common.backgroundColor]}>
         <View style={[common.title]}>
         <TouchableOpacity onPress={navigateToSettings}>
             <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
@@ -104,9 +104,7 @@ const Saved = ({navigation}) => {
                 </View>
               </View>
             ))}
-
-
-    </View>
+    </ScrollView>
   )
 }
 
