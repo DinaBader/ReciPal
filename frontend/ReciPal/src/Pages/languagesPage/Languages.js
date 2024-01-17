@@ -11,8 +11,7 @@ const Languages = () => {
           </TouchableOpacity>
         <Text style={[common.white, common.header]}>Languages</Text>
       </View>
-      <Text style={[common.gray,style.title]}>Username</Text>
-
+      <Text style={[common.gray,style.title]}>Current Language</Text>
     </View>
   )
 }
