@@ -9,6 +9,8 @@ import styles from "./style"
 const Saved = ({navigation}) => { 
     const [recipes,getRecipes]=useState([]);
     const [userId, setUserId] = useState(null);
+    const [recipeImage,setRecipeImage]=useState([]);
+    const [recipeName,setRecipeName]=useState([]);
     const navigateToSettings=()=>{
         navigation.goBack();
     }
@@ -38,11 +40,14 @@ const Saved = ({navigation}) => {
           .then((res) => {
             const { savedRecipes } = res.data;
             console.log('Saved Recipes:', savedRecipes);
-
+            
             if (savedRecipes && savedRecipes.length > 0) {
-                const recipeIds = savedRecipes.map((item) => item.recipe);
-                console.log('Recipe IDs:', recipeIds);
-                getRecipes(recipeIds); 
+              const recipeName = savedRecipes.map((item) => item.title);
+              setRecipeName(recipeName);
+              const recipeImage = savedRecipes.map((item) => item.image);
+              setRecipeImage(recipeImage);
+              const recipeIds = savedRecipes.map((item) => item.recipe);
+              getRecipes(recipeIds); 
             }
           })
           .catch((error) => {
@@ -75,7 +80,10 @@ const Saved = ({navigation}) => {
             <Text style={[common.white,common.header]}>Saved</Text>
         </View>
         <View style={[styles.item,styles.background ]}>
-            <FoodCard source={require("../../../assets/beefchili.jpeg")} text="Beef chili"/>
+              {recipeName.map((name, index) => (
+                    <FoodCard key={index} source={{uri: recipeImage[index]}} text={name}/>
+                ))}
+
             <TouchableOpacity style={[styles.deleteButton,common.center]}>
                 <Text style={common.bold}>Delete </Text>
             </TouchableOpacity>
