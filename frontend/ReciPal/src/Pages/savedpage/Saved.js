@@ -67,8 +67,13 @@ const Saved = ({navigation}) => {
           getSavedRecipes();
         }
       }, [userId]);
+
+      useEffect(() => {
+          getSavedRecipes();
+        
+      }, [recipes]);
             
-    const DeleteRecipe=async()=>{
+    const DeleteRecipe=async(recipeId)=>{
       try {
         await axios.post(`${BASE_URL}/reward/unsaveRecipe/${userId}/${recipeId}`);
         console.log('recipe unsaved');
