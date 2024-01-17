@@ -10,6 +10,7 @@ const Languages = () => {
           </TouchableOpacity>
         <Text style={[common.white, common.header]}>Languages</Text>
       </View>
+      
 
     </View>
   )
