@@ -11,7 +11,7 @@ import {BASE_URL} from '@env'
 const Recipedetail = ({route,navigation}) => {
   const [recipeDetails,setRecipeDetails]=useState([]);
   const [userId, setUserId] = useState(null);
-  const [completed,SetCompleted]=useState('false');
+  const [completed,SetCompleted]=useState(false);
   const [saved,setSaved]=useState('false');
   const navigateToHome=()=>{
     navigation.goBack();
@@ -24,7 +24,6 @@ const Recipedetail = ({route,navigation}) => {
       if (userString !== null) {
         const user = JSON.parse(userString);
         const retrievedUserId = user._id;
-        console.log('User ID:', retrievedUserId); 
         setUserId(retrievedUserId);
       }
     } catch (error) {
@@ -66,15 +65,25 @@ const Recipedetail = ({route,navigation}) => {
     const fetchData = async () => {
       await _retrieveData();
       const savedStatus = await AsyncStorage.getItem(`saved_${recipeId}`);
-      setSaved(savedStatus || 'false');
+      setSaved(savedStatus || false);
 
-      // const Completed = await AsyncStorage.getItem(`completed_${recipeId}`);
-      // SetCompleted(Completed || 'false');
       getRecipeDetails();
     };
   
     fetchData();
   }, [userId]);
+
+  useEffect(()=>{
+    const getItem=async()=>{
+      const Completed = await AsyncStorage.getItem(`completed_${recipeId}`);
+      if(Completed=="false"){
+        SetCompleted(false);   
+      } else{
+        SetCompleted(true);
+      }
+    }
+    getItem();
+  },[])
     
   const updateSavedStatus = async (status) => {
     try {
@@ -93,8 +102,8 @@ const Recipedetail = ({route,navigation}) => {
       {
         text: 'Yes',
         onPress: () => {
+          console.log("Before:",completed)
           SetCompleted(!completed);
-          // CompletedRecipe();
         },
         style: 'cancel',
       },
@@ -106,20 +115,21 @@ const Recipedetail = ({route,navigation}) => {
     
   );
 
-  // const CompletedRecipe = async () => {
-  //   try {
-  //     await AsyncStorage.setItem(`completed_${recipeId}`, completed.toString());
-  //     SetCompleted(completed);
+  useEffect(()=>{
+    CompletedRecipe(); 
+  },[completed])
 
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
+  const CompletedRecipe = async () => {
+    try {
+      await AsyncStorage.setItem(`completed_${recipeId}`, completed.toString());
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
   
   const handleCompleted=()=>{
-    if(completed=='false'){
+    if(!completed){
       showAlert();
-
     }
     else{
       SetCompleted(!completed)
@@ -167,7 +177,7 @@ const Recipedetail = ({route,navigation}) => {
         <Cylinder text={recipeDetails.difficulty ? recipeDetails.difficulty.toString() : 'N/A'}/>
       </View>
       <TouchableOpacity
-       style={[common.button_h,common.button_w,common.center,style.button, { backgroundColor: completed ? 'gray' : '#FFBF4D' }]}
+       style={[common.button_h,common.button_w,common.center,style.button, { backgroundColor: completed ? '#FFBF4D' : 'gray' }]}
        onPress={handleCompleted}
        >
         <Text style={[common.bold]}>Completed Recipe</Text>
