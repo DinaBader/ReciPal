@@ -166,7 +166,7 @@ const update_image=async(req,res)=>{
     const image_dir = appDir + "/public/recipes/" + imageName;
     image.mv(image_dir);
   
-    await User.findByIdAndUpdate(recipeId, {
+    await Recipe.findByIdAndUpdate(recipeId, {
       image: imageName,
     });
   
