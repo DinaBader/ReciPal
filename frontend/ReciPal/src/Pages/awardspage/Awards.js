@@ -46,11 +46,10 @@ const Awards = ({navigation}) => {
   };
   
   useEffect(() => {
-    console.log(rewards);
+    // console.log(rewards);
     if (rewards.Rewards && rewards.Rewards.length > 0) {
       const countriesList = rewards.Rewards.map(item => item.country); 
       setCountries(countriesList);
-      console.log("Updated countries:", countriesList);
     }
   }, [rewards]);
   
@@ -66,7 +65,7 @@ const Awards = ({navigation}) => {
         </TouchableOpacity>
         <Text style={[common.header,common.white]}>Awards</Text>
       </View>
-      <AwardsComp/>
+      <AwardsComp countries={countries}/>
     </ScrollView>
   )
 }

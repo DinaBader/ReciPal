@@ -199,18 +199,17 @@ const countries = [
   ];
   
 
-const awards = () => {
-  return (
-    <View >
-    {countries.map((country, index) => (
-      <>
-      <View style={style.container}>
-      <Text key={index}>Congrats you got an award from {country}</Text>
-      </View> 
-      </>
-    ))}
-  </View>
-  )
-}
+  const awards = ({ countries }) => {
+  
+    return (
+      <View>
+      {countries.map((country, index) => (
+        <View key={index} style={countries.includes(country) ? style.container : null}>
+          <Text>Congrats you got an award from {country}</Text>
+        </View>
+      ))}
+      </View>
+    );
+  };
 
 export default awards
