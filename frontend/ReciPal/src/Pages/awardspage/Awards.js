@@ -8,13 +8,15 @@ import AwardsComp from '../../Components/awards/awards'
 const Awards = ({navigation}) => {
   const [rewards,setRewards]=useState([]);
   const [userId, setUserId] = useState(null);
-
+  const [token,setToken]=useState('');
   const _retrieveData = async () => {
     try {
       const userString = await AsyncStorage.getItem('user');
       if (userString !== null) {
         const user = JSON.parse(userString);
         const retrievedUserId = user._id;
+        const retrievedToken=user.jwt;
+        setToken(retrievedToken);
         setUserId(retrievedUserId);
       }
     } catch (error) {
@@ -33,7 +35,12 @@ const Awards = ({navigation}) => {
   }, []);
 
   const getRewards=()=>{
-    axios.get(`${BASE_URL}/reward/getRewards/${userId}`
+    axios.get(`${BASE_URL}/reward/getRewards`,
+    {
+      headers:{
+
+      }
+    }
     ).then((res)=>{
       console.log(res.data);
       setRewards(res.data)
