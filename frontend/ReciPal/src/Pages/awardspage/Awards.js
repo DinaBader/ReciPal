@@ -7,19 +7,14 @@ import common from "../../utils/common"
 import AwardsComp from '../../Components/awards/awards'
 const Awards = ({navigation}) => {
   const [rewards,setRewards]=useState([]);
-  const [userId, setUserId] = useState(null);
   const [token,setToken]=useState('');
+
   const _retrieveData = async () => {
     try {
-      const userString = await AsyncStorage.getItem('user');
       const Token = await AsyncStorage.getItem('jwt');
-      if (userString !== null) {
-        const user = JSON.parse(userString);
-        const retrievedUserId = user._id
-        const retrievedToken=Token;
-        setToken(retrievedToken);
-        setUserId(retrievedUserId);
-      }
+      const retrievedToken=Token;
+      setToken(retrievedToken);
+      
     } catch (error) {
       console.error('Error retrieving data:', error);
     }
@@ -43,7 +38,7 @@ const Awards = ({navigation}) => {
       }
     }
     ).then((res)=>{
-      console.log(res.data);
+      console.log(res.data)
       setRewards(res.data)
     }).catch((error)=>{
       console.log("Error getting rewards",error.message);
