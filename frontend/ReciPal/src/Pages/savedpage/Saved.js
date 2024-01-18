@@ -31,7 +31,6 @@ const Saved = ({navigation}) => {
         
       const getSavedRecipes = () => {
         if (userId === null) {
-          console.error('User ID is null. Unable to fetch saved recipes.');
           return;
         }
       
@@ -65,6 +64,7 @@ const Saved = ({navigation}) => {
       useEffect(() => {
         if (userId !== null) {
           getSavedRecipes();
+          console.log(recipes)
         }
       }, [userId]);
 
@@ -97,7 +97,7 @@ const Saved = ({navigation}) => {
         {recipes.map((recipe, index) => (
             <View style={[styles.item, styles.background]} key={index}>
               <View style={styles.comp}>
-                <FoodCard source={{ uri: recipe.recipeImage }} text={recipe.recipeName} />
+                <FoodCard source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }} text={recipe.recipeName} />
                 <TouchableOpacity
                   style={[styles.deleteButton, common.center]}
                   onPress={() => DeleteRecipe(recipe.recipeId)}

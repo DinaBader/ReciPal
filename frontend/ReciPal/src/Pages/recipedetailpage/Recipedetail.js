@@ -36,13 +36,15 @@ const Recipedetail = ({route,navigation}) => {
     ).then((res)=>{
       const { recipe } = res.data;
       setRecipeDetails(recipe);
+      console.log(recipe)
     }).catch((error)=>{
       console.log("error",error);
     })
   }
 
   const saveRecipe = async () => {
-    if (saved === 'false') {
+    if (saved === false) {
+      console.log("in false")
       try {
         await axios.post(`${BASE_URL}/reward/saveRecipe/${userId}/${recipeId}`);
         console.log('recipe saved');

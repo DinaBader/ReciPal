@@ -26,7 +26,7 @@ app.use("/reward",RewardRoutes);
 // const ImaggaRoutes=require("../backend/routes/imagga.routes");
 // app.use("/tags",ImaggaRoutes)
 .0
-app.listen(8000,()=>{
-    console.log("Server listening on PORT: ",8000);
+app.listen(8081,()=>{
+    console.log("Server listening on PORT: ",8081);
     connectToMongoDB();
 })
