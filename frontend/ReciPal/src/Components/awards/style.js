@@ -11,6 +11,11 @@ const Styles=StyleSheet.create({
         alignItems:'center',
         paddingTop:10
     },
-})
+    noRewards: {
+        color: 'white',
+        textAlign: 'center',
+        paddingTop:250
+      },
+    })
 
 export default Styles

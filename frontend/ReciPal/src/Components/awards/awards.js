@@ -203,12 +203,16 @@ const countries = [
   
     return (
       <View>
-      {countries.map((country, index) => (
-        <View key={index} style={countries.includes(country) ? style.container : null}>
-          <Text>Congrats you got an award from {country}</Text>
-        </View>
-      ))}
-      </View>
+      {countries.length === 0 ? (
+        <Text style={style.noRewards}>No rewards available. Complete recipes to get rewards.</Text>
+      ) : (
+        countries.map((country, index) => (
+          <View key={index} style={countries.includes(country) ? style.container : null}>
+            <Text>Congrats you got an award from {country}</Text>
+          </View>
+        ))
+      )}
+    </View>
     );
   };
 
