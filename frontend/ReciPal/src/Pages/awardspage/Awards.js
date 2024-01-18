@@ -12,10 +12,11 @@ const Awards = ({navigation}) => {
   const _retrieveData = async () => {
     try {
       const userString = await AsyncStorage.getItem('user');
+      const Token = await AsyncStorage.getItem('jwt');
       if (userString !== null) {
         const user = JSON.parse(userString);
-        const retrievedUserId = user._id;
-        const retrievedToken=user.jwt;
+        const retrievedUserId = user._id
+        const retrievedToken=Token;
         setToken(retrievedToken);
         setUserId(retrievedUserId);
       }
@@ -26,26 +27,26 @@ const Awards = ({navigation}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await _retrieveData();
-      console.log(userId)
+      await _retrieveData()
       getRewards();
     };
 
     fetchData();
   }, []);
 
-  const getRewards=()=>{
+  const getRewards=async()=>{
+    const Token = await AsyncStorage.getItem('jwt');
     axios.get(`${BASE_URL}/reward/getRewards`,
     {
       headers:{
-
+        'Authorization': `Bearer ${Token}`,
       }
     }
     ).then((res)=>{
       console.log(res.data);
       setRewards(res.data)
     }).catch((error)=>{
-      console.log("Error getting rewards",error);
+      console.log("Error getting rewards",error.message);
     })
   }
 

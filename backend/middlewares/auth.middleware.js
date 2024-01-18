@@ -2,6 +2,7 @@ const jwt=require("jsonwebtoken");
 const User=require("../models/user.model");
 
 const authMiddleware=async(req,res,next)=>{
+    console.log(req.headers["authorization"])
     const token=req.headers["authorization"]?.split(" ")[1];
     if(!token){
         res.status(403).send("first Forbidden");
