@@ -8,7 +8,7 @@ import AwardsComp from '../../Components/awards/awards'
 const Awards = ({navigation}) => {
   const [rewards,setRewards]=useState([]);
   const [token,setToken]=useState('');
-
+  const [countries,setCountries]=useState([]);
   const _retrieveData = async () => {
     try {
       const Token = await AsyncStorage.getItem('jwt');
@@ -29,21 +29,31 @@ const Awards = ({navigation}) => {
     fetchData();
   }, []);
 
-  const getRewards=async()=>{
-    const Token = await AsyncStorage.getItem('jwt');
-    axios.get(`${BASE_URL}/reward/getRewards`,
-    {
-      headers:{
-        'Authorization': `Bearer ${Token}`,
-      }
+  const getRewards = async () => {
+    try {
+      const Token = await AsyncStorage.getItem('jwt');
+      const response = await axios.get(`${BASE_URL}/reward/getRewards`, {
+        headers: {
+          'Authorization': `Bearer ${Token}`,
+        }
+      });
+  
+      const receivedRewards = response.data;
+      setRewards(receivedRewards);
+    } catch (error) {
+      console.log("Error getting rewards", error.message);
     }
-    ).then((res)=>{
-      console.log(res.data)
-      setRewards(res.data)
-    }).catch((error)=>{
-      console.log("Error getting rewards",error.message);
-    })
-  }
+  };
+  
+  useEffect(() => {
+    console.log(rewards);
+    if (rewards.Rewards && rewards.Rewards.length > 0) {
+      const countriesList = rewards.Rewards.map(item => item.country); 
+      setCountries(countriesList);
+      console.log("Updated countries:", countriesList);
+    }
+  }, [rewards]);
+  
 
   const navigateBack=()=>{
     navigation.goBack();
