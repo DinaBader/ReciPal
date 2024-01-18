@@ -2,6 +2,7 @@ import {View,Image } from 'react-native'
 import React ,{ useEffect }from 'react'
 import styles from './styles'
 const LandingPage = ({ navigation }) => {
+  
     useEffect(() => {
       const timeoutId = setTimeout(() => {
         navigation.navigate('Login');
@@ -22,5 +23,3 @@ const LandingPage = ({ navigation }) => {
     
 
 export default LandingPage
-
-

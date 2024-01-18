@@ -83,7 +83,7 @@ const Saved = ({navigation}) => {
       }
     }
 
-            
+
             
   return ( 
 

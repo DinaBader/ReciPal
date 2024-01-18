@@ -34,7 +34,6 @@ const User = ({navigation}) => {
 
   useEffect(()=>{
     getRecipes();
-    console.log(recipes)
   },[])
 
   return (
@@ -58,12 +57,14 @@ const User = ({navigation}) => {
         <Text style={[common.white,styles.recipeText]}>Recipes</Text>
         <View style={styles.foodCard}>
           {recipes.map((recipe, index) => (
+            <>
             <FoodCard
               key={index}
               source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
               text={recipe.name}
               onPress={() => NavigateTodetails(recipe._id)}
             />
+            </>
           ))}
       </View>
     </ScrollView>

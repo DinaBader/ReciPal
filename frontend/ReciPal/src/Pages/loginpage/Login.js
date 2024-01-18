@@ -42,8 +42,8 @@ const Login = ({navigation}) => {
         axios.post(
             `${BASE_URL}/auth/login`,
             {
-              "usernameOrEmail": usernameOrEmail,
-              "password": password
+              usernameOrEmail,
+              password
             },
             {
                 headers:{
