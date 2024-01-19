@@ -52,7 +52,6 @@ const handleInstructionsChange=(text)=>{
 
 const handleSubmit = async () => {
   let recipeResponse;  
-  // const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL;
 
   try {
     recipeResponse = await axios.post(
@@ -111,12 +110,10 @@ const handleSubmit = async () => {
       console.error("Response status:", error.response.status);
       console.error("Response headers:", error.response.headers);
     } else if (error.request) {
-      // The request was made but no response was received
       console.log("BASE_URL:", BASE_URL);
 
       console.error("Request data:", error.request);
     } else {
-      // Something happened in setting up the request that triggered an Error
       console.error("Error message:", error.message);
     }
   
