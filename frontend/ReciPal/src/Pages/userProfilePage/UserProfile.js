@@ -10,30 +10,28 @@ import axios from 'axios'
 const UserProfile = ({navigation}) => {
   const [image,setImage]=useState('');
 
-  const getImage=async()=>{
-    try{
+  const getImage = async () => {
+    try {
       const Token = await AsyncStorage.getItem('jwt');
-     const response =axios.get(`${BASE_URL}/reward/get_userImage`,
-     {
-      headers:{
-        'Authorization':`Bearer ${Token}`
-      }
-     })
-     
-     const Image=response.data; 
-     setImage(Image)
-     console.log(image);
-    }catch(error){
-      console.log("error fetching image",error);
+      const response = await axios.get(`${BASE_URL}/reward/get_userImage`, {
+        headers: {
+          'Authorization': `Bearer ${Token}`
+        }
+      });
+      const Image = response.data.image; 
+      setImage(Image);
+      console.log(image);
+    } catch (error) {
+      console.log("error fetching image", error);
     }
   }
-  
+    
   useEffect(()=>{
      getImage();
   },[])
   return (
     <ScrollView style={common.backgroundColor}>
-        <ProfileComp source={require("../../../assets/default.jpg")} />
+        <ProfileComp source={image? {uri:`${BASE_URL}/images/${image}`} :require("../../../assets/default.jpg")} />
         <Icons navigation={navigation}/>
     </ScrollView>
   )
