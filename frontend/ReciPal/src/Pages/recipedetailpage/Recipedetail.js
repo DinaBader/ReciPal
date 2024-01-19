@@ -164,7 +164,7 @@ const Recipedetail = ({route,navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <ImageHeader source={require('../../../assets/beefchili.jpeg')} text={recipeDetails.name} />
+        <ImageHeader source={{uri:`${BASE_URL}/recipes/${recipeDetails.image}`}} text={recipeDetails.name} />
 
         <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
 
