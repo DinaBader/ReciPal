@@ -248,11 +248,27 @@ const getRewards=async(req,res)=>{
   }
 }
 
+const get_userImage=(req,res)=>{
+  const userId=req.params._id;
+  try{
+      const user=User.findById(userId);
+
+      if(!user) res.status(400).json({error:"couldnt find user "})
+
+      const image=user.image;
+      res.status(200).json({image});
+  }catch(error){
+    console.log(error);
+    return res.status(500).json({error:'Internal Server Error'})
+  }
+}
+
 module.exports = {
     findByIdAndUpdate,
     addReward,
     upload_image,
     get_user,
+    get_userImage,
     update_image,
     saveRecipe,
     unsaveRecipe,
