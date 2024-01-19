@@ -19,6 +19,14 @@ const style = StyleSheet.create({
         alignItems: 'center', 
         marginLeft: 30,
         marginTop: 10
+    },
+    btn:{
+        width:50,
+        height:25,
+        marginBottom:10,
+        marginLeft:180,
+        borderRadius:5,
+        marginTop:5
     }
 
 

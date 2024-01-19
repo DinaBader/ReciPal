@@ -92,11 +92,11 @@ const UserProfileComp = ({source,onUpdateImage }) => {
                 <View style={style.imageContainer}> 
                     <Image source={{ uri: file }} 
                         style={style.image} /> 
-                        <TouchableOpacity onPress={handleSubmit}>
-                          <Text>Submit</Text>
+                        <TouchableOpacity onPress={handleSubmit} style={[common.yellow_bg,style.btn]}>
+                          <Text style={common.bold}>Submit</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={handleCancel}>
-                          <Text>Cancel</Text>
+                        <TouchableOpacity onPress={handleCancel} style={[common.yellow_bg,style.btn]}>
+                          <Text style={common.bold}>Cancel</Text>
                         </TouchableOpacity>
                 </View> 
             ) : ( 
