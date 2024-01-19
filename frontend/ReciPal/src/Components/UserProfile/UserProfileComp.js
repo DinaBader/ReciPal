@@ -55,7 +55,11 @@ const UserProfileComp = ({source,onUpdateImage }) => {
       console.error("Error config:", error.config);
     }
   };
-                          
+               
+  const handleCancel=()=>{
+    
+  }
+
   const pickImage = async () => { 
     const { status } = await ImagePicker. 
         requestMediaLibraryPermissionsAsync(); 
@@ -87,6 +91,9 @@ const UserProfileComp = ({source,onUpdateImage }) => {
                     <Image source={{ uri: file }} 
                         style={style.image} /> 
                         <TouchableOpacity onPress={handleSubmit}>
+                          <Text>Submit</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={handleCancel}>
                           <Text>Submit</Text>
                         </TouchableOpacity>
                 </View> 
