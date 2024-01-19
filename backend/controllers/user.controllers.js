@@ -233,7 +233,7 @@ const editProfile = async (req, res) => {
 const getRewards=async(req,res)=>{
   try{
     const userId = req.user._id;
-
+    
     const user = await User.findById(userId);
     if(!user){
       console.log("user not found");
@@ -248,15 +248,15 @@ const getRewards=async(req,res)=>{
   }
 }
 
-const get_userImage=(req,res)=>{
-  const userId=req.params._id;
-  try{
-      const user=User.findById(userId);
+const get_userImage=async(req,res)=>{
 
+  try{
+    const userId=req.user._id;
+      const user=await User.findById(userId);
       if(!user) res.status(400).json({error:"couldnt find user "})
 
-      const image=user.image;
-      res.status(200).json({image});
+      const image = user.image || null;
+      res.status(200).json({image:image});
   }catch(error){
     console.log(error);
     return res.status(500).json({error:'Internal Server Error'})
