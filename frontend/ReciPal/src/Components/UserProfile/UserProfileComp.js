@@ -3,18 +3,22 @@ import React, { useState } from 'react'
 import style from "./style.js"
 import common from "../../utils/common.js"
 import * as ImagePicker from 'expo-image-picker';
+import axios from 'axios';
+import {BASE_URL} from "@env"
 import AsyncStorage from '@react-native-async-storage/async-storage'
-const UserProfileComp = ({source}) => {
+const UserProfileComp = ({source,onUpdateImage }) => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
   const handleSubmit = async () => {
     try {      
       const Token=await AsyncStorage.getItem("jwt");
+      const user=await AsyncStorage.getItem("user");
+      const userId=user._id;
         if (file) {
           const formData = new FormData();
           formData.append("image", {
             uri: file,
-            name: `profile_photo_${addedRecipeId}.jpg`,
+            name: `profile_photo_${userId}.jpg`,
             type: "image/jpg",
           });
   
@@ -31,9 +35,8 @@ const UserProfileComp = ({source}) => {
             }
           );
   
-          console.log("Recipe photo uploaded successfully:", photoResponse.data);
         }
-  
+        onUpdateImage(file);
       } 
      catch (error) {
       if (error.response) {
