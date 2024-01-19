@@ -5,11 +5,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import HomeScreen from '../Pages/userpage/User'
 import ImageScreen from './screens/ImageScreen'
 import UserProfileScreen from '../Pages/userProfilePage/UserProfile'
+import RecipeDetailScreen from '../Pages/recipedetailpage/Recipedetail'
+import SettingsScreen from '../Pages/settingspage/Setting'
 
 const homeName='Home';
 const imageName='Image';
 const profileName='Profile';
-
+const RecipeDetailName='RecipeDetail';
+const SettingsName='Settings'
 const Tab=createBottomTabNavigator();
 
 const MainContainer = () => {
@@ -28,12 +31,12 @@ const MainContainer = () => {
             } else if (rn === profileName) {
             iconName = focused ? 'person' : 'person-outline';
             }
-            return <Ionicons name={iconName} size={size+5} color={color} />;
+            return <Ionicons name={iconName} size={size+5} color={color}/>;
         },
         tabBarActiveTintColor: 'black',
         tabBarInactiveTintColor: 'black',
         tabBarLabel:'',
-        tabBarLabelStyle: { paddingBottom: 10, fontSize: 10 },
+        tabBarLabelStyle: {paddingBottom: 10, fontSize: 10 },
         tabBarStyle: { padding: 10, height: 65, backgroundColor: '#FFBF4D' },
         })}
     >

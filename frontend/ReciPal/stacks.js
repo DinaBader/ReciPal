@@ -15,10 +15,20 @@ import Awards  from './src/Pages/awardspage/Awards'
 import { NavigationContainer } from '@react-navigation/native';
 import {useState ,useEffect}  from "react"
 import {AsyncStorage}from "@react-native-async-storage/async-storage"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HomeScreen from './src/Pages/userpage/User'
+import ImageScreen from './src/UserNavigation/screens/ImageScreen'
+import UserProfileScreen from './src/Pages/userProfilePage/UserProfile'
+
+import Ionicons from 'react-native-vector-icons/Ionicons'
+const homeName='Home';
+const imageName='Image';
+const profileName='Profile';
+
 export const MyStacks = ({navigation})=>{
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userRole, setUserRole] = useState(null);
-  
+    const Tab=createBottomTabNavigator()
     useEffect(() => {
       const checkAuthentication = async () => {
         try {
@@ -62,7 +72,7 @@ export const MyStacks = ({navigation})=>{
             <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
           </Stack.Navigator>
           <Tab.Navigator
-        initialRouteName={InitialName}
+        initialRouteName={homeName}
         screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -84,7 +94,6 @@ export const MyStacks = ({navigation})=>{
         tabBarStyle: { padding: 10, height: 65, backgroundColor: '#FFBF4D' },
         })}
     >
-            <Tab.Screen name={InitialName} component={InitialScreen} options={{ headerShown: false }}/>
             <Tab.Screen name={homeName} component={HomeScreen} options={{ headerShown: false }}/>
             <Tab.Screen name={imageName} component={ImageScreen} options={{ headerShown: false }}/>
             <Tab.Screen name={profileName} component={UserProfileScreen} options={{ headerShown: false }}/>

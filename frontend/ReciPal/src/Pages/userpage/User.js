@@ -25,7 +25,7 @@ const User = ({navigation}) => {
 
   const getRecipes = async () => {
       axios.get(
-        `${BASE_URL}/recipe/getRecipe`).then(function(res){ 
+        `http://192.168.0.100:8000/recipe/getRecipe`).then(function(res){ 
           setRecipes(res.data.recipes)
         }).catch((error)=>{
           console.log("Error fetching recipes",error);

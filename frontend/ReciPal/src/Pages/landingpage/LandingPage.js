@@ -1,8 +1,9 @@
 import {View,Image } from 'react-native'
 import React ,{ useEffect }from 'react'
 import styles from './styles'
-const LandingPage = ({ navigation }) => {
-  
+import { useNavigation } from '@react-navigation/native';
+const LandingPage = () => {
+  const navigation = useNavigation();
     useEffect(() => {
       const timeoutId = setTimeout(() => {
         navigation.navigate('Login');

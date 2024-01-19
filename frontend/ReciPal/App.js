@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MyStacks } from './stacks';
+import HomeScreen from './src/Pages/userpage/User'
+import ImageScreen from './src/UserNavigation/screens/ImageScreen'
+import UserProfileScreen from './src/Pages/userProfilePage/UserProfile'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { createStackNavigator } from '@react-navigation/stack';
 import LandingPage from './src/Pages/landingpage/LandingPage';
 import LoginPage from './src/Pages/loginpage/Login';
 import SignupPage from './src/Pages/signinpage/Signup';
@@ -16,25 +21,23 @@ import Languages from './src/Pages/languagesPage/Languages';
 import FeedBack from './src/Pages/feedbackpage/FeedBack';
 import Saved  from './src/Pages/savedpage/Saved'
 import Awards  from './src/Pages/awardspage/Awards'
-
-const Stack = createStackNavigator();
-
+const homeName='Home';
+const imageName='Image';
+const profileName='Profile';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userRole, setUserRole] = useState(null);
-
+  const Stack=createStackNavigator();
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
         const role = await AsyncStorage.getItem('userRole');
         const loggedIn = await AsyncStorage.getItem('isLoggedIn');
-        const token = await AsyncStorage.getItem('jwt');
 
         console.log('Role:', role);
         console.log('LoggedIn:', loggedIn);
         if (loggedIn ) {
           setIsLoggedIn(true);
-          // setUserRole(JSON.parse(role));
         } else {
           setIsLoggedIn(false);
           setUserRole(null);
@@ -51,11 +54,11 @@ const App = () => {
     console.log(isLoggedIn);
     console.log(typeof userRole);
   },[isLoggedIn]);
-
+  const Tab=createBottomTabNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LandingPage">
-        {true ? (
+       <Stack.Navigator initialRouteName="LandingPage">
+        {true  ? (
           <>
             <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
@@ -82,7 +85,35 @@ const App = () => {
             
           </>
           )}  
-      </Stack.Navigator>
+      </Stack.Navigator> 
+      {/* <Tab.Navigator
+        initialRouteName={Initial}
+        screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            let rn = route.name;
+
+            if (rn === homeName) {
+            iconName = focused ? 'home' : 'home-outline';
+            } else if (rn === imageName) {
+            iconName = focused ? 'add-circle' : 'add-circle-outline';
+            } else if (rn === profileName) {
+            iconName = focused ? 'person' : 'person-outline';
+            }
+            return <Ionicons name={iconName} size={size+5} color={color} />;
+        },
+        tabBarActiveTintColor: 'black',
+        tabBarInactiveTintColor: 'black',
+        tabBarLabel:'',
+        tabBarLabelStyle: { paddingBottom: 10, fontSize: 10 },
+        tabBarStyle: { padding: 10, height: 65, backgroundColor: '#FFBF4D' },
+        })}
+    >
+            <Tab.Screen name={Initial} component={InitialScreen} options={{ headerShown: false }}/>
+            <Tab.Screen name={homeName} component={HomeScreen} options={{ headerShown: false }}/>
+            <Tab.Screen name={imageName} component={ImageScreen} options={{ headerShown: false }}/>
+            <Tab.Screen name={profileName} component={UserProfileScreen} options={{ headerShown: false }}/>
+        </Tab.Navigator> */}
     </NavigationContainer>
   );
 };

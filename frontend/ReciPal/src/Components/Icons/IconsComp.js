@@ -48,16 +48,6 @@ const IconsComp = ({navigation}) => {
       </View>
       </TouchableOpacity>
 
-      <TouchableOpacity>
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
-        <Image
-          source={require("../../../assets/restaurant.png")}
-          style={{ width: 40, height: 40 }}
-        />
-        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Food Preference</Text>
-      </View>
-      </TouchableOpacity>
-
       <TouchableOpacity  onPress={navigateToAwards}>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
