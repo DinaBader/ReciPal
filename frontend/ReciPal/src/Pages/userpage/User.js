@@ -34,29 +34,25 @@ const User = ({navigation}) => {
         })
   };
 
+
   useEffect(()=>{
     getRecipes();
-  },[])
+  },[parentSearchResults])
+
 
   const handleSearchResultsChange = (results) => {
     setParentSearchResults(results);
-    console.log("parentSearchResults",parentSearchResults)
+    console.log("parentSearchResults",Object.values(parentSearchResults))
   };
-
+  const handleSearchCancel = () => {
+    setParentSearchResults([]);
+  };
+  
   return (
     <ScrollView style={[common.backgroundColor,styles.container]}>
       <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
-      <Search onSearchResultsChange={handleSearchResultsChange}/>
-      {parentSearchResults.length > 0 ? (
-        <View>
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Search Results:</Text>
-          {parentSearchResults.map((result) => (
-            <Text key={result.id}>{result.name}</Text>
-          ))}
-        </View>
-      ) : (
-        <Text>No search results found.</Text>
-      )}
+      <Search onSearchResultsChange={handleSearchResultsChange}  onCancel={handleSearchCancel}
+ />
       <View style={styles.foodCircleContainer}>
         <Carousel
           data={foodCircleData}
@@ -73,17 +69,28 @@ const User = ({navigation}) => {
       </View>
         <Text style={[common.white,styles.recipeText]}>Recipes</Text>
         <View style={styles.foodCard}>
-          {recipes.map((recipe, index) => (
+         {Object.values(parentSearchResults).length > 0 ? (
+          Object.values(parentSearchResults).map((result) => (
             <>
-            <FoodCard
-              key={index}
-              source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-              text={recipe.name}
-              onPress={() => NavigateTodetails(recipe._id)}
-            />
+              <FoodCard
+                key={result.id}
+                source={{ uri: `${BASE_URL}/recipes/${result.image}` }}
+                text={result.name}
+                onPress={() => NavigateTodetails(result._id)}
+              />
             </>
-          ))}
-      </View>
+        ))
+      ) : (
+        recipes.map((recipe, index) => (
+          <FoodCard
+            key={index}
+            source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+            text={recipe.name}
+            onPress={() => NavigateTodetails(recipe._id)}
+          />
+        ))
+      )}
+    </View>
     </ScrollView>
   );
 }

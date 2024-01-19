@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 import axios from 'axios';
 import style from './style';
 
-const SearchComp = ({ onSearchResultsChange }) => {
+const SearchComp = ({ onSearchResultsChange,onCancel  }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -28,7 +28,10 @@ const SearchComp = ({ onSearchResultsChange }) => {
       console.error('Error fetching search results:', error);
     }
   };
-
+  const handleCancel = () => {
+    setSearchQuery(''); 
+    onCancel();
+  };
   return (
     <>
       <Searchbar
@@ -37,6 +40,7 @@ const SearchComp = ({ onSearchResultsChange }) => {
         value={searchQuery}
         style={style.search}
         onSubmitEditing={onSubmitSearch}
+        onIconPress={handleCancel} 
       />
       {Array.isArray(searchResults) &&
         searchResults.map((result) => <Text key={result.id}>{result.name}</Text>)}
