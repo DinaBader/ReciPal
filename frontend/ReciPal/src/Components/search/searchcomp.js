@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 import axios from 'axios';
 import style from './style';
 
-const SearchComp = () => {
+const SearchComp = ({ onSearchResultsChange }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -18,10 +18,12 @@ const SearchComp = () => {
         `http://192.168.0.100:8000/recipe/searchRecipes?name=${searchQuery}`
         );
 
-      console.log('API Response:', response.data);
+      // console.log('API Response:', response.data);
 
       const results = response.data;
-      setSearchResults(results);
+      setSearchResults(results);  
+      // console.log(results)  
+      onSearchResultsChange(results);
     } catch (error) {
       console.error('Error fetching search results:', error);
     }

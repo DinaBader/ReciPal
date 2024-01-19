@@ -15,6 +15,8 @@ const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
 const User = ({navigation}) => {
   const [selectedFood, setSelectedFood] = useState(null);
   const [recipes,setRecipes]=useState([]);
+  const [parentSearchResults, setParentSearchResults] = useState([]);
+
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => (prevSelectedFood === food ? null : food));
   };
@@ -34,13 +36,27 @@ const User = ({navigation}) => {
 
   useEffect(()=>{
     getRecipes();
-    console.log(recipes)
   },[])
+
+  const handleSearchResultsChange = (results) => {
+    setParentSearchResults(results);
+    console.log("parentSearchResults",parentSearchResults)
+  };
 
   return (
     <ScrollView style={[common.backgroundColor,styles.container]}>
       <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
-      <Search/>
+      <Search onSearchResultsChange={handleSearchResultsChange}/>
+      {parentSearchResults.length > 0 ? (
+        <View>
+          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Search Results:</Text>
+          {parentSearchResults.map((result) => (
+            <Text key={result.id}>{result.name}</Text>
+          ))}
+        </View>
+      ) : (
+        <Text>No search results found.</Text>
+      )}
       <View style={styles.foodCircleContainer}>
         <Carousel
           data={foodCircleData}
