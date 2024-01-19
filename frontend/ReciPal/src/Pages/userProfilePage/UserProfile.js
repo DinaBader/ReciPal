@@ -22,13 +22,14 @@ const UserProfile = ({navigation}) => {
      
      const Image=response.data; 
      setImage(Image)
+     console.log(image);
     }catch(error){
       console.log("error fetching image",error);
     }
   }
+  
   useEffect(()=>{
      getImage();
-     console.log(image);
   },[])
   return (
     <ScrollView style={common.backgroundColor}>
