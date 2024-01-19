@@ -57,7 +57,9 @@ const UserProfileComp = ({source,onUpdateImage }) => {
   };
                
   const handleCancel=()=>{
-    
+    setFile(null);
+    setError(null);
+
   }
 
   const pickImage = async () => { 
@@ -94,7 +96,7 @@ const UserProfileComp = ({source,onUpdateImage }) => {
                           <Text>Submit</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={handleCancel}>
-                          <Text>Submit</Text>
+                          <Text>Cancel</Text>
                         </TouchableOpacity>
                 </View> 
             ) : ( 
