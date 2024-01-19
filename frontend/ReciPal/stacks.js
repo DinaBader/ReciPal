@@ -11,7 +11,10 @@ import EditProfile from './src/Pages/editProfilepage/EditProfile'
 import Languages from './src/Pages/languagesPage/Languages';
 import FeedBack from './src/Pages/feedbackpage/FeedBack';
 import Saved  from './src/Pages/savedpage/Saved'
-import Awards  from './src/Pages/awardspage/Awards'
+import Awards  from './src/Pages/awardspage/Awards' 
+import { NavigationContainer } from '@react-navigation/native';
+import {useState ,useEffect}  from "react"
+import {AsyncStorage}from "@react-native-async-storage/async-storage"
 export const MyStacks = ({navigation})=>{
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userRole, setUserRole] = useState(null);
@@ -45,7 +48,8 @@ export const MyStacks = ({navigation})=>{
   
     const Stack = createStackNavigator();
     return (
-        <Stack.Navigator initialRouteName="Settings">
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName={isLoggedIn?"UserPage":"Login"}>
             <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             <Stack.Screen name="EditProfile" component={EditProfile} options={{headerShown:false}} />
@@ -57,5 +61,34 @@ export const MyStacks = ({navigation})=>{
             <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
             <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
           </Stack.Navigator>
+          <Tab.Navigator
+        initialRouteName={InitialName}
+        screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            let rn = route.name;
+
+            if (rn === homeName) {
+            iconName = focused ? 'home' : 'home-outline';
+            } else if (rn === imageName) {
+            iconName = focused ? 'add-circle' : 'add-circle-outline';
+            } else if (rn === profileName) {
+            iconName = focused ? 'person' : 'person-outline';
+            }
+            return <Ionicons name={iconName} size={size+5} color={color} />;
+        },
+        tabBarActiveTintColor: 'black',
+        tabBarInactiveTintColor: 'black',
+        tabBarLabel:'',
+        tabBarLabelStyle: { paddingBottom: 10, fontSize: 10 },
+        tabBarStyle: { padding: 10, height: 65, backgroundColor: '#FFBF4D' },
+        })}
+    >
+            <Tab.Screen name={InitialName} component={InitialScreen} options={{ headerShown: false }}/>
+            <Tab.Screen name={homeName} component={HomeScreen} options={{ headerShown: false }}/>
+            <Tab.Screen name={imageName} component={ImageScreen} options={{ headerShown: false }}/>
+            <Tab.Screen name={profileName} component={UserProfileScreen} options={{ headerShown: false }}/>
+        </Tab.Navigator>
+      </NavigationContainer>
     )
 }

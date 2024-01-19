@@ -34,6 +34,7 @@ const User = ({navigation}) => {
 
   useEffect(()=>{
     getRecipes();
+    console.log(recipes)
   },[])
 
   return (

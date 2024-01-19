@@ -2,7 +2,9 @@ import { View, Text, TouchableOpacity,Image, ScrollView } from 'react-native'
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+// import {BASE_URL} from '@env'
 import {BASE_URL} from '@env'
+
 import common from "../../utils/common"
 import FoodCard from "../../Components/foodcard/FoodCardComp"
 import styles from "./style"
@@ -64,14 +66,9 @@ const Saved = ({navigation}) => {
       useEffect(() => {
         if (userId !== null) {
           getSavedRecipes();
-          console.log(recipes)
         }
       }, [userId]);
 
-      useEffect(() => {
-          getSavedRecipes();
-        
-      }, [recipes]);
             
     const DeleteRecipe=async(recipeId)=>{
       try {
@@ -97,7 +94,8 @@ const Saved = ({navigation}) => {
         {recipes.map((recipe, index) => (
             <View style={[styles.item, styles.background]} key={index}>
               <View style={styles.comp}>
-                <FoodCard source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }} text={recipe.recipeName} />
+                <FoodCard source={{ uri: `${BASE_URL}/recipes/${recipe.recipeImage}` }}
+                          text={recipe.recipeName} />
                 <TouchableOpacity
                   style={[styles.deleteButton, common.center]}
                   onPress={() => DeleteRecipe(recipe.recipeId)}
