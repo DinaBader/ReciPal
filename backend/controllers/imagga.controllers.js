@@ -5,11 +5,16 @@ const fs = require('fs');
 async function getImageTags(req, res) {
     const apiKey = 'acc_835aa1acaeac599';
     const apiSecret = '657be76654c8c4d4546041f2445a753d';
-    
-    const imageUrl = 'https://as1.ftcdn.net/v2/jpg/03/98/61/96/1000_F_398619615_g8iqFtDWH5gsKjE16H6iNQ6h8BhywuFS.jpg';
 
+    const { image } = req.files;
+    if (!image) return res.sendStatus(400);
+
+    const imageName = move_image(image);
+    const imageUrl = `http://192.168.0.100:8000/item/${encodeURIComponent(imageName)}`;
+    console.log(imageUrl);
+    
     try {
-        const url = 'https://api.imagga.com/v2/tags?image_url=' + encodeURIComponent(imageUrl);
+        const url = 'https://api.imagga.com/v2/tags?image_url=' + imageUrl;
         const response = await got(url, { username: apiKey, password: apiSecret });
 
         const imaggaApiResponse = JSON.parse(response.body);
@@ -27,62 +32,34 @@ async function getImageTags(req, res) {
             res.status(500).json({ error: 'Unexpected Error' });
         }
     }
-};
+}
 
-
-const upload_image = async (req, res) => {
-    const { image } = req.files;
-  
-    if (!image) return res.sendStatus(400);
-  
+const move_image = (image) => {
     const lastIndex = image.name.lastIndexOf(".");
-    const extention = image.name.slice(lastIndex + 1);
-    const imageName = Date.now() + "." + extention;
-  
-    if (extention !== "png" && extention !== "jpg" && extention !== "jpeg") {
-      return res.status(400).send({ message: "invalid image format" });
+    const extension = image.name.slice(lastIndex + 1);
+    const imageName = Date.now() + "." + extension;
+
+    if (extension !== "png" && extension !== "jpg" && extension !== "jpeg") {
+        return res.status(400).send({ message: "Invalid image format" });
     }
-  
+
     const { dirname } = require("path");
     const appDir = dirname(require.main.filename);
     const image_dir = appDir + "/public/item/" + imageName;
     image.mv(image_dir);
-  
-    res.status(200).send("Image uploaded");
-  };
-  
-
-async function uploadImage(req, res) {
-    const apiKey = 'acc_835aa1acaeac599';
-    const apiSecret = '657be76654c8c4d4546041f2445a753d';
-
-    const filePath = '';
-    const formData = new FormData();
-    formData.append('image', fs.createReadStream(filePath));
-
-    try {
-        const response = await got.post('https://api.imagga.com/v2/uploads', {
-            body: formData,
-            username: apiKey,
-            password: apiSecret,
-            responseType: 'json',
-        });
-
-        console.log(response.body);
-        res.status(200).json(response.body);
-    } catch (error) {
-        if (error.response && error.response.body) {
-            console.error(error.response.body);
-            res.status(500).json({ error: 'Internal Server Error' });
-        } else {
-            console.error(error.message);
-            res.status(500).json({ error: 'Unexpected Error' });
-        }
-    }
+    return imageName;
 }
+
+const upload_image = async (req, res) => {
+    const { image } = req.files;
+    if (!image) return res.sendStatus(400);
+    move_image(image);
+
+    res.status(200).send("Image uploaded");
+};
+
 
 module.exports = { 
     getImageTags,
-    uploadImage,
     upload_image
 };
