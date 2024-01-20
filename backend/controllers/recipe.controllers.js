@@ -214,12 +214,15 @@ const getRecipeById = async (req, res) => {
 }
 
 const getRecipeByIngredients= async(req,res)=>{
-    const {ingredients}=req.body;
     try{
+        const {ingredients}=req.body;
+
+        const regexPattern = new RegExp(ingredients.join('|'), 'i');
+
         const recipes = await Recipe.find({
-            ingredients: { $in: ingredients }
-          });
-          res.status(200).json({recipes})
+          ingredients: { $regex: regexPattern }
+        });
+              res.status(200).json({recipes})
        }catch(error){
         console.log("Error getting recipes",error);
         res.status(500).json({"error":error})
