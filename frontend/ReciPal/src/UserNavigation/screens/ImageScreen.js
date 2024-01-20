@@ -1,4 +1,4 @@
-import { View, TouchableOpacity,Text,Image } from 'react-native'
+import { View, TouchableOpacity,Text,Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import common from '../../utils/common'
 import * as ImagePicker from 'expo-image-picker';
@@ -9,7 +9,7 @@ const ImageScreen = () => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
   const [tags,setTags] = useState([]);
-
+  const food=[];
   const handleSubmit = async () => {  
     try {
         // if (file) {
@@ -35,6 +35,7 @@ const ImageScreen = () => {
         const tagsres = photoResponse.data.tags;
         console.log(tagsres);
         setTags(tagsres);
+        filter_ingredients(tagsres);
         // console.log(tags)
     } catch (error) {
       if (error.response) {
@@ -77,12 +78,17 @@ const ImageScreen = () => {
   
   const handleCancel=()=>{
     setFile(null);
-    setError(null);
+    setError(null); 
+  }
 
+  const filter_ingredients=(tags)=>{
+    tags.map((tag)=>{
+      food.push(tag.tag.en);
+    })
   }
 
   return (
-    <View style={[common.backgroundColor]}>
+    <ScrollView style={[common.backgroundColor]}>
       <View style={[common.title]}>
           <Text style={[common.white,common.header]}>Suggestion</Text>
       </View>
@@ -113,7 +119,7 @@ const ImageScreen = () => {
             ) : ( 
                 <Text style={style.errorText}>{error}</Text> 
       )} 
-    </View>
+    </ScrollView>
   )
 }
 
