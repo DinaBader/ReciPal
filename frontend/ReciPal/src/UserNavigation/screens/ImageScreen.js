@@ -94,11 +94,21 @@ const ImageScreen = () => {
                     <Image source={{ uri: file }} 
                         style={style.image} /> 
                         <TouchableOpacity onPress={handleSubmit} style={[common.center,common.yellow_bg,style.btn]}>
-                          <Text style={common.bold}>Submit</Text>
+                          <Text style={common.bold}>Analyze</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={handleCancel} style={[common.center,common.yellow_bg,style.btn]}>
                           <Text style={common.bold}>Cancel</Text>
                         </TouchableOpacity>
+                        {tags.length > 0 && (
+                    <View style={style.tagsContainer}>
+                      <Text style={[common.white,common.bold]}>Found:</Text>
+                      {tags.map((tag, index) => (
+                        <>
+                        <Text key={index} style={[common.white]}>{tag.tag.en}</Text>
+                        </>
+                      ))}
+                  </View>
+                )}
                 </View> 
             ) : ( 
                 <Text style={style.errorText}>{error}</Text> 

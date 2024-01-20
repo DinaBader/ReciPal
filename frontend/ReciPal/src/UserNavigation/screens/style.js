@@ -17,6 +17,11 @@ const Styles=StyleSheet.create({
         paddingLeft:100,
         paddingTop:30
     },
+    tagsContainer:{
+        paddingLeft:70,
+        paddingTop:20
+    },
+
 })
 
 export default Styles;
