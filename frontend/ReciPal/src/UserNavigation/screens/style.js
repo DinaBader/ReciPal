@@ -10,11 +10,12 @@ const Styles=StyleSheet.create({
         height:25
      },
      image:{
-        width:150,
-        height:150,
+        width:200 ,
+        height:200,
     },
     imageContainer:{
-        paddingLeft:120
+        paddingLeft:100,
+        paddingTop:30
     },
 })
 

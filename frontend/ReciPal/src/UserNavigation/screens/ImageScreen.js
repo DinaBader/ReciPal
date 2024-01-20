@@ -70,7 +70,11 @@ const ImageScreen = () => {
     } 
   }; 
   
+  const handleCancel=()=>{
+    setFile(null);
+    setError(null);
 
+  }
 
   return (
     <View style={[common.backgroundColor]}>
@@ -84,6 +88,12 @@ const ImageScreen = () => {
                 <View style={style.imageContainer}> 
                     <Image source={{ uri: file }} 
                         style={style.image} /> 
+                        <TouchableOpacity onPress={handleSubmit} style={[common.center,common.yellow_bg,style.btn]}>
+                          <Text style={common.bold}>Submit</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={handleCancel} style={[common.center,common.yellow_bg,style.btn]}>
+                          <Text style={common.bold}>Cancel</Text>
+                        </TouchableOpacity>
                 </View> 
             ) : ( 
                 <Text style={style.errorText}>{error}</Text> 
