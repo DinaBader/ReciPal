@@ -8,7 +8,14 @@ const Styles=StyleSheet.create({
         textAlign:'center',
         borderRadius:20,
         height:25
-     }
+     },
+     image:{
+        width:150,
+        height:150,
+    },
+    imageContainer:{
+        paddingLeft:120
+    },
 })
 
 export default Styles;

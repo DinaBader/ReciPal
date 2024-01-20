@@ -1,7 +1,9 @@
-import { View, TouchableOpacity,Text } from 'react-native'
+import { View, TouchableOpacity,Text,Image } from 'react-native'
 import React, { useState } from 'react'
 import common from '../../utils/common'
+import * as ImagePicker from 'expo-image-picker';
 import style from "./style"
+import {BASE_URL} from "@env"
 const ImageScreen = () => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
@@ -12,14 +14,14 @@ const ImageScreen = () => {
           const formData = new FormData();
           formData.append("image", {
             uri: file,
-            name: `recipe_photo_${addedRecipeId}.jpg`,
+            name: `recipe_photo.jpg`,
             type: "image/jpg",
           });
   
           console.log("FormData created:", formData);
   
           const photoResponse = await axios.post(
-            `http://192.168.0.100:8000/recipe/addRecipePhoto/${addedRecipeId}`,
+            `${BASE_URL}/tags/getImageTags`,
             formData,
             {
               headers: {
