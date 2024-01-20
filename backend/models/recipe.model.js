@@ -18,7 +18,7 @@ const recipeSchema =new mongoose.Schema({
         required:true,
     },
     serving:{
-        type:Number,
+        type:String,
         required:true,
     },
     difficulty:{
