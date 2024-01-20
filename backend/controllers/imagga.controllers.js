@@ -6,11 +6,12 @@ async function getImageTags(req, res) {
     const apiKey = 'acc_835aa1acaeac599';
     const apiSecret = '657be76654c8c4d4546041f2445a753d';
 
-    const { image } = req.files;
-    if (!image) return res.sendStatus(400);
+    // const { image } = req.files;
+    // if (!image) return res.sendStatus(400);
 
-    const imageName = move_image(image);
-    const imageUrl = `http://192.168.0.100:8000/item/${encodeURIComponent(imageName)}`;
+    // const imageName = move_image(image);
+    // const imageUrl = `http://192.168.0.100:8000/item/${encodeURIComponent(imageName)}`;
+    const imageUrl="https://pipingpotcurry.com/wp-content/uploads/2023/02/Red-Pepper-Carrot-on-baking-tray-Piping-Pot-Curry.jpg"
     console.log(imageUrl);
     
     try {
