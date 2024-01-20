@@ -23,6 +23,9 @@ import Saved  from './src/Pages/savedpage/Saved'
 import Awards  from './src/Pages/awardspage/Awards'
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
+import common_ar from "./src/translation/ar/common.json"
+import common_en from "./src/translation/en/common.json"
+import { LanguageProvider } from './src/translation/LanguageContext';
 const homeName='Home';
 const imageName='Image';
 const profileName='Profile';
@@ -30,6 +33,24 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userRole, setUserRole] = useState(null);
   const Stack=createStackNavigator();
+
+  const selectedLanguage=()=>{
+    i18next.init({
+      interpolation:{
+        escapeValue:false  
+      },
+      lng:this.state.selectedLanguage,
+      resources:{
+        en:{
+          common:common_en
+        },
+        ar:{
+          common:common_ar
+        },
+      },
+    });
+  }
+
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
@@ -58,6 +79,7 @@ const App = () => {
   },[isLoggedIn]);
   const Tab=createBottomTabNavigator();
   return (
+    <LanguageProvider>
     <NavigationContainer>
        <Stack.Navigator initialRouteName="LandingPage">
         {true  ? (
@@ -117,6 +139,8 @@ const App = () => {
             <Tab.Screen name={profileName} component={UserProfileScreen} options={{ headerShown: false }}/>
         </Tab.Navigator> */}
     </NavigationContainer>
+    </LanguageProvider>
+
   );
 };
 
