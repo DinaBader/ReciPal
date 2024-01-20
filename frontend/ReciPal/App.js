@@ -21,6 +21,8 @@ import Languages from './src/Pages/languagesPage/Languages';
 import FeedBack from './src/Pages/feedbackpage/FeedBack';
 import Saved  from './src/Pages/savedpage/Saved'
 import Awards  from './src/Pages/awardspage/Awards'
+import { I18nextProvider } from 'react-i18next';
+import i18next from 'i18next';
 const homeName='Home';
 const imageName='Image';
 const profileName='Profile';
