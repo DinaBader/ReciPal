@@ -78,6 +78,14 @@ const ImageScreen = () => {
       <TouchableOpacity>
         <Text style={[common.yellow_bg,common.button_w,style.btn,common.bold]} onPress={pickImage}>Upload image</Text>
       </TouchableOpacity>
+      {file ? ( 
+                <View style={style.imageContainer}> 
+                    <Image source={{ uri: file }} 
+                        style={style.image} /> 
+                </View> 
+            ) : ( 
+                <Text style={style.errorText}>{error}</Text> 
+      )} 
     </View>
   )
 }
