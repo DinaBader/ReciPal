@@ -29,6 +29,29 @@ async function getImageTags(req, res) {
     }
 };
 
+
+const upload_image = async (req, res) => {
+    const { image } = req.files;
+  
+    if (!image) return res.sendStatus(400);
+  
+    const lastIndex = image.name.lastIndexOf(".");
+    const extention = image.name.slice(lastIndex + 1);
+    const imageName = Date.now() + "." + extention;
+  
+    if (extention !== "png" && extention !== "jpg" && extention !== "jpeg") {
+      return res.status(400).send({ message: "invalid image format" });
+    }
+  
+    const { dirname } = require("path");
+    const appDir = dirname(require.main.filename);
+    const image_dir = appDir + "/public/item/" + imageName;
+    image.mv(image_dir);
+  
+    res.status(200).send("Image uploaded");
+  };
+  
+
 async function uploadImage(req, res) {
     const apiKey = 'acc_835aa1acaeac599';
     const apiSecret = '657be76654c8c4d4546041f2445a753d';
@@ -60,5 +83,6 @@ async function uploadImage(req, res) {
 
 module.exports = { 
     getImageTags,
-    uploadImage 
+    uploadImage,
+    upload_image
 };
