@@ -213,6 +213,19 @@ const getRecipeById = async (req, res) => {
     }
 }
 
+const getRecipeByIngredients= async(req,res)=>{
+    const {ingredients}=req.body;
+    try{
+        const recipes = await Recipe.find({
+            ingredients: { $in: ingredients }
+          });
+          res.status(200).json({recipes})
+       }catch(error){
+        console.log("Error getting recipes",error);
+        res.status(500).json({"error":error})
+       }
+}
+
 
 module.exports={
     addRecipe,
@@ -222,5 +235,5 @@ module.exports={
     getRecipe,
     update_image,
     getRecipeById,
-    
+    getRecipeByIngredients
 };
