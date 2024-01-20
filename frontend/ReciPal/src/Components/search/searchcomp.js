@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { Text } from 'react-native';
 import axios from 'axios';
@@ -22,12 +22,16 @@ const SearchComp = ({ onSearchResultsChange,onCancel  }) => {
 
       const results = response.data;
       setSearchResults(results);  
-      // console.log(results)  
       onSearchResultsChange(results);
     } catch (error) {
       console.error('Error fetching search results:', error);
     }
   };
+
+  useEffect(() => {
+    onSearchResultsChange(searchResults);
+  }, [searchResults, onSearchResultsChange]);
+
   const handleCancel = () => {
     setSearchQuery(''); 
     onCancel();

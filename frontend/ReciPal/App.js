@@ -95,6 +95,7 @@ const App = () => {
             <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
             <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
             <Stack.Screen name="SignupPage" component={SignupPage} options={{ headerShown: false }} /> 
+            <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
 
           </>
         ) : (

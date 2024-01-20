@@ -27,7 +27,7 @@ const User = ({navigation}) => {
 
   const getRecipes = async () => {
       axios.get(
-        `http://192.168.0.100:8000/recipe/getRecipe`).then(function(res){ 
+        `${BASE_URL}/recipe/getRecipe`).then(function(res){ 
           setRecipes(res.data.recipes)
         }).catch((error)=>{
           console.log("Error fetching recipes",error);
@@ -37,16 +37,19 @@ const User = ({navigation}) => {
 
   useEffect(()=>{
     getRecipes();
-  },[parentSearchResults])
+  },[])
 
 
   const handleSearchResultsChange = (results) => {
     setParentSearchResults(results);
-    console.log("parentSearchResults",Object.values(parentSearchResults))
+    const recipes=parentSearchResults.recipes;
+    console.log(recipes)
   };
   const handleSearchCancel = () => {
     setParentSearchResults([]);
+    getRecipes();
   };
+
   
   return (
     <ScrollView style={[common.backgroundColor,styles.container]}>
@@ -70,14 +73,16 @@ const User = ({navigation}) => {
         <Text style={[common.white,styles.recipeText]}>Recipes</Text>
         <View style={styles.foodCard}>
          {Object.values(parentSearchResults).length > 0 ? (
-          Object.values(parentSearchResults).map((result) => (
+          recipes?.map((recipe, index) => (
             <>
+             <React.Fragment key={recipe.id}>
+              <Text style={{ color: 'white' }}>HERE {recipe.name}</Text>
               <FoodCard
-                key={result.id}
-                source={{ uri: `${BASE_URL}/recipes/${result.image}` }}
-                text={result.name}
-                onPress={() => NavigateTodetails(result._id)}
+                source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+                text={recipe.name}
+                onPress={() => NavigateTodetails(recipe._id)}
               />
+            </React.Fragment>
             </>
         ))
       ) : (
