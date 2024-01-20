@@ -3,34 +3,39 @@ import React, { useState } from 'react'
 import common from '../../utils/common'
 import * as ImagePicker from 'expo-image-picker';
 import style from "./style"
+import axios from 'axios'
 import {BASE_URL} from "@env"
 const ImageScreen = () => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
+  const [tags,setTags] = useState([]);
 
   const handleSubmit = async () => {  
     try {
-        if (file) {
-          const formData = new FormData();
-          formData.append("image", {
-            uri: file,
-            name: `recipe_photo.jpg`,
-            type: "image/jpg",
-          });
+        // if (file) {
+        //   const formData = new FormData();
+        //   formData.append("image", {
+        //     uri: file,
+        //     name: `recipe_photo.jpg`,
+        //     type: "image/jpg",
+        //   });
   
-          console.log("FormData created:", formData);
+        //   console.log("FormData created:", formData);
   
           const photoResponse = await axios.post(
             `${BASE_URL}/tags/getImageTags`,
-            formData,
-            {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }
+            // formData,
+            // {
+            //   headers: {
+            //     "Content-Type": "multipart/form-data",
+            //   },
+            // }
           );
-        }
-  
+        // }
+        const tagsres = photoResponse.data.tags;
+        console.log(tagsres);
+        setTags(tagsres);
+        // console.log(tags)
     } catch (error) {
       if (error.response) {
         console.log("BASE_URL:", BASE_URL);
