@@ -23,8 +23,8 @@ app.use("/recipe",RecipeRoutes);
 const RewardRoutes=require("../backend/routes/user.routes");
 app.use("/reward",RewardRoutes);
 
-// const ImaggaRoutes=require("../backend/routes/imagga.routes");
-// app.use("/tags",ImaggaRoutes)
+const ImaggaRoutes=require("../backend/routes/imagga.routes");
+app.use("/tags",ImaggaRoutes)
 .0
 app.listen(8000,()=>{
     console.log("Server listening on PORT: ",8000);
