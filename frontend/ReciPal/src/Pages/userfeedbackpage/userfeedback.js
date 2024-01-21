@@ -1,7 +1,8 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import common from "../../utils/common"
 import axios from 'axios'
+import style from './style'
 import {BASE_URL} from "@env"
 const Userfeedback = () => {
   const [feedbacks,setFeedback]=useState([]);
@@ -23,16 +24,15 @@ const Userfeedback = () => {
   },[])
 
   return (
-    <View style={[common.backgroundColor]}>
+    <ScrollView style={[common.backgroundColor]}>
       <Text style={[common.header,common.white]}>User Feedback</Text>
       {feedbacks.map((feedback,index)=>(
-        <View key={index}>
-        <Text>{feedback.feedback}</Text>
+        <View key={index} style={[style.container]}>
+        <Text style={common.white}>{feedback.feedback}</Text>
         </View>
       ))
-
       }
-    </View>
+    </ScrollView>
   )
 }
 
