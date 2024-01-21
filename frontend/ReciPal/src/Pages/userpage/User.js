@@ -8,6 +8,7 @@ import styles from "./style";
 import Search from "../../Components/search/searchcomp"
 import Foodcircle from "../../Components/foodcircle/food"
 import FoodCard from  "../../Components/foodcard/FoodCardComp"
+import BottomNav from "../../Components/userbottomnav/bottomnavcomp"
 import Carousel from 'react-native-snap-carousel';
 const SLIDER_WIDTH = Dimensions.get('window').width/0.8;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
@@ -49,6 +50,18 @@ const User = ({navigation}) => {
     setParentSearchResults([]);
     getRecipes();
   };
+
+  const navigatoHome = () =>{
+    navigation.navigate('UserPage');
+  }
+
+  const navigateAdd = () =>{
+    navigation.navigate('ImagePage');
+  }
+
+  const navgateProfile = () =>{
+    navigation.navigate('UserProfile');
+  }
 
   
   return (
@@ -96,6 +109,8 @@ const User = ({navigation}) => {
         ))
       )}
     </View>
+    <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}/>
+
     </ScrollView>
   );
 }

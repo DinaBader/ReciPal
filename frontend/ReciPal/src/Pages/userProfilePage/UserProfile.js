@@ -7,6 +7,7 @@ import Icons from '../../Components/Icons/IconsComp.js';
 import { BASE_URL } from '@env';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+ import BottomNav from "../../Components/userbottomnav/bottomnavcomp"
 
 const UserProfile = ({ navigation }) => {
   const [image, setImage] = useState('');
@@ -43,7 +44,17 @@ const UserProfile = ({ navigation }) => {
       console.log('error fetching updated image', error);
     }
   };
+  const navigatoHome = () =>{
+    navigation.navigate('UserPage');
+  }
 
+  const navigateAdd = () =>{
+    navigation.navigate('ImagePage');
+  }
+
+  const navgateProfile = () =>{
+    navigation.navigate('UserProfile');
+  }
   useEffect(() => {
     getImage();
   }, [reloadProfile]); 
@@ -56,6 +67,8 @@ const UserProfile = ({ navigation }) => {
         onUpdateImage={handleUpdateImage}
       />
       <Icons navigation={navigation} />
+      <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}/>
+
     </ScrollView>
   );
 };

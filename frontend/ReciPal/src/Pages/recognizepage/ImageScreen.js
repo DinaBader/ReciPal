@@ -6,7 +6,9 @@ import style from "./style"
 import axios from 'axios'
 import {BASE_URL} from "@env"
 import FoodCardComp from '../../Components/foodcard/FoodCardComp';
-const ImageScreen = () => {
+import BottomNav from "../../Components/userbottomnav/bottomnavcomp"
+
+const ImageScreen = ({navigation}) => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
   const [tags,setTags] = useState([]);
@@ -58,6 +60,19 @@ const ImageScreen = () => {
       console.error("Error config:", error.config);
     }
   };
+
+  const navigatoHome = () =>{
+    navigation.navigate('UserPage');
+  }
+
+  const navigateAdd = () =>{
+    navigation.navigate('ImagePage');
+  }
+
+  const navgateProfile = () =>{
+    navigation.navigate('UserProfile');
+  }
+
                           
   const pickImage = async () => { 
     const { status } = await ImagePicker. 
@@ -156,6 +171,7 @@ const ImageScreen = () => {
     ) : (
       <Text style={style.errorText}>{error}</Text>
     )}
+   <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}/>
   </ScrollView>
 
   )

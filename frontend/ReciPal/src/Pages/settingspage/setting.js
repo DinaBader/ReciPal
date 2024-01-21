@@ -21,19 +21,6 @@ const Setting = ({navigation}) => {
     navigation.goBack();
   }
 
-  const navigatoHome = () =>{
-    navigation.navigate('UserPage');
-  }
-
-  const navigateAdd = () =>{
-    navigation.navigate('ImagePage');
-  }
-
-  const navgateProfile = () =>{
-    navigation.navigate('UserProfile');
-  }
-
-
   return (
     <View style={common.backgroundColor}>
       <View style={[common.title]}>
@@ -62,7 +49,6 @@ const Setting = ({navigation}) => {
           <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
         </TouchableOpacity>
         </View>
-      <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}/>
 
     </View>
   )
