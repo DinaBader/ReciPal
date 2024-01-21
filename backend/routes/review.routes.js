@@ -5,5 +5,5 @@ const { authMiddleware } = require("../middlewares/auth.middleware");
 
 router.post("/addReview",addReview);
 router.delete("/removeReview",authMiddleware,removeReview)
-router.get("/getReviews",authMiddleware,getReviews);
+router.get("/getReviews",getReviews);
 module.exports=router;
