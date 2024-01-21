@@ -4,6 +4,7 @@ import common from '../../utils/common'
 import BottomNav  from '../../Components/userbottomnav/bottomnavcomp'
 import style from "./style"
 import axios from 'axios'
+import FoodCard from '../../Components/foodcard/FoodCardComp'
 import {BASE_URL} from "@env"
 const Admin = ({navigation}) => {
   const [recipes,setRecipes]=useState([]); 
@@ -31,16 +32,24 @@ const Admin = ({navigation}) => {
   },[])
 
   return (
-   <View style={common.backgroundColor}> 
+   <ScrollView style={common.backgroundColor}> 
    <Text style={[common.header,common.white]}>Admin Panel</Text>
    <Text style={[common.white,style.recipes]}>Recipes</Text>
+   {recipes.map((recipe, index) => (
+          <FoodCard
+            key={index}
+            source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+            text={recipe.name}
+            onPress={() => NavigateTodetails(recipe._id)}
+          />
+      ))}
     <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}
      />
 
-   </View>
+   </ScrollView>
   )
 }
 
