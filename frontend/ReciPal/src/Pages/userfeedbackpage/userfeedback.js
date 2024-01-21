@@ -5,7 +5,7 @@ import axios from 'axios'
 import style from './style'
 import {BASE_URL} from "@env"
 import BottomNav from '../../Components/userbottomnav/bottomnavcomp'
-const Userfeedback = () => {
+const Userfeedback = ({navigation}) => {
   const [feedbacks,setFeedback]=useState([]);
    
   const getFeedback=()=>{
@@ -13,6 +13,7 @@ const Userfeedback = () => {
        axios.get(`${BASE_URL}/review/getReviews`
        ).then((res)=>{
         const response=res.data.reviews;
+        console.log(response._id)
         setFeedback(response);
        })
     }catch(error){
@@ -42,7 +43,7 @@ const Userfeedback = () => {
         <Text style={[common.white,style.feedback]}>{feedback.feedback}</Text>
         <TouchableOpacity
           style={[style.deleteButton, common.center]}
-          onPress={() => DeleteRecipe(recipe.recipeId)}>
+          onPress={() => DeleteRecipe(feedback._id)}>
             <View style={style.align}>
               <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
               <Text style={common.bold}>Delete</Text>
