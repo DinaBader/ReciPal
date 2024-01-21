@@ -4,7 +4,7 @@ import common from "../../utils/common"
 import axios from 'axios'
 import style from './style'
 import {BASE_URL} from "@env"
-import BottomNav from '../../Components/userbottomnav/bottomnavcomp'
+import AdminNav  from '../../Components/adminnav/AdminNavComp'
 const Userfeedback = ({navigation}) => {
   const [feedbacks,setFeedback]=useState([]);
    
@@ -31,6 +31,10 @@ const Userfeedback = ({navigation}) => {
   const navigateFeedback=()=>{
     navigation.navigate('UserFeedbackPage')
   }
+  const navigateToStats=()=>{
+    navigation.navigate('StatsPage');
+  }
+
   useEffect(()=>{
      getFeedback();
   },[])
@@ -61,14 +65,15 @@ const Userfeedback = ({navigation}) => {
               <Text style={common.bold}>Delete</Text>
             </View>
         </TouchableOpacity>
-
         </View>
       ))
       }
-      <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
+    <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}
+     source4={require("../../../assets/stats.png")}
+
      />
 
 

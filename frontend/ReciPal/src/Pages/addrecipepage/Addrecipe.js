@@ -5,7 +5,7 @@ import common from "../../utils/common"
 import style from "./style"
 import axios from 'axios';
 import Input from "../../Components/Inputs/input"
-import BottomNav from "../../Components/userbottomnav/bottomnavcomp"
+import AdminNav from "../../Components/adminnav/AdminNavComp"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import {BASE_URL} from "@env"
 const AddRecipe = ({navigation}) => {
@@ -55,6 +55,10 @@ const handleInstructionsChange=(text)=>{
 const navigateToLogin=()=>{
   AsyncStorage.clear();
   navigation.navigate('Login')
+}
+
+const navigateToStats=()=>{
+  navigation.navigate('StatsPage');
 }
 
 const handleSubmit = async () => {
@@ -212,10 +216,11 @@ const pickImage = async () => {
             <TouchableOpacity onPress={navigateToLogin}>
               <Text>Logout</Text>
             </TouchableOpacity>
-      <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
+            <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}
+     source4={require("../../../assets/stats.png")}
      />
     </ScrollView>
   )
