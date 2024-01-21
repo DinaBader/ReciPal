@@ -13,7 +13,7 @@ const Userfeedback = ({navigation}) => {
        axios.get(`${BASE_URL}/review/getReviews`
        ).then((res)=>{
         const response=res.data.reviews;
-        console.log(response._id)
+        console.log(response)
         setFeedback(response);
        })
     }catch(error){
@@ -35,6 +35,18 @@ const Userfeedback = ({navigation}) => {
      getFeedback();
   },[])
 
+  const DeleteFeedback=(feedbackId)=> {
+    try{
+       axios.delete(`${BASE_URL}/review/removeReview/${feedbackId}`
+       ).then((res)=>{
+        const updatedFeedback = feedbacks.filter((feedback) => feedback._id !== feedback);
+        getFeedback(updatedFeedback);
+       })
+    }catch(error){
+      console.log("Error deleting the feedback",error);
+    }
+  }
+
   return (
     <ScrollView style={[common.backgroundColor]}>
       <Text style={[common.header,common.white]}>User Feedback</Text>
@@ -43,7 +55,7 @@ const Userfeedback = ({navigation}) => {
         <Text style={[common.white,style.feedback]}>{feedback.feedback}</Text>
         <TouchableOpacity
           style={[style.deleteButton, common.center]}
-          onPress={() => DeleteRecipe(feedback._id)}>
+          onPress={() => DeleteFeedback(feedback._id)}>
             <View style={style.align}>
               <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
               <Text style={common.bold}>Delete</Text>
