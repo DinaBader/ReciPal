@@ -50,7 +50,7 @@ const Admin = ({navigation}) => {
    <Text style={[common.header,common.white]}>Admin Panel</Text>
    <Text style={[common.white,style.recipes]}>Recipes</Text>
    <View style={style.foodCard}>
-    {recipes.map((recipe, index) => (
+    {recipes.slice(0,6).map((recipe, index) => (
             <View style={style.container}>
               <FoodCard
                 key={index}
@@ -68,6 +68,9 @@ const Admin = ({navigation}) => {
             </View>
         ))}
     </View>
+    <TouchableOpacity>
+      <Text style={[common.white,style.getRecipes]}>Get All Recipes</Text>   
+    </TouchableOpacity>
     <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}

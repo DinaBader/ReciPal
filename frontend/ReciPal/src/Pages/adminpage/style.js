@@ -47,6 +47,9 @@ const styles= StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         gap:8
+    },
+    getRecipes:{
+        paddingLeft:150
     }
 })
 
