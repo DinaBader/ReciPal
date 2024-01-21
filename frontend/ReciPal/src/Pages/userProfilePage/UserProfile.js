@@ -67,7 +67,11 @@ const UserProfile = ({ navigation }) => {
         onUpdateImage={handleUpdateImage}
       />
       <Icons navigation={navigation} />
-      <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}/>
+      <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}
+     source1={require("../../../assets/home.png")}
+     source2={require("../../../assets/add.png")}
+     source3={require("../../../assets/settings-black.png")}
+      />
 
     </ScrollView>
   );
