@@ -33,6 +33,18 @@ const Admin = ({navigation}) => {
      getRecipes()
   },[])
 
+  const DeleteRecipe=(recipeId)=>{
+    console.log(recipeId)
+    try{
+       axios.delete(`${BASE_URL}/recipe/deleteRecipe/${recipeId}`,
+       ).then((res)=>{
+        console.log("recipe deleted");
+       })
+    }catch(error){
+      console.log("error deleting recipe",error)
+    }
+  }
+
   return (
    <ScrollView style={common.backgroundColor}> 
    <Text style={[common.header,common.white]}>Admin Panel</Text>
@@ -47,7 +59,7 @@ const Admin = ({navigation}) => {
               />
               <TouchableOpacity
                   style={[style.deleteButton, common.center]}
-                  onPress={() => DeleteRecipe(recipe.recipeId)}>
+                  onPress={() => DeleteRecipe(recipe._id)}>
                       <View style={style.align}>
                        <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
                        <Text style={common.bold}>Delete</Text>
