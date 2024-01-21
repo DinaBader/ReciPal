@@ -17,6 +17,8 @@ const Saved = ({navigation}) => {
         navigation.goBack();
     }
 
+    axios.defaults.headers["Authorization"] =
+    "Bearer " + localStorage.getItem("jwt");
 
     const _retrieveData = async () => {
         try {
@@ -37,7 +39,7 @@ const Saved = ({navigation}) => {
         }
       
         axios
-          .get(`${BASE_URL}/reward/getSavedRecipes/${userId}`)
+          .get(`${BASE_URL}/reward/getSavedRecipes`)
           .then((res) => {
             const { savedRecipes } = res.data;
             console.log('Saved Recipes:', savedRecipes);
@@ -72,7 +74,7 @@ const Saved = ({navigation}) => {
             
     const DeleteRecipe=async(recipeId)=>{
       try {
-        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${userId}/${recipeId}`);
+        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${recipeId}`);
         console.log('recipe unsaved');    
         await AsyncStorage.removeItem(`saved_${recipeId}`);
       } catch (error) {

@@ -18,6 +18,9 @@ const Recipedetail = ({route,navigation}) => {
   const navigateToHome=()=>{
     navigation.goBack();
   }
+  axios.defaults.headers["Authorization"] =
+    "Bearer " + localStorage.getItem("jwt");
+
   const { recipeId } = route.params;
   
   const _retrieveData = async () => {
@@ -48,7 +51,7 @@ const Recipedetail = ({route,navigation}) => {
     if (saved === false) {
       console.log("in false")
       try {
-        await axios.post(`${BASE_URL}/reward/saveRecipe/${userId}/${recipeId}`);
+        await axios.post(`${BASE_URL}/reward/saveRecipe/${recipeId}`);
         console.log('recipe saved');
         updateSavedStatus('true');
       } catch (error) {
@@ -56,7 +59,7 @@ const Recipedetail = ({route,navigation}) => {
       }
     } else {
       try {
-        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${userId}/${recipeId}`);
+        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${recipeId}`);
         console.log('recipe unsaved');
         updateSavedStatus('false');
       } catch (error) {
@@ -108,7 +111,7 @@ const Recipedetail = ({route,navigation}) => {
         onPress: async() => {
           SetCompleted(!completed);
           try {
-            await axios.post(`${BASE_URL}/reward/addReward/${userId}/${recipeId}`);
+            await axios.post(`${BASE_URL}/reward/addReward/${recipeId}`);
             console.log("Reward Added");
           } catch (error) {
             console.error('Error adding reward:', error);
@@ -130,9 +133,6 @@ const Recipedetail = ({route,navigation}) => {
 
   const CompletedRecipe = async () => {
     try {
-      // await axios.post(`${BASE_URL}/reward/addReward/${userId}/${recipeId}`);
-      // console.log("Reward Added");
-  
       await AsyncStorage.setItem(`completed_${recipeId}`, completed.toString());
     } catch (error) {
       console.error('Error:', error);
