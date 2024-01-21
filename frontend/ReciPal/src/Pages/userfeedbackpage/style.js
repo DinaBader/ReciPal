@@ -15,8 +15,8 @@ const styles=StyleSheet.create({
         textAlign:'baseline',
         width:120,
         height:40,
-        marginTop:70,
-        marginLeft:30,
+        marginTop:90,
+        marginLeft:120,
         borderRadius:10
     },
     align:{
@@ -24,6 +24,10 @@ const styles=StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         gap:8
+    },
+    feedback:{
+        paddingLeft:8,
+        paddingTop:9
     }
 })
 

@@ -28,7 +28,7 @@ const Userfeedback = () => {
       <Text style={[common.header,common.white]}>User Feedback</Text>
       {feedbacks.map((feedback,index)=>(
         <View key={index} style={[style.container]}>
-        <Text style={common.white}>{feedback.feedback}</Text>
+        <Text style={[common.white,style.feedback]}>{feedback.feedback}</Text>
         <TouchableOpacity
           style={[style.deleteButton, common.center]}
           onPress={() => DeleteRecipe(recipe.recipeId)}>
