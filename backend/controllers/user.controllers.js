@@ -204,7 +204,7 @@ const getSavedRecipes = async (req, res) => {
 };
 
 const editProfile = async (req, res) => {
-  const { userId } = req.params;
+  const userId = req.user._id;
   const { username, email } = req.body;
 
   try {
