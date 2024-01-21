@@ -9,6 +9,6 @@ router.post('/addRecipePhoto/:id',addRecipePhoto);
 router.post('/update_image/:id',update_image);
 router.get('/getRecipeById/:recipeId',getRecipeById);
 router.get('/getRecipe',getRecipe);
-router.get('/getRecipeByIngredients',getRecipeByIngredients);
+router.get('/getRecipeByIngredients', getRecipeByIngredients);
 
 module.exports=router;

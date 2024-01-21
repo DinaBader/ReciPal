@@ -213,22 +213,26 @@ const getRecipeById = async (req, res) => {
     }
 }
 
-const getRecipeByIngredients= async(req,res)=>{
-    try{
-        const {ingredients}=req.body;
-
-        const regexPattern = new RegExp(ingredients.join('|'), 'i');
-
-        const recipes = await Recipe.find({
-          ingredients: { $regex: regexPattern }
-        });
-              res.status(200).json({recipes})
-       }catch(error){
-        console.log("Error getting recipes",error);
-        res.status(500).json({"error":error})
-       }
-}
-
+const getRecipeByIngredients = async (req, res) => {
+    try {
+      const { tags } = req.query;
+  
+      if (!tags) {
+        return res.status(400).json({ error: "Missing 'tags' in the query parameters" });
+      }
+  
+      const regexPattern = new RegExp(tags.split(',').join('|'), 'i');
+      const recipes = await Recipe.find({
+        ingredients: { $regex: regexPattern }
+      });
+  
+      res.status(200).json({ recipes });
+    } catch (error) {
+      console.log("Error getting recipes", error);
+      res.status(500).json({ error: error });
+    }
+  };
+  
 
 module.exports={
     addRecipe,
