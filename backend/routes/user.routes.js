@@ -4,13 +4,13 @@ const { addReward, upload_image, get_user,update_image,get_userImage,saveRecipe,
 const { authMiddleware } = require("../middlewares/auth.middleware");
 const { authMiddlewareForUpload } = require("../middlewares/authupload.middleware");
 
-router.post('/addReward/:userId/:recipeId', addReward);
+router.post('/addReward/:recipeId',authMiddleware, addReward);
 router.post('/upload-image', authMiddlewareForUpload, upload_image);
 router.post('/update_image',authMiddlewareForUpload,update_image);
-router.post('/saveRecipe/:userId/:recipeId',saveRecipe);
-router.post('/unsaveRecipe/:userId/:recipeId',unsaveRecipe);
-router.get('/getSavedRecipes/:userId',getSavedRecipes);
-router.post('/editProfile/:userId',editProfile);
+router.post('/saveRecipe/:recipeId',authMiddleware,saveRecipe);
+router.post('/unsaveRecipe/:recipeId',authMiddleware,unsaveRecipe);
+router.get('/getSavedRecipes/:userId',authMiddleware,getSavedRecipes);
+router.post('/editProfile/:userId',authMiddleware,editProfile);
 router.get("/getRewards", authMiddleware,getRewards);
 router.get("/get_userImage",authMiddleware,get_userImage);
 
