@@ -9,9 +9,15 @@ const style=StyleSheet.create({
     container:{
         display: 'flex',
         flexDirection: 'row', 
-        // justifyContent: 'space-between', 
         gap:130,
         alignItems: 'center',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        paddingBottom:5, 
+        height:55
+
     },
     home:{
         marginLeft:15

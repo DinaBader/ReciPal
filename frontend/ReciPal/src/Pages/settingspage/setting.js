@@ -2,7 +2,7 @@ import { View, Text,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
 import style from "./style"
-import BottomNav from '../../Components/bottomnav/bottomnavcomp'
+import BottomNav from '../../Components/userbottomnav/bottomnavcomp'
 const Setting = ({navigation}) => {
 
   const navigateToEditProfile = () =>{
@@ -20,6 +20,19 @@ const Setting = ({navigation}) => {
   const navigatoToHome=()=>{
     navigation.goBack();
   }
+
+  const navigatoHome = () =>{
+    navigation.navigate('UserPage');
+  }
+
+  const navigateAdd = () =>{
+    navigation.navigate('ImagePage');
+  }
+
+  const navgateProfile = () =>{
+    navigation.navigate('UserProfile');
+  }
+
 
   return (
     <View style={common.backgroundColor}>
@@ -49,7 +62,7 @@ const Setting = ({navigation}) => {
           <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
         </TouchableOpacity>
         </View>
-      <BottomNav/>
+      <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}/>
 
     </View>
   )
