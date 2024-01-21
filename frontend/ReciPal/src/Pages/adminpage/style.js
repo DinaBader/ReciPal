@@ -32,6 +32,21 @@ const styles= StyleSheet.create({
     },
     allRecipes:{
         paddingLeft:150
+    },
+    deleteButton:{
+        backgroundColor:'#A62E2E',
+        textAlign:'baseline',
+        width:120,
+        height:40,
+        marginTop:40,
+        marginLeft:50,
+        borderRadius:10
+    },
+    align:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        gap:8
     }
 })
 

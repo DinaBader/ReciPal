@@ -38,16 +38,23 @@ const Admin = ({navigation}) => {
    <Text style={[common.header,common.white]}>Admin Panel</Text>
    <Text style={[common.white,style.recipes]}>Recipes</Text>
    <View style={style.foodCard}>
-    {recipes.slice(0,6).map((recipe, index) => (
-            <FoodCard
-              key={index}
-              source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-              text={recipe.name}
-            />
+    {recipes.map((recipe, index) => (
+            <View style={style.container}>
+              <FoodCard
+                key={index}
+                source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+                text={recipe.name}
+              />
+              <TouchableOpacity
+                  style={[style.deleteButton, common.center]}
+                  onPress={() => DeleteRecipe(recipe.recipeId)}>
+                      <View style={style.align}>
+                       <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
+                       <Text style={common.bold}>Delete</Text>
+                       </View>
+                    </TouchableOpacity>
+            </View>
         ))}
-        <TouchableOpacity> 
-          <Text style={[common.white,style.allRecipes]}>Get all recipes</Text>
-        </TouchableOpacity>
     </View>
     <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
