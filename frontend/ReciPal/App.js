@@ -18,6 +18,7 @@ import FeedBack from './src/Pages/feedbackpage/FeedBack';
 import Saved  from './src/Pages/savedpage/Saved'
 import Awards  from './src/Pages/awardspage/Awards'
 import UserProfile from './src/Pages/userProfilePage/UserProfile'
+import StatsPage from './src/Pages/statspage/Stats'
 import { LanguageProvider } from './src/translation/LanguageContext';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -87,6 +88,7 @@ const App = () => {
             <Stack.Screen name="UserProfile" component={UserProfile} options={{ headerShown: false }} />
             <Stack.Screen name="AddRecipePage" component={AddRecipePage} options={{ headerShown: false }} />
             <Stack.Screen name="UserFeedbackPage" component={UserFeedbackPage} options={{ headerShown: false }} />
+            <Stack.Screen name="StatsPage" component={StatsPage} options={{ headerShown: false }} />
            </>
            
           )}  

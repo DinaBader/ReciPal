@@ -17,7 +17,9 @@ const Admin = ({navigation}) => {
   const navigateFeedback=()=>{
     navigation.navigate('UserFeedbackPage')
   }
-
+  const navigateToStats=()=>{
+    navigation.navigate('StatsPage');
+  }
   const getRecipes = async () => {
     axios.get(
       `${BASE_URL}/recipe/getRecipe`).then(function(res){ 
@@ -47,7 +49,7 @@ const Admin = ({navigation}) => {
           <Text style={[common.white,style.allRecipes]}>Get all recipes</Text>
         </TouchableOpacity>
     </View>
-    <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
+    <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}
