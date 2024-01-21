@@ -4,14 +4,13 @@ import common from "../../utils/common"
 import axios from 'axios'
 import {BASE_URL} from "@env"
 const Userfeedback = () => {
-  const [feedback,setFeedback]=useState([]);
+  const [feedbacks,setFeedback]=useState([]);
    
   const getFeedback=()=>{
     try{
        axios.get(`${BASE_URL}/review/getReviews`
        ).then((res)=>{
-        const response=res.data;
-        console.log(response); 
+        const response=res.data.reviews;
         setFeedback(response);
        })
     }catch(error){
@@ -26,7 +25,6 @@ const Userfeedback = () => {
   return (
     <View style={[common.backgroundColor]}>
       <Text style={[common.header,common.white]}>User Feedback</Text>
-
     </View>
   )
 }
