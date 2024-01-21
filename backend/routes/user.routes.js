@@ -9,8 +9,8 @@ router.post('/upload-image', authMiddlewareForUpload, upload_image);
 router.post('/update_image',authMiddlewareForUpload,update_image);
 router.post('/saveRecipe/:recipeId',authMiddleware,saveRecipe);
 router.post('/unsaveRecipe/:recipeId',authMiddleware,unsaveRecipe);
-router.get('/getSavedRecipes/:userId',authMiddleware,getSavedRecipes);
-router.post('/editProfile/:userId',authMiddleware,editProfile);
+router.get('/getSavedRecipes',authMiddleware,getSavedRecipes);
+router.post('/editProfile',authMiddleware,editProfile);
 router.get("/getRewards", authMiddleware,getRewards);
 router.get("/get_userImage",authMiddleware,get_userImage);
 
