@@ -5,6 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import style from "./style"
 import axios from 'axios'
 import {BASE_URL} from "@env"
+import FoodCardComp from '../../Components/foodcard/FoodCardComp';
 const ImageScreen = () => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
@@ -86,8 +87,9 @@ const ImageScreen = () => {
         }
       });
   
-      const res = response.data;
+      const res = response.data.recipes;
       setRecipes(res);
+      console.log(res);
     } catch (error) {
       console.log("Error getting recipes", error.message);
     }
@@ -132,7 +134,19 @@ const ImageScreen = () => {
                       ))}
                   </View>
                 )}
-                </View> 
+          {recipes && recipes.length > 0 && (
+            <View>
+              {recipes.map((recipe, index) => (
+                <FoodCardComp
+                  key={index}
+                  source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+                  text={recipe.name}
+                  onPress={() => NavigateToDetails(recipe._id)}
+                />
+              ))}
+            </View>
+          )}
+        </View>
             ) : ( 
                 <Text style={style.errorText}>{error}</Text> 
       )} 
