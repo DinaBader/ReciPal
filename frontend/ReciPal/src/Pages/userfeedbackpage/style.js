@@ -9,7 +9,21 @@ const styles=StyleSheet.create({
         marginLeft:15,
         paddingBottom:20,
         borderRadius:10
-        
+    },
+    deleteButton:{
+        backgroundColor:'#A62E2E',
+        textAlign:'baseline',
+        width:120,
+        height:40,
+        marginTop:70,
+        marginLeft:30,
+        borderRadius:10
+    },
+    align:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        gap:8
     }
 })
 

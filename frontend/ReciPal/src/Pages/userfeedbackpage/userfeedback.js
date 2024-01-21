@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity,Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import common from "../../utils/common"
 import axios from 'axios'
@@ -29,6 +29,15 @@ const Userfeedback = () => {
       {feedbacks.map((feedback,index)=>(
         <View key={index} style={[style.container]}>
         <Text style={common.white}>{feedback.feedback}</Text>
+        <TouchableOpacity
+          style={[style.deleteButton, common.center]}
+          onPress={() => DeleteRecipe(recipe.recipeId)}>
+            <View style={style.align}>
+              <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
+              <Text style={common.bold}>Delete</Text>
+            </View>
+        </TouchableOpacity>
+
         </View>
       ))
       }
