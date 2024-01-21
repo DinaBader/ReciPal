@@ -8,6 +8,7 @@ import FoodCard from '../../Components/foodcard/FoodCardComp'
 import {BASE_URL} from "@env"
 const Admin = ({navigation}) => {
   const [recipes,setRecipes]=useState([]); 
+  const [showAllRecipes, setShowAllRecipes] = useState(false);
   const navigatoHome=()=>{
     navigation.navigate('AdminPage');
   } 
@@ -20,6 +21,10 @@ const Admin = ({navigation}) => {
   const navigateToStats=()=>{
     navigation.navigate('StatsPage');
   }
+  const toggleShowAllRecipes = () => {
+    setShowAllRecipes(!showAllRecipes);
+  };
+
   const getRecipes = async () => {
     axios.get(
       `${BASE_URL}/recipe/getRecipe`).then(function(res){ 
@@ -50,26 +55,46 @@ const Admin = ({navigation}) => {
    <Text style={[common.header,common.white]}>Admin Panel</Text>
    <Text style={[common.white,style.recipes]}>Recipes</Text>
    <View style={style.foodCard}>
-    {recipes.slice(0,6).map((recipe, index) => (
-            <View style={style.container}>
-              <FoodCard
-                key={index}
-                source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-                text={recipe.name}
-              />
-              <TouchableOpacity
+   {showAllRecipes
+          ? recipes.map((recipe, index) => (
+              <View style={style.container} key={index}>
+                <FoodCard
+                  source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+                  text={recipe.name}
+                />
+                <TouchableOpacity
                   style={[style.deleteButton, common.center]}
                   onPress={() => DeleteRecipe(recipe._id)}>
-                      <View style={style.align}>
-                       <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
-                       <Text style={common.bold}>Delete</Text>
-                       </View>
-                    </TouchableOpacity>
-            </View>
-        ))}
+                  <View style={style.align}>
+                    <Image source={require("../../../assets/trash.png")} style={{ width: 20, height: 20 }} />
+                    <Text style={common.bold}>Delete</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            ))
+          : recipes.slice(0, 6).map((recipe, index) => (
+              <View style={style.container} key={index}>
+                <FoodCard
+                  source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+                  text={recipe.name}
+                />
+                <TouchableOpacity
+                  style={[style.deleteButton, common.center]}
+                  onPress={() => DeleteRecipe(recipe._id)}>
+                  <View style={style.align}>
+                    <Image source={require("../../../assets/trash.png")} style={{ width: 20, height: 20 }} />
+                    <Text style={common.bold}>Delete</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            ))}
     </View>
-    <TouchableOpacity>
-      <Text style={[common.white,style.getRecipes]}>Get All Recipes</Text>   
+    <TouchableOpacity onPress={()=>toggleShowAllRecipes()}>
+      {showAllRecipes?
+      <Text style={[common.white,style.getRecipes]}>Show less </Text>:
+      <Text style={[common.white,style.getRecipes]}>Show more</Text>
+      }
+         
     </TouchableOpacity>
     <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
