@@ -25,6 +25,13 @@ const Userfeedback = () => {
   return (
     <View style={[common.backgroundColor]}>
       <Text style={[common.header,common.white]}>User Feedback</Text>
+      {feedbacks.map((feedback,index)=>(
+        <View key={index}>
+        <Text>{feedback.feedback}</Text>
+        </View>
+      ))
+
+      }
     </View>
   )
 }
