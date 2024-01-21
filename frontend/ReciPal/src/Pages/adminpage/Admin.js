@@ -1,9 +1,12 @@
 import { View, Text,Image,TouchableOpacity, ScrollView } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import common from '../../utils/common'
-import BottomNav from '../../Components/userbottomnav/bottomnavcomp'
+import BottomNav  from '../../Components/userbottomnav/bottomnavcomp'
+import style from "./style"
+import axios from 'axios'
+import {BASE_URL} from "@env"
 const Admin = ({navigation}) => {
-
+  const [recipes,setRecipes]=useState([]); 
   const navigatoHome=()=>{
     navigation.navigate('AdminPage');
   } 
@@ -14,9 +17,23 @@ const Admin = ({navigation}) => {
     navigation.navigate('UserFeedbackPage')
   }
 
+  const getRecipes = async () => {
+    axios.get(
+      `${BASE_URL}/recipe/getRecipe`).then(function(res){ 
+        setRecipes(res.data.recipes)
+      }).catch((error)=>{
+        console.log("Error fetching recipes",error);
+      })
+  };
+
+  useEffect(()=>{
+     getRecipes()
+  },[])
+
   return (
    <View style={common.backgroundColor}> 
    <Text style={[common.header,common.white]}>Admin Panel</Text>
+   <Text style={[common.white,style.recipes]}>Recipes</Text>
     <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}

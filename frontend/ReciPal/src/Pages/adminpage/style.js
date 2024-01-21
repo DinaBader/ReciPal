@@ -21,6 +21,10 @@ const styles= StyleSheet.create({
         borderRadius:10,
         marginTop:10,
         textAlign:'center',
+    },
+    recipes:{
+        fontSize:20, 
+        marginLeft:50
     }
 })
 

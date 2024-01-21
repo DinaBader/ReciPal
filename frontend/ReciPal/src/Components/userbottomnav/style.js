@@ -11,11 +11,11 @@ const style=StyleSheet.create({
         flexDirection: 'row', 
         gap:130,
         alignItems: 'center',
-        position: 'fixed',
+        position: 'relative',
         bottom: 0,
         left: 0,
         right: 0,
-        paddingBottom:5, 
+        paddingBottom: 8, 
         height:55
     },
     home:{

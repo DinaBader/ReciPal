@@ -56,7 +56,8 @@ const App = () => {
     <NavigationContainer>
        <Stack.Navigator initialRouteName="LandingPage">
         {userRole===2  ? (
-          <>
+          <>  
+           <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
             <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             <Stack.Screen name="EditProfile" component={EditProfile} options={{headerShown:false}} />
@@ -65,7 +66,6 @@ const App = () => {
             <Stack.Screen name="Saved" component={Saved} options={{headerShown:false}} />
             <Stack.Screen name="Awards" component={Awards} options={{headerShown:false}} />
             <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ headerShown: false }}/>
-            <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
             <Stack.Screen name="SignupPage" component={SignupPage} options={{ headerShown: false }} /> 
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
             <Stack.Screen name="UserProfile" component={UserProfile} options={{ headerShown: false }} />
@@ -73,6 +73,7 @@ const App = () => {
           </>
         ) : (
           <>
+            <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
             <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             <Stack.Screen name="EditProfile" component={EditProfile} options={{headerShown:false}} />
@@ -81,7 +82,6 @@ const App = () => {
             <Stack.Screen name="Saved" component={Saved} options={{headerShown:false}} />
             <Stack.Screen name="Awards" component={Awards} options={{headerShown:false}} />
             <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ headerShown: false }}/>
-            <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
             <Stack.Screen name="SignupPage" component={SignupPage} options={{ headerShown: false }} /> 
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
             <Stack.Screen name="UserProfile" component={UserProfile} options={{ headerShown: false }} />
