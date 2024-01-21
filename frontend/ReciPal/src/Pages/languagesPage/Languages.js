@@ -3,18 +3,21 @@ import { RadioButton } from 'react-native-paper';
 import React, { useEffect } from 'react'
 import common from '../../utils/common';
 import style from "./style.js"
-const Languages = () => {
+const Languages = ({navigation}) => {
   const [checked, setChecked] = React.useState('English');
 
   const handleRadioButtonChange = (value) => {
     setChecked(value);
   };
+  const navigateBack=()=>{
+    navigation.goBack()
+  }
 
 
   return (
     <View style={[common.backgroundColor]}>
       <View style={[common.title]}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigateBack}>
           <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
           </TouchableOpacity>
         <Text style={[common.white, common.header]}>Languages</Text>
