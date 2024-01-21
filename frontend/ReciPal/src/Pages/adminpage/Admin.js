@@ -35,14 +35,18 @@ const Admin = ({navigation}) => {
    <ScrollView style={common.backgroundColor}> 
    <Text style={[common.header,common.white]}>Admin Panel</Text>
    <Text style={[common.white,style.recipes]}>Recipes</Text>
-   {recipes.map((recipe, index) => (
-          <FoodCard
-            key={index}
-            source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-            text={recipe.name}
-            onPress={() => NavigateTodetails(recipe._id)}
-          />
-      ))}
+   <View style={style.foodCard}>
+    {recipes.slice(0,6).map((recipe, index) => (
+            <FoodCard
+              key={index}
+              source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+              text={recipe.name}
+            />
+        ))}
+        <TouchableOpacity> 
+          <Text style={[common.white,style.allRecipes]}>Get all recipes</Text>
+        </TouchableOpacity>
+    </View>
     <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}

@@ -25,6 +25,13 @@ const styles= StyleSheet.create({
     recipes:{
         fontSize:20, 
         marginLeft:50
+    },
+    foodCard:{
+        flexDirection:'row',
+        flexWrap:'wrap'
+    },
+    allRecipes:{
+        paddingLeft:150
     }
 })
 
