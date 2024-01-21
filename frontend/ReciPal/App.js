@@ -2,19 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MyStacks } from './stacks';
-import HomeScreen from './src/Pages/userpage/User'
-import ImageScreen from './src/UserNavigation/screens/ImageScreen'
-import UserProfileScreen from './src/Pages/userProfilePage/UserProfile'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { createStackNavigator } from '@react-navigation/stack';
 import LandingPage from './src/Pages/landingpage/LandingPage';
 import LoginPage from './src/Pages/loginpage/Login';
 import SignupPage from './src/Pages/signinpage/Signup';
 import UserPage from './src/Pages/userpage/User';
 import AdminPage from './src/Pages/adminpage/Admin';
-import AdminNav from './src/AdminNavigation/MainContainer'
-import MainContainer from './src/UserNavigation/MainContainer';
 import RecipeDetail from './src/Pages/recipedetailpage/Recipedetail'
 import Settings from "./src/Pages/settingspage/Setting";
 import EditProfile from './src/Pages/editProfilepage/EditProfile'
@@ -27,9 +20,6 @@ import i18next from 'i18next';
 import common_ar from "./src/translation/ar/common.json"
 import common_en from "./src/translation/en/common.json"
 import { LanguageProvider } from './src/translation/LanguageContext';
-const homeName='Home';
-const imageName='Image';
-const profileName='Profile';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userRole, setUserRole] = useState(null);
@@ -85,6 +75,7 @@ const App = () => {
        <Stack.Navigator initialRouteName="LandingPage">
         {userRole===2  ? (
           <>
+            <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             <Stack.Screen name="EditProfile" component={EditProfile} options={{headerShown:false}} />
             <Stack.Screen name="Languages" component={Languages} options={{headerShown:false}} />
@@ -92,7 +83,6 @@ const App = () => {
             <Stack.Screen name="Saved" component={Saved} options={{headerShown:false}} />
             <Stack.Screen name="Awards" component={Awards} options={{headerShown:false}} />
             <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ headerShown: false }}/>
-            <Stack.Screen name="UserPage" component={UserPage} options={{ headerShown: false }} />
             <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
             <Stack.Screen name="SignupPage" component={SignupPage} options={{ headerShown: false }} /> 
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
@@ -103,7 +93,7 @@ const App = () => {
             {/* <Stack.Screen name="AdminNav" component={AdminNav} options={{headerShown:false}}/>
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
             <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} /> */}
-            <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
+            {/* <Stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} /> */}
             <Stack.Screen name="Settings" component={Settings} options={{headerShown:false}} />
             <Stack.Screen name="EditProfile" component={EditProfile} options={{headerShown:false}} />
             <Stack.Screen name="Languages" component={Languages} options={{headerShown:false}} />

@@ -2,6 +2,7 @@ import { View, Text,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 import common from "../../utils/common"
 import style from "./style"
+import BottomNav from '../../Components/bottomnav/bottomnavcomp'
 const Setting = ({navigation}) => {
 
   const navigateToEditProfile = () =>{
@@ -48,7 +49,7 @@ const Setting = ({navigation}) => {
           <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
         </TouchableOpacity>
         </View>
-
+      <BottomNav/>
 
     </View>
   )
