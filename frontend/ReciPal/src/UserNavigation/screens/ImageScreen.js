@@ -9,6 +9,7 @@ const ImageScreen = () => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
   const [tags,setTags] = useState([]);
+  const [recipes,setRecipes]=useState([]);
   const food=[];
   const handleSubmit = async () => {  
     try {
@@ -36,6 +37,7 @@ const ImageScreen = () => {
         console.log(tagsres);
         setTags(tagsres);
         filter_ingredients(tagsres);
+        getRecipes(food)
         // console.log(tags)
     } catch (error) {
       if (error.response) {
@@ -75,7 +77,22 @@ const ImageScreen = () => {
         } 
     } 
   }; 
+
+  const getRecipes = async (tags) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/recipe/getRecipeByIngredients`, {
+        params: {
+          tags: tags.join(',')
+        }
+      });
   
+      const res = response.data;
+      setRecipes(res);
+    } catch (error) {
+      console.log("Error getting recipes", error.message);
+    }
+  };
+    
   const handleCancel=()=>{
     setFile(null);
     setError(null); 
