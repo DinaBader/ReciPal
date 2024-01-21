@@ -5,8 +5,9 @@ import common from "../../utils/common"
 import style from "./style"
 import axios from 'axios';
 import Input from "../../Components/Inputs/input"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // import {BASE_URL} from "@env"
-const Admin = () => {
+const Admin = ({navigation}) => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
   const [name,setName]=useState("");
@@ -48,6 +49,11 @@ const handleIngredientsChange=(text)=>{
 const handleInstructionsChange=(text)=>{
         const instructionsArray = text.split(',').map(item => item.trim());
         setInstructions(instructionsArray)
+}
+
+const navigateToLogin=()=>{
+  AsyncStorage.clear();
+  navigation.navigate('Login')
 }
 
 const handleSubmit = async () => {
@@ -191,6 +197,9 @@ const pickImage = async () => {
             ) : ( 
                 <Text style={style.errorText}>{error}</Text> 
             )} 
+            <TouchableOpacity onPress={navigateToLogin}>
+              <Text>Logout</Text>
+            </TouchableOpacity>
     </ScrollView>
   )
 }
