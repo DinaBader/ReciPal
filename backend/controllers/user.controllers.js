@@ -185,7 +185,7 @@ const update_image=async(req,res)=>{
 
 
 const getSavedRecipes = async (req, res) => {
-  const userId = req.params.userId;
+  const userId = req.user._id;
 
   try {
     const user = await User.findById(userId);
