@@ -7,6 +7,7 @@ import ImagePage from './src/Pages/recognizepage/ImageScreen'
 import LoginPage from './src/Pages/loginpage/Login';
 import SignupPage from './src/Pages/signinpage/Signup';
 import UserPage from './src/Pages/userpage/User';
+import AddRecipePage from './src/Pages/addrecipepage/Addrecipe'
 import AdminPage from './src/Pages/adminpage/Admin';
 import RecipeDetail from './src/Pages/recipedetailpage/Recipedetail'
 import Settings from "./src/Pages/settingspage/Setting";
@@ -83,8 +84,8 @@ const App = () => {
             <Stack.Screen name="SignupPage" component={SignupPage} options={{ headerShown: false }} /> 
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
             <Stack.Screen name="UserProfile" component={UserProfile} options={{ headerShown: false }} />
-            <Stack.Screen name="ImagePage" component={ImagePage} options={{ headerShown: false }} />
-          </>
+            <Stack.Screen name="AddRecipePage" component={AddRecipePage} options={{ headerShown: false }} />
+           </>
           )}  
       </Stack.Navigator> 
     </NavigationContainer>

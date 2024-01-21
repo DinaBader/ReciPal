@@ -148,11 +148,11 @@ const pickImage = async () => {
   } 
 }; 
   const navigatoHome=()=>{
-    
+    navigation.navigate('AdminPage');
   }
 
   const navigateAddrecipes=()=>{
-    
+    navigation.navigate('AddRecipePage');
   }
 
   const navgateFeedback=()=>{
