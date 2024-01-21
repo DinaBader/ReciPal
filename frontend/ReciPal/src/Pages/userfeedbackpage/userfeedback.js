@@ -4,6 +4,7 @@ import common from "../../utils/common"
 import axios from 'axios'
 import style from './style'
 import {BASE_URL} from "@env"
+import BottomNav from '../../Components/userbottomnav/bottomnavcomp'
 const Userfeedback = () => {
   const [feedbacks,setFeedback]=useState([]);
    
@@ -18,7 +19,17 @@ const Userfeedback = () => {
       console.log("Error fetching feedback",error);
     }
   }
- 
+  const navigatoHome=()=>{
+    navigation.navigate('AdminPage');
+  }
+
+  const navigateAddrecipes=()=>{
+    navigation.navigate('AddRecipePage');
+  }
+
+  const navigateFeedback=()=>{
+    navigation.navigate('UserFeedbackPage')
+  }
   useEffect(()=>{
      getFeedback();
   },[])
@@ -41,6 +52,13 @@ const Userfeedback = () => {
         </View>
       ))
       }
+      <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
+     source1={require("../../../assets/home.png")}
+     source2={require("../../../assets/add.png")}
+     source3={require("../../../assets/chat.png")}
+     />
+
+
     </ScrollView>
   )
 }
