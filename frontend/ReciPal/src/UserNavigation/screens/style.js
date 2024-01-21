@@ -21,6 +21,10 @@ const Styles=StyleSheet.create({
         paddingLeft:70,
         paddingTop:20
     },
+    foodCard:{
+        flexDirection: 'row',
+        flexWrap: 'wrap', 
+    },
 
 })
 

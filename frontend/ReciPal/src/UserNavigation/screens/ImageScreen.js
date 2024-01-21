@@ -108,49 +108,56 @@ const ImageScreen = () => {
 
   return (
     <ScrollView style={[common.backgroundColor]}>
-      <View style={[common.title]}>
-          <Text style={[common.white,common.header]}>Suggestion</Text>
-      </View>
-      <TouchableOpacity>
-        <Text style={[common.yellow_bg,common.button_w,style.btn,common.bold]} onPress={pickImage}>Upload image</Text>
-      </TouchableOpacity>
-      {file ? ( 
-                <View style={style.imageContainer}> 
-                    <Image source={{ uri: file }} 
-                        style={style.image} /> 
-                        <TouchableOpacity onPress={handleSubmit} style={[common.center,common.yellow_bg,style.btn]}>
-                          <Text style={common.bold}>Analyze</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={handleCancel} style={[common.center,common.yellow_bg,style.btn]}>
-                          <Text style={common.bold}>Cancel</Text>
-                        </TouchableOpacity>
-                        {tags.length > 0 && (
-                    <View style={style.tagsContainer}>
-                      <Text style={[common.white,common.bold]}>Found:</Text>
-                      {tags.map((tag, index) => (
-                        <>
-                        <Text key={index} style={[common.white]}>{tag.tag.en}</Text>
-                        </>
-                      ))}
-                  </View>
-                )}
-          {recipes && recipes.length > 0 && (
-            <View>
-              {recipes.map((recipe, index) => (
-                <FoodCardComp
-                  key={index}
-                  source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-                  text={recipe.name}
-                  onPress={() => NavigateToDetails(recipe._id)}
-                />
-              ))}
-            </View>
-          )}
+    <View style={[common.title]}>
+      <Text style={[common.white, common.header]}>Suggestion</Text>
+    </View>
+
+    <TouchableOpacity onPress={pickImage}>
+      <Text style={[common.yellow_bg, common.button_w, style.btn, common.bold]}>Upload image</Text>
+    </TouchableOpacity>
+
+    {file ? (
+      <>
+      <View style={style.imageContainer}>
+        <Image source={{ uri: file }} style={style.image} />
+
+        <TouchableOpacity onPress={handleSubmit} style={[common.center, common.yellow_bg, style.btn]}>
+          <Text style={common.bold}>Analyze</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={handleCancel} style={[common.center, common.yellow_bg, style.btn]}>
+          <Text style={common.bold}>Cancel</Text>
+        </TouchableOpacity>
+
+        {tags.length > 0 && (
+          <View style={style.tagsContainer}>
+            <Text style={[common.white, common.bold]}>Found:</Text>
+            {tags.map((tag, index) => (
+              <Text key={index} style={[common.white]}>
+                {tag.tag.en}
+              </Text>
+            ))}
+          </View>
+        )}
         </View>
-            ) : ( 
-                <Text style={style.errorText}>{error}</Text> 
-      )} 
-    </ScrollView>
+        {recipes && recipes.length > 0 && (
+          <View style={style.foodCard}>
+            {recipes.map((recipe, index) => (
+              <FoodCardComp
+                key={index}
+                source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+                text={recipe.name}
+                onPress={() => NavigateToDetails(recipe._id)}
+              />
+            ))}
+          </View>
+        )}
+      </>
+    ) : (
+      <Text style={style.errorText}>{error}</Text>
+    )}
+  </ScrollView>
+
   )
 }
 
