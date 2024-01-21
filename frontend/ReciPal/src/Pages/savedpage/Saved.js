@@ -18,7 +18,7 @@ const Saved = ({navigation}) => {
     }
 
     axios.defaults.headers["Authorization"] =
-    "Bearer " + localStorage.getItem("jwt");
+    "Bearer " + AsyncStorage.getItem("jwt");
 
     const _retrieveData = async () => {
         try {
@@ -33,13 +33,19 @@ const Saved = ({navigation}) => {
         }
       };
         
-      const getSavedRecipes = () => {
+      const getSavedRecipes = async() => {
         if (userId === null) {
           return;
         }
-      
+        const Token = await AsyncStorage.getItem('jwt');
         axios
-          .get(`${BASE_URL}/reward/getSavedRecipes`)
+          .get(`${BASE_URL}/reward/getSavedRecipes`,
+          {
+            headers: {
+              'Authorization': `Bearer ${Token}`,
+            }
+          }
+          )
           .then((res) => {
             const { savedRecipes } = res.data;
             console.log('Saved Recipes:', savedRecipes);
@@ -74,7 +80,14 @@ const Saved = ({navigation}) => {
             
     const DeleteRecipe=async(recipeId)=>{
       try {
-        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${recipeId}`);
+        const Token = await AsyncStorage.getItem('jwt');
+        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${recipeId}`,{},
+        {
+          headers: {
+            'Authorization': `Bearer ${Token}`,
+          }
+        }
+        );
         console.log('recipe unsaved');    
         await AsyncStorage.removeItem(`saved_${recipeId}`);
       } catch (error) {

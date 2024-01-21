@@ -18,8 +18,6 @@ const Recipedetail = ({route,navigation}) => {
   const navigateToHome=()=>{
     navigation.goBack();
   }
-  axios.defaults.headers["Authorization"] =
-    "Bearer " + localStorage.getItem("jwt");
 
   const { recipeId } = route.params;
   
@@ -36,8 +34,15 @@ const Recipedetail = ({route,navigation}) => {
     }
   };
 
-  const getRecipeDetails=()=>{
-    axios.get(`${BASE_URL}/recipe/getRecipeById/${recipeId}`
+  const getRecipeDetails=async()=>{
+    const Token = await AsyncStorage.getItem('jwt');
+    axios.get(`${BASE_URL}/recipe/getRecipeById/${recipeId}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${Token}`,
+      }
+
+    }
     ).then((res)=>{
       const { recipe } = res.data;
       setRecipeDetails(recipe);
@@ -48,10 +53,16 @@ const Recipedetail = ({route,navigation}) => {
   }
 
   const saveRecipe = async () => {
+    const Token = await AsyncStorage.getItem('jwt');
     if (saved === false) {
-      console.log("in false")
       try {
-        await axios.post(`${BASE_URL}/reward/saveRecipe/${recipeId}`);
+        await axios.post(`${BASE_URL}/reward/saveRecipe/${recipeId}`,{},
+        {
+          headers: {
+            'Authorization': `Bearer ${Token}`,
+          }
+        }
+        );
         console.log('recipe saved');
         updateSavedStatus('true');
       } catch (error) {
@@ -59,7 +70,12 @@ const Recipedetail = ({route,navigation}) => {
       }
     } else {
       try {
-        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${recipeId}`);
+        await axios.post(`${BASE_URL}/reward/unsaveRecipe/${recipeId}`,{},
+        {
+          headers: {
+            'Authorization': `Bearer ${Token}`,
+          }
+        });
         console.log('recipe unsaved');
         updateSavedStatus('false');
       } catch (error) {
@@ -111,7 +127,14 @@ const Recipedetail = ({route,navigation}) => {
         onPress: async() => {
           SetCompleted(!completed);
           try {
-            await axios.post(`${BASE_URL}/reward/addReward/${recipeId}`);
+            const Token = await AsyncStorage.getItem('jwt');
+            await axios.post(`${BASE_URL}/reward/addReward/${recipeId}`,{},
+            {
+              headers: {
+                'Authorization': `Bearer ${Token}`,
+              }
+            }
+            );
             console.log("Reward Added");
           } catch (error) {
             console.error('Error adding reward:', error);
