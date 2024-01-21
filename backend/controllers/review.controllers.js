@@ -33,7 +33,7 @@ const removeReview=async(req,res)=>{
 
 const getReviews=async(req,res)=>{
     try{
-        const reviews=Review.find({});
+        const reviews=await Review.find({});
         res.status(200).send({reviews});
     }catch(error){
         res.status(400).send({ 
