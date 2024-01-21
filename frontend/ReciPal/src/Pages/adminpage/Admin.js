@@ -1,7 +1,7 @@
 import { View, Text,Image,TouchableOpacity, ScrollView } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import common from '../../utils/common'
-import BottomNav  from '../../Components/userbottomnav/bottomnavcomp'
+import AdminNav  from '../../Components/adminnav/AdminNavComp'
 import style from "./style"
 import axios from 'axios'
 import FoodCard from '../../Components/foodcard/FoodCardComp'
@@ -47,10 +47,12 @@ const Admin = ({navigation}) => {
           <Text style={[common.white,style.allRecipes]}>Get all recipes</Text>
         </TouchableOpacity>
     </View>
-    <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
+    <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}
+     source4={require("../../../assets/stats.png")}
+
      />
 
    </ScrollView>
