@@ -155,8 +155,8 @@ const pickImage = async () => {
     navigation.navigate('AddRecipePage');
   }
 
-  const navgateFeedback=()=>{
-    
+  const navigateFeedback=()=>{
+    navigation.navigate('UserFeedbackPage')
   }
 
 
@@ -212,7 +212,7 @@ const pickImage = async () => {
             <TouchableOpacity onPress={navigateToLogin}>
               <Text>Logout</Text>
             </TouchableOpacity>
-      <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navgateFeedback}
+      <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}

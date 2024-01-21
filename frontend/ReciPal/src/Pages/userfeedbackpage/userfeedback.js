@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Addrecipe = () => {
+const Userfeedback = () => {
   return (
     <View>
-      <Text>addrecipe</Text>
+      <Text>userfeedback</Text>
     </View>
   )
 }
 
-export default Addrecipe
+export default Userfeedback

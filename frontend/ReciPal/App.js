@@ -11,6 +11,7 @@ import AddRecipePage from './src/Pages/addrecipepage/Addrecipe'
 import AdminPage from './src/Pages/adminpage/Admin';
 import RecipeDetail from './src/Pages/recipedetailpage/Recipedetail'
 import Settings from "./src/Pages/settingspage/Setting";
+import UserFeedbackPage from './src/Pages/userfeedbackpage/userfeedback'
 import EditProfile from './src/Pages/editProfilepage/EditProfile'
 import Languages from './src/Pages/languagesPage/Languages';
 import FeedBack from './src/Pages/feedbackpage/FeedBack';
@@ -85,7 +86,9 @@ const App = () => {
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
             <Stack.Screen name="UserProfile" component={UserProfile} options={{ headerShown: false }} />
             <Stack.Screen name="AddRecipePage" component={AddRecipePage} options={{ headerShown: false }} />
+            <Stack.Screen name="UserFeedbackPage" component={UserFeedbackPage} options={{ headerShown: false }} />
            </>
+           
           )}  
       </Stack.Navigator> 
     </NavigationContainer>
