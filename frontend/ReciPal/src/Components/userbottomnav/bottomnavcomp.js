@@ -9,21 +9,18 @@ const bottomnavcomp = ({onPress1,onPress2,onPress3,source1,source2,source3}) => 
     <View style={[common.yellow_bg,style.container]}>
       <TouchableOpacity onPress={onPress1}> 
         <Image
-        // source={require("../../../assets/home.png")}
         source={source1}
         style={[style.navIcons,style.home]}
         />
       </TouchableOpacity>
       <TouchableOpacity onPress={onPress2}>
         <Image
-        // source={require("../../../assets/add.png")}
         source={source2}
         style={style.navIcons}
         />
       </TouchableOpacity>
       <TouchableOpacity onPress={onPress3}>
         <Image
-        // source={require("../../../assets/settings-black.png")}
         source={source3}
         style={style.navIcons}
         />

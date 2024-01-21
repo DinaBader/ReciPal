@@ -5,6 +5,7 @@ import common from "../../utils/common"
 import style from "./style"
 import axios from 'axios';
 import Input from "../../Components/Inputs/input"
+import BottomNav from "../../Components/userbottomnav/bottomnavcomp"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import {BASE_URL} from "@env"
 const Admin = ({navigation}) => {
@@ -146,6 +147,17 @@ const pickImage = async () => {
       } 
   } 
 }; 
+  const navigatoHome=()=>{
+    
+  }
+
+  const navigateAddrecipes=()=>{
+    
+  }
+
+  const navgateFeedback=()=>{
+    
+  }
 
 
   return (
@@ -200,6 +212,11 @@ const pickImage = async () => {
             <TouchableOpacity onPress={navigateToLogin}>
               <Text>Logout</Text>
             </TouchableOpacity>
+      <BottomNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navgateFeedback}
+     source1={require("../../../assets/home.png")}
+     source2={require("../../../assets/add.png")}
+     source3={require("../../../assets/chat.png")}
+     />
     </ScrollView>
   )
 }
