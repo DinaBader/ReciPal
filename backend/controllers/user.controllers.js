@@ -19,7 +19,7 @@ const findByIdAndUpdate = async (userId, update) => {
 };
 
 const addReward = async (req, res) => {
-  const userId = req.params.userId;
+  const userId = req.user._id;
   const recipeId = req.params.recipeId;
 
   try {
