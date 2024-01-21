@@ -88,7 +88,10 @@ const Saved = ({navigation}) => {
           }
         }
         );
-        console.log('recipe unsaved');    
+        console.log('recipe unsaved');   
+        const updatedRecipes = recipes.filter((recipe) => recipe.recipeId !== recipeId);
+        getRecipes(updatedRecipes);
+     
         await AsyncStorage.removeItem(`saved_${recipeId}`);
       } catch (error) {
         console.log('error unsaving recipe', error);
