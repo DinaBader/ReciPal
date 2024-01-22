@@ -15,7 +15,6 @@ const style=StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
-        paddingBottom: 8, 
         height:55
     },
     home:{
