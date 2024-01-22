@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     login: {
       fontWeight: 'bold',
-      fontSize: 50,
+      fontSize: 40,
       paddingLeft:50,
       paddingTop:50,
     },
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
       backgroundColor:"black",
       width:280,
       marginLeft:50,
-      height:50,
+      height:55,
       borderRadius:50,
       justifyContent:"center",
       alignItems:"center",
