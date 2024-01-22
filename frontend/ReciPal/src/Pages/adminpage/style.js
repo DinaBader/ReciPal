@@ -49,7 +49,17 @@ const styles= StyleSheet.create({
         gap:8
     },
     getRecipes:{
-        paddingLeft:150
+        paddingLeft:145,
+        marginBottom:20,
+        marginTop:20,
+        fontSize:20
+    },
+    hideRecipes:{
+        paddingLeft:145,
+        marginBottom:20,
+        marginTop:20,
+        fontSize:20,
+        color:'#A62E2E'
     }
 })
 

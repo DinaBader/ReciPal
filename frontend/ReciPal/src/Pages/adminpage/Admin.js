@@ -92,8 +92,8 @@ const Admin = ({navigation}) => {
         </View>
         <TouchableOpacity onPress={()=>toggleShowAllRecipes()}>
           {showAllRecipes?
-          <Text style={[common.white,style.getRecipes]}>Show less </Text>:
-          <Text style={[common.white,style.getRecipes]}>Show more</Text>
+          <Text style={[common.white,style.hideRecipes]}>Show less </Text>:
+          <Text style={[common.white,style.getRecipes,common.yellow]}>Show more</Text>
           }
             
         </TouchableOpacity>
