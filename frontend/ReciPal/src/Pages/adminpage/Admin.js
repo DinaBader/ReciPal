@@ -51,60 +51,62 @@ const Admin = ({navigation}) => {
   }
 
   return (
-   <ScrollView style={common.backgroundColor}> 
-   <Text style={[common.header,common.white]}>Admin Panel</Text>
-   <Text style={[common.white,style.recipes]}>Recipes</Text>
-   <View style={style.foodCard}>
-   {showAllRecipes
-          ? recipes.map((recipe, index) => (
-              <View style={style.container} key={index}>
-                <FoodCard
-                  source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-                  text={recipe.name}
-                />
-                <TouchableOpacity
-                  style={[style.deleteButton, common.center]}
-                  onPress={() => DeleteRecipe(recipe._id)}>
-                  <View style={style.align}>
-                    <Image source={require("../../../assets/trash.png")} style={{ width: 20, height: 20 }} />
-                    <Text style={common.bold}>Delete</Text>
+    <>
+      <ScrollView style={common.backgroundColor}> 
+      <Text style={[common.header,common.white]}>Admin Panel</Text>
+      <Text style={[common.white,style.recipes]}>Recipes</Text>
+      <View style={style.foodCard}>
+      {showAllRecipes
+              ? recipes.map((recipe, index) => (
+                  <View style={style.container} key={index}>
+                    <FoodCard
+                      source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+                      text={recipe.name}
+                    />
+                    <TouchableOpacity
+                      style={[style.deleteButton, common.center]}
+                      onPress={() => DeleteRecipe(recipe._id)}>
+                      <View style={style.align}>
+                        <Image source={require("../../../assets/trash.png")} style={{ width: 20, height: 20 }} />
+                        <Text style={[common.bold,common.white]}>Delete</Text>
+                      </View>
+                    </TouchableOpacity>
                   </View>
-                </TouchableOpacity>
-              </View>
-            ))
-          : recipes.slice(0, 6).map((recipe, index) => (
-              <View style={style.container} key={index}>
-                <FoodCard
-                  source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-                  text={recipe.name}
-                />
-                <TouchableOpacity
-                  style={[style.deleteButton, common.center]}
-                  onPress={() => DeleteRecipe(recipe._id)}>
-                  <View style={style.align}>
-                    <Image source={require("../../../assets/trash.png")} style={{ width: 20, height: 20 }} />
-                    <Text style={common.bold}>Delete</Text>
+                ))
+              : recipes.slice(0, 6).map((recipe, index) => (
+                  <View style={style.container} key={index}>
+                    <FoodCard
+                      source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
+                      text={recipe.name}
+                    />
+                    <TouchableOpacity
+                      style={[style.deleteButton, common.center]}
+                      onPress={() => DeleteRecipe(recipe._id)}>
+                      <View style={style.align}>
+                        <Image source={require("../../../assets/trash.png")} style={{ width: 20, height: 20 }} />
+                        <Text style={[common.bold,common.white]}>Delete</Text>
+                      </View>
+                    </TouchableOpacity>
                   </View>
-                </TouchableOpacity>
-              </View>
-            ))}
-    </View>
-    <TouchableOpacity onPress={()=>toggleShowAllRecipes()}>
-      {showAllRecipes?
-      <Text style={[common.white,style.getRecipes]}>Show less </Text>:
-      <Text style={[common.white,style.getRecipes]}>Show more</Text>
-      }
-         
-    </TouchableOpacity>
-    <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
-     source1={require("../../../assets/home.png")}
-     source2={require("../../../assets/add.png")}
-     source3={require("../../../assets/chat.png")}
-     source4={require("../../../assets/stats.png")}
+                ))}
+        </View>
+        <TouchableOpacity onPress={()=>toggleShowAllRecipes()}>
+          {showAllRecipes?
+          <Text style={[common.white,style.getRecipes]}>Show less </Text>:
+          <Text style={[common.white,style.getRecipes]}>Show more</Text>
+          }
+            
+        </TouchableOpacity>
+        
+      </ScrollView>
+      <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
+      source1={require("../../../assets/home.png")}
+      source2={require("../../../assets/add.png")}
+      source3={require("../../../assets/chat.png")}
+      source4={require("../../../assets/stats.png")}
 
-     />
-
-   </ScrollView>
+        />
+    </>
   )
 }
 

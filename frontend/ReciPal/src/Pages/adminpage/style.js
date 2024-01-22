@@ -38,7 +38,7 @@ const styles= StyleSheet.create({
         textAlign:'baseline',
         width:120,
         height:40,
-        marginTop:40,
+        marginTop:20,
         marginLeft:50,
         borderRadius:10
     },
