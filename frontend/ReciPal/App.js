@@ -89,6 +89,8 @@ const App = () => {
             <Stack.Screen name="AddRecipePage" component={AddRecipePage} options={{ headerShown: false }} />
             <Stack.Screen name="UserFeedbackPage" component={UserFeedbackPage} options={{ headerShown: false }} />
             <Stack.Screen name="StatsPage" component={StatsPage} options={{ headerShown: false }} />
+            <Stack.Screen name="ImagePage" component={ImagePage} options={{ headerShown: false }} />
+
            </>
            
           )}  

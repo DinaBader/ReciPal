@@ -90,7 +90,7 @@ const Login = ({navigation}) => {
         <Text style={styles.login}>LOGIN</Text>
           <TextInput
           style={[styles.reg_input]}
-          placeholder="Email/Username"
+          placeholder="Username"
           onChangeText={handleNameChange}
           value={usernameOrEmail}
           autoCapitalize="none" 
