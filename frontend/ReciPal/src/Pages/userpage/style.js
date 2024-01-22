@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   scrollContentContainer: {
-    justifyContent: 'flex-start', // Adjust this based on your layout needs
+    justifyContent: 'flex-start', 
   },
   horizontal: {
     flexDirection: 'row',

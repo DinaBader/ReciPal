@@ -1,4 +1,4 @@
-import { View, Text, ScrollView,TouchableOpacity, Image, Alert} from 'react-native';
+import { View, Text, ScrollView,TouchableOpacity, Image, Alert,ActivityIndicator} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios'
@@ -15,6 +15,8 @@ const Recipedetail = ({route,navigation}) => {
   const [userId, setUserId] = useState(null);
   const [completed,SetCompleted]=useState(false);
   const [saved,setSaved]=useState('false');
+  const [loading, setLoading] = useState(true);
+
   const navigateToHome=()=>{
     navigation.goBack();
   }
@@ -34,23 +36,24 @@ const Recipedetail = ({route,navigation}) => {
     }
   };
 
-  const getRecipeDetails=async()=>{
+  const getRecipeDetails = async () => {
     const Token = await AsyncStorage.getItem('jwt');
-    axios.get(`${BASE_URL}/recipe/getRecipeById/${recipeId}`,
-    {
-      headers: {
-        'Authorization': `Bearer ${Token}`,
-      }
-
-    }
-    ).then((res)=>{
-      const { recipe } = res.data;
+    try {
+      const response = await axios.get(`${BASE_URL}/recipe/getRecipeById/${recipeId}`, {
+        headers: {
+          'Authorization': `Bearer ${Token}`,
+        }
+      });
+      const { recipe } = response.data;
       setRecipeDetails(recipe);
-      console.log(recipe)
-    }).catch((error)=>{
-      console.log("error",error);
-    })
+      console.log(recipe);
+    } catch (error) {
+      console.log("error", error);
+    } finally {
+      setLoading(false);
+    }
   }
+  
 
   const saveRecipe = async () => {
     const Token = await AsyncStorage.getItem('jwt');
@@ -173,7 +176,6 @@ const Recipedetail = ({route,navigation}) => {
 
   return (
       <ScrollView style={[common.backgroundColor,style.container]}>
-
         <View style={style.backButtonContainer}>
           <TouchableOpacity onPress={navigateToHome}>
             <Image source={require("../../../assets/back.png")} style={[common.back_Icon]} />
@@ -186,8 +188,14 @@ const Recipedetail = ({route,navigation}) => {
           )}
           </TouchableOpacity>
         </View>
-
         <ImageHeader source={{uri:`${BASE_URL}/recipes/${recipeDetails.image}`}} text={recipeDetails.name} />
+        {loading && (
+           <View style={style.loadingContainer}>
+            <ActivityIndicator size="large" color="#FFBF4D" />
+          </View>
+        )}
+
+
 
         <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
 

@@ -34,7 +34,7 @@ const User = ({navigation}) => {
     } catch (error) {
       console.log("Error fetching recipes", error);
     } finally {
-      setLoading(false); // Set loading to false after fetching data
+      setLoading(false); 
     }
   };
 
