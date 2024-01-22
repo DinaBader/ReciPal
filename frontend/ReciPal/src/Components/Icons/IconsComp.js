@@ -32,7 +32,7 @@ const IconsComp = ({navigation}) => {
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
           source={require("../../../assets/settings.png")}
-          style={{ width: 40, height: 40 }}
+          style={{ width: 35, height: 35 }}
         />
         <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Settings</Text>
       </View>
@@ -42,7 +42,7 @@ const IconsComp = ({navigation}) => {
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
           source={require("../../../assets/save.png")}
-          style={{ width: 40, height: 40 }}
+          style={{ width: 35, height: 35 }}
         />
         <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Saved</Text>
       </View>
@@ -52,7 +52,7 @@ const IconsComp = ({navigation}) => {
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
           source={require("../../../assets/award.png")}
-          style={{ width: 40, height: 40 }}
+          style={{ width: 35, height: 35 }}
         />
         <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Awards</Text>
       </View>
@@ -62,7 +62,7 @@ const IconsComp = ({navigation}) => {
         <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 30, marginTop: 10, marginBottom:30}}>
         <Image
           source={require("../../../assets/logout.png")}
-          style={{ width: 40, height: 40 }}
+          style={{ width: 35, height: 35 ,marginLeft:7}}
         />
         <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Logout</Text>
       </View>
