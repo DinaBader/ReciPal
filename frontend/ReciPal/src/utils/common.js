@@ -59,6 +59,15 @@ const common = StyleSheet.create({
         height:33,
         marginLeft:40,
         marginTop:47
+    },
+    input:{
+        width: 280,
+        height: 50,
+        borderRadius: 10,
+        marginLeft: 50,
+        paddingLeft:20,
+        marginBottom:10,
+        backgroundColor:'#FFFFFF'
     }
   });
 
