@@ -49,8 +49,8 @@ const User = ({navigation}) => {
   };
   const handleSearchCancel = () => {
     setParentSearchResults([]);
+    setForceRerender((prev) => !prev);
     getRecipes();
-    
   };
 
   const navigatoHome = () =>{
