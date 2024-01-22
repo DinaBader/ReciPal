@@ -35,7 +35,7 @@ const common = StyleSheet.create({
         width:280
     },
     button_h:{
-        height:45
+        height:55
     },
     center:{
         justifyContent:"center",
