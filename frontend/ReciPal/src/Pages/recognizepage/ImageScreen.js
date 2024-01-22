@@ -122,7 +122,7 @@ const ImageScreen = ({navigation}) => {
   }
 
   return (
-    <ScrollView style={[common.backgroundColor]}>
+    <ScrollView style={[common.backgroundColor ]}>
     <View style={[common.title]}>
       <Text style={[common.white, common.header]}>Suggestion</Text>
     </View>

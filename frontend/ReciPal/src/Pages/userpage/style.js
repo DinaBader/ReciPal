@@ -8,7 +8,8 @@ const styles=StyleSheet.create({
         paddingLeft:50,
         paddingTop:55,
         color:'#FFFFFF',
-        fontSize:30
+        fontSize:30,
+        paddingBottom:9
     },
     foodCircleContainer: {
         flexDirection: 'row', 
@@ -17,8 +18,7 @@ const styles=StyleSheet.create({
     },
     recipeText:{
         marginLeft:50,
-        marginTop:20,
-        fontSize:25
+        fontSize:27
     },
     foodCard:{
         flexDirection:'row',
@@ -28,7 +28,7 @@ const styles=StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        marginBottom: 10,
+        marginBottom: 5,
       },
       
 })

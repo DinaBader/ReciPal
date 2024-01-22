@@ -4,8 +4,9 @@ const styles=StyleSheet.create({
     search:{
         width:300,
         marginLeft:45,
-        marginTop:20,
+        marginTop:10 ,
         height:50,
+        marginBottom:5
     }
 })
 
