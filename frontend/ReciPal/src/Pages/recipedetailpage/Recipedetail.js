@@ -215,7 +215,7 @@ const Recipedetail = ({route,navigation}) => {
        style={[common.button_h,common.button_w,common.center,style.button, { backgroundColor: completed ? '#FFBF4D' : 'gray' }]}
        onPress={handleCompleted}
        >
-        <Text style={[common.bold]}>Completed Recipe</Text>
+        <Text style={[common.bold]}>Complete Recipe</Text>
       </TouchableOpacity>
       </ScrollView>
 

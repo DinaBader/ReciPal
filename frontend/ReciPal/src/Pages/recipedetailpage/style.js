@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     },
     ingredientsText:{
         marginLeft:30,
-        marginTop:10
+        marginTop:10,
+        marginRight:30
     },
     cylinder:{
         marginLeft:20,
@@ -24,13 +25,13 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         gap:200,
         position: 'absolute',
-        top: 20, 
         zIndex: 1,
       },    
       button:{
-        borderRadius:10,
+        borderRadius:50,
         marginLeft:50,
         marginTop:20,
+        marginBottom:20
       },
       completed:{
         backgroundColor:'#FFBF4D'
