@@ -1,9 +1,9 @@
 const foodCircleData = [
-    { key: 'Beef', source: require("../../assets/beef.jpg") },
+    { key: 'Meat', source: require("../../assets/meat.jpg") },
     { key: 'Fish', source: require("../../assets/fish.jpg") },
-    { key: 'Dips', source: require("../../assets/dips.jpeg") },
-    { key: 'MoreFood', source: require("../../assets/beef.jpg") },
-    { key: 'EvenMoreFood', source:  require("../../assets/beef.jpg") },
+    { key: 'Chicken', source: require("../../assets/chicken.jpg") },
+    { key: 'Sandwiches', source: require("../../assets/sandwiches.jpg") },
+    { key: 'Pasta', source:  require("../../assets/pasta.jpg") },
   ];
 
 export default foodCircleData;
