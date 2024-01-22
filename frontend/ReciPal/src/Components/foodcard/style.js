@@ -3,7 +3,9 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     foodCard:{
         marginLeft:50,
-        marginTop:30
+        marginRight:-10,
+        marginTop:30,
+        marginBottom:10,
     },
     foodCardText: {
         position: 'absolute',

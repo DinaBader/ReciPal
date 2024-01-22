@@ -65,6 +65,7 @@ const User = ({navigation}) => {
 
   
   return (
+    <>
     <ScrollView style={[common.backgroundColor,styles.container]}>
       <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
       <Search onSearchResultsChange={handleSearchResultsChange}  onCancel={handleSearchCancel}
@@ -89,7 +90,6 @@ const User = ({navigation}) => {
           recipes?.map((recipe, index) => (
             <>
              <React.Fragment key={recipe.id}>
-              <Text style={{ color: 'white' }}>HERE {recipe.name}</Text>
               <FoodCard
                 source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
                 text={recipe.name}
@@ -109,13 +109,14 @@ const User = ({navigation}) => {
         ))
       )}
     </View>
-    <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}
-     source1={require("../../../assets/home.png")}
-     source2={require("../../../assets/add.png")}
-     source3={require("../../../assets/settings-black.png")}
-     />
 
     </ScrollView>
+        <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}
+        source1={require("../../../assets/home.png")}
+        source2={require("../../../assets/add.png")}
+        source3={require("../../../assets/settings-black.png")}
+        />
+         </> 
   );
 }
 
