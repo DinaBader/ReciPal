@@ -208,7 +208,7 @@ const countries = [
       ) : (
         countries.map((country, index) => (
           <View key={index} style={countries.includes(country) ? style.container : null}>
-            <Text>Congrats you got an award from {country}</Text>
+            <Text style={[style.awardText]}>Congrats you got an award from {country}!</Text>
           </View>
         ))
       )}
