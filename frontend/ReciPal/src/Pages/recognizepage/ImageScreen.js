@@ -128,7 +128,7 @@ const ImageScreen = ({navigation}) => {
     </View>
 
     <TouchableOpacity onPress={pickImage}>
-      <Text style={[common.yellow_bg, common.button_w, style.btn, common.bold]}>Upload image</Text>
+      <Text style={[common.yellow_bg, common.btn, common.bold,style.btn]}>Upload image</Text>
     </TouchableOpacity>
 
     {file ? (
@@ -136,22 +136,24 @@ const ImageScreen = ({navigation}) => {
       <View style={style.imageContainer}>
         <Image source={{ uri: file }} style={style.image} />
 
-        <TouchableOpacity onPress={handleSubmit} style={[common.center, common.yellow_bg, style.btn]}>
+        <TouchableOpacity onPress={handleSubmit} style={[style.options,common.yellow_bg,common.button_w,common.button_h,common.raduis,common.center]}>
           <Text style={common.bold}>Analyze</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={handleCancel} style={[common.center, common.yellow_bg, style.btn]}>
+        <TouchableOpacity onPress={handleCancel} style={[style.options,common.yellow_bg,common.button_w,common.button_h,common.raduis,common.center]}>
           <Text style={common.bold}>Cancel</Text>
         </TouchableOpacity>
 
         {tags.length > 0 && (
           <View style={style.tagsContainer}>
             <Text style={[common.white, common.bold]}>Found:</Text>
-            {tags.map((tag, index) => (
-              <Text key={index} style={[common.white]}>
-                {tag.tag.en}
-              </Text>
-            ))}
+            <View style={style.tag}>
+              {tags.map((tag, index) => (
+                <Text key={index} style={[style.indTag]}>
+                  {tag.tag.en}
+                </Text>
+              ))}
+            </View>
           </View>
         )}
         </View>
@@ -171,7 +173,7 @@ const ImageScreen = ({navigation}) => {
     ) : (
       <Text style={style.errorText}>{error}</Text>
     )}
-      <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}
+    <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/settings-black.png")}
