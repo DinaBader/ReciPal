@@ -38,13 +38,13 @@ const User = ({navigation}) => {
 
   useEffect(()=>{
     getRecipes();
+    console.log(parentSearchResults)
   },[])
 
 
-  const handleSearchResultsChange = (results) => {
-    setParentSearchResults(results);
-    const recipes=parentSearchResults.recipes;
-    console.log(recipes)
+  const handleSearchResultsChange = (results) =>  {
+    setParentSearchResults(results.recipes);
+    console.log(parentSearchResults)
   };
   const handleSearchCancel = () => {
     setParentSearchResults([]);
@@ -68,8 +68,7 @@ const User = ({navigation}) => {
     <>
     <ScrollView style={[common.backgroundColor,styles.container]}>
       <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
-      <Search onSearchResultsChange={handleSearchResultsChange}  onCancel={handleSearchCancel}
- />
+      <Search onSearchResultsChange={handleSearchResultsChange}  onCancel={handleSearchCancel}/>
       <View style={styles.foodCircleContainer}>
         <Carousel
           data={foodCircleData}
@@ -86,8 +85,8 @@ const User = ({navigation}) => {
       </View>
         <Text style={[common.white,styles.recipeText]}>Recipes</Text>
         <View style={styles.foodCard}>
-         {Object.values(parentSearchResults).length > 0 ? (
-          recipes?.map((recipe, index) => (
+         {/* {Object.values(parentSearchResults).length > 0 ? (
+          parentSearchResults?.map((recipe, index) => (
             <>
              <React.Fragment key={recipe.id}>
               <FoodCard
@@ -98,16 +97,16 @@ const User = ({navigation}) => {
             </React.Fragment>
             </>
         ))
-      ) : (
-        recipes.map((recipe, index) => (
+      ) : ( */}
+        {recipes.map((recipe, index) => (
           <FoodCard
             key={index}
             source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
             text={recipe.name}
             onPress={() => NavigateTodetails(recipe._id)}
           />
-        ))
-      )}
+        ))}
+       {/* )} */}
     </View>
 
     </ScrollView>

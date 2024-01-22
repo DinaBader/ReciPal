@@ -122,6 +122,7 @@ const ImageScreen = ({navigation}) => {
   }
 
   return (
+    <>
     <ScrollView style={[common.backgroundColor ]}>
     <View style={[common.title]}>
       <Text style={[common.white, common.header]}>Suggestion</Text>
@@ -173,13 +174,14 @@ const ImageScreen = ({navigation}) => {
     ) : (
       <Text style={style.errorText}>{error}</Text>
     )}
-    <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}
-     source1={require("../../../assets/home.png")}
-     source2={require("../../../assets/add.png")}
-     source3={require("../../../assets/settings-black.png")}
-      />
 
   </ScrollView>
+      <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}
+      source1={require("../../../assets/home.png")}
+      source2={require("../../../assets/add.png")}
+      source3={require("../../../assets/settings-black.png")}
+       />
+</> 
 
   )
 }
