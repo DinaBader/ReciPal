@@ -3,16 +3,16 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     cylinder:{
         backgroundColor:'#FFBF4D',
-        width:70,
-        height:130,
-        borderRadius:90
+        width:67,
+        height:120,
+        borderRadius:90,
+        marginLeft:4
     },
     text:{
         textAlign:'center',
-        fontSize:16,
+        fontSize:14,
         marginTop:5
     }
-
     
 })
 

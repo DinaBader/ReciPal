@@ -11,7 +11,7 @@ const CylinderComp = ({text}) => {
     <View style={style.absoluteContainer}>
       <TouchableOpacity style={style.cylinder}>
         <Image source={require("../../../assets/new-moon.png")}
-        style={{width:60,height:60,marginLeft:5,marginTop:10}}/> 
+        style={{width:50,height:50,marginLeft:8,marginTop:10}}/> 
         <Text style={[style.text,common.bold]}>{formattedText}</Text>
       </TouchableOpacity>
     </View>
