@@ -209,12 +209,12 @@ const pickImage = async () => {
       </View>
       <TouchableOpacity style={[common.center]} 
                 onPress={pickImage}> 
-                <Text style={[common.yellow_bg,style.button,common.bold]}> 
+                <Text style={[common.yellow_bg,common.btn,common.bold,style.btn]}> 
                     Choose Image 
                 </Text> 
       </TouchableOpacity> 
       <TouchableOpacity style={[common.center]} onPress={handleSubmit}>
-        <Text style={[common.yellow_bg,style.button,common.bold]}>Upload Recipe</Text>
+        <Text style={[common.yellow_bg,common.btn,common.bold,style.btn]}>Upload Recipe</Text>
       </TouchableOpacity>
             {file ? ( 
                 <View style={style.imageContainer}> 

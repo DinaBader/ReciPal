@@ -14,28 +14,23 @@ const styles= StyleSheet.create({
     imageContainer:{
         paddingLeft:120
     },
-    button:{
-        width:200,
-        height:50,
-        marginBottom:20,
-        paddingTop:10,
-        borderRadius:10,
-        marginTop:10,
+    btn:{
         textAlign:'center',
+        paddingTop:15,
+        marginBottom:10,
+        marginTop:10,
+        marginLeft:-10
     },
     input:{
-        backgroundColor:'white',
-        width:250,
-        height:50,
-        marginLeft:50,
-        paddingLeft:5,
-        borderRadius:3
+        width: 280,
+        height: 50,
+        borderRadius: 10,
+        marginLeft: 50,
+        paddingLeft:20,
+        backgroundColor:'#FFFFFF',
+        marginTop:20
     },
-    inputs:{
-        gap:8,
-        display:'flex',
-        flexWrap:'wrap'
-    }
+   
 })
 
 export default styles;
