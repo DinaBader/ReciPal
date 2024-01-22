@@ -120,7 +120,7 @@ const Saved = ({navigation}) => {
               >
                       <View style={styles.align}>
                        <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
-                       <Text style={common.bold}>Delete</Text>
+                       <Text style={[common.bold,common.white]}>Delete</Text>
                        </View>
                     </TouchableOpacity>
                 </View>

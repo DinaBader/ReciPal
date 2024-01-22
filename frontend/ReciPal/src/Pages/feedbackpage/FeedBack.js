@@ -47,7 +47,7 @@ const FeedBack = ({navigation}) => {
         </TouchableOpacity>
         <Text style={[common.header,common.white,style.feedback]}>Feedback</Text>
       </View>
-      <Text style={[common.white,style.title]}>Share your FeedBack</Text>
+      <Text style={[common.white,style.title]}>Share your Feedback</Text>
       <Text style={[common.white,style.text]}>Thank you for using ReciPal  Please give us your feedback.</Text>
       <TextInput
            style={[style.TextInput]}
