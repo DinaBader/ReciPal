@@ -6,7 +6,6 @@ const style = StyleSheet.create({
         height:220,
         borderRadius:200,
         marginTop:70,
-        marginLeft:90
     },
     ChangeProfile:{
         fontSize:20,
@@ -14,7 +13,6 @@ const style = StyleSheet.create({
         marginTop:10
     },
     editProfile:{
-        marginLeft:110,
         marginTop:10,
         width:180
     },
@@ -25,12 +23,16 @@ const style = StyleSheet.create({
         marginTop: 10
     },
     btn:{
-        width:50,
+        width:80,
         height:25,
         marginBottom:10,
         marginLeft:180,
         borderRadius:5,
         marginTop:5
+    },
+    next:{
+        display:'flex',
+        flexDirection:'column'
     }
 
 
