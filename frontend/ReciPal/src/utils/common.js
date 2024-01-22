@@ -68,6 +68,14 @@ const common = StyleSheet.create({
         paddingLeft:20,
         marginBottom:10,
         backgroundColor:'#FFFFFF'
+    },
+    btn:{
+        width:280,
+        marginLeft:50,
+        height:55,
+        borderRadius:50,
+        justifyContent:"center",
+        alignItems:"center"
     }
   });
 

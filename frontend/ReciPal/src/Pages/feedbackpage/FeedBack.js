@@ -48,7 +48,7 @@ const FeedBack = ({navigation}) => {
         <Text style={[common.header,common.white,style.feedback]}>Feedback</Text>
       </View>
       <Text style={[common.white,style.title]}>Share your FeedBack</Text>
-      <Text style={[common.white,style.text]}>Thank you for using ReciPal {"\n"} Please give us your feedback.</Text>
+      <Text style={[common.white,style.text]}>Thank you for using ReciPal  Please give us your feedback.</Text>
       <TextInput
            style={[style.TextInput]}
            multiline={true}
@@ -56,7 +56,7 @@ const FeedBack = ({navigation}) => {
            placeholder='Enter message'
            onChangeText ={handleFeedback}
       />
-      <TouchableOpacity style={[style.button,common.center,common.yellow_bg]} onPress={handleSubmit}>
+      <TouchableOpacity style={[common.btn,common.center,common.yellow_bg,style.btn]} onPress={handleSubmit}>
         <Text style={[common.bold]}>Submit</Text>
       </TouchableOpacity>
     </View>

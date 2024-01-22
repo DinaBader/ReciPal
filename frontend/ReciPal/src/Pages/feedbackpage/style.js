@@ -2,12 +2,13 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     title:{
-        marginLeft:25,
+        marginLeft:55,
         marginTop:20,
-        fontSize:35
+        fontSize:30
     },
     text:{
         paddingLeft:100,
+        marginRight:80
     },
     TextInput:{
         backgroundColor:'#FFFFFF',
@@ -16,14 +17,11 @@ const styles = StyleSheet.create({
         marginLeft:40,
         marginTop:20,
         borderRadius:10,
-        paddingLeft:8
+        paddingLeft:20,
+        paddingTop:10
     },
-    button:{
-        width:300,
-        height:40,
-        marginTop:20,
-        marginLeft:40,
-        borderRadius:10
+    btn:{
+        marginTop:22
     }
 })
 
