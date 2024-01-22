@@ -86,8 +86,8 @@ const UserProfileComp = ({source,onUpdateImage }) => {
     <View>
         <Image source={source}
         style={style.image} />
-        <TouchableOpacity>
-        <Text style={[common.white,style.ChangeProfile]} onPress={pickImage}>Change Profile</Text>
+        <TouchableOpacity style={[common.yellow_bg,common.button_h,common.raduis,style.editProfile]}>
+        <Text style={[common.white,style.ChangeProfile,common.bold]} onPress={pickImage}>Edit Picture</Text>
         {file ? ( 
                 <View style={style.imageContainer}> 
                     <Image source={{ uri: file }} 

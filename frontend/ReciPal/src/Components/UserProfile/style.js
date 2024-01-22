@@ -9,11 +9,15 @@ const style = StyleSheet.create({
         marginLeft:90
     },
     ChangeProfile:{
-        fontSize:30,
+        fontSize:20,
         textAlign:'center',
         marginTop:10
     },
-
+    editProfile:{
+        marginLeft:110,
+        marginTop:10,
+        width:180
+    },
     Icon:{
         flexDirection: 'row', 
         alignItems: 'center', 
