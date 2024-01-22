@@ -29,7 +29,9 @@ const SearchComp = ({ onSearchResultsChange,onCancel  }) => {
   };
 
   useEffect(() => {
-    onSearchResultsChange(searchResults);
+    if (searchResults.length > 0) {
+      onSearchResultsChange(searchResults);
+    }
   }, [searchResults, onSearchResultsChange]);
 
   const handleCancel = () => {

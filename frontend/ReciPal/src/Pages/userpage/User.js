@@ -38,17 +38,19 @@ const User = ({navigation}) => {
 
   useEffect(()=>{
     getRecipes();
-    console.log(parentSearchResults)
+    console.log("first",parentSearchResults)
   },[])
 
 
   const handleSearchResultsChange = (results) =>  {
     setParentSearchResults(results.recipes);
-    console.log(parentSearchResults)
+    console.log("second",parentSearchResults)
+
   };
   const handleSearchCancel = () => {
     setParentSearchResults([]);
     getRecipes();
+    
   };
 
   const navigatoHome = () =>{
@@ -85,7 +87,7 @@ const User = ({navigation}) => {
       </View>
         <Text style={[common.white,styles.recipeText]}>Recipes</Text>
         <View style={styles.foodCard}>
-         {/* {Object.values(parentSearchResults).length > 0 ? (
+         {Object.values(parentSearchResults).length > 0 ? (
           parentSearchResults?.map((recipe, index) => (
             <>
              <React.Fragment key={recipe.id}>
@@ -97,16 +99,16 @@ const User = ({navigation}) => {
             </React.Fragment>
             </>
         ))
-      ) : ( */}
-        {recipes.map((recipe, index) => (
+      ) : (
+        recipes.map((recipe, index) => (
           <FoodCard
             key={index}
             source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
             text={recipe.name}
             onPress={() => NavigateTodetails(recipe._id)}
           />
-        ))}
-       {/* )} */}
+        ))
+        )} 
     </View>
 
     </ScrollView>
