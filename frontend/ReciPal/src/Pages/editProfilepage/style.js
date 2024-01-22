@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         fontSize:20,
         paddingLeft:55,
         paddingBottom:10,
-        marginTop:10,
+        marginTop:20,
     }, 
     input:{
         width: 280,
@@ -17,10 +17,13 @@ const styles = StyleSheet.create({
         backgroundColor:'#FFFFFF'
     },
     button:{
-        width:240,
+        width:280,
+        marginLeft:50,
         height:55,
-        marginTop:30,
-        marginLeft:50
+        borderRadius:50,
+        justifyContent:"center",
+        alignItems:"center",
+        marginTop:20
     }
 })
 
