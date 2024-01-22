@@ -18,9 +18,23 @@ const styles= StyleSheet.create({
         width:200,
         height:50,
         marginBottom:20,
+        paddingTop:10,
         borderRadius:10,
         marginTop:10,
         textAlign:'center',
+    },
+    input:{
+        backgroundColor:'white',
+        width:250,
+        height:50,
+        marginLeft:50,
+        paddingLeft:5,
+        borderRadius:3
+    },
+    inputs:{
+        gap:8,
+        display:'flex',
+        flexWrap:'wrap'
     }
 })
 

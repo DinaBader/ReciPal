@@ -7,6 +7,7 @@ import axios from 'axios';
 import Input from "../../Components/Inputs/input"
 import AdminNav from "../../Components/adminnav/AdminNavComp"
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { TextInput } from 'react-native-gesture-handler';
 // import {BASE_URL} from "@env"
 const AddRecipe = ({navigation}) => {
   const [file, setFile] = useState(null); 
@@ -168,33 +169,43 @@ const pickImage = async () => {
     <ScrollView style={[common.backgroundColor]}>
       <Text style={[style.text]}>Add Recipes</Text>
       <View style={[style.inputs]}>
-          <Input placeholder="name"
+          <TextInput placeholder="name"
                     value={name}
-                  onChangeText={handleNameChange}/>
-          <Input placeholder="calories"
+                  onChangeText={handleNameChange}
+                  style={style.input}
+                  />
+          <TextInput placeholder="calories"
                     value={calories.toString()}
-                onChangeText={handleCaloriesChange} />
-          <Input placeholder="country"
+                onChangeText={handleCaloriesChange} 
+                style={style.input}/>
+          <TextInput placeholder="country"
                     value={country}
-                  onChangeText={handleCountrychange}/>
-          <Input placeholder="total time"
+                  onChangeText={handleCountrychange}
+                  style={style.input}/>
+          <TextInput placeholder="total time"
                     value={total_time.toString()}
-                  onChangeText={handleTimeChange}/>
-          <Input placeholder="serving"
+                  onChangeText={handleTimeChange}
+                  style={style.input}/>
+          <TextInput placeholder="serving"
                     value={serving.toString()}
-                  onChangeText={handleServingChange}/>
-          <Input placeholder="difficulty"
+                  onChangeText={handleServingChange}
+                  style={style.input}/>
+          <TextInput placeholder="difficulty"
                     value={difficulty}
-                  onChangeText={handleDifficultyChange}/>
-          <Input placeholder="category"
+                  onChangeText={handleDifficultyChange}
+                  style={style.input}/>
+          <TextInput placeholder="category"
                     value={category}
-                  onChangeText={handleCategoryChange}/>
-          <Input placeholder="ingredients"
+                  onChangeText={handleCategoryChange}
+                  style={style.input}/>
+          <TextInput placeholder="ingredients"
             value={ingredients.join(', ')}
-            onChangeText={handleIngredientsChange}/>
-          <Input placeholder="instructions"
+            onChangeText={handleIngredientsChange}
+            style={style.input}/>
+          <TextInput placeholder="instructions"
                     value={instructions.join(',')}
-                  onChangeText={handleInstructionsChange}/>
+                  onChangeText={handleInstructionsChange}
+                  style={style.input}/>
       </View>
       <TouchableOpacity style={[common.center]} 
                 onPress={pickImage}> 
