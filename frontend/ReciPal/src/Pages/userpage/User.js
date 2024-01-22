@@ -1,4 +1,4 @@
-import { View, Text, ScrollView,TouchableOpacity,Dimensions} from 'react-native';
+import { View, Text, ScrollView,TouchableOpacity,Dimensions,ActivityIndicator} from 'react-native';
 import React,{useState,useEffect} from 'react';
 import {BASE_URL} from '@env'
 import axios from 'axios'
@@ -17,6 +17,7 @@ const User = ({navigation}) => {
   const [selectedFood, setSelectedFood] = useState(null);
   const [recipes,setRecipes]=useState([]);
   const [parentSearchResults, setParentSearchResults] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => (prevSelectedFood === food ? null : food));
@@ -27,12 +28,14 @@ const User = ({navigation}) => {
   }
 
   const getRecipes = async () => {
-      axios.get(
-        `${BASE_URL}/recipe/getRecipe`).then(function(res){ 
-          setRecipes(res.data.recipes)
-        }).catch((error)=>{
-          console.log("Error fetching recipes",error);
-        })
+    try {
+      const response = await axios.get(`${BASE_URL}/recipe/getRecipe`);
+      setRecipes(response.data.recipes);
+    } catch (error) {
+      console.log("Error fetching recipes", error);
+    } finally {
+      setLoading(false); // Set loading to false after fetching data
+    }
   };
 
 
@@ -68,7 +71,9 @@ const User = ({navigation}) => {
   
   return (
     <>
-    <ScrollView style={[common.backgroundColor,styles.container]}>
+
+    <ScrollView style={[common.backgroundColor,styles.container]}
+    contentContainerStyle={styles.scrollContentContainer}>
       <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
       <Search onSearchResultsChange={handleSearchResultsChange}  onCancel={handleSearchCancel}/>
       <View style={styles.foodCircleContainer}>
@@ -86,6 +91,11 @@ const User = ({navigation}) => {
         />
       </View>
         <Text style={[common.white,styles.recipeText]}>Recipes</Text>
+        {loading && (
+           <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#FFBF4D" />
+          </View>
+        )}
         <View style={styles.foodCard}>
          {Object.values(parentSearchResults).length > 0 ? (
           parentSearchResults?.map((recipe, index) => (
