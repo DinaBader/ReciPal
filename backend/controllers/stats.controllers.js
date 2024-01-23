@@ -21,5 +21,5 @@ const numberOfRecipes = async(req,res)=>{
 
 module.exports={
     numberOfUsers,
-    numofRecipes
+    numberOfRecipes
 }
