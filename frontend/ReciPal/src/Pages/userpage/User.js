@@ -20,9 +20,13 @@ const User = ({navigation}) => {
   const [loading, setLoading] = useState(true);
 
   const handleFoodPress = (food) => {
-    setSelectedFood((prevSelectedFood) => (prevSelectedFood === food ? null : food));
+    setSelectedFood((prevSelectedFood) => {
+      const newSelectedFood = prevSelectedFood === food ? null : food;
+      console.log(newSelectedFood);
+      return newSelectedFood;
+    });
   };
-
+  
   const NavigateTodetails=(recipeId)=>{
     navigation.navigate('RecipeDetail', { recipeId });
   }
