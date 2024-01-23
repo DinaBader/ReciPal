@@ -21,5 +21,11 @@
         "Edit picture":"Edit picture",
         "Submit":"Submit",
         "Cancel":"Cancel"
+    },
+    "Settings":{
+        "Seetings":"Seetings",
+        "Edit Profile":"Edit Profile",
+        "Languages":"Languages",
+        "Feedback":"Feedback"
     }
 }

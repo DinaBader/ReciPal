@@ -21,7 +21,13 @@
         "Edit picture": "تعديل الصورة",
         "Submit": "إرسال",
         "Cancel": "إلغاء"
-      }
+    },
+    "Settings": {
+        "Settings": "الإعدادات",
+        "Edit Profile": "تعديل الملف الشخصي",
+        "Languages": "اللغات",
+        "Feedback": "تعليق"
+    }
     
 }
   
