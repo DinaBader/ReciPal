@@ -74,6 +74,7 @@ const Userfeedback = ({navigation}) => {
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}
      source4={require("../../../assets/stats.png")}
+     source5={require("../../../assets/user.png")}
 
      />
     </>

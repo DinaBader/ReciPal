@@ -9,7 +9,7 @@ const style=StyleSheet.create({
     container:{
         display: 'flex',
         flexDirection: 'row', 
-        gap:70,
+        gap:44,
         alignItems: 'center',
         position: 'fixed',
         bottom: 0,
