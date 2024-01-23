@@ -10,6 +10,16 @@ const numberOfUsers = async(req,res)=>{
     }
 }
 
+const numberOfRecipes = async(req,res)=>{
+    try{
+        const numofRecipes=await Recipe.find().count();
+        res.status(200).json({numofRecipes})
+    }catch(error){
+        res.status(500).json({"error":error});
+    }
+}
+
 module.exports={
-    numberOfUsers
+    numberOfUsers,
+    numofRecipes
 }
