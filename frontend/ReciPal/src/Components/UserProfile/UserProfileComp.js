@@ -25,8 +25,6 @@ const UserProfileComp = ({ source, onUpdateImage }) => {
           type: "image/jpg",
         });
 
-        console.log("FormData created:", formData);
-
         const photoResponse = await axios.post(
           `${BASE_URL}/reward/update_image`,
           formData,

@@ -18,7 +18,6 @@ const SearchComp = ({ onSearchResultsChange,onCancel  }) => {
         `http://192.168.0.100:8000/recipe/searchRecipes?name=${searchQuery}`
         );
 
-      // console.log('API Response:', response.data);
 
       const results = response.data;
       setSearchResults(results);  

@@ -13,7 +13,6 @@ const Userfeedback = ({navigation}) => {
        axios.get(`${BASE_URL}/review/getReviews`
        ).then((res)=>{
         const response=res.data.reviews;
-        console.log(response)
         setFeedback(response);
        })
     }catch(error){

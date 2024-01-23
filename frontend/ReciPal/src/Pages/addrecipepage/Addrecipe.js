@@ -81,11 +81,9 @@ const handleSubmit = async () => {
       }
     );
 
-    console.log("Recipe response:", recipeResponse);
 
     if (recipeResponse.data.recipe && recipeResponse.data.recipe._id) {
       const addedRecipeId = recipeResponse.data.recipe._id;
-      console.log("Recipe added successfully. Recipe ID:", addedRecipeId);
     
       if (file) {
         const formData = new FormData();
@@ -94,8 +92,6 @@ const handleSubmit = async () => {
           name: `recipe_photo_${addedRecipeId}.jpg`,
           type: "image/jpg",
         });
-
-        console.log("FormData created:", formData);
 
         const photoResponse = await axios.post(
           `http://192.168.0.100:8000/recipe/addRecipePhoto/${addedRecipeId}`,
@@ -107,10 +103,8 @@ const handleSubmit = async () => {
           }
         );
 
-        console.log("Recipe photo uploaded successfully:", photoResponse.data);
       }
 
-      console.log("Recipe uploaded successfully!");
     } else {
       console.error("Error adding recipe. Response:", recipeResponse);
     }

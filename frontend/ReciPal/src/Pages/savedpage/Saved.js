@@ -48,7 +48,6 @@ const Saved = ({navigation}) => {
           )
           .then((res) => {
             const { savedRecipes } = res.data;
-            console.log('Saved Recipes:', savedRecipes);
       
             if (savedRecipes && savedRecipes.length > 0) {
               const recipesData = savedRecipes.map((item) => ({
@@ -88,7 +87,6 @@ const Saved = ({navigation}) => {
           }
         }
         );
-        console.log('recipe unsaved');   
         const updatedRecipes = recipes.filter((recipe) => recipe.recipeId !== recipeId);
         getRecipes(updatedRecipes);
      

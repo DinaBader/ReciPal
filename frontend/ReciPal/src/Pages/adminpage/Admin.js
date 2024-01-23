@@ -39,11 +39,9 @@ const Admin = ({navigation}) => {
   },[])
 
   const DeleteRecipe=(recipeId)=>{
-    console.log(recipeId)
     try{
        axios.delete(`${BASE_URL}/recipe/deleteRecipe/${recipeId}`,
        ).then((res)=>{
-        console.log("recipe deleted");
        })
     }catch(error){
       console.log("error deleting recipe",error)

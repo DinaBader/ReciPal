@@ -56,12 +56,10 @@ const Login = ({navigation}) => {
             console.log("LoggedIN");
             _storeData=async()=>{
               try{
-                console.log("Saving data")
                 await AsyncStorage.setItem("jwt",res.data.token);
                 await AsyncStorage.setItem("user",JSON.stringify(res.data.user));
                 await AsyncStorage.setItem("userRole", res.data.user.role.toString());
                 await AsyncStorage.setItem("isLoggedIn", "true");
-                console.log("Data saved")
                 _retrieveData();
               }catch(error){
                 console.error("Error storing token:", error);

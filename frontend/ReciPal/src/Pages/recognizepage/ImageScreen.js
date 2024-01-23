@@ -24,7 +24,6 @@ const ImageScreen = ({navigation}) => {
         //     type: "image/jpg",
         //   });
   
-        //   console.log("FormData created:", formData);
   
           const photoResponse = await axios.post(
             `${BASE_URL}/tags/getImageTags`,
@@ -37,11 +36,9 @@ const ImageScreen = ({navigation}) => {
           );
         // }
         const tagsres = photoResponse.data.tags;
-        console.log(tagsres);
         setTags(tagsres);
         filter_ingredients(tagsres);
         getRecipes(food)
-        // console.log(tags)
     } catch (error) {
       if (error.response) {
         console.log("BASE_URL:", BASE_URL);
@@ -104,7 +101,6 @@ const ImageScreen = ({navigation}) => {
   
       const res = response.data.recipes;
       setRecipes(res);
-      console.log(res);
     } catch (error) {
       console.log("Error getting recipes", error.message);
     }

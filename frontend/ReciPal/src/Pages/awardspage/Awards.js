@@ -46,7 +46,6 @@ const Awards = ({navigation}) => {
   };
   
   useEffect(() => {
-    // console.log(rewards);
     if (rewards.Rewards && rewards.Rewards.length > 0) {
       const countriesList = rewards.Rewards.map(item => item.country); 
       setCountries(countriesList);

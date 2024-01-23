@@ -46,7 +46,6 @@ const Recipedetail = ({route,navigation}) => {
       });
       const { recipe } = response.data;
       setRecipeDetails(recipe);
-      console.log(recipe);
     } catch (error) {
       console.log("error", error);
     } finally {
@@ -66,7 +65,6 @@ const Recipedetail = ({route,navigation}) => {
           }
         }
         );
-        console.log('recipe saved');
         updateSavedStatus('true');
       } catch (error) {
         console.log('error saving recipe', error);
@@ -79,7 +77,6 @@ const Recipedetail = ({route,navigation}) => {
             'Authorization': `Bearer ${Token}`,
           }
         });
-        console.log('recipe unsaved');
         updateSavedStatus('false');
       } catch (error) {
         console.log('error unsaving recipe', error);
@@ -138,7 +135,6 @@ const Recipedetail = ({route,navigation}) => {
               }
             }
             );
-            console.log("Reward Added");
           } catch (error) {
             console.error('Error adding reward:', error);
           }

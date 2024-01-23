@@ -71,7 +71,6 @@ const EditProfile = ({ navigation }) => {
           }
         )
         .then((res) => {
-          console.log("changed", res.data);
           setUsername("");
           setEmail("");
         })

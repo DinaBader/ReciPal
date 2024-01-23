@@ -55,7 +55,6 @@ const Signin = ({navigation}) => {
         }
       }
     ).then((res)=>{
-      console.log("Signed in");
       _storeData=async()=>{
         try{
           await AsyncStorage.setItem("jwt",res.data.token);

@@ -30,8 +30,6 @@ const App = () => {
         const role = await AsyncStorage.getItem('userRole');
         const loggedIn = await AsyncStorage.getItem('isLoggedIn');
 
-        console.log('Role:', role);
-        console.log('LoggedIn:', loggedIn);
         if (loggedIn ) {
           setIsLoggedIn(true);
         } else {

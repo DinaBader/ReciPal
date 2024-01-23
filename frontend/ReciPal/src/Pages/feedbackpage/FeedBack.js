@@ -26,7 +26,6 @@ const FeedBack = ({navigation}) => {
         }
       ).then((res) => {
         try {
-          console.log("Feedback submitted successfully:", res.data);
         } catch (error) {
           console.error("Error", error);
         }
