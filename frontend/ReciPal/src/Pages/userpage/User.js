@@ -26,7 +26,7 @@ const User = ({ navigation }) => {
   const [recipes, setRecipes] = useState([]);
   const [parentSearchResults, setParentSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categorieRecipe,setCategorieRecipe]=useState([]);
+  const [categorieRecipes,setCategorieRecipe]=useState([]);
 
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => {
@@ -135,13 +135,15 @@ const User = ({ navigation }) => {
               ))
             ) : (
               selectedFood && selectedFood.length > 0 ? (
-                <FoodCard
+                categorieRecipes.map((categorieRecipe,index)=>(
+                  <FoodCard
                   source={{
-                    uri: `${BASE_URL}/recipes/${selectedFood.image}`,
+                    uri: `${BASE_URL}/recipes/${categorieRecipe.image}`,
                   }}
-                  text={selectedFood.name}
-                  onPress={() => NavigateTodetails(selectedFood._id)}
+                  text={categorieRecipe.name}
+                  onPress={() => NavigateTodetails(categorieRecipe._id)}
                 />
+                ))
               ) : (
                 recipes.slice(0, 8).map((recipe, index) => (
                   <FoodCard
