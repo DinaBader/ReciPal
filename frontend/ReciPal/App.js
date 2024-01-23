@@ -19,6 +19,8 @@ import Saved  from './src/Pages/savedpage/Saved'
 import Awards  from './src/Pages/awardspage/Awards'
 import UserProfile from './src/Pages/userProfilePage/UserProfile'
 import StatsPage from './src/Pages/statspage/Stats';
+import './src/localization/i18n';
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userRole, setUserRole] = useState(null);

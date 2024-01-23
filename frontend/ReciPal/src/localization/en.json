@@ -1,0 +1,10 @@
+{
+    "UserPage":{
+            "title":"What would you like to Eat?",
+            "Recipes":"Recipes",
+            "Beef":"Beef",
+            "Fish":"Fish",
+            "Chicken":"Chicken",
+            "Sandwiches":"Sandwiches"
+    }
+}

@@ -17,7 +17,8 @@ import Foodcircle from '../../Components/foodcircle/food';
 import FoodCard from '../../Components/foodcard/FoodCardComp';
 import BottomNav from '../../Components/userbottomnav/bottomnavcomp';
 import Carousel from 'react-native-snap-carousel';
-
+import { useTranslation } from 'react-i18next';
+import '../../localization/i18n'; 
 const SLIDER_WIDTH = Dimensions.get('window').width / 0.8;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
 
@@ -27,7 +28,16 @@ const User = ({ navigation }) => {
   const [parentSearchResults, setParentSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categorieRecipes,setCategorieRecipe]=useState([]);
+  const [currentLanguage,setLanguage] =useState('en'); 
+  const {t, i18n} = useTranslation(); 
 
+  const changeLanguage = value => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => setLanguage(value)) 
+      .catch(err => console.log(err)); 
+  }; 
+  
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => {
       const newSelectedFood = prevSelectedFood === food ? null : food;
@@ -58,6 +68,7 @@ const User = ({ navigation }) => {
 
   useEffect(() => {
     getRecipes();
+    console.log(i18n.language);
   }, []);
 
   const handleSearchResultsChange = (results) => {
@@ -88,7 +99,7 @@ const User = ({ navigation }) => {
         style={[common.backgroundColor, styles.container]}
         contentContainerStyle={styles.scrollContentContainer}
       >
-        <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
+        <Text style={styles.text}>{t('UserPage.title')}</Text>
         <Search
           onSearchResultsChange={handleSearchResultsChange}
           onCancel={handleSearchCancel}
@@ -111,7 +122,7 @@ const User = ({ navigation }) => {
             itemWidth={ITEM_WIDTH}
           />
         </View>
-        <Text style={[common.white, styles.recipeText,common.bold]}>Recipes</Text>
+        <Text style={[common.white, styles.recipeText,common.bold]}>{t('UserPage.Recipes')}</Text>
         {loading ? (
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#FFBF4D" />
