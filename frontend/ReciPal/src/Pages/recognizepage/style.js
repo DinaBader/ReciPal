@@ -4,11 +4,14 @@ const Styles=StyleSheet.create({
      btn:{
         textAlign:'center',
         paddingTop:15,
-        marginTop:20
+        marginTop:20,
      },
      image:{
         width:320,
         height:200,
+    },
+    button:{
+        marginLeft:15
     },
     imageContainer:{
         paddingLeft:40,
@@ -32,7 +35,6 @@ const Styles=StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         gap:5,
-        borderRadius:5,
     },
     indTag:{
         backgroundColor:'#FFBF4D',

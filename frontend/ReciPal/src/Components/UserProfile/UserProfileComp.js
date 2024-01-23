@@ -76,17 +76,17 @@ const UserProfileComp = ({ source, onUpdateImage }) => {
         </View>
       )}
 
-      <TouchableOpacity style={[common.yellow_bg, common.button_h, common.raduis, style.editProfile]} onPress={pickImage}>
+      <TouchableOpacity style={[style.editProfile]} onPress={pickImage}>
         <Text style={[common.white, style.ChangeProfile, common.bold]}>Edit Picture</Text>
       </TouchableOpacity>
 
       {file && (
         <View style={{ marginTop: 10 }}>
           <TouchableOpacity onPress={handleSubmit} style={[common.yellow_bg, common.button_h, common.raduis, style.editProfile]}>
-            <Text style={[common.white, style.ChangeProfile, common.bold]}>Submit</Text>
+            <Text style={[common.white, style.button, common.bold]}>Submit</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleCancel} style={[common.yellow_bg, common.button_h, common.raduis, style.editProfile]}>
-            <Text style={[common.white, style.ChangeProfile, common.bold]}>Cancel</Text>
+            <Text style={[common.white, style.button, common.bold]}>Cancel</Text>
           </TouchableOpacity>
         </View>
       )}

@@ -19,7 +19,8 @@ const styles= StyleSheet.create({
         paddingTop:15,
         marginBottom:10,
         marginTop:10,
-        marginLeft:-10
+        marginLeft:-10,
+        fontSize:18
     },
     input:{
         width: 280,

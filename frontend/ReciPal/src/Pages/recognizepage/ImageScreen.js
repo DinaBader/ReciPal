@@ -124,8 +124,8 @@ const ImageScreen = ({navigation}) => {
       <Text style={[common.white, common.header]}>Suggestion</Text>
     </View>
 
-    <TouchableOpacity onPress={pickImage}>
-      <Text style={[common.yellow_bg, common.btn, common.bold,style.btn]}>Upload image</Text>
+    <TouchableOpacity onPress={pickImage} style={style.button}>
+      <Text style={[common.yellow_bg, common.btn, common.bold,style.btn,common.font]}>Upload image</Text>
     </TouchableOpacity>
 
     {file ? (
@@ -134,17 +134,17 @@ const ImageScreen = ({navigation}) => {
         <Image source={{ uri: file }} style={style.image} />
 
         <TouchableOpacity onPress={handleSubmit} style={[style.options,common.yellow_bg,common.button_w,common.button_h,common.raduis,common.center]}>
-          <Text style={common.bold}>Analyze</Text>
+          <Text style={[common.bold,common.font]}>Analyze</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handleCancel} style={[style.options,common.yellow_bg,common.button_w,common.button_h,common.raduis,common.center]}>
-          <Text style={common.bold}>Cancel</Text>
+          <Text style={[common.bold,common.font]}>Cancel</Text>
         </TouchableOpacity>
 
         {tags.length > 0 && (
           <View style={style.tagsContainer}>
             <Text style={[common.white, common.bold]}>Found:</Text>
-            <View style={style.tag}>
+            <View style={[style.tag,common.raduis]}>
               {tags.map((tag, index) => (
                 <Text key={index} style={[style.indTag]}>
                   {tag.tag.en}

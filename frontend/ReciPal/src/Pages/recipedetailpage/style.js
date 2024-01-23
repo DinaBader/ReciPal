@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         borderRadius:50,
         marginLeft:50,
         marginTop:20,
-        marginBottom:20
+        marginBottom:20,
       },
       completed:{
         backgroundColor:'#FFBF4D'

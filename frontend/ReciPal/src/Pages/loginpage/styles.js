@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
       fontSize:30,
       paddingLeft:170,
       paddingTop:80
+    },
+    btntext:{
+      fontSize:18
     }
   });
 

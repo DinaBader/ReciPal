@@ -111,7 +111,7 @@ const User = ({ navigation }) => {
             itemWidth={ITEM_WIDTH}
           />
         </View>
-        <Text style={[common.white, styles.recipeText]}>Recipes</Text>
+        <Text style={[common.white, styles.recipeText,common.bold]}>Recipes</Text>
         {loading ? (
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#FFBF4D" />

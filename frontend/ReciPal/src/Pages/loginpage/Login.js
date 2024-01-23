@@ -112,7 +112,7 @@ const Login = ({navigation}) => {
           autoCapitalize="none" 
         />
         <TouchableOpacity onPress={handleSubmit} style={styles.submit}>
-          <Text style={[common.yellow,common.bold]}>Log in</Text>
+          <Text style={[common.yellow,common.bold,styles.btntext]}>Log in</Text>
         </TouchableOpacity>
         {errorMessage ? (
                   <Text style={styles.errorMessage}>{errorMessage}</Text>

@@ -5,14 +5,11 @@ const Styles=StyleSheet.create({
         width:300,
         height:60,
         backgroundColor:'#FFBF4D',
-        marginBottom:5,
         marginLeft:44,
         borderRadius:6,
         alignItems:'center',
-        paddingTop:10,
+        paddingTop:18,
         marginTop:30,
-        borderColor:'white',
-        borderWidth:2
     },
     noRewards: {
         color: 'white',

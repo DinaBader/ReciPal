@@ -10,7 +10,14 @@ const style = StyleSheet.create({
     ChangeProfile:{
         fontSize:20,
         textAlign:'center',
-        marginTop:10
+        marginTop:10,
+        textDecorationLine:'underline',
+        color:'#FFBF4D',
+    },
+    button:{
+        fontSize:20,
+        textAlign:'center',
+        marginTop:10,
     },
     editProfile:{
         marginTop:10,

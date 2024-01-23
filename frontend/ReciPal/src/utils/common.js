@@ -14,7 +14,6 @@ const common = StyleSheet.create({
         backgroundColor: 'rgba(101, 101, 101, 0.2)',
     },
     yellow:{
-        color:'#FFBF4D',
     },
     black:{
         color:'#000000',
@@ -44,7 +43,7 @@ const common = StyleSheet.create({
     header:{
         marginTop:40 ,
         marginLeft:30,
-        fontSize:32,
+        fontSize:26,
         letterSpacing:1,
     },
     flex:{
@@ -76,6 +75,9 @@ const common = StyleSheet.create({
         borderRadius:50,
         justifyContent:"center",
         alignItems:"center"
+    },
+    font:{
+        fontSize:18
     }
   });
 

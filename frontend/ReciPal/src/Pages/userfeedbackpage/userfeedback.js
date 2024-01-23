@@ -53,7 +53,7 @@ const Userfeedback = ({navigation}) => {
   return (
     <>
     <ScrollView style={[common.backgroundColor]}>
-      <Text style={[common.header,common.white]}>User Feedback</Text>
+      <Text style={[common.header,common.white,style.title]}>User Feedback</Text>
       {feedbacks.map((feedback,index)=>(
         <View key={index} style={[style.container]}>
         <Text style={[common.white,style.feedback]}>{feedback.feedback}</Text>
@@ -75,7 +75,6 @@ const Userfeedback = ({navigation}) => {
      source3={require("../../../assets/chat.png")}
      source4={require("../../../assets/stats.png")}
      source5={require("../../../assets/user.png")}
-
      />
     </>
   )

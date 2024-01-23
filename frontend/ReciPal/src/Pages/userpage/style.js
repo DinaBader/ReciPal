@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
   },
   recipeText: {
     marginLeft: 50,
-    fontSize: 27,
+    fontSize: 22,
+    paddingTop:10
   },
   foodCard: {
     flexDirection: 'row',
