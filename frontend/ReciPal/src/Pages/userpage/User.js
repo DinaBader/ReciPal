@@ -26,11 +26,18 @@ const User = ({ navigation }) => {
   const [recipes, setRecipes] = useState([]);
   const [parentSearchResults, setParentSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [categorieRecipe,setCategorieRecipe]=useState([]);
 
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => {
       const newSelectedFood = prevSelectedFood === food ? null : food;
       console.log(newSelectedFood);
+      axios.get(`${BASE_URL}/recipe/getRecipeByCategory?categorie=${newSelectedFood}`,
+      ).then((res)=>{
+        setCategorieRecipe(res.data.recipes)
+      }).catch((error)=>{
+        console.log("error getting recipes by categorie",error)
+      })
       return newSelectedFood;
     });
   };
