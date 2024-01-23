@@ -1,5 +1,5 @@
 const Recipe=require("../models/recipe.model");
-const Users=require("../models/user.model");
+const User=require("../models/user.model");
 
 const numberOfUsers = async(req,res)=>{
     try{
@@ -19,7 +19,30 @@ const numberOfRecipes = async(req,res)=>{
     }
 }
 
+const totalSavedRecipes = async (req, res) => {
+    try {
+      const result = await User.aggregate([
+        {
+          $unwind: '$saved',
+        },
+        {
+          $group: {
+            _id: null,
+            totalSavedRecipes: { $sum: 1 },
+          },
+        },
+      ]);
+  
+      const { totalSavedRecipes } = result[0];
+  
+      res.status(200).json({ totalSavedRecipes });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+
 module.exports={
     numberOfUsers,
-    numberOfRecipes
+    numberOfRecipes,
+    totalSavedRecipes
 }
