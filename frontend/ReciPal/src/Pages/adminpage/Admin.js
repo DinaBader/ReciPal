@@ -21,6 +21,9 @@ const Admin = ({navigation}) => {
   const navigateToStats=()=>{
     navigation.navigate('StatsPage');
   }
+  const navigateToProfile=()=>{
+    navigation.navigate('AdminProfilePage');
+  }
   const toggleShowAllRecipes = () => {
     setShowAllRecipes(!showAllRecipes);
   };
@@ -97,7 +100,7 @@ const Admin = ({navigation}) => {
         </TouchableOpacity>
         
       </ScrollView>
-      <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
+      <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats} onPress5={navigateToProfile}
       source1={require("../../../assets/home.png")}
       source2={require("../../../assets/add.png")}
       source3={require("../../../assets/chat.png")}

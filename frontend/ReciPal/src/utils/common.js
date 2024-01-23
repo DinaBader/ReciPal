@@ -14,6 +14,7 @@ const common = StyleSheet.create({
         backgroundColor: 'rgba(101, 101, 101, 0.2)',
     },
     yellow:{
+        color:'#FFBF4D'
     },
     black:{
         color:'#000000',
