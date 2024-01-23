@@ -5,6 +5,8 @@ import common from '../../utils/common'
 import AdminNav  from '../../Components/adminnav/AdminNavComp'
 import axios from 'axios'
 import {BASE_URL} from '@env'
+import styles from './style'
+import style from './style';
 const Stats = ({navigation}) => {
   const [numberOfUsers,setnumberOfUsers]=useState(0)
   const [numberOfRecipe,setnumberOfRecipe]=useState(0)
@@ -63,14 +65,25 @@ const Stats = ({navigation}) => {
     <>
     <View style={common.backgroundColor}> 
       <Text style={[common.header,common.white]}>Statistics</Text>
+      <View style={styles.align}>
+        <View style={[styles.circle,{backgroundColor:'#177AD5'}]} />
+        <Text style={common.white}>Number of users</Text>
+      </View>
+      <View style={styles.align}>
+        <View style={[styles.circle,{backgroundColor:'#79D2DE'}]} />
+        <Text style={common.white}>Number of Recipes</Text>
+      </View>
+      <View style={styles.align}>
+        <View style={[styles.circle,{backgroundColor:'#ED6665'}]} />
+        <Text style={common.white}>Number of Saved Recipes</Text>
+      </View>
       <PieChart
             showText
             textColor="black"
             radius={150}
             textSize={20}
-            showTextBackground
-            textBackgroundRadius={26}
             data={pieData}
+            style={styles.piechart}
             />
     </View>
     <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
