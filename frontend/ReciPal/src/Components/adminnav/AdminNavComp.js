@@ -3,7 +3,7 @@ import React from 'react'
 import common from '../../utils/common'
 import style from "./style"
 import { TouchableOpacity } from 'react-native-gesture-handler'
-const AdminNavComp = ({onPress1,onPress2,onPress3,onPress4,onPress5,source1,source2,source3,source4,source5}) => {
+const AdminNavComp = ({onPress1,onPress2,onPress3,onPress4,source1,source2,source3,source4}) => {
 
   return (
     <View style={[common.yellow_bg,style.container]}>
@@ -28,12 +28,6 @@ const AdminNavComp = ({onPress1,onPress2,onPress3,onPress4,onPress5,source1,sour
       <TouchableOpacity onPress={onPress4}>
         <Image
         source={source4}
-        style={style.navIcons}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onPress5}>
-        <Image
-        source={source5}
         style={style.navIcons}
         />
       </TouchableOpacity>
