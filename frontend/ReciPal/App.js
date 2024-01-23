@@ -19,7 +19,6 @@ import Saved  from './src/Pages/savedpage/Saved'
 import Awards  from './src/Pages/awardspage/Awards'
 import UserProfile from './src/Pages/userProfilePage/UserProfile'
 import StatsPage from './src/Pages/statspage/Stats';
-import AdminProfilePage from './src/Pages/adminprofilepage/Adminprofile'
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userRole, setUserRole] = useState(null);
@@ -68,7 +67,6 @@ const App = () => {
             <Stack.Screen name="AdminPage" component={AdminPage} options={{ headerShown: false }} />
             <Stack.Screen name="UserProfile" component={UserProfile} options={{ headerShown: false }} />
             <Stack.Screen name="ImagePage" component={ImagePage} options={{ headerShown: false }} />
-            <Stack.Screen name="AdminProfilePage" component={AdminProfilePage} options={{ headerShown: false }} />
           </>
         ) : (
           <>
@@ -88,7 +86,6 @@ const App = () => {
             <Stack.Screen name="UserFeedbackPage" component={UserFeedbackPage} options={{ headerShown: false }} />
             <Stack.Screen name="StatsPage" component={StatsPage} options={{ headerShown: false }} />
             <Stack.Screen name="ImagePage" component={ImagePage} options={{ headerShown: false }} />
-            <Stack.Screen name="AdminProfilePage" component={AdminProfilePage} options={{ headerShown: false }} />
 
            </>
            

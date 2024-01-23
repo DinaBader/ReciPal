@@ -21,9 +21,6 @@ const Admin = ({navigation}) => {
   const navigateToStats=()=>{
     navigation.navigate('StatsPage');
   }
-  const navigateToProfile=()=>{
-    navigation.navigate('AdminProfilePage');
-  }
   const toggleShowAllRecipes = () => {
     setShowAllRecipes(!showAllRecipes);
   };
@@ -51,10 +48,21 @@ const Admin = ({navigation}) => {
     }
   }
 
+  const navigateToLogout=()=>{
+    navigation.navigate('Login');
+  }
+
   return (
     <>
       <ScrollView style={common.backgroundColor}> 
+      <View style={style.head}>
       <Text style={[common.header,common.white]}>Admin Panel</Text>
+      <TouchableOpacity onPress={navigateToLogout}>
+        <View style={[common.raduis,{ flexDirection: 'row',alignItems: 'center',width:100, marginLeft: 57,paddingLeft:11, marginTop: 10, marginBottom:30,backgroundColor:'#A62E2E'}]}>
+        <Text style={[common.white, {fontSize:25}]}>Logout</Text>
+      </View>
+      </TouchableOpacity>
+      </View>
       <Text style={[common.white,style.recipes]}>Recipes</Text>
       <View style={style.foodCard}>
       {showAllRecipes
@@ -100,12 +108,11 @@ const Admin = ({navigation}) => {
         </TouchableOpacity>
         
       </ScrollView>
-      <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats} onPress5={navigateToProfile}
+      <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
       source1={require("../../../assets/home.png")}
       source2={require("../../../assets/add.png")}
       source3={require("../../../assets/chat.png")}
       source4={require("../../../assets/stats.png")}
-      source5={require("../../../assets/user.png")}
         />
     </>
   )

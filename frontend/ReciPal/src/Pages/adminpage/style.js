@@ -60,6 +60,11 @@ const styles= StyleSheet.create({
         marginTop:20,
         fontSize:20,
         color:'#A62E2E'
+    },
+    head:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'baseline',
     }
 })
 
