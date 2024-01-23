@@ -51,6 +51,7 @@ const Userfeedback = ({navigation}) => {
   }
 
   return (
+    <>
     <ScrollView style={[common.backgroundColor]}>
       <Text style={[common.header,common.white]}>User Feedback</Text>
       {feedbacks.map((feedback,index)=>(
@@ -67,6 +68,7 @@ const Userfeedback = ({navigation}) => {
         </View>
       ))
       }
+    </ScrollView>
     <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
@@ -74,9 +76,7 @@ const Userfeedback = ({navigation}) => {
      source4={require("../../../assets/stats.png")}
 
      />
-
-
-    </ScrollView>
+    </>
   )
 }
 

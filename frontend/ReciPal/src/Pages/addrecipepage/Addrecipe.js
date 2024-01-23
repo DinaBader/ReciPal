@@ -160,6 +160,7 @@ const pickImage = async () => {
 
 
   return (
+    <>
     <ScrollView style={[common.backgroundColor]}>
       <Text style={[style.text]}>Add Recipes</Text>
       <View style={[style.inputs]}>
@@ -221,13 +222,15 @@ const pickImage = async () => {
             <TouchableOpacity onPress={navigateToLogin}>
               <Text>Logout</Text>
             </TouchableOpacity>
-            <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
+            
+    </ScrollView>
+    <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}
      source4={require("../../../assets/stats.png")}
      />
-    </ScrollView>
+    </>
   )
 }
 

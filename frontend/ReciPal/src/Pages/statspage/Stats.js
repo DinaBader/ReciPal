@@ -25,6 +25,7 @@ const Stats = ({navigation}) => {
         ];
         
   return (
+    <>
     <View style={common.backgroundColor}> 
       <Text style={[common.header,common.white]}>Statistics</Text>
       <BarChart
@@ -35,14 +36,14 @@ const Stats = ({navigation}) => {
             data={barData}
             isAnimated
             />
+    </View>
     <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
      source2={require("../../../assets/add.png")}
      source3={require("../../../assets/chat.png")}
      source4={require("../../../assets/stats.png")}
      />
-
-    </View>
+    </>
   )
 }
 
