@@ -7,13 +7,29 @@ import axios from 'axios'
 import {BASE_URL} from "@env"
 import FoodCardComp from '../../Components/foodcard/FoodCardComp';
 import BottomNav from "../../Components/userbottomnav/bottomnavcomp"
+import { useTranslation } from 'react-i18next';
+import '../../localization/i18n'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ImageScreen = ({navigation}) => {
   const [file, setFile] = useState(null); 
   const [error, setError] = useState(null); 
   const [tags,setTags] = useState([]);
   const [recipes,setRecipes]=useState([]);
+  const [currentLanguage,setLanguage] =useState('en'); 
   const food=[];
+  const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  }; 
+
   const handleSubmit = async () => {  
     try {
         // if (file) {
@@ -121,11 +137,11 @@ const ImageScreen = ({navigation}) => {
     <>
     <ScrollView style={[common.backgroundColor ]}>
     <View style={[common.title]}>
-      <Text style={[common.white, common.header]}>Suggestion</Text>
+      <Text style={[common.white, common.header]}>{t("SuggestionPage.Suggestion")}</Text>
     </View>
 
     <TouchableOpacity onPress={pickImage} style={style.button}>
-      <Text style={[common.yellow_bg, common.btn, common.bold,style.btn,common.font]}>Upload image</Text>
+      <Text style={[common.yellow_bg, common.btn, common.bold,style.btn,common.font]}>{t("SuggestionPage.Upload image")}</Text>
     </TouchableOpacity>
 
     {file ? (
@@ -134,11 +150,11 @@ const ImageScreen = ({navigation}) => {
         <Image source={{ uri: file }} style={style.image} />
 
         <TouchableOpacity onPress={handleSubmit} style={[style.options,common.yellow_bg,common.button_w,common.button_h,common.raduis,common.center]}>
-          <Text style={[common.bold,common.font]}>Analyze</Text>
+          <Text style={[common.bold,common.font]}>{t("SuggestionPage.Analyze")}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handleCancel} style={[style.options,common.yellow_bg,common.button_w,common.button_h,common.raduis,common.center]}>
-          <Text style={[common.bold,common.font]}>Cancel</Text>
+          <Text style={[common.bold,common.font]}>{t("SuggestionPage.Cancel")}</Text>
         </TouchableOpacity>
 
         {tags.length > 0 && (
