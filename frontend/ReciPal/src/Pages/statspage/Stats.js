@@ -8,6 +8,7 @@ import {BASE_URL} from '@env'
 const Stats = ({navigation}) => {
   const [numberOfUsers,setnumberOfUsers]=useState(0)
   const [numberOfRecipe,setnumberOfRecipe]=useState(0)
+  const [numberOfSavedRecipe,setnumberOfSavedRecipe]=useState(0)
 
   const getuser=()=>{
     axios.get(`${BASE_URL}/stats/numberOfUsers`,
@@ -22,13 +23,22 @@ const Stats = ({navigation}) => {
     ).then((res)=>{
       setnumberOfRecipe(res.data.numofRecipes);
     }).catch((error)=>{
-      console.error("Error getting number of users",error);
+      console.error("Error getting number of recipes",error);
+    })
+  }
+  const getSavedRecipes=()=>{
+    axios.get(`${BASE_URL}/stats/totalSavedRecipes`,
+    ).then((res)=>{
+      setnumberOfSavedRecipe(res.data.totalSavedRecipes);
+    }).catch((error)=>{
+      console.error("Error getting number of saved recipes",error.message);
     })
   }
 
   useEffect(()=>{
     getuser();
-    getRecipes()
+    getRecipes();
+    getSavedRecipes()
   },[])
 
     const navigatoHome=()=>{
@@ -46,7 +56,7 @@ const Stats = ({navigation}) => {
       const pieData = [
         {value: numberOfUsers, color: '#177AD5',text:numberOfUsers},
         {value: numberOfRecipe, color: '#79D2DE', text: numberOfRecipe},
-        {value: 20, color: '#ED6665', text: '26%'},
+        {value: numberOfSavedRecipe, color: '#ED6665', text: numberOfSavedRecipe},
     ];
         
   return (
