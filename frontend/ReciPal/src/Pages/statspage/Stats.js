@@ -7,6 +7,8 @@ import axios from 'axios'
 import {BASE_URL} from '@env'
 const Stats = ({navigation}) => {
   const [numberOfUsers,setnumberOfUsers]=useState(0)
+  const [numberOfRecipe,setnumberOfRecipe]=useState(0)
+
   const getuser=()=>{
     axios.get(`${BASE_URL}/stats/numberOfUsers`,
     ).then((res)=>{
@@ -15,9 +17,18 @@ const Stats = ({navigation}) => {
       console.error("Error getting number of users",error);
     })
   }
+  const getRecipes=()=>{
+    axios.get(`${BASE_URL}/stats/numberOfRecipes`,
+    ).then((res)=>{
+      setnumberOfRecipe(res.data.numofRecipes);
+    }).catch((error)=>{
+      console.error("Error getting number of users",error);
+    })
+  }
 
   useEffect(()=>{
-    getuser()
+    getuser();
+    getRecipes()
   },[])
 
     const navigatoHome=()=>{
@@ -34,7 +45,7 @@ const Stats = ({navigation}) => {
       }
       const pieData = [
         {value: numberOfUsers, color: '#177AD5',text:numberOfUsers},
-        {value: 40, color: '#79D2DE', text: '30%'},
+        {value: numberOfRecipe, color: '#79D2DE', text: numberOfRecipe},
         {value: 20, color: '#ED6665', text: '26%'},
     ];
         
