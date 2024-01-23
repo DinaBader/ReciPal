@@ -1,9 +1,11 @@
 import { View, Text } from 'react-native'
 import { PieChart } from "react-native-gifted-charts";
-import React from 'react'
+import React, { useState } from 'react'
 import common from '../../utils/common'
 import AdminNav  from '../../Components/adminnav/AdminNavComp'
 const Stats = ({navigation}) => {
+  const [numberOfUsers,setnumberOfUsers]=useState(0)
+
     const navigatoHome=()=>{
         navigation.navigate('AdminPage');
       }     
