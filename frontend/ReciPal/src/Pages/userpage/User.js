@@ -114,7 +114,7 @@ const User = ({navigation}) => {
             </>
         ))
       ) : (
-        recipes.map((recipe, index) => (
+        recipes.slice(0,8).map((recipe, index) => (
           <FoodCard
             key={index}
             source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
