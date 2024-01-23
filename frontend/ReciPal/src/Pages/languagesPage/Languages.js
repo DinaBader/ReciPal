@@ -1,12 +1,14 @@
 import { View, Text ,Image,TouchableOpacity} from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import React, { useEffect } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import common from '../../utils/common';
 import style from "./style.js"
 const Languages = ({navigation}) => {
   const [checked, setChecked] = React.useState('English');
 
-  const handleRadioButtonChange = (value) => {
+  const handleRadioButtonChange = async(value) => {
+    await AsyncStorage.setItem("language",value)
     setChecked(value);
   };
   const navigateBack=()=>{
