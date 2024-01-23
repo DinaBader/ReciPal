@@ -34,10 +34,17 @@
         "Email":"Email",
         "Submit":"Submit"
     },
-    "Languages":{
+    "LanguagesPage":{
         "Current Language":"Current Language",
         "English" :"English",
         "Arabic":"Arabic"
+    },
+    "FeedbackPage":{
+        "Feedback":"Feedback",
+        "Share your Feedback":"Share your Feedback",
+        "Thank":"Thank you for using Recipal. Please give us your feedback",
+        "Submit":"Submit"
     }
+
 
 }

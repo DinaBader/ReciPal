@@ -33,7 +33,19 @@
         "Username": "اسم المستخدم",
         "Email": "البريد الإلكتروني",
         "Submit": "إرسال"
+    },
+    "LanguagesPage": {
+        "Current Language": "اللغة الحالية",
+        "English": "الإنجليزية",
+        "Arabic": "العربية"
+    },
+    "FeedbackPage": {
+        "Feedback": "ردود الفعل",
+        "Share your Feedback": "شارك رأيك",
+        "Thank": "شكرًا لاستخدام Recipal. يرجى مشاركتنا رأيك",
+        "Submit": "إرسال"
       }
+    
     
     
 }
