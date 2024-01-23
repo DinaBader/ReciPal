@@ -53,11 +53,6 @@ const handleInstructionsChange=(text)=>{
         setInstructions(instructionsArray)
 }
 
-const navigateToLogin=()=>{
-  AsyncStorage.clear();
-  navigation.navigate('Login')
-}
-
 const navigateToStats=()=>{
   navigation.navigate('StatsPage');
 }
@@ -218,11 +213,7 @@ const pickImage = async () => {
                 </View> 
             ) : ( 
                 <Text style={style.errorText}>{error}</Text> 
-            )} 
-            <TouchableOpacity onPress={navigateToLogin}>
-              <Text>Logout</Text>
-            </TouchableOpacity>
-            
+            )}             
     </ScrollView>
     <AdminNav onPress1={navigatoHome} onPress2={navigateAddrecipes} onPress3={navigateFeedback} onPress4={navigateToStats}
      source1={require("../../../assets/home.png")}
