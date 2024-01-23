@@ -1,4 +1,4 @@
-import {View, Text,TextInput,TouchableOpacity,ImageBackground} from 'react-native';
+import {View, Text,TextInput,TouchableOpacity,ImageBackground,Alert} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
@@ -72,18 +72,28 @@ const Login = ({navigation}) => {
         }).catch((error)=>{
             setName("");
             setPassword("");
-            console.error("Login failed wrong credentials", error);
-            if (error.response && error.response.data && error.response.data.message) {
-              setErrorMessage("Incorrect inputs");
-          } else {
-              setErrorMessage("Incorrect inputs");
-          }
+            showAlert()
           setTimeout(() => {
             setErrorMessage('');
         }, 3000);
         })
     }
   
+    const showAlert = () =>
+    Alert.alert(
+      'Wrong Credentials',
+      'You entered a wrong Username or Password',
+      [
+        {
+          text: 'Retry',
+          style: 'cancel',
+        },
+      ],
+      
+    );
+  
+  
+
   return (
     <ImageBackground source={require('../../../assets/login.png')} style={{ flex: 1, width: '100%', height: '100%' }}>
       <View style={styles.container}>
