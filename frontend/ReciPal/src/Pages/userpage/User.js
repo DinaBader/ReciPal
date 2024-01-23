@@ -19,6 +19,7 @@ import BottomNav from '../../Components/userbottomnav/bottomnavcomp';
 import Carousel from 'react-native-snap-carousel';
 import { useTranslation } from 'react-i18next';
 import '../../localization/i18n'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const SLIDER_WIDTH = Dimensions.get('window').width / 0.8;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
 
@@ -29,15 +30,20 @@ const User = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
   const [categorieRecipes,setCategorieRecipe]=useState([]);
   const [currentLanguage,setLanguage] =useState('en'); 
+  const [forceRerender, setForceRerender] = useState(false);
+
   const {t, i18n} = useTranslation(); 
 
-  const changeLanguage = value => { 
+  const changeLanguage = (value) => { 
     i18n 
       .changeLanguage(value) 
-      .then(() => setLanguage(value)) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
       .catch(err => console.log(err)); 
   }; 
-  
+    
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => {
       const newSelectedFood = prevSelectedFood === food ? null : food;
@@ -67,8 +73,14 @@ const User = ({ navigation }) => {
   };
 
   useEffect(() => {
+    setForceRerender((prev) => !prev);
+
     getRecipes();
-    console.log(i18n.language);
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+    }
+    retreiveLang()
   }, []);
 
   const handleSearchResultsChange = (results) => {

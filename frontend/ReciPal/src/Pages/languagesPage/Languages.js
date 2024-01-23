@@ -27,16 +27,16 @@ const Languages = ({navigation}) => {
       <Text style={[common.gray,style.title]}>Current Language</Text>
       <View style={[common.title,style.align]}>
        <RadioButton
-          value="English"
-          status={ checked === 'English' ? 'checked' : 'unchecked' }
-          onPress={() => handleRadioButtonChange('English')}
+          value="en"
+          status={ checked === 'en' ? 'checked' : 'unchecked' }
+          onPress={() => handleRadioButtonChange('en')}
           style={style.radiobutton}
         />
           <Text style={[style.radioButtonText,common.white]}>English</Text>
         <RadioButton
-          value="Arabic"
-          status={ checked === 'Arabic' ? 'checked' : 'unchecked' }
-          onPress={() => handleRadioButtonChange('Arabic')}
+          value="ar"
+          status={ checked === 'ar' ? 'checked' : 'unchecked' }
+          onPress={() => handleRadioButtonChange('ar')}
         />
         <Text style={[style.radioButtonText,common.white]}>Arabic</Text>
        </View>
