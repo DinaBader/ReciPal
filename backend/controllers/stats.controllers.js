@@ -3,7 +3,7 @@ const User=require("../models/user.model");
 
 const numberOfUsers = async(req,res)=>{
     try{
-        const numofUsers=await Users.find().count();
+        const numofUsers=await User.find().count();
         res.status(200).json({numofUsers})
     }catch(error){
         res.status(500).json({"error":error});
