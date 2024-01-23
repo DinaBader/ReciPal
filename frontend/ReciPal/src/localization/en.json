@@ -33,6 +33,11 @@
         "Username":"Username",
         "Email":"Email",
         "Submit":"Submit"
+    },
+    "Languages":{
+        "Current Language":"Current Language",
+        "English" :"English",
+        "Arabic":"Arabic"
     }
 
 }
