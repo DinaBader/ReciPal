@@ -235,7 +235,7 @@ const getRecipeByIngredients = async (req, res) => {
   
 const getRecipeByCategory = async (req,res)=>{
     try{
-        const categorie=req.params;
+        const categorie=req.query;
         const recipes=await Recipe.find({categorie:categorie});
         
         res.status(200).json({recipes})
