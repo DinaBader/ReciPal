@@ -33,7 +33,7 @@ const Stats = ({navigation}) => {
         navigation.navigate('StatsPage');
       }
       const pieData = [
-        {value: numberOfUsers, color: '#177AD5', text: '54%'},
+        {value: numberOfUsers, color: '#177AD5',text:numberOfUsers},
         {value: 40, color: '#79D2DE', text: '30%'},
         {value: 20, color: '#ED6665', text: '26%'},
     ];
