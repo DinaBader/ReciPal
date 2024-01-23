@@ -31,7 +31,6 @@ const User = ({ navigation }) => {
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => {
       const newSelectedFood = prevSelectedFood === food ? null : food;
-      console.log(newSelectedFood);
       axios.get(`${BASE_URL}/recipe/getRecipeByCategory?categorie=${newSelectedFood}`,
       ).then((res)=>{
         setCategorieRecipe(res.data.recipes)
@@ -59,12 +58,10 @@ const User = ({ navigation }) => {
 
   useEffect(() => {
     getRecipes();
-    console.log('first', parentSearchResults);
   }, []);
 
   const handleSearchResultsChange = (results) => {
     setParentSearchResults(results.recipes);
-    console.log('second', parentSearchResults);
   };
 
   const handleSearchCancel = () => {

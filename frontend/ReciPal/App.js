@@ -19,7 +19,6 @@ import Saved  from './src/Pages/savedpage/Saved'
 import Awards  from './src/Pages/awardspage/Awards'
 import UserProfile from './src/Pages/userProfilePage/UserProfile'
 import StatsPage from './src/Pages/statspage/Stats'
-import { LanguageProvider } from './src/translation/LanguageContext';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userRole, setUserRole] = useState(null);
@@ -53,7 +52,6 @@ const App = () => {
   },[isLoggedIn]);
   const Tab=createBottomTabNavigator();
   return (
-    <LanguageProvider>
     <NavigationContainer>
        <Stack.Navigator initialRouteName="LandingPage">
         {userRole===2  ? (
@@ -96,7 +94,6 @@ const App = () => {
           )}  
       </Stack.Navigator> 
     </NavigationContainer>
-    </LanguageProvider>
 
   );
 };
