@@ -12,5 +12,14 @@
         "Upload image":"Upload image",
         "Analyze":"Analyze",
         "Cancel":"Cancel"
+    },
+    "UserProfile":{
+        "Settings":"Settings",
+        "Saved":"Saved",
+        "Awards":"Awards",
+        "Logout":"Logout",
+        "Edit picture":"Edit picture",
+        "Submit":"Submit",
+        "Cancel":"Cancel"
     }
 }

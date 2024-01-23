@@ -12,6 +12,15 @@
         "Upload image": "رفع الصورة",
         "Analyze": "تحليل",
         "Cancel": "إلغاء"
+    },
+    "UserProfile": {
+        "Settings": "الإعدادات",
+        "Saved": "المحفوظات",
+        "Awards": "الجوائز",
+        "Logout": "تسجيل الخروج",
+        "Edit picture": "تعديل الصورة",
+        "Submit": "إرسال",
+        "Cancel": "إلغاء"
       }
     
 }
