@@ -13,7 +13,7 @@
         "Analyze":"Analyze",
         "Cancel":"Cancel"
     },
-    "UserProfile":{
+    "UserProfilePage":{
         "Settings":"Settings",
         "Saved":"Saved",
         "Awards":"Awards",
@@ -22,10 +22,17 @@
         "Submit":"Submit",
         "Cancel":"Cancel"
     },
-    "Settings":{
+    "SettingsPage":{
         "Seetings":"Seetings",
         "Edit Profile":"Edit Profile",
         "Languages":"Languages",
         "Feedback":"Feedback"
+    },
+    "EditProfilePage":{
+        "Profile":"Profile",
+        "Username":"Username",
+        "Email":"Email",
+        "Submit":"Submit"
     }
+
 }

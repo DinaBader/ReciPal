@@ -13,7 +13,7 @@
         "Analyze": "تحليل",
         "Cancel": "إلغاء"
     },
-    "UserProfile": {
+    "UserProfilePage": {
         "Settings": "الإعدادات",
         "Saved": "المحفوظات",
         "Awards": "الجوائز",
@@ -22,12 +22,19 @@
         "Submit": "إرسال",
         "Cancel": "إلغاء"
     },
-    "Settings": {
+    "SettingsPage": {
         "Settings": "الإعدادات",
         "Edit Profile": "تعديل الملف الشخصي",
         "Languages": "اللغات",
         "Feedback": "تعليق"
-    }
+    },
+    "EditProfilePage": {
+        "Profile": "الملف الشخصي",
+        "Username": "اسم المستخدم",
+        "Email": "البريد الإلكتروني",
+        "Submit": "إرسال"
+      }
+    
     
 }
   
