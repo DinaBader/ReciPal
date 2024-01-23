@@ -1,21 +1,29 @@
-import { View, Text, ScrollView,TouchableOpacity,Dimensions,ActivityIndicator} from 'react-native';
-import React,{useState,useEffect} from 'react';
-import {BASE_URL} from '@env'
-import axios from 'axios'
-import foodCircleData from "../../Components/foodCircleData"
-import common from "../../utils/common";
-import styles from "./style";
-import Search from "../../Components/search/searchcomp"
-import Foodcircle from "../../Components/foodcircle/food"
-import FoodCard from  "../../Components/foodcard/FoodCardComp"
-import BottomNav from "../../Components/userbottomnav/bottomnavcomp"
+import React, { useState, useEffect } from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Dimensions,
+  ActivityIndicator,
+} from 'react-native';
+import { BASE_URL } from '@env';
+import axios from 'axios';
+import foodCircleData from '../../Components/foodCircleData';
+import common from '../../utils/common';
+import styles from './style';
+import Search from '../../Components/search/searchcomp';
+import Foodcircle from '../../Components/foodcircle/food';
+import FoodCard from '../../Components/foodcard/FoodCardComp';
+import BottomNav from '../../Components/userbottomnav/bottomnavcomp';
 import Carousel from 'react-native-snap-carousel';
-const SLIDER_WIDTH = Dimensions.get('window').width/0.8;
+
+const SLIDER_WIDTH = Dimensions.get('window').width / 0.8;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.2);
 
-const User = ({navigation}) => {
+const User = ({ navigation }) => {
   const [selectedFood, setSelectedFood] = useState(null);
-  const [recipes,setRecipes]=useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [parentSearchResults, setParentSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,113 +34,133 @@ const User = ({navigation}) => {
       return newSelectedFood;
     });
   };
-  
-  const NavigateTodetails=(recipeId)=>{
+
+  const NavigateTodetails = (recipeId) => {
     navigation.navigate('RecipeDetail', { recipeId });
-  }
+  };
 
   const getRecipes = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/recipe/getRecipe`);
       setRecipes(response.data.recipes);
     } catch (error) {
-      console.log("Error fetching recipes", error);
+      console.log('Error fetching recipes', error);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
-
-  useEffect(()=>{
+  useEffect(() => {
     getRecipes();
-    console.log("first",parentSearchResults)
-  },[])
+    console.log('first', parentSearchResults);
+  }, []);
 
-
-  const handleSearchResultsChange = (results) =>  {
+  const handleSearchResultsChange = (results) => {
     setParentSearchResults(results.recipes);
-    console.log("second",parentSearchResults)
-
+    console.log('second', parentSearchResults);
   };
+
   const handleSearchCancel = () => {
     setParentSearchResults([]);
     setForceRerender((prev) => !prev);
     getRecipes();
   };
 
-  const navigatoHome = () =>{
+  const navigatoHome = () => {
     navigation.navigate('UserPage');
-  }
+  };
 
-  const navigateAdd = () =>{
+  const navigateAdd = () => {
     navigation.navigate('ImagePage');
-  }
+  };
 
-  const navgateProfile = () =>{
+  const navgateProfile = () => {
     navigation.navigate('UserProfile');
-  }
+  };
 
-  
   return (
     <>
-
-    <ScrollView style={[common.backgroundColor,styles.container]}
-    contentContainerStyle={styles.scrollContentContainer}>
-      <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
-      <Search onSearchResultsChange={handleSearchResultsChange}  onCancel={handleSearchCancel}/>
-      <View style={styles.foodCircleContainer}>
-        <Carousel
-          data={foodCircleData}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => handleFoodPress(item.key)}>
-              <View style={styles.foodCircleItem}>
-                <Foodcircle source={item.source} text={item.key} selected={selectedFood === item.key} />
-              </View>
-            </TouchableOpacity>
-          )}
-          sliderWidth={SLIDER_WIDTH}
-          itemWidth={ITEM_WIDTH}
+      <ScrollView
+        style={[common.backgroundColor, styles.container]}
+        contentContainerStyle={styles.scrollContentContainer}
+      >
+        <Text style={styles.text}>What would you like {'\n'} to Eat?</Text>
+        <Search
+          onSearchResultsChange={handleSearchResultsChange}
+          onCancel={handleSearchCancel}
         />
-      </View>
-        <Text style={[common.white,styles.recipeText]}>Recipes</Text>
-        {loading && (
-           <View style={styles.loadingContainer}>
+        <View style={styles.foodCircleContainer}>
+          <Carousel
+            data={foodCircleData}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => handleFoodPress(item.key)}>
+                <View style={styles.foodCircleItem}>
+                  <Foodcircle
+                    source={item.source}
+                    text={item.key}
+                    selected={selectedFood === item.key}
+                  />
+                </View>
+              </TouchableOpacity>
+            )}
+            sliderWidth={SLIDER_WIDTH}
+            itemWidth={ITEM_WIDTH}
+          />
+        </View>
+        <Text style={[common.white, styles.recipeText]}>Recipes</Text>
+        {loading ? (
+          <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#FFBF4D" />
           </View>
+        ) : (
+          <View style={styles.foodCard}>
+            {Object.values(parentSearchResults).length > 0 ? (
+              parentSearchResults.map((recipe, index) => (
+                <React.Fragment key={recipe.id}>
+                  <FoodCard
+                    source={{
+                      uri: `${BASE_URL}/recipes/${recipe.image}`,
+                    }}
+                    text={recipe.name}
+                    onPress={() => NavigateTodetails(recipe._id)}
+                  />
+                </React.Fragment>
+              ))
+            ) : (
+              selectedFood && selectedFood.length > 0 ? (
+                <FoodCard
+                  source={{
+                    uri: `${BASE_URL}/recipes/${selectedFood.image}`,
+                  }}
+                  text={selectedFood.name}
+                  onPress={() => NavigateTodetails(selectedFood._id)}
+                />
+              ) : (
+                recipes.slice(0, 8).map((recipe, index) => (
+                  <FoodCard
+                    key={index}
+                    source={{
+                      uri: `${BASE_URL}/recipes/${recipe.image}`,
+                    }}
+                    text={recipe.name}
+                    onPress={() => NavigateTodetails(recipe._id)}
+                  />
+                ))
+              )
+            )}
+          </View>
         )}
-        <View style={styles.foodCard}>
-         {Object.values(parentSearchResults).length > 0 ? (
-          parentSearchResults?.map((recipe, index) => (
-            <>
-             <React.Fragment key={recipe.id}>
-              <FoodCard
-                source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-                text={recipe.name}
-                onPress={() => NavigateTodetails(recipe._id)}
-              />
-            </React.Fragment>
-            </>
-        ))
-      ) : (
-        recipes.slice(0,8).map((recipe, index) => (
-          <FoodCard
-            key={index}
-            source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-            text={recipe.name}
-            onPress={() => NavigateTodetails(recipe._id)}
-          />
-        ))
-        )} 
-    </View>
-
-    </ScrollView>
-        <BottomNav onPress1={navigatoHome} onPress2={navigateAdd} onPress3={navgateProfile}
-        source1={require("../../../assets/home.png")}
-        source2={require("../../../assets/add.png")}
-        source3={require("../../../assets/settings-black.png")}
-        />
-         </> 
+      </ScrollView>
+      <BottomNav
+        onPress1={navigatoHome}
+        onPress2={navigateAdd}
+        onPress3={navgateProfile}
+        source1={require('../../../assets/home.png')}
+        source2={require('../../../assets/add.png')}
+        source3={require('../../../assets/settings-black.png')}
+      />
+    </>
   );
-}
+};
 
 export default User;
