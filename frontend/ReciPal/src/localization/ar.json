@@ -1,9 +1,18 @@
 {
     "UserPage": {
-            "title": "ماذا ترغب في تناوله؟",
-            "Recipes": "وصفات",
-            "Beef": "لحم بقر",
-            "Fish": "سمك",
-            "Dips": "صلصات"
-    }
+      "title": "ماذا ترغب في تناوله؟",
+      "Recipes": "وصفات",
+      "Beef": "لحم بقري",
+      "Fish": "سمك",
+      "Chicken": "دجاج",
+      "Sandwiches": "ساندويشات"
+    },
+    "SuggestionPage": {
+        "Suggestion": "اقتراح",
+        "Upload image": "رفع الصورة",
+        "Analyze": "تحليل",
+        "Cancel": "إلغاء"
+      }
+    
 }
+  
