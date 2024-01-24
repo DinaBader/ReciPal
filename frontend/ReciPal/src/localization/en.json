@@ -46,6 +46,10 @@
         "Thank":"Thank you for using Recipal. Please give us your feedback",
         "Submit":"Submit",
         "placeholder":"Enter message"
+    },
+    "AwardsPage":{
+        "Saved":"Saved",
+        "Delete":"Delete"
     }
 
 

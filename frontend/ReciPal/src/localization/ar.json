@@ -46,7 +46,11 @@
         "Thank": "شكرًا لاستخدام Recipal. يرجى مشاركتنا رأيك",
         "Submit": "إرسال",
         "placeholder": "أدخل الرسالة"
-      }
+      },
+    "AwardsPage": {
+        "Saved": "الحفظات",
+        "Delete": "حذف"
+    }    
     
     
     
