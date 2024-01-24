@@ -72,7 +72,12 @@
         "Email": "البريد الإلكتروني",
         "Password": "كلمة المرور",
         "Signup": "إنشاء حساب"
-      }
+    },
+    "RecipeDetailPage": {
+        "Ingredients": "المكونات",
+        "Instructions": "التعليمات",
+        "Completed": "تم"
+    }    
      
     
 }

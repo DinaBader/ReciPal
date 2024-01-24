@@ -72,6 +72,11 @@
         "Email":"Email",
         "Password":"Password",
         "Signup":"Sign up"
+    },
+    "RecipeDetailPage":{
+        "Ingredients":"Ingredients",
+        "Instructions":"Instructions",
+        "Completed":"Completed"
     }
 
 
