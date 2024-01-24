@@ -1,15 +1,37 @@
 import { View, Image, TouchableOpacity, Text, Alert } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from "./style.js";
 import common from "../../utils/common.js";
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 import { BASE_URL } from "@env";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useTranslation } from 'react-i18next';
 
 const UserProfileComp = ({ source, onUpdateImage }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const [currentLanguage,setLanguage] =useState('en');
+  const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  }; 
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
+
 
   const handleSubmit = async () => {
     try {
@@ -77,16 +99,16 @@ const UserProfileComp = ({ source, onUpdateImage }) => {
       )}
 
       <TouchableOpacity style={[style.editProfile]} onPress={pickImage}>
-        <Text style={[common.white, style.ChangeProfile, common.bold]}>Edit Picture</Text>
+        <Text style={[common.white, style.ChangeProfile, common.bold]}>{t("UserProfilePage.Edit picture")}</Text>
       </TouchableOpacity>
 
       {file && (
         <View style={{ marginTop: 10 }}>
           <TouchableOpacity onPress={handleSubmit} style={[common.yellow_bg, common.button_h, common.raduis, style.editProfile]}>
-            <Text style={[common.white, style.button, common.bold]}>Submit</Text>
+            <Text style={[common.white, style.button, common.bold]}>{t("UserProfilePage.Submit")}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleCancel} style={[common.yellow_bg, common.button_h, common.raduis, style.editProfile]}>
-            <Text style={[common.white, style.button, common.bold]}>Cancel</Text>
+            <Text style={[common.white, style.button, common.bold]}>{t("UserProfilePage.Cancel")}</Text>
           </TouchableOpacity>
         </View>
       )}

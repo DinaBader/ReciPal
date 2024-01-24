@@ -74,7 +74,7 @@ const UserProfile = ({ navigation }) => {
           source2={require("../../../assets/add.png")}
           source3={require("../../../assets/settings-black.png")}
            />
-   </>  
+    </>
      
   );
 };
