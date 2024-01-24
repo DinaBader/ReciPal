@@ -147,7 +147,7 @@ const User = ({ navigation }) => {
                     source={{
                       uri: `${BASE_URL}/recipes/${recipe.image}`,
                     }}
-                    text={currentLanguage==="en"?recipe.name_en:recipe.name_ar}
+                    text={currentLanguage==="en"?recipe.name:recipe.name_ar}
                     onPress={() => NavigateTodetails(recipe._id)}
                   />
                 </React.Fragment>
@@ -159,7 +159,7 @@ const User = ({ navigation }) => {
                   source={{
                     uri: `${BASE_URL}/recipes/${categorieRecipe.image}`,
                   }}
-                  text={currentLanguage==="en"?categorieRecipe.name_en:categorieRecipe.name_ar}
+                  text={currentLanguage==="en"?categorieRecipe.name:categorieRecipe.name_ar}
                   onPress={() => NavigateTodetails(categorieRecipe._id)}
                 />
                 ))
@@ -170,7 +170,7 @@ const User = ({ navigation }) => {
                     source={{
                       uri: `${BASE_URL}/recipes/${recipe.image}`,
                     }}
-                    text={currentLanguage==="en"?recipe.name_en:recipe.name_ar}
+                    text={currentLanguage==="en"?recipe.name:recipe.name_ar}
                     onPress={() => NavigateTodetails(recipe._id)}
                   />
                 ))

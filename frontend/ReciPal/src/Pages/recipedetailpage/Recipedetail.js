@@ -210,7 +210,7 @@ const Recipedetail = ({route,navigation}) => {
           </TouchableOpacity>
         </View>
         <ImageHeader source={{uri:`${BASE_URL}/recipes/${recipeDetails.image}`}} text={
-          currentLanguage==="en"?recipeDetails.name_en:recipeDetails.name_ar
+          currentLanguage==="en"?recipeDetails.name:recipeDetails.name_ar
         } />
         {loading && (
            <View style={style.loadingContainer}>
@@ -222,7 +222,7 @@ const Recipedetail = ({route,navigation}) => {
         <Text style={[currentLanguage==="en"?[common.white, common.bold, style.ingredientsTitle]:[common.white, common.bold, style.arabic]]}>{t("RecipeDetailPage.Ingredients")}</Text>
 
         {currentLanguage === "en" ? (
-          recipeDetails.ingredients_en && recipeDetails.ingredients_en.map((ingredient, index) => (
+          recipeDetails.ingredients && recipeDetails.ingredients.map((ingredient, index) => (
             <Text key={index} style={[common.white, style.ingredientsText]}>
               {ingredient}
             </Text>
@@ -238,7 +238,7 @@ const Recipedetail = ({route,navigation}) => {
         <Text style={[currentLanguage==="en"?[common.white, common.bold, style.ingredientsTitle]:[common.white, common.bold, style.arabic]]}>{t("RecipeDetailPage.Instructions")}</Text>
 
         {currentLanguage === "en" ? (
-          recipeDetails.instructions_en && recipeDetails.instructions_en.map((instruction, index) => (
+          recipeDetails.instructions && recipeDetails.instructions.map((instruction, index) => (
             <Text key={index} style={[common.white, style.ingredientsText]}>
               {instruction}
             </Text>
