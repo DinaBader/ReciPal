@@ -45,6 +45,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  arabic:{
+    paddingRight:55
+  }
 
 });
 

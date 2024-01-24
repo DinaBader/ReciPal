@@ -110,7 +110,7 @@ const User = ({ navigation }) => {
         style={[common.backgroundColor, styles.container]}
         contentContainerStyle={styles.scrollContentContainer}
       >
-        <Text style={styles.text}>{t('UserPage.title')}</Text>
+        <Text style={[currentLanguage==="en"?styles.text:[styles.text,styles.arabic]]}>{t('UserPage.title')}</Text>
         <Search
           onSearchResultsChange={handleSearchResultsChange}
           onCancel={handleSearchCancel}
@@ -133,7 +133,7 @@ const User = ({ navigation }) => {
             itemWidth={ITEM_WIDTH}
           />
         </View>
-        <Text style={[common.white, styles.recipeText,common.bold]}>{t('UserPage.Recipes')}</Text>
+        <Text style={[currentLanguage==="en"?[common.white, styles.recipeText,common.bold]:[common.white, styles.recipeText,common.bold,styles.arabic]]}>{t('UserPage.Recipes')}</Text>
         {loading ? (
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#FFBF4D" />
