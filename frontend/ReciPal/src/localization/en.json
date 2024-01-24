@@ -47,9 +47,14 @@
         "Submit":"Submit",
         "placeholder":"Enter message"
     },
-    "AwardsPage":{
+    "SavedPage":{
         "Saved":"Saved",
         "Delete":"Delete"
+    },
+    "AwardsPage":{
+        "Awards":"Awards",
+        "Congrats":"Congrats you got an award from",
+        "Empty":"No rewards available. Complete recipes to get rewards."
     }
 
 
