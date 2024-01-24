@@ -19,6 +19,11 @@ const Style=StyleSheet.create({
         fontSize: 20, 
         marginLeft: 8, 
     },
+    arabic:{
+        fontSize:25,
+        paddingRight:40,
+        marginTop:20
+    }
     
 });
 

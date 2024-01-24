@@ -51,7 +51,7 @@ const Languages = ({navigation}) => {
           </TouchableOpacity>
         <Text style={[common.white, common.header]}>{t('LanguagesPage.Languages')}</Text>
       </View>
-      <Text style={[common.gray,style.title]}>{t('LanguagesPage.Current Language')}</Text>
+      <Text style={[currentLanguage==="en"?[common.gray,style.title]:[common.gray,style.arabic]]}>{t('LanguagesPage.Current Language')}</Text>
       <View style={[common.title,style.align]}>
        <RadioButton
           value="en"
