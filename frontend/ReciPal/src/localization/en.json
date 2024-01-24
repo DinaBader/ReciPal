@@ -62,6 +62,15 @@
         "Login":"Log in",
         "Signup":"Sign up",
         "Or":"Or"
+    },
+    "SignupPage":{
+        "Existing user?":"Existing user?",
+        "Login":"Log in",
+        "Signuptext":"Sign up with Recipal",
+        "Username":"Username",
+        "Email":"Email",
+        "Password":"Password",
+        "Signup":"Sign up"
     }
 
 
