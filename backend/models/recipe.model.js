@@ -9,7 +9,11 @@ const recipeSchema =new mongoose.Schema({
         type:String,
         required:true,
     },
-    calories:{
+    calories_en:{
+        type:String,
+        required:true,
+    },
+    calories_ar:{
         type:String,
         required:true,
     },
@@ -21,11 +25,19 @@ const recipeSchema =new mongoose.Schema({
         type:String,
         required:true,
     },
-    total_time:{
+    total_time_en:{
         type:String,
         required:true,
     },
-    serving:{
+    total_time_ar:{
+        type:String,
+        required:true,
+    },
+    serving_en:{
+        type:String,
+        required:true,
+    },
+    serving_ar:{
         type:String,
         required:true,
     },
@@ -36,9 +48,6 @@ const recipeSchema =new mongoose.Schema({
     difficulty_ar:{
         type:String,
         required:true,
-    },
-    image:{
-        type:String,
     },
     categorie_en:{
         type:String,
