@@ -22,18 +22,25 @@ const addRecipeToUser = async(recipeId,country)=>{
 }
 
 const addRecipe = async (req,res)=>{
-    const {name,calories,country,total_time,serving,difficulty,categorie,ingredients,instructions}=req.body;
+    const {name_en,name_ar,calories,country_en,country_ar,
+           total_time,serving,difficulty_en,difficulty_ar,categorie,ingredients_en,ingredients_ar,
+           instructions_en,instructions_ar}=req.body;
     try{
         const recipe=await Recipe.create({
-            name,
+            name_en,
+            name_ar,
             calories,
-            country,
+            country_en,
+            country_ar,
             total_time,
             serving,
-            difficulty,
+            difficulty_en,
+            difficulty_ar,
             categorie,
-            ingredients,
-            instructions
+            ingredients_en,
+            ingredients_ar,
+           instructions_en,
+           instructions_ar
         });
         res.status(200).send({recipe});
         await addRecipeToUser(recipe._id,country)
