@@ -74,7 +74,7 @@ const EditProfile = ({ navigation }) => {
     ]);
 
   const handleSubmit = async () => {
-    if (username == "" || email == "") {
+    if (username == "" && email == "") {
       showAlert();
     } else {
       const Token = await AsyncStorage.getItem("jwt");
