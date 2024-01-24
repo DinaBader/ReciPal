@@ -116,13 +116,13 @@ const EditProfile = ({ navigation }) => {
         </TouchableOpacity>
         <Text style={[common.header, common.white]}>{t('EditProfilePage.Profile')}</Text>
       </View>
-      <Text style={[common.gray, style.title]}>{t('EditProfilePage.Username')}</Text>
+      <Text style={[currentLanguage==="en"?[common.gray, style.title]:[common.gray, style.arabic]]}>{t('EditProfilePage.Username')}</Text>
       <TextInput
         style={[style.input]}
         value={username}
         onChangeText={handleUsername}
       />
-      <Text style={[common.gray, style.title]}>{t('EditProfilePage.Email')}</Text>
+      <Text style={[currentLanguage==="en"?[common.gray, style.title]:[common.gray, style.arabic]]}>{t('EditProfilePage.Email')}</Text>
       <TextInput
         style={[style.input]}
         value={email}

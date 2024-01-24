@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
         paddingBottom:10,
         marginTop:20,
     }, 
+    arabic:{
+        fontSize:20,
+        paddingRight:55,
+        paddingBottom:10,
+        marginTop:20,
+    },
     input:{
         width: 280,
         height: 50,
