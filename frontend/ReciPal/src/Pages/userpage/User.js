@@ -171,7 +171,7 @@ const User = ({ navigation }) => {
                     source={{
                       uri: `${BASE_URL}/recipes/${recipe.image}`,
                     }}
-                    text={recipe.name}
+                    text={currentLanguage=="en"?recipe.name_en:recipe.name_ar}
                     onPress={() => NavigateTodetails(recipe._id)}
                   />
                 ))
