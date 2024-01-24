@@ -6,7 +6,7 @@ const buttoncomp = ({text,onPress}) => {
   return (
     <View>
       <TouchableOpacity onPress={onPress} style={[style.button,common.yellow_bg]}>
-          <Text style={common.bold}>{text}</Text>
+          <Text style={[common.bold,common.font]}>{text}</Text>
       </TouchableOpacity>
     </View>
   )

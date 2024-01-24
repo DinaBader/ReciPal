@@ -100,14 +100,14 @@ const Signin = ({navigation}) => {
         <View style={style.signup_container}>
           <Text style={style.eu}>{t("SignupPage.eu")}</Text>
           <TouchableOpacity onPress={navigateToLogin} style={[common.black_bg, common.raduis, common.button_h, common.button_w, common.center, style.login]}>
-            <Text style={[common.yellow,common.bold]}>{t("SignupPage.Login")}</Text>
+            <Text style={[common.yellow,common.bold,common.font]}>{t("SignupPage.Login")}</Text>
           </TouchableOpacity>
           <Text style={[common.yellow, style.signup, common.bold]}>{t("SignupPage.Signuptext")}</Text>
           <Text style={[common.yellow, style.logoname, common.bold]}>ReciPal</Text>
           <Input label="username" placeholder={t("SignupPage.Username")} value={username} onChangeText={handleusernameChange} />
           <Input label="Email" placeholder={t("SignupPage.Email")} value={email} onChangeText={handleemailChange} />
           <Input label="Password" placeholder={t("SignupPage.Password")}  value={password} onChangeText={handlePasswordChange} secureTextEntry />
-          <Button text={t("SignupPage.Signup")}  onPress={handleSubmit} />
+          <Button text={t("SignupPage.Signup")} onPress={handleSubmit} />
         </View>
       </KeyboardAwareScrollView>
     </ImageBackground>
