@@ -9,13 +9,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const FeedBack = ({navigation}) => {
   const [feedback,setFeedback]=useState("");
+  const [currentLanguage,setLanguage] =useState('en'); 
   const handleFeedback =(text)=>{
     setFeedback(text)
   }
   const navigateToSettings=()=>{
     navigation.goBack();
   }
-  const [currentLanguage,setLanguage] =useState('en'); 
 
   const {t, i18n} = useTranslation(); 
 

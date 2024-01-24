@@ -43,7 +43,16 @@ const User = ({ navigation }) => {
       })
       .catch(err => console.log(err)); 
   }; 
-    
+  
+  useEffect(() => {
+    getRecipes();
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language")||"en";
+      changeLanguage(lang)
+    }
+    retreiveLang()
+  }, []);
+
   const handleFoodPress = (food) => {
     setSelectedFood((prevSelectedFood) => {
       const newSelectedFood = prevSelectedFood === food ? null : food;
@@ -72,16 +81,6 @@ const User = ({ navigation }) => {
     }
   };
 
-  useEffect(() => {
-    console.log(currentLanguage)
-
-    getRecipes();
-    const retreiveLang=async()=>{
-      const lang=await AsyncStorage.getItem("language")||"en";
-      changeLanguage(lang)
-    }
-    retreiveLang()
-  }, []);
 
   const handleSearchResultsChange = (results) => {
     setParentSearchResults(results.recipes);
@@ -165,7 +164,7 @@ const User = ({ navigation }) => {
                 />
                 ))
               ) : (
-                recipes.slice(0, 8).map((recipe, index) => (
+                recipes.map((recipe, index) => (
                   <FoodCard
                     key={index}
                     source={{

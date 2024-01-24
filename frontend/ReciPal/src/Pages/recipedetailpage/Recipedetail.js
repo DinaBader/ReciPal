@@ -8,6 +8,7 @@ import Cylinder from '../../Components/cylinder/CylinderComp.js';
 import style from './style.js';
 // import {BASE_URL} from '@env'
 import {BASE_URL} from '@env'
+import { useTranslation } from 'react-i18next';
 
 
 const Recipedetail = ({route,navigation}) => {
@@ -16,6 +17,29 @@ const Recipedetail = ({route,navigation}) => {
   const [completed,SetCompleted]=useState(false);
   const [saved,setSaved]=useState('false');
   const [loading, setLoading] = useState(true);
+  const [currentLanguage,setLanguage] =useState('en'); 
+
+  const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  };   
+  
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language")||"en";
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
+
 
   const navigateToHome=()=>{
     navigation.goBack();
@@ -46,6 +70,7 @@ const Recipedetail = ({route,navigation}) => {
       });
       const { recipe } = response.data;
       setRecipeDetails(recipe);
+      console.log(recipe)
     } catch (error) {
       console.log("error", error);
     } finally {
@@ -192,22 +217,37 @@ const Recipedetail = ({route,navigation}) => {
         )}
 
 
-
         <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
 
-        {recipeDetails.ingredients && recipeDetails.ingredients.map((ingredient, index) => (
-         <Text key={index} style={[common.white, style.ingredientsText]}>
+        {currentLanguage === "en" ? (
+          recipeDetails.ingredients_en && recipeDetails.ingredients_en.map((ingredient, index) => (
+            <Text key={index} style={[common.white, style.ingredientsText]}>
               {ingredient}
-          </Text>
-        ))}
+            </Text>
+          ))
+        ) : (
+          recipeDetails.ingredients_ar && recipeDetails.ingredients_ar.map((ingredient, index) => (
+            <Text key={index} style={[common.white, style.ingredientsText]}>
+              {ingredient}
+            </Text>
+          ))
+        )}
 
         <Text style={[common.white, common.bold, style.ingredientsTitle]}>Instructions</Text>
 
-        {recipeDetails.instructions && recipeDetails.instructions.map((instruction,index)=>(
-             <Text key={index} style={[common.white, style.ingredientsText]}>
-                  {instruction}
-              </Text>
-        ))}
+        {currentLanguage === "en" ? (
+          recipeDetails.instructions_en && recipeDetails.instructions_en.map((instruction, index) => (
+            <Text key={index} style={[common.white, style.ingredientsText]}>
+              {instruction}
+            </Text>
+          ))
+        ) : (
+          recipeDetails.instructions_ar && recipeDetails.instructions_ar.map((instruction, index) => (
+            <Text key={index} style={[common.white, style.ingredientsText]}>
+              {instruction}
+            </Text>
+          ))
+        )}
 
       <View style={[common.flex,style.cylinder]}>
         <Cylinder  text={recipeDetails.total_time ? recipeDetails.total_time.toString() : 'N/A'} />
