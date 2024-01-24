@@ -1,9 +1,12 @@
 import { View, Text,TextInput, TouchableOpacity,Image} from 'react-native'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import common from "../../utils/common"
 import style from "./style"
 import axios from 'axios';
 import { BASE_URL } from '@env';
+import { useTranslation } from 'react-i18next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const FeedBack = ({navigation}) => {
   const [feedback,setFeedback]=useState("");
   const handleFeedback =(text)=>{
@@ -12,7 +15,29 @@ const FeedBack = ({navigation}) => {
   const navigateToSettings=()=>{
     navigation.goBack();
   }
-   
+  const [currentLanguage,setLanguage] =useState('en'); 
+
+  const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  };   
+  
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
+
   const handleSubmit =()=>{
     axios.post(
       `${ BASE_URL }/review/addReview`,
@@ -44,19 +69,19 @@ const FeedBack = ({navigation}) => {
         <TouchableOpacity onPress={navigateToSettings}>
           <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
         </TouchableOpacity>
-        <Text style={[common.header,common.white,style.feedback]}>Feedback</Text>
+        <Text style={[common.header,common.white,style.feedback]}>{t('FeedbackPage.Feedback')}</Text>
       </View>
-      <Text style={[common.white,style.title]}>Share your Feedback</Text>
-      <Text style={[common.white,style.text]}>Thank you for using ReciPal  Please give us your feedback.</Text>
+      <Text style={[common.white,style.title]}></Text>
+      <Text style={[common.white,style.text]}>{t('FeedbackPage.Thank')}</Text>
       <TextInput
            style={[style.TextInput]}
            multiline={true}
            textAlignVertical="top"
-           placeholder='Enter message'
+           placeholder={t('FeedbackPage.placeholder')}
            onChangeText ={handleFeedback}
       />
       <TouchableOpacity style={[common.btn,common.center,common.yellow_bg,style.btn]} onPress={handleSubmit}>
-        <Text style={[common.bold]}>Submit</Text>
+        <Text style={[common.bold]}>{t('FeedbackPage.Submit')}</Text>
       </TouchableOpacity>
     </View>
   )

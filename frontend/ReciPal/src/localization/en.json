@@ -44,7 +44,8 @@
         "Feedback":"Feedback",
         "Share your Feedback":"Share your Feedback",
         "Thank":"Thank you for using Recipal. Please give us your feedback",
-        "Submit":"Submit"
+        "Submit":"Submit",
+        "placeholder":"Enter message"
     }
 
 
