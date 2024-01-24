@@ -4,7 +4,8 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import styles from './styles';
 import common from '../../utils/common'
-import Button from "../../Components/button/buttoncomp"
+import { useTranslation } from 'react-i18next';
+
 // import {BASE_URL} from '@env'
 import {BASE_URL} from '@env'
 
@@ -12,7 +13,29 @@ const Login = ({navigation}) => {
     const [usernameOrEmail,setName]=useState('');
     const [password,setPassword]=useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [currentLanguage,setLanguage] =useState('en'); 
 
+    const {t, i18n} = useTranslation(); 
+  
+    const changeLanguage = (value) => { 
+      i18n 
+        .changeLanguage(value) 
+        .then(() => {
+          console.log('Language set to:', value)
+          setLanguage(value);
+        })
+        .catch(err => console.log(err)); 
+    };   
+    
+    useEffect(() => {
+      const retreiveLang=async()=>{
+        const lang=await AsyncStorage.getItem("language");
+        changeLanguage(lang)
+        // console.log(currentLanguage)
+      }
+      retreiveLang()
+    }, []);
+  
     const handleNameChange=(text)=>{
         setName(text);
         setErrorMessage('');
@@ -95,31 +118,31 @@ const Login = ({navigation}) => {
   return (
     <ImageBackground source={require('../../../assets/login.png')} style={{ flex: 1, width: '100%', height: '100%' }}>
       <View style={styles.container}>
-        <Text style={styles.login}>LOGIN</Text>
+        <Text style={styles.login}>{t("LoginPage.title")}</Text>
           <TextInput
           style={[styles.reg_input]}
-          placeholder="Username"
+          placeholder={t("LoginPage.Username")}
           onChangeText={handleNameChange}
           value={usernameOrEmail}
           autoCapitalize="none" 
         />
           <TextInput
           style={[styles.reg_input, common.black]}
-          placeholder="Password "
+          placeholder={t("LoginPage.Password")}
           onChangeText={handlePasswordChange}
           value={password}
           secureTextEntry
           autoCapitalize="none" 
         />
         <TouchableOpacity onPress={handleSubmit} style={styles.submit}>
-          <Text style={[common.yellow,common.bold,styles.btntext]}>Log in</Text>
+          <Text style={[common.yellow,common.bold,styles.btntext]}>{t("LoginPage.Login")}</Text>
         </TouchableOpacity>
         {errorMessage ? (
                   <Text style={styles.errorMessage}>{errorMessage}</Text>
         ) : null}
-        <Text style={[styles.or,common.bold]}>OR</Text>
+        <Text style={[styles.or,common.bold]}>{t("LoginPage.Or")}</Text>
         <TouchableOpacity onPress={redirectToSignUp} style={[styles.signup,common.yellow_bg]}>
-          <Text style={[common.black,common.bold]}>Sign Up</Text>
+          <Text style={[common.black,common.bold,common.font]}>{t("LoginPage.Signup")}</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
