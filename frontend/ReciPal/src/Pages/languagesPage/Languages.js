@@ -1,11 +1,35 @@
 import { View, Text ,Image,TouchableOpacity} from 'react-native';
 import { RadioButton } from 'react-native-paper';
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import common from '../../utils/common';
 import style from "./style.js"
+import { useTranslation } from 'react-i18next';
+
 const Languages = ({navigation}) => {
   const [checked, setChecked] = React.useState('English');
+  const [currentLanguage,setLanguage] =useState('en'); 
+
+  const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  };   
+  
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
 
   const handleRadioButtonChange = async(value) => {
     await AsyncStorage.setItem("language",value)
@@ -22,9 +46,9 @@ const Languages = ({navigation}) => {
           <TouchableOpacity onPress={navigateBack}>
           <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
           </TouchableOpacity>
-        <Text style={[common.white, common.header]}>Languages</Text>
+        <Text style={[common.white, common.header]}>{t('LanguagesPage.Languages')}</Text>
       </View>
-      <Text style={[common.gray,style.title]}>Current Language</Text>
+      <Text style={[common.gray,style.title]}>{t('LanguagesPage.Current Language')}</Text>
       <View style={[common.title,style.align]}>
        <RadioButton
           value="en"
@@ -32,13 +56,13 @@ const Languages = ({navigation}) => {
           onPress={() => handleRadioButtonChange('en')}
           style={style.radiobutton}
         />
-          <Text style={[style.radioButtonText,common.white]}>English</Text>
+          <Text style={[style.radioButtonText,common.white]}>{t('LanguagesPage.English')}</Text>
         <RadioButton
           value="ar"
           status={ checked === 'ar' ? 'checked' : 'unchecked' }
           onPress={() => handleRadioButtonChange('ar')}
         />
-        <Text style={[style.radioButtonText,common.white]}>Arabic</Text>
+        <Text style={[style.radioButtonText,common.white]}>{t('LanguagesPage.Arabic')}</Text>
        </View>
     </View>
   )
