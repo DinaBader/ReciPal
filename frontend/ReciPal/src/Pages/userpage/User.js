@@ -29,8 +29,8 @@ const User = ({ navigation }) => {
   const [parentSearchResults, setParentSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categorieRecipes,setCategorieRecipe]=useState([]);
-  const [currentLanguage,setLanguage] =useState('en'); 
   const [forceRerender, setForceRerender] = useState(false);
+  const [currentLanguage,setLanguage] =useState('en'); 
 
   const {t, i18n} = useTranslation(); 
 
