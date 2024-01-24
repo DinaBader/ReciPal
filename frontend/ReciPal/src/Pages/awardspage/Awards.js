@@ -5,10 +5,36 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {BASE_URL} from "@env"
 import common from "../../utils/common"
 import AwardsComp from '../../Components/awards/awards'
+import { useTranslation } from 'react-i18next';
+
 const Awards = ({navigation}) => {
   const [rewards,setRewards]=useState([]);
   const [token,setToken]=useState('');
   const [countries,setCountries]=useState([]);
+  const [currentLanguage,setLanguage] =useState('en'); 
+
+  const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  };   
+  
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
+
+
   const _retrieveData = async () => {
     try {
       const Token = await AsyncStorage.getItem('jwt');
@@ -62,7 +88,7 @@ const Awards = ({navigation}) => {
         <TouchableOpacity onPress={navigateBack}> 
           <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
         </TouchableOpacity>
-        <Text style={[common.header,common.white]}>Awards</Text>
+        <Text style={[common.header,common.white]}>{(t('AwardsPage.Awards'))}</Text>
       </View>
       <AwardsComp countries={countries}/>
     </ScrollView>

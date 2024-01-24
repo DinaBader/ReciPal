@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "./style"
+import { useTranslation } from 'react-i18next';
 const countries = [
     'Afghanistan',
     'Albania',
@@ -197,18 +198,41 @@ const countries = [
     'Zambia',
     'Zimbabwe',
   ];
-  
+
+
 
   const awards = ({ countries }) => {
+    const [currentLanguage,setLanguage] =useState('en'); 
+
+    const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  };   
   
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
+
     return (
       <View>
       {countries.length === 0 ? (
-        <Text style={style.noRewards}>No rewards available. Complete recipes to get rewards.</Text>
+        <Text style={style.noRewards}>{t('AwardsPage.Empty')}</Text>
       ) : (
         countries.map((country, index) => (
           <View key={index} style={countries.includes(country) ? style.container : null}>
-            <Text style={[style.awardText]}>Congrats you got an award from {country}!</Text>
+            <Text style={[style.awardText]}>{t('AwardsPage.Congrats')}{country}!</Text>
           </View>
         ))
       )}
