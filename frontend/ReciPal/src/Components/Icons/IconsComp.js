@@ -1,9 +1,30 @@
 import { View, Text,TouchableOpacity,Image } from 'react-native'
-import React from 'react'
+import React ,{useState,useEffect}from 'react'
 import common from "../../utils/common"
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useTranslation } from 'react-i18next';
 
 const IconsComp = ({navigation}) => {
+  const [currentLanguage,setLanguage] =useState('en');
+  const {t, i18n} = useTranslation(); 
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  }; 
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
+
 
   const navigateToLogout = async() =>{
     try {
@@ -34,7 +55,7 @@ const IconsComp = ({navigation}) => {
           source={require("../../../assets/settings.png")}
           style={{ width: 35, height: 35 }}
         />
-        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Settings</Text>
+        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>{t('UserProfilePage.Settings')}</Text>
       </View>
       </TouchableOpacity>
 
@@ -44,7 +65,7 @@ const IconsComp = ({navigation}) => {
           source={require("../../../assets/save.png")}
           style={{ width: 35, height: 35 }}
         />
-        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Saved</Text>
+        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>{t('UserProfilePage.Saved')}</Text>
       </View>
       </TouchableOpacity>
 
@@ -54,7 +75,7 @@ const IconsComp = ({navigation}) => {
           source={require("../../../assets/award.png")}
           style={{ width: 35, height: 35 }}
         />
-        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Awards</Text>
+        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>{t('UserProfilePage.Awards')}</Text>
       </View>
       </TouchableOpacity>
 
@@ -64,7 +85,7 @@ const IconsComp = ({navigation}) => {
           source={require("../../../assets/logout.png")}
           style={{ width: 35, height: 35 ,marginLeft:7}}
         />
-        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>Logout</Text>
+        <Text style={[common.white, { marginLeft: 20 ,fontSize:25}]}>{t('UserProfilePage.Logout')}</Text>
       </View>
       </TouchableOpacity>
 
