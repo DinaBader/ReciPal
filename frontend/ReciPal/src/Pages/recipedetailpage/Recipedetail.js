@@ -35,7 +35,6 @@ const Recipedetail = ({route,navigation}) => {
     const retreiveLang=async()=>{
       const lang=await AsyncStorage.getItem("language")||"en";
       changeLanguage(lang)
-      // console.log(currentLanguage)
     }
     retreiveLang()
   }, []);

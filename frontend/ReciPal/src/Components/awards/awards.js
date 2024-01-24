@@ -220,7 +220,6 @@ const countries = [
     const retreiveLang=async()=>{
       const lang=await AsyncStorage.getItem("language");
       changeLanguage(lang)
-      // console.log(currentLanguage)
     }
     retreiveLang()
   }, []);
@@ -232,7 +231,7 @@ const countries = [
       ) : (
         countries.map((country, index) => (
           <View key={index} style={countries.includes(country) ? style.container : null}>
-            <Text style={[style.awardText]}>{t('AwardsPage.Congrats')}{country}!</Text>
+            <Text style={[style.awardText]}>{t('AwardsPage.Congrats')} {country}!</Text>
           </View>
         ))
       )}
