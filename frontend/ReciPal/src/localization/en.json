@@ -55,6 +55,13 @@
         "Awards":"Awards",
         "Congrats":"Congrats you got an award from",
         "Empty":"No rewards available. Complete recipes to get rewards."
+    },
+    "LoginPage":{
+        "Username":"Username",
+        "Password":"Password",
+        "Login":"Log in",
+        "Signup":"Sign up",
+        "Or":"Or"
     }
 
 
