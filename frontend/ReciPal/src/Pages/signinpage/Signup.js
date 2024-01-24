@@ -1,8 +1,9 @@
 import { View, Text,ImageBackground,TouchableOpacity} from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useTranslation } from 'react-i18next';
 
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import common from "../../utils/common";
 import style from "./style"
 import Input from "../../Components/Inputs/input"
@@ -13,6 +14,29 @@ const Signin = ({navigation}) => {
   const [username,setUsername]=useState('');
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('')
+  const [currentLanguage,setLanguage] =useState('en'); 
+
+  const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  };   
+  
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
+
   const navigateToLogin=()=>{
     navigation.navigate('Login')
   }
@@ -74,16 +98,16 @@ const Signin = ({navigation}) => {
     <ImageBackground source={require("../../../assets/signup.png")} style={{ flex: 1, width: '100%', height: '100%' }}>
       <KeyboardAwareScrollView contentContainerStyle={style.container}>
         <View style={style.signup_container}>
-          <Text style={style.eu}>Existing user?</Text>
+          <Text style={style.eu}>{t("SignupPage.eu")}</Text>
           <TouchableOpacity onPress={navigateToLogin} style={[common.black_bg, common.raduis, common.button_h, common.button_w, common.center, style.login]}>
-            <Text style={[common.yellow,common.bold]}>Log in</Text>
+            <Text style={[common.yellow,common.bold]}>{t("SignupPage.Login")}</Text>
           </TouchableOpacity>
-          <Text style={[common.yellow, style.signup, common.bold]}>Sign up with</Text>
+          <Text style={[common.yellow, style.signup, common.bold]}>{t("SignupPage.Signuptext")}</Text>
           <Text style={[common.yellow, style.logoname, common.bold]}>ReciPal</Text>
-          <Input label="username" placeholder='Username' value={username} onChangeText={handleusernameChange} />
-          <Input label="Email" placeholder='Email' value={email} onChangeText={handleemailChange} />
-          <Input label="Password" placeholder='Password' value={password} onChangeText={handlePasswordChange} secureTextEntry />
-          <Button text="Sign Up" onPress={handleSubmit} />
+          <Input label="username" placeholder={t("SignupPage.Username")} value={username} onChangeText={handleusernameChange} />
+          <Input label="Email" placeholder={t("SignupPage.Email")} value={email} onChangeText={handleemailChange} />
+          <Input label="Password" placeholder={t("SignupPage.Password")}  value={password} onChangeText={handlePasswordChange} secureTextEntry />
+          <Button text={t("SignupPage.Signup")}  onPress={handleSubmit} />
         </View>
       </KeyboardAwareScrollView>
     </ImageBackground>
