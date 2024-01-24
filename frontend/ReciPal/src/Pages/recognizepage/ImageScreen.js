@@ -1,5 +1,5 @@
 import { View, TouchableOpacity,Text,Image, ScrollView } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import common from '../../utils/common'
 import * as ImagePicker from 'expo-image-picker';
 import style from "./style"
@@ -29,7 +29,14 @@ const ImageScreen = ({navigation}) => {
       })
       .catch(err => console.log(err)); 
   }; 
-
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
   const handleSubmit = async () => {  
     try {
         // if (file) {
@@ -176,7 +183,7 @@ const ImageScreen = ({navigation}) => {
               <FoodCardComp
                 key={index}
                 source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-                text={recipe.name}
+                text={currentLanguage==="en"?recipe.name_en:recipe.name_ar}
                 onPress={() => NavigateToDetails(recipe._id)}
               />
             ))}
