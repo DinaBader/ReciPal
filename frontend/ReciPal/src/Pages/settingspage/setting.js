@@ -14,7 +14,6 @@ const Setting = ({navigation}) => {
     i18n 
       .changeLanguage(value) 
       .then(() => {
-        console.log('Language set to:', value)
         setLanguage(value);
       })
       .catch(err => console.log(err)); 
