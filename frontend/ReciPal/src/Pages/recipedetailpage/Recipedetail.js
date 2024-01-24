@@ -209,7 +209,9 @@ const Recipedetail = ({route,navigation}) => {
           )}
           </TouchableOpacity>
         </View>
-        <ImageHeader source={{uri:`${BASE_URL}/recipes/${recipeDetails.image}`}} text={recipeDetails.name} />
+        <ImageHeader source={{uri:`${BASE_URL}/recipes/${recipeDetails.image}`}} text={
+          currentLanguage==="en"?recipeDetails.name_en:recipeDetails.name_ar
+        } />
         {loading && (
            <View style={style.loadingContainer}>
             <ActivityIndicator size="large" color="#FFBF4D" />
@@ -217,7 +219,7 @@ const Recipedetail = ({route,navigation}) => {
         )}
 
 
-        <Text style={[common.white, common.bold, style.ingredientsTitle]}>Ingredients</Text>
+        <Text style={[common.white, common.bold, style.ingredientsTitle]}>{t("RecipeDetailPage.Ingredients")}</Text>
 
         {currentLanguage === "en" ? (
           recipeDetails.ingredients_en && recipeDetails.ingredients_en.map((ingredient, index) => (
@@ -233,7 +235,7 @@ const Recipedetail = ({route,navigation}) => {
           ))
         )}
 
-        <Text style={[common.white, common.bold, style.ingredientsTitle]}>Instructions</Text>
+        <Text style={[common.white, common.bold, style.ingredientsTitle]}>{t("RecipeDetailPage.Instructions")}</Text>
 
         {currentLanguage === "en" ? (
           recipeDetails.instructions_en && recipeDetails.instructions_en.map((instruction, index) => (
@@ -259,7 +261,7 @@ const Recipedetail = ({route,navigation}) => {
        style={[common.button_h,common.button_w,common.center,style.button, { backgroundColor: completed ? '#FFBF4D' : 'gray' }]}
        onPress={handleCompleted}
        >
-        <Text style={[common.bold,common.font]}>Complete Recipe</Text>
+        <Text style={[common.bold,common.font]}>{t('RecipeDetailPage.Completed')}</Text>
       </TouchableOpacity>
       </ScrollView>
 
