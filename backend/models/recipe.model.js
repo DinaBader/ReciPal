@@ -1,7 +1,11 @@
 const mongoose =require("mongoose");
 
 const recipeSchema =new mongoose.Schema({
-    name:{
+    name_en:{
+        type:String,
+        required:true,
+    },
+    name_ar:{
         type:String,
         required:true,
     },
@@ -9,7 +13,11 @@ const recipeSchema =new mongoose.Schema({
         type:String,
         required:true,
     },
-    country:{
+    country_en:{
+        type:String,
+        required:true,
+    },
+    country_ar:{
         type:String,
         required:true,
     },
@@ -21,29 +29,40 @@ const recipeSchema =new mongoose.Schema({
         type:String,
         required:true,
     },
-    difficulty:{
+    difficulty_en:{
+        type:String,
+        required:true,
+    },
+    difficulty_ar:{
         type:String,
         required:true,
     },
     image:{
         type:String,
     },
-    categorie:{
+    categorie_en:{
+        type:String,
+    },
+    categorie_ar:{
         type:String,
     },
     image:{
         type:String,
         default:"",
     },
-    icon:{
-        type:String,
-        default:"",
-    },
-    ingredients:[{
+    ingredients_en:[{
         type:String,
         required:true,
     }],
-    instructions:[{
+    instructions_en:[{
+        type:String,
+        required:true,
+    }],
+    ingredients_ar:[{
+        type:String,
+        required:true,
+    }],
+    instructions_ar:[{
         type:String,
         required:true,
     }],
