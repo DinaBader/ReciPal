@@ -34,6 +34,10 @@ const Languages = ({navigation}) => {
   const handleRadioButtonChange = async(value) => {
     await AsyncStorage.setItem("language",value)
     setChecked(value);
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'UserPage' }],
+    });
   };
   const navigateBack=()=>{
     navigation.goBack()
