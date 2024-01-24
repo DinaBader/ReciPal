@@ -3,7 +3,7 @@ import React from 'react'
 import style from "./style"
 import common from "../../utils/common"
 const CylinderComp = ({text}) => {
-  const words = text.split(' ');
+  const words = text?text.split(' '):[];
 
   const formattedText = words.join('\n');
 

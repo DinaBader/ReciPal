@@ -252,10 +252,10 @@ const Recipedetail = ({route,navigation}) => {
         )}
 
       <View style={[common.flex,style.cylinder]}>
-        <Cylinder  text={recipeDetails.total_time ? recipeDetails.total_time.toString() : 'N/A'} />
-        <Cylinder text={recipeDetails.serving ? recipeDetails.serving.toString() : 'N/A'}/>
-        <Cylinder text={recipeDetails.calories ? recipeDetails.calories.toString() : 'N/A'}/>
-        <Cylinder text={recipeDetails.difficulty ? recipeDetails.difficulty.toString() : 'N/A'}/>
+        <Cylinder  text={currentLanguage==="en" && recipeDetails.total_time? recipeDetails.total_time : recipeDetails.total_time_ar} />
+        <Cylinder text={currentLanguage==="en" && recipeDetails.serving?recipeDetails.serving : recipeDetails.serving_ar}/>
+        <Cylinder text={currentLanguage==="en" && recipeDetails.calories ?recipeDetails.calories : recipeDetails.calories_ar}/>
+        <Cylinder text={currentLanguage==="en" && recipeDetails.difficulty?recipeDetails.difficulty : recipeDetails.difficulty_ar}/>
       </View>
       <TouchableOpacity
        style={[common.button_h,common.button_w,common.center,style.button, { backgroundColor: completed ? '#FFBF4D' : 'gray' }]}
