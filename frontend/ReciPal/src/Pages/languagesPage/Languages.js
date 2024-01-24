@@ -23,7 +23,7 @@ const Languages = ({navigation}) => {
   
   useEffect(() => {
     const retreiveLang=async()=>{
-      const lang=await AsyncStorage.getItem("language");
+      const lang=await AsyncStorage.getItem("language")||"en";
       setChecked(lang);
       changeLanguage(lang)
     }
