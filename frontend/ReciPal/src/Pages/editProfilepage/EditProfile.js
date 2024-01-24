@@ -4,7 +4,6 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
-  Button,
   Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
@@ -13,11 +12,34 @@ import axios from "axios";
 import { BASE_URL } from "@env";
 import common from "../../utils/common";
 import style from "./style";
+import { useTranslation } from 'react-i18next';
 
 const EditProfile = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [userId, setUserId] = useState(null);
+  const [currentLanguage,setLanguage] =useState('en'); 
+
+  const {t, i18n} = useTranslation(); 
+
+  const changeLanguage = (value) => { 
+    i18n 
+      .changeLanguage(value) 
+      .then(() => {
+        console.log('Language set to:', value)
+        setLanguage(value);
+      })
+      .catch(err => console.log(err)); 
+  };   
+  
+  useEffect(() => {
+    const retreiveLang=async()=>{
+      const lang=await AsyncStorage.getItem("language");
+      changeLanguage(lang)
+      // console.log(currentLanguage)
+    }
+    retreiveLang()
+  }, []);
 
   const handleEmail = (text) => {
     setEmail(text);
@@ -92,15 +114,15 @@ const EditProfile = ({ navigation }) => {
             style={common.back_Icon}
           />
         </TouchableOpacity>
-        <Text style={[common.header, common.white]}>Profile</Text>
+        <Text style={[common.header, common.white]}>{t('EditProfilePage.Profile')}</Text>
       </View>
-      <Text style={[common.gray, style.title]}>Username</Text>
+      <Text style={[common.gray, style.title]}>{t('EditProfilePage.Username')}</Text>
       <TextInput
         style={[style.input]}
         value={username}
         onChangeText={handleUsername}
       />
-      <Text style={[common.gray, style.title]}>Email</Text>
+      <Text style={[common.gray, style.title]}>{t('EditProfilePage.Email')}</Text>
       <TextInput
         style={[style.input]}
         value={email}
@@ -110,7 +132,7 @@ const EditProfile = ({ navigation }) => {
         style={[common.yellow_bg, style.button, common.raduis, common.center]}
         onPress={handleSubmit}
       >
-        <Text style={[common.bold]}>Submit</Text>
+        <Text style={[common.bold]}>{t('EditProfilePage.Submit')}</Text>
       </TouchableOpacity>
     </View>
   );
