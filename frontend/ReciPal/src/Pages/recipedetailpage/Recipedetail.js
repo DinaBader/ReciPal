@@ -219,7 +219,7 @@ const Recipedetail = ({route,navigation}) => {
         )}
 
 
-        <Text style={[common.white, common.bold, style.ingredientsTitle]}>{t("RecipeDetailPage.Ingredients")}</Text>
+        <Text style={[currentLanguage==="en"?[common.white, common.bold, style.ingredientsTitle]:[common.white, common.bold, style.arabic]]}>{t("RecipeDetailPage.Ingredients")}</Text>
 
         {currentLanguage === "en" ? (
           recipeDetails.ingredients_en && recipeDetails.ingredients_en.map((ingredient, index) => (
@@ -235,7 +235,7 @@ const Recipedetail = ({route,navigation}) => {
           ))
         )}
 
-        <Text style={[common.white, common.bold, style.ingredientsTitle]}>{t("RecipeDetailPage.Instructions")}</Text>
+        <Text style={[currentLanguage==="en"?[common.white, common.bold, style.ingredientsTitle]:[common.white, common.bold, style.arabic]]}>{t("RecipeDetailPage.Instructions")}</Text>
 
         {currentLanguage === "en" ? (
           recipeDetails.instructions_en && recipeDetails.instructions_en.map((instruction, index) => (
