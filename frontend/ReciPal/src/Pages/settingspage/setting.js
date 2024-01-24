@@ -24,7 +24,6 @@ const Setting = ({navigation}) => {
     const retreiveLang=async()=>{
       const lang=await AsyncStorage.getItem("language");
       changeLanguage(lang)
-      // console.log(currentLanguage)
     }
     retreiveLang()
   }, []);
@@ -57,21 +56,21 @@ const Setting = ({navigation}) => {
         <View style={style.next}>
           <Text style={[common.white,style.editProfile]}>{t('SettingsPage.Edit Profile')}</Text>
           <TouchableOpacity onPress={navigateToEditProfile}>
-           <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
+           <Image source={require("../../../assets/right.png")} style={[currentLanguage==="en"?style.backIcon:[style.arabic]]}/>
           </TouchableOpacity>
         </View>
 
         <View style={style.next}>
         <Text style={[common.white,style.languages]}>{t('SettingsPage.Languages')}</Text>
         <TouchableOpacity onPress={navigateToLanguages}>
-          <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
+          <Image source={require("../../../assets/right.png")} style={[currentLanguage==="en"?style.backIcon:[style.second]]}/>
         </TouchableOpacity>
         </View>
 
         <View style={style.next}>
         <Text style={[common.white,style.languages]}>{t('SettingsPage.Feedback')}  </Text>
         <TouchableOpacity onPress={navigateToFeedBack}>
-          <Image source={require("../../../assets/right.png")} style={style.backIcon}/>
+          <Image source={require("../../../assets/right.png")} style={[currentLanguage==="en"?style.backIcon:[style.third]]}/>
         </TouchableOpacity>
         </View>
 

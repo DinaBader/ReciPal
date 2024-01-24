@@ -29,11 +29,27 @@ const styles = StyleSheet.create({
         height:25,
         marginLeft:140,
     },
+    arabic:{
+        width:25,
+        height:25,
+        marginLeft:55,
+    },
+    second:{
+        width:25,
+        height:25,
+        marginLeft:200,
+    },
+    third:{
+        width:25,
+        height:25,
+        marginLeft:190,
+
+    },
     title:{
         display:'flex',
         flexDirection:'row',
         alignItems:'baseline'
-    }
+    },
     
 })
 
