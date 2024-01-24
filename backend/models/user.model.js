@@ -22,7 +22,7 @@ const userSchema=new mongoose.Schema({
     },
     image:{
         type:String,
-        default:"",
+        default:"default.jpg",
     },
     finshed_recipes:[{
         recipe:{

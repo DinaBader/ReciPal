@@ -56,7 +56,7 @@ const register = async (req, res) => {
         email,
         password,
         role,
-        image:"",
+        image:"default.jpg",
         username,
         finshed_recipes: recipes.map((recipe) => ({ recipe: recipe._id, completed: false }))
       });
