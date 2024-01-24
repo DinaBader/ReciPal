@@ -31,7 +31,13 @@ const User = ({ navigation }) => {
   const [categorieRecipes,setCategorieRecipe]=useState([]);
   const [forceRerender, setForceRerender] = useState(false);
   const [currentLanguage,setLanguage] =useState("en"); 
-
+  // const foodCircleData = [
+  //   { key: 'Meat', source: require("../../../assets/meat.jpg") },
+  //   { key: 'Fish', source: require("../../../assets/fish.jpg") },
+  //   { key: 'Chicken', source: require("../../../assets/chicken.jpg") },
+  //   { key: 'Sandwiches', source: require("../../../assets/sandwiches.jpg") },
+  //   { key: 'Pasta', source:  require("../../../assets/pasta.jpg") },
+  // ];
   const {t, i18n} = useTranslation(); 
 
   const changeLanguage = (value) => { 
@@ -123,7 +129,7 @@ const User = ({ navigation }) => {
                 <View style={styles.foodCircleItem}>
                   <Foodcircle
                     source={item.source}
-                    text={item.key}
+                    text={t(`UserPage.${item.key}`)}
                     selected={selectedFood === item.key}
                   />
                 </View>

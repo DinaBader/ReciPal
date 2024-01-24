@@ -2,10 +2,11 @@
     "UserPage": {
       "title": "ماذا ترغب في تناوله؟",
       "Recipes": "وصفات",
-      "Beef": "لحم بقري",
+      "Meat": "لحم بقري",
       "Fish": "سمك",
       "Chicken": "دجاج",
-      "Sandwiches": "ساندويشات"
+      "Sandwiches": "ساندويشات",
+      "Pasta":"معكرونة"
     },
     "SuggestionPage": {
         "Suggestion": "اقتراح",
