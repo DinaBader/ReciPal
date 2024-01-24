@@ -4,6 +4,7 @@ import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import {BASE_URL} from '@env'
 import {BASE_URL} from '@env'
+import { useTranslation } from 'react-i18next';
 
 import common from "../../utils/common"
 import FoodCard from "../../Components/foodcard/FoodCardComp"
@@ -11,8 +12,29 @@ import styles from "./style"
 const Saved = ({navigation}) => { 
     const [recipes,getRecipes]=useState([]);
     const [userId, setUserId] = useState(null);
-    const [recipeImage,setRecipeImage]=useState([]);
-    const [recipeName,setRecipeName]=useState([]);
+    const [currentLanguage,setLanguage] =useState('en'); 
+
+    const {t, i18n} = useTranslation(); 
+  
+    const changeLanguage = (value) => { 
+      i18n 
+        .changeLanguage(value) 
+        .then(() => {
+          console.log('Language set to:', value)
+          setLanguage(value);
+        })
+        .catch(err => console.log(err)); 
+    };   
+    
+    useEffect(() => {
+      const retreiveLang=async()=>{
+        const lang=await AsyncStorage.getItem("language");
+        changeLanguage(lang)
+        // console.log(currentLanguage)
+      }
+      retreiveLang()
+    }, []);
+
     const navigateToSettings=()=>{
         navigation.goBack();
     }
@@ -105,7 +127,7 @@ const Saved = ({navigation}) => {
         <TouchableOpacity onPress={navigateToSettings}>
             <Image source={require("../../../assets/back.png")} style={common.back_Icon}/>
         </TouchableOpacity>
-            <Text style={[common.white,common.header]}>Saved</Text>
+            <Text style={[common.white,common.header]}>{t('SavedPage.Saved')}</Text>
         </View>
         {recipes.map((recipe, index) => (
             <View style={[styles.item, styles.background]} key={index}>
@@ -118,7 +140,7 @@ const Saved = ({navigation}) => {
               >
                       <View style={styles.align}>
                        <Image source={require("../../../assets/trash.png")} style={{width:20,height:20}}/>
-                       <Text style={[common.bold,common.white]}>Delete</Text>
+                       <Text style={[common.bold,common.white]}>{t('SavedPage.Delete')}</Text>
                        </View>
                     </TouchableOpacity>
                 </View>
