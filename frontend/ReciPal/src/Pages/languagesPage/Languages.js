@@ -7,7 +7,7 @@ import style from "./style.js"
 import { useTranslation } from 'react-i18next';
 
 const Languages = ({navigation}) => {
-  const [checked, setChecked] = React.useState('English');
+  const [checked, setChecked] = React.useState('en');
   const [currentLanguage,setLanguage] =useState('en'); 
 
   const {t, i18n} = useTranslation(); 
@@ -16,7 +16,6 @@ const Languages = ({navigation}) => {
     i18n 
       .changeLanguage(value) 
       .then(() => {
-        console.log('Language set to:', value)
         setLanguage(value);
       })
       .catch(err => console.log(err)); 
@@ -25,8 +24,8 @@ const Languages = ({navigation}) => {
   useEffect(() => {
     const retreiveLang=async()=>{
       const lang=await AsyncStorage.getItem("language");
+      setChecked(lang);
       changeLanguage(lang)
-      // console.log(currentLanguage)
     }
     retreiveLang()
   }, []);
