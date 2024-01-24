@@ -30,7 +30,7 @@ const User = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
   const [categorieRecipes,setCategorieRecipe]=useState([]);
   const [forceRerender, setForceRerender] = useState(false);
-  const [currentLanguage,setLanguage] =useState('en'); 
+  const [currentLanguage,setLanguage] =useState("en"); 
 
   const {t, i18n} = useTranslation(); 
 
@@ -73,11 +73,11 @@ const User = ({ navigation }) => {
   };
 
   useEffect(() => {
-    setForceRerender((prev) => !prev);
+    console.log(currentLanguage)
 
     getRecipes();
     const retreiveLang=async()=>{
-      const lang=await AsyncStorage.getItem("language");
+      const lang=await AsyncStorage.getItem("language")||"en";
       changeLanguage(lang)
     }
     retreiveLang()
@@ -148,7 +148,7 @@ const User = ({ navigation }) => {
                     source={{
                       uri: `${BASE_URL}/recipes/${recipe.image}`,
                     }}
-                    text={recipe.name}
+                    text={currentLanguage==="en"?recipe.name_en:recipe.name_ar}
                     onPress={() => NavigateTodetails(recipe._id)}
                   />
                 </React.Fragment>
@@ -160,7 +160,7 @@ const User = ({ navigation }) => {
                   source={{
                     uri: `${BASE_URL}/recipes/${categorieRecipe.image}`,
                   }}
-                  text={categorieRecipe.name}
+                  text={currentLanguage==="en"?categorieRecipe.name_en:categorieRecipe.name_ar}
                   onPress={() => NavigateTodetails(categorieRecipe._id)}
                 />
                 ))
@@ -171,7 +171,7 @@ const User = ({ navigation }) => {
                     source={{
                       uri: `${BASE_URL}/recipes/${recipe.image}`,
                     }}
-                    text={currentLanguage=="en"?recipe.name_en:recipe.name_ar}
+                    text={currentLanguage==="en"?recipe.name_en:recipe.name_ar}
                     onPress={() => NavigateTodetails(recipe._id)}
                   />
                 ))
