@@ -31,7 +31,7 @@ const ImageScreen = ({navigation}) => {
   }; 
   useEffect(() => {
     const retreiveLang=async()=>{
-      const lang=await AsyncStorage.getItem("language");
+      const lang=await AsyncStorage.getItem("language")||"en";
       changeLanguage(lang)
       // console.log(currentLanguage)
     }
@@ -183,7 +183,7 @@ const ImageScreen = ({navigation}) => {
               <FoodCardComp
                 key={index}
                 source={{ uri: `${BASE_URL}/recipes/${recipe.image}` }}
-                text={currentLanguage==="en"?recipe.name_en:recipe.name_ar}
+                text={currentLanguage==="en"?recipe.name:recipe.name_ar}
                 onPress={() => NavigateToDetails(recipe._id)}
               />
             ))}
