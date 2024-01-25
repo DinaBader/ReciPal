@@ -217,7 +217,7 @@ const Recipedetail = ({route,navigation}) => {
           </View>
         )}
 
-          <View style={style.underline}>
+        <View style={currentLanguage==="en"?style.underline:style.underline_ar}>
         <Text style={[currentLanguage==="en"?[common.white, common.bold, style.ingredientsTitle]:[common.white, common.bold, style.arabic]]}>{t("RecipeDetailPage.Ingredients")}</Text>
         </View>
         {currentLanguage === "en" ? (
@@ -234,7 +234,7 @@ const Recipedetail = ({route,navigation}) => {
           ))
         )}
 
-        <View style={style.underline}>
+        <View style={currentLanguage==="en"?style.underline:style.underline_ar}>
         <Text style={[currentLanguage==="en"?[common.white, common.bold, style.ingredientsTitle]:[common.white, common.bold, style.arabic]]}>{t("RecipeDetailPage.Instructions")}</Text>
             </View>
         {currentLanguage === "en" ? (

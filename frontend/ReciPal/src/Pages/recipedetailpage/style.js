@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     },
     arabic:{
       fontSize:20,
-      left:-30,
+      // left:250,
       marginTop:20
     },
     ingredientsText:{
@@ -54,6 +54,13 @@ const styles = StyleSheet.create({
         width: 110, 
         marginTop: 5,
         marginLeft:30
+      },
+      underline_ar:{
+        borderBottomColor: '#FFBF4D', 
+        borderBottomWidth:1.8,
+        width: 80, 
+        marginTop: 5,
+        marginLeft:280
       }
     
 })
