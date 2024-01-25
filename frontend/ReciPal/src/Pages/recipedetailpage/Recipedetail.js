@@ -217,9 +217,9 @@ const Recipedetail = ({route,navigation}) => {
           </View>
         )}
 
-
+          <View style={style.underline}>
         <Text style={[currentLanguage==="en"?[common.white, common.bold, style.ingredientsTitle]:[common.white, common.bold, style.arabic]]}>{t("RecipeDetailPage.Ingredients")}</Text>
-
+        </View>
         {currentLanguage === "en" ? (
           recipeDetails.ingredients && recipeDetails.ingredients.map((ingredient, index) => (
             <Text key={index} style={[common.white, style.ingredientsText]}>
@@ -234,8 +234,9 @@ const Recipedetail = ({route,navigation}) => {
           ))
         )}
 
+        <View style={style.underline}>
         <Text style={[currentLanguage==="en"?[common.white, common.bold, style.ingredientsTitle]:[common.white, common.bold, style.arabic]]}>{t("RecipeDetailPage.Instructions")}</Text>
-
+            </View>
         {currentLanguage === "en" ? (
           recipeDetails.instructions && recipeDetails.instructions.map((instruction, index) => (
             <Text key={index} style={[common.white, style.ingredientsText]}>

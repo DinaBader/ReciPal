@@ -7,8 +7,7 @@ const styles = StyleSheet.create({
     
     ingredientsTitle:{
         fontSize:20,
-        left:30,
-        marginTop:20
+        marginTop:20,
     },
     arabic:{
       fontSize:20,
@@ -49,6 +48,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
       },
+      underline:{
+        borderBottomColor: '#FFBF4D', 
+        borderBottomWidth:1.8,
+        width: 110, 
+        marginTop: 5,
+        marginLeft:30
+      }
     
 })
 
