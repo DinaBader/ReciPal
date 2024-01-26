@@ -132,7 +132,7 @@ const Login = ({ navigation }) => {
       style={{ flex: 1, width: "100%", height: "100%" }}
     >
       <View style={styles.container}>
-        <Text style={styles.login}>{t("LoginPage.title")}</Text>
+        <Text style={currentLanguage=="en"?styles.login:styles.login_ar}>{t("LoginPage.title")}</Text>
         <TextInput
           style={[styles.reg_input]}
           placeholder={t("LoginPage.Username")}
@@ -156,7 +156,7 @@ const Login = ({ navigation }) => {
         {errorMessage ? (
           <Text style={styles.errorMessage}>{errorMessage}</Text>
         ) : null}
-        <Text style={[styles.or, common.bold]}>{t("LoginPage.Or")}</Text>
+        <Text style={currentLanguage=="en"?[styles.or, common.bold]:[styles.or_ar, common.bold]}>{t("LoginPage.Or")}</Text>
         <TouchableOpacity
           onPress={redirectToSignUp}
           style={[styles.signup, common.yellow_bg]}

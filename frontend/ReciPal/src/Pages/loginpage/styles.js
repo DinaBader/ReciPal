@@ -9,7 +9,13 @@ const styles = StyleSheet.create({
     login: {
       fontWeight: 'bold',
       fontSize: 40,
-      paddingLeft:50,
+      paddingLeft:55,
+      paddingTop:50,
+    },
+    login_ar:{
+      fontWeight: 'bold',
+      fontSize: 40,
+      paddingRight:55,
       paddingTop:50,
     },
     reg_input: {
@@ -46,6 +52,11 @@ const styles = StyleSheet.create({
     or:{
       fontSize:30,
       paddingLeft:170,
+      paddingTop:80
+    },
+    or_ar:{
+      fontSize:30,
+      paddingRight:170,
       paddingTop:80
     },
     btntext:{
