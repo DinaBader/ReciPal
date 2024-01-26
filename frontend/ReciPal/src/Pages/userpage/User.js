@@ -145,6 +145,7 @@ const User = ({ navigation }) => {
               parentSearchResults.map((recipe, index) => (
                 <React.Fragment key={recipe.id}>
                   <FoodCard
+                  key={index}
                     source={{
                       uri: `${BASE_URL}/recipes/${recipe.image}`,
                     }}
@@ -157,6 +158,7 @@ const User = ({ navigation }) => {
               selectedFood && selectedFood.length > 0 ? (
                 categorieRecipes.map((categorieRecipe,index)=>(
                   <FoodCard
+                  key={index}
                   source={{
                     uri: `${BASE_URL}/recipes/${categorieRecipe.image}`,
                   }}
