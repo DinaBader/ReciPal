@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, TouchableOpacity } from "react-native";
+import { View, Text, ImageBackground, TouchableOpacity,Alert } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
@@ -64,6 +64,18 @@ const Signin = ({ navigation }) => {
     }
   };
 
+  const showAlert = () =>
+  Alert.alert(
+    "Password too short",
+    "Please enter a password with a minimum of 6 characters",
+    [
+      {
+        text: "Retry",
+        style: "cancel",
+      },
+    ]
+  );
+
   const handleSubmit = () => {
     if (BASE_URL) {
       axios
@@ -94,7 +106,7 @@ const Signin = ({ navigation }) => {
           _retrieveData();
         })
         .catch((error) => {
-          console.error("Error: ", error);
+          showAlert();
         });
     }
   };

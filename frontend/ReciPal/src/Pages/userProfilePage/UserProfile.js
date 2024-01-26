@@ -4,7 +4,6 @@ import common from "../../utils/common";
 import style from "./style";
 import ProfileComp from "../../Components/UserProfile/UserProfileComp.js";
 import Icons from "../../Components/Icons/IconsComp.js";
-// import { BASE_URL } from "@env";
 import {BASE_URL} from "@env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
