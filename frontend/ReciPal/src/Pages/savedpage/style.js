@@ -27,7 +27,13 @@ const styles=StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         gap:8
-    }
+    },
+    noSaved: {
+        color: 'white',
+        textAlign: 'center',
+        paddingTop:250,
+        fontSize:20
+      }
 })
  
 export default styles;

@@ -2,14 +2,12 @@ import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-// import { BASE_URL } from "@env";
 import { BASE_URL } from "@env";
-
 import { useTranslation } from "react-i18next";
-
 import common from "../../utils/common";
 import FoodCard from "../../Components/foodcard/FoodCardComp";
 import styles from "./style";
+
 const Saved = ({ navigation }) => {
   const [recipes, getRecipes] = useState([]);
   const [userId, setUserId] = useState(null);
@@ -135,7 +133,8 @@ const Saved = ({ navigation }) => {
           {t("SavedPage.Saved")}
         </Text>
       </View>
-      {recipes.map((recipe, index) => (
+      {recipes.length!=0?
+      recipes.map((recipe, index) => (
         <View style={[styles.item, styles.background]} key={index}>
           <View style={styles.comp}>
             <FoodCard
@@ -158,7 +157,7 @@ const Saved = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-      ))}
+      )):<Text style={styles.noSaved}>No Saved Recipes Yet.</Text>}
     </ScrollView>
   );
 };

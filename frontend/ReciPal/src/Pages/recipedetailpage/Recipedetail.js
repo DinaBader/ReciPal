@@ -24,9 +24,10 @@ const Recipedetail = ({ route, navigation }) => {
   const [saved, setSaved] = useState("false");
   const [loading, setLoading] = useState(true);
   const [currentLanguage, setLanguage] = useState("en");
-  const [showCylinder, setShowCylinder] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const { t, i18n } = useTranslation();
-
+  const { recipeId } = route.params;
+  
   const changeLanguage = (value) => {
     i18n
       .changeLanguage(value)
@@ -48,7 +49,6 @@ const Recipedetail = ({ route, navigation }) => {
     navigation.goBack();
   };
 
-  const { recipeId } = route.params;
 
   const _retrieveData = async () => {
     try {
