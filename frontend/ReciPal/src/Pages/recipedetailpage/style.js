@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     },
     arabic:{
       fontSize:20,
-      // left:250,
       marginTop:20
     },
     ingredientsText:{
@@ -61,6 +60,10 @@ const styles = StyleSheet.create({
         width: 80, 
         marginTop: 5,
         marginLeft:280
+      },
+      link:{
+        color:'#FFBF4D',
+        paddingLeft:150,
       }
     
 })

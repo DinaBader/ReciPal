@@ -80,8 +80,9 @@ const UserProfileComp = ({ source, onUpdateImage }) => {
       );
     } else {
       const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.canceled) {
-        setFile(result.uri);
+      if (!result.canceled && result.assets.length > 0) {
+        const selectedImage = result.assets[0];
+        setFile(selectedImage.uri);
         setError(null);
       }
     }

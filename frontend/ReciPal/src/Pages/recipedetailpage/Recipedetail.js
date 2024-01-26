@@ -24,10 +24,18 @@ const Recipedetail = ({ route, navigation }) => {
   const [saved, setSaved] = useState("false");
   const [loading, setLoading] = useState(true);
   const [currentLanguage, setLanguage] = useState("en");
-  const [showDetails, setShowDetails] = useState(false);
+  const [showAllIngredients, setShowAllIngredients] = useState(false);
+  const [showAllInstructions, setshowAllInstructions] = useState(false);
   const { t, i18n } = useTranslation();
   const { recipeId } = route.params;
-  
+
+  const toggleShowAllIngredients = () => {
+    setShowAllIngredients(!showAllIngredients);
+  };
+  const toggleShowAllInstructions = () => {
+    setshowAllInstructions(!showAllInstructions);
+  };
+
   const changeLanguage = (value) => {
     i18n
       .changeLanguage(value)
@@ -48,7 +56,6 @@ const Recipedetail = ({ route, navigation }) => {
   const navigateToHome = () => {
     navigation.goBack();
   };
-
 
   const _retrieveData = async () => {
     try {
@@ -205,7 +212,6 @@ const Recipedetail = ({ route, navigation }) => {
       SetCompleted(!completed);
     }
   };
-
   return (
     <ScrollView style={[common.backgroundColor, style.container]}>
       <View style={style.backButtonContainer}>
@@ -241,59 +247,122 @@ const Recipedetail = ({ route, navigation }) => {
         </View>
       )}
 
-      {!loading && <View
-        style={currentLanguage === "en" ? style.underline : style.underline_ar}
-      >
-        <Text
-          style={[
-            currentLanguage === "en"
-              ? [common.white, common.bold, style.ingredientsTitle]
-              : [common.white, common.bold, style.arabic],
-          ]}
-        >
-          {t("RecipeDetailPage.Ingredients")}
-        </Text>
-      </View>}
-      {currentLanguage === "en"
-        ? recipeDetails.ingredients &&
-          recipeDetails.ingredients.map((ingredient, index) => (
-            <Text key={index} style={[common.white, style.ingredientsText]}>
-              {ingredient}
+      {!loading && (
+        <>
+          <View
+            style={
+              currentLanguage === "en" ? style.underline : style.underline_ar
+            }
+          >
+            <Text
+              style={[
+                common.white,
+                common.bold,
+                style.ingredientsTitle,
+                currentLanguage === "en" ? null : style.arabic,
+              ]}
+            >
+              {t("RecipeDetailPage.Ingredients")}
             </Text>
-          ))
-        : recipeDetails.ingredients_ar &&
-          recipeDetails.ingredients_ar.map((ingredient, index) => (
-            <Text key={index} style={[common.white, style.ingredientsText]}>
-              {ingredient}
-            </Text>
-          ))}
+          </View>
+          {currentLanguage === "en"
+            ? recipeDetails.ingredients &&
+              recipeDetails.ingredients
+                .slice(
+                  0,
+                  showAllIngredients ? recipeDetails.ingredients.length : 4
+                )
+                .map((ingredient, index) => (
+                  <Text
+                    key={index}
+                    style={[common.white, style.ingredientsText]}
+                  >
+                    {ingredient}
+                  </Text>
+                ))
+            : recipeDetails.ingredients_ar &&
+              recipeDetails.ingredients_ar
+                .slice(
+                  0,
+                  showAllIngredients ? recipeDetails.ingredients_ar.length : 4
+                )
+                .map((ingredient, index) => (
+                  <Text
+                    key={index}
+                    style={[common.white, style.ingredientsText]}
+                  >
+                    {ingredient}
+                  </Text>
+                ))}
+          {!showAllIngredients && (
+            <TouchableOpacity onPress={toggleShowAllIngredients}>
+              <Text style={style.link}>Show more</Text>
+            </TouchableOpacity>
+          )}
+          {showAllIngredients && (
+            <TouchableOpacity onPress={() => toggleShowAllIngredients(false)}>
+              <Text style={style.link}>Show less</Text>
+            </TouchableOpacity>
+          )}
+        </>
+      )}
 
-      {!loading && <View
-        style={currentLanguage === "en" ? style.underline : style.underline_ar}
+{!loading && (
+  <>
+    <View
+      style={
+        currentLanguage === "en" ? style.underline : style.underline_ar
+      }
+    >
+      <Text
+        style={[
+          currentLanguage === "en"
+            ? [common.white, common.bold, style.ingredientsTitle]
+            : [common.white, common.bold, style.arabic],
+        ]}
       >
-        <Text
-          style={[
-            currentLanguage === "en"
-              ? [common.white, common.bold, style.ingredientsTitle]
-              : [common.white, common.bold, style.arabic],
-          ]}
-        >
-          {t("RecipeDetailPage.Instructions")}
-        </Text>
-      </View>}
-      {currentLanguage === "en"
-        ? recipeDetails.instructions &&
-          recipeDetails.instructions.map((instruction, index) => (
-            <Text key={index} style={[common.white, style.ingredientsText]}>
+        {t("RecipeDetailPage.Instructions")}
+      </Text>
+    </View>
+    {currentLanguage === "en"
+      ? recipeDetails.instructions &&
+        recipeDetails.instructions
+          .slice(0, showAllInstructions ? recipeDetails.instructions.length : 4)
+          .map((instruction, index) => (
+            <Text
+              key={index}
+              style={[common.white, style.ingredientsText]}
+            >
               {instruction}
             </Text>
           ))
-        : recipeDetails.instructions_ar &&
-          recipeDetails.instructions_ar.map((instruction, index) => (
-            <Text key={index} style={[common.white, style.ingredientsText]}>
+      : recipeDetails.instructions_ar &&
+        recipeDetails.instructions_ar
+          .slice(0, showAllInstructions ? recipeDetails.instructions_ar.length : 4)
+          .map((instruction, index) => (
+            <Text
+              key={index}
+              style={[common.white, style.ingredientsText]}
+            >
               {instruction}
             </Text>
           ))}
+    {!showAllInstructions && recipeDetails.instructions && recipeDetails.instructions.length > 4 && (
+      <TouchableOpacity onPress={toggleShowAllInstructions}>
+        <Text style={style.link}>
+          Show More
+        </Text>
+      </TouchableOpacity>
+    )}
+    {showAllInstructions && (
+      <TouchableOpacity onPress={() => toggleShowAllInstructions(false)}>
+        <Text style={style.link}>
+        Show Less
+        </Text>
+      </TouchableOpacity>
+    )}
+  </>
+)}
 
       <View style={[common.flex, style.cylinder]}>
         {loading === false && (
@@ -329,21 +398,22 @@ const Recipedetail = ({ route, navigation }) => {
           </>
         )}
       </View>
-      {!loading &&
+      {!loading && (
         <TouchableOpacity
-        style={[
-          common.button_h,
-          common.button_w,
-          common.center,
-          style.button,
-          { backgroundColor: completed ? "#FFBF4D" : "gray" },
-        ]}
-        onPress={handleCompleted}
-      >
-        <Text style={[common.bold, common.font]}>
-          {t("RecipeDetailPage.Completed")}
-        </Text>
-      </TouchableOpacity>}
+          style={[
+            common.button_h,
+            common.button_w,
+            common.center,
+            style.button,
+            { backgroundColor: completed ? "#FFBF4D" : "gray" },
+          ]}
+          onPress={handleCompleted}
+        >
+          <Text style={[common.bold, common.font]}>
+            {t("RecipeDetailPage.Completed")}
+          </Text>
+        </TouchableOpacity>
+      )}
     </ScrollView>
   );
 };
