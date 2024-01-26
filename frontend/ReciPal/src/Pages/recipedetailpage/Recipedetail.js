@@ -24,7 +24,7 @@ const Recipedetail = ({ route, navigation }) => {
   const [saved, setSaved] = useState("false");
   const [loading, setLoading] = useState(true);
   const [currentLanguage, setLanguage] = useState("en");
-
+  const [showCylinder, setShowCylinder] = useState(false);
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (value) => {
@@ -67,7 +67,6 @@ const Recipedetail = ({ route, navigation }) => {
     const Token = await AsyncStorage.getItem("jwt");
     try {
       if (BASE_URL) {
-
         const response = await axios.get(
           `${BASE_URL}/recipe/getRecipeById/${recipeId}`,
           {
@@ -89,7 +88,6 @@ const Recipedetail = ({ route, navigation }) => {
   const saveRecipe = async () => {
     const Token = await AsyncStorage.getItem("jwt");
     if (BASE_URL) {
-
       if (saved === false) {
         try {
           await axios.post(
@@ -237,7 +235,7 @@ const Recipedetail = ({ route, navigation }) => {
           currentLanguage === "en" ? recipeDetails.name : recipeDetails.name_ar
         }
       />
-      {loading && (
+      {loading == true && (
         <View style={style.loadingContainer}>
           <ActivityIndicator size="large" color="#FFBF4D" />
         </View>
@@ -298,34 +296,38 @@ const Recipedetail = ({ route, navigation }) => {
           ))}
 
       <View style={[common.flex, style.cylinder]}>
-        <Cylinder
-          text={
-            currentLanguage === "en" && recipeDetails.total_time
-              ? recipeDetails.total_time
-              : recipeDetails.total_time_ar
-          }
-        />
-        <Cylinder
-          text={
-            currentLanguage === "en" && recipeDetails.serving
-              ? recipeDetails.serving
-              : recipeDetails.serving_ar
-          }
-        />
-        <Cylinder
-          text={
-            currentLanguage === "en" && recipeDetails.calories
-              ? recipeDetails.calories
-              : recipeDetails.calories_ar
-          }
-        />
-        <Cylinder
-          text={
-            currentLanguage === "en" && recipeDetails.difficulty
-              ? recipeDetails.difficulty
-              : recipeDetails.difficulty_ar
-          }
-        />
+        {loading === false && (
+          <>
+            <Cylinder
+              text={
+                currentLanguage === "en" && recipeDetails.total_time
+                  ? recipeDetails.total_time
+                  : recipeDetails.total_time_ar
+              }
+            />
+            <Cylinder
+              text={
+                currentLanguage === "en" && recipeDetails.serving
+                  ? recipeDetails.serving
+                  : recipeDetails.serving_ar
+              }
+            />
+            <Cylinder
+              text={
+                currentLanguage === "en" && recipeDetails.calories
+                  ? recipeDetails.calories
+                  : recipeDetails.calories_ar
+              }
+            />
+            <Cylinder
+              text={
+                currentLanguage === "en" && recipeDetails.difficulty
+                  ? recipeDetails.difficulty
+                  : recipeDetails.difficulty_ar
+              }
+            />
+          </>
+        )}
       </View>
       <TouchableOpacity
         style={[
