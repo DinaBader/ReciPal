@@ -19,7 +19,8 @@ const EditProfile = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [userId, setUserId] = useState(null);
   const [currentLanguage, setLanguage] = useState("en");
-
+  const [name,setname]=useState("");
+  const [mail,setMail]=useState([]);
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (value) => {
@@ -54,6 +55,8 @@ const EditProfile = ({ navigation }) => {
         const user = JSON.parse(userString);
         const retrievedUserId = user._id;
         setUserId(retrievedUserId);
+        setname(user.username)
+        setMail(user.email)
       }
     } catch (error) {
       console.error("Error retrieving data:", error);
@@ -131,6 +134,7 @@ const EditProfile = ({ navigation }) => {
         style={[style.input]}
         value={username}
         onChangeText={handleUsername}
+        placeholder={name}
       />
       <Text
         style={[
@@ -145,6 +149,7 @@ const EditProfile = ({ navigation }) => {
         style={[style.input]}
         value={email}
         onChangeText={handleEmail}
+        placeholder={mail}
       />
       <TouchableOpacity
         style={[common.yellow_bg, style.button, common.raduis, common.center]}
