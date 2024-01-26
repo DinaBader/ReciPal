@@ -241,7 +241,7 @@ const Recipedetail = ({ route, navigation }) => {
         </View>
       )}
 
-      <View
+      {!loading && <View
         style={currentLanguage === "en" ? style.underline : style.underline_ar}
       >
         <Text
@@ -253,7 +253,7 @@ const Recipedetail = ({ route, navigation }) => {
         >
           {t("RecipeDetailPage.Ingredients")}
         </Text>
-      </View>
+      </View>}
       {currentLanguage === "en"
         ? recipeDetails.ingredients &&
           recipeDetails.ingredients.map((ingredient, index) => (
@@ -268,7 +268,7 @@ const Recipedetail = ({ route, navigation }) => {
             </Text>
           ))}
 
-      <View
+      {!loading && <View
         style={currentLanguage === "en" ? style.underline : style.underline_ar}
       >
         <Text
@@ -280,7 +280,7 @@ const Recipedetail = ({ route, navigation }) => {
         >
           {t("RecipeDetailPage.Instructions")}
         </Text>
-      </View>
+      </View>}
       {currentLanguage === "en"
         ? recipeDetails.instructions &&
           recipeDetails.instructions.map((instruction, index) => (
@@ -329,7 +329,8 @@ const Recipedetail = ({ route, navigation }) => {
           </>
         )}
       </View>
-      <TouchableOpacity
+      {!loading &&
+        <TouchableOpacity
         style={[
           common.button_h,
           common.button_w,
@@ -342,7 +343,7 @@ const Recipedetail = ({ route, navigation }) => {
         <Text style={[common.bold, common.font]}>
           {t("RecipeDetailPage.Completed")}
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity>}
     </ScrollView>
   );
 };
