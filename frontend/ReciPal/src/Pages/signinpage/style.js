@@ -11,6 +11,13 @@ const styles= StyleSheet.create({
         fontSize: 30,
         color:'#515151',
     },
+    eu_ar:{
+        paddingRight:50,
+        paddingTop:50,
+        fontWeight:'bold',
+        fontSize: 30,
+        color:'#515151',
+    },
     login:{
         marginLeft:45
     },
@@ -19,8 +26,17 @@ const styles= StyleSheet.create({
         paddingLeft:50,
         fontSize:25
     },
+    signup_ar:{
+        paddingTop:120,
+        paddingRight:50,
+        fontSize:25
+    },
     logoname:{
         paddingLeft:50,
+        fontSize:45
+    },
+    logoname_ar:{
+        paddingRight:50,
         fontSize:45
     }
 })

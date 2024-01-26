@@ -117,7 +117,7 @@ const Signin = ({ navigation }) => {
     >
       <KeyboardAwareScrollView contentContainerStyle={style.container}>
         <View style={style.signup_container}>
-          <Text style={style.eu}>{t("SignupPage.eu")}</Text>
+          <Text style={currentLanguage=="en"?style.eu:style.eu_ar}>{t("SignupPage.eu")}</Text>
           <TouchableOpacity
             onPress={navigateToLogin}
             style={[
@@ -133,11 +133,11 @@ const Signin = ({ navigation }) => {
               {t("SignupPage.Login")}
             </Text>
           </TouchableOpacity>
-          <Text style={[common.yellow, style.signup, common.bold]}>
+          <Text style={currentLanguage=="en"?[common.yellow, style.signup, common.bold]:[common.yellow, style.signup_ar, common.bold]}>
             {t("SignupPage.Signuptext")}
           </Text>
-          <Text style={[common.yellow, style.logoname, common.bold]}>
-            ReciPal
+          <Text style={currentLanguage=="en"?[common.yellow, style.logoname, common.bold]:[common.yellow, style.logoname_ar, common.bold]}>
+            {t("SignupPage.Recipal")}
           </Text>
           <Input
             label="username"
