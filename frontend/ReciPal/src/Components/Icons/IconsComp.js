@@ -24,15 +24,19 @@ const IconsComp = ({navigation}) => {
   }, []);
 
 
-  const navigateToLogout = async() =>{
+  const navigateToLogout = async () => {
     try {
-          await AsyncStorage.clear();
-        } catch (error) {
-          console.error('Error clearing AsyncStorage:', error);
-        }
-    navigation.navigate('Login')
+      const keys = await AsyncStorage.getAllKeys();
+      
+      const filteredKeys = keys.filter((key) => !key.startsWith('language'));
+      
+      await AsyncStorage.multiRemove(filteredKeys);
+      navigation.navigate('Login')
+    } catch (error) {
+      console.error('Error clearing AsyncStorage:', error);
+    }
   }
-
+  
   const navigateToSettings = () =>{
     navigation.navigate('Settings')
   }

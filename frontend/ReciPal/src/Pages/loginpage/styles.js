@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     login: {
       fontWeight: 'bold',
       fontSize: 40,
-      paddingLeft:55,
+      paddingLeft:60,
       paddingTop:50,
     },
     login_ar:{
