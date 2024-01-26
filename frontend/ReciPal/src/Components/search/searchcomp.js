@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Searchbar } from 'react-native-paper';
-import { Text } from 'react-native';
-import axios from 'axios';
-import style from './style';
+import React, { useEffect, useState } from "react";
+import { Searchbar } from "react-native-paper";
+import { Text } from "react-native";
+import axios from "axios";
+import { BASE_URL } from "@env";
+import style from "./style";
 
-const SearchComp = ({ onSearchResultsChange,onCancel  }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+const SearchComp = ({ onSearchResultsChange, onCancel }) => {
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const onChangeSearch = (query) => {
@@ -15,15 +16,14 @@ const SearchComp = ({ onSearchResultsChange,onCancel  }) => {
   const onSubmitSearch = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.0.100:8000/recipe/searchRecipes?name=${searchQuery}`
-        );
-
+        `${BASE_URL}/recipe/searchRecipes?name=${searchQuery}`
+      );
 
       const results = response.data;
-      setSearchResults(results);  
+      setSearchResults(results);
       onSearchResultsChange(results);
     } catch (error) {
-      console.error('Error fetching search results:', error);
+      console.error("Error fetching search results:", error);
     }
   };
 
@@ -34,7 +34,7 @@ const SearchComp = ({ onSearchResultsChange,onCancel  }) => {
   }, [searchResults, onSearchResultsChange]);
 
   const handleCancel = () => {
-    setSearchQuery(''); 
+    setSearchQuery("");
     onCancel();
   };
   return (
@@ -45,10 +45,12 @@ const SearchComp = ({ onSearchResultsChange,onCancel  }) => {
         value={searchQuery}
         style={style.search}
         onSubmitEditing={onSubmitSearch}
-        onIconPress={handleCancel} 
+        onIconPress={handleCancel}
       />
       {Array.isArray(searchResults) &&
-        searchResults.map((result) => <Text key={result.id}>{result.name}</Text>)}
+        searchResults.map((result) => (
+          <Text key={result.id}>{result.name}</Text>
+        ))}
     </>
   );
 };

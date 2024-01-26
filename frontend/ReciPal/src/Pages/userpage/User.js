@@ -7,7 +7,8 @@ import {
   Dimensions,
   ActivityIndicator,
 } from 'react-native';
-import { BASE_URL } from '@env';
+// import { BASE_URL } from '@env';
+import {BASE_URL} from "@env"
 import axios from 'axios';
 import foodCircleData from '../../Components/foodCircleData';
 import common from '../../utils/common';
@@ -37,10 +38,9 @@ const User = ({ navigation }) => {
     i18n 
       .changeLanguage(value) 
       .then(() => {
-        console.log('Language set to:', value)
         setLanguage(value);
       })
-      .catch(err => console.log(err)); 
+      .catch(err => console.error(err)); 
   }; 
   
   useEffect(() => {
@@ -59,7 +59,7 @@ const User = ({ navigation }) => {
       ).then((res)=>{
         setCategorieRecipe(res.data.recipes)
       }).catch((error)=>{
-        console.log("error getting recipes by categorie",error)
+        console.error("error getting recipes by categorie",error)
       })
       return newSelectedFood;
     });
@@ -71,10 +71,12 @@ const User = ({ navigation }) => {
 
   const getRecipes = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/recipe/getRecipe`);
-      setRecipes(response.data.recipes);
+      if(BASE_URL){
+        const response = await axios.get(`${BASE_URL}/recipe/getRecipe`);
+        setRecipes(response.data.recipes);
+      }
     } catch (error) {
-      console.log('Error fetching recipes', error);
+      console.error('Error fetching recipes', error);
     } finally {
       setLoading(false);
     }

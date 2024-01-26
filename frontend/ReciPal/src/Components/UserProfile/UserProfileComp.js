@@ -18,16 +18,14 @@ const UserProfileComp = ({ source, onUpdateImage }) => {
     i18n 
       .changeLanguage(value) 
       .then(() => {
-        console.log('Language set to:', value)
         setLanguage(value);
       })
-      .catch(err => console.log(err)); 
+      .catch(err => console.erro(err)); 
   }; 
   useEffect(() => {
     const retreiveLang=async()=>{
       const lang=await AsyncStorage.getItem("language");
       changeLanguage(lang)
-      // console.log(currentLanguage)
     }
     retreiveLang()
   }, []);
@@ -39,7 +37,8 @@ const UserProfileComp = ({ source, onUpdateImage }) => {
       const user = await AsyncStorage.getItem("user");
       const userId = user._id;
 
-      if (file) {
+      if (file && BASE_URL) {
+
         const formData = new FormData();
         formData.append("image", {
           uri: file,

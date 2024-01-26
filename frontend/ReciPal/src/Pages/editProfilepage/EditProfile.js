@@ -12,32 +12,31 @@ import axios from "axios";
 import { BASE_URL } from "@env";
 import common from "../../utils/common";
 import style from "./style";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const EditProfile = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [userId, setUserId] = useState(null);
-  const [currentLanguage,setLanguage] =useState('en'); 
+  const [currentLanguage, setLanguage] = useState("en");
 
-  const {t, i18n} = useTranslation(); 
+  const { t, i18n } = useTranslation();
 
-  const changeLanguage = (value) => { 
-    i18n 
-      .changeLanguage(value) 
+  const changeLanguage = (value) => {
+    i18n
+      .changeLanguage(value)
       .then(() => {
-        console.log('Language set to:', value)
         setLanguage(value);
       })
-      .catch(err => console.log(err)); 
-  };   
-  
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
-    const retreiveLang=async()=>{
-      const lang=await AsyncStorage.getItem("language")||"en";
-      changeLanguage(lang)
-    }
-    retreiveLang()
+    const retreiveLang = async () => {
+      const lang = (await AsyncStorage.getItem("language")) || "en";
+      changeLanguage(lang);
+    };
+    retreiveLang();
   }, []);
 
   const handleEmail = (text) => {
@@ -77,27 +76,29 @@ const EditProfile = ({ navigation }) => {
     if (username == "" && email == "") {
       showAlert();
     } else {
-      const Token = await AsyncStorage.getItem("jwt");
-      axios
-        .post(
-          `${BASE_URL}/reward/editProfile`,
-          {
-            username,
-            email,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${Token}`,
+      if (BASE_URL) {
+        const Token = await AsyncStorage.getItem("jwt");
+        axios
+          .post(
+            `${BASE_URL}/reward/editProfile`,
+            {
+              username,
+              email,
             },
-          }
-        )
-        .then((res) => {
-          setUsername("");
-          setEmail("");
-        })
-        .catch((error) => {
-          console.log("error", error);
-        });
+            {
+              headers: {
+                Authorization: `Bearer ${Token}`,
+              },
+            }
+          )
+          .then((res) => {
+            setUsername("");
+            setEmail("");
+          })
+          .catch((error) => {
+            console.error("error", error);
+          });
+      }
     }
   };
 
@@ -113,15 +114,33 @@ const EditProfile = ({ navigation }) => {
             style={common.back_Icon}
           />
         </TouchableOpacity>
-        <Text style={[common.header, common.white]}>{t('EditProfilePage.Profile')}</Text>
+        <Text style={[common.header, common.white]}>
+          {t("EditProfilePage.Profile")}
+        </Text>
       </View>
-      <Text style={[currentLanguage==="en"?[common.gray, style.title]:[common.gray, style.arabic]]}>{t('EditProfilePage.Username')}</Text>
+      <Text
+        style={[
+          currentLanguage === "en"
+            ? [common.gray, style.title]
+            : [common.gray, style.arabic],
+        ]}
+      >
+        {t("EditProfilePage.Username")}
+      </Text>
       <TextInput
         style={[style.input]}
         value={username}
         onChangeText={handleUsername}
       />
-      <Text style={[currentLanguage==="en"?[common.gray, style.title]:[common.gray, style.arabic]]}>{t('EditProfilePage.Email')}</Text>
+      <Text
+        style={[
+          currentLanguage === "en"
+            ? [common.gray, style.title]
+            : [common.gray, style.arabic],
+        ]}
+      >
+        {t("EditProfilePage.Email")}
+      </Text>
       <TextInput
         style={[style.input]}
         value={email}
@@ -131,7 +150,7 @@ const EditProfile = ({ navigation }) => {
         style={[common.yellow_bg, style.button, common.raduis, common.center]}
         onPress={handleSubmit}
       >
-        <Text style={[common.bold]}>{t('EditProfilePage.Submit')}</Text>
+        <Text style={[common.bold]}>{t("EditProfilePage.Submit")}</Text>
       </TouchableOpacity>
     </View>
   );

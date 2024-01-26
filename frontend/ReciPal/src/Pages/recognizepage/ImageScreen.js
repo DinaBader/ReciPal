@@ -24,16 +24,14 @@ const ImageScreen = ({navigation}) => {
     i18n 
       .changeLanguage(value) 
       .then(() => {
-        console.log('Language set to:', value)
         setLanguage(value);
       })
-      .catch(err => console.log(err)); 
+      .catch(err => console.error(err)); 
   }; 
   useEffect(() => {
     const retreiveLang=async()=>{
       const lang=await AsyncStorage.getItem("language")||"en";
       changeLanguage(lang)
-      // console.log(currentLanguage)
     }
     retreiveLang()
   }, []);
@@ -46,7 +44,6 @@ const ImageScreen = ({navigation}) => {
         //     name: `recipe_photo.jpg`,
         //     type: "image/jpg",
         //   });
-  
   
           const photoResponse = await axios.post(
             `${BASE_URL}/tags/getImageTags`,
@@ -64,13 +61,12 @@ const ImageScreen = ({navigation}) => {
         getRecipes(food)
     } catch (error) {
       if (error.response) {
-        console.log("BASE_URL:", BASE_URL);
+        console.error("BASE_URL:", BASE_URL);
   
         console.error("Response data:", error.response.data);
         console.error("Response status:", error.response.status);
         console.error("Response headers:", error.response.headers);
       } else if (error.request) {
-        console.log("BASE_URL:", BASE_URL);
   
         console.error("Request data:", error.request);
       } else {
@@ -125,7 +121,7 @@ const ImageScreen = ({navigation}) => {
       const res = response.data.recipes;
       setRecipes(res);
     } catch (error) {
-      console.log("Error getting recipes", error.message);
+      console.error("Error getting recipes", error.message);
     }
   };
     

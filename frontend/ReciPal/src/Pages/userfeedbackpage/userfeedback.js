@@ -16,7 +16,7 @@ const Userfeedback = ({navigation}) => {
         setFeedback(response);
        })
     }catch(error){
-      console.log("Error fetching feedback",error);
+      console.error("Error fetching feedback",error);
     }
   }
   const navigatoHome=()=>{
@@ -46,7 +46,7 @@ const Userfeedback = ({navigation}) => {
         getFeedback(updatedFeedback);
        })
     }catch(error){
-      console.log("Error deleting the feedback",error);
+      console.error("Error deleting the feedback",error);
     }
   }
 

@@ -11,16 +11,14 @@ const IconsComp = ({navigation}) => {
     i18n 
       .changeLanguage(value) 
       .then(() => {
-        console.log('Language set to:', value)
         setLanguage(value);
       })
-      .catch(err => console.log(err)); 
+      .catch(err => console.error(err)); 
   }; 
   useEffect(() => {
     const retreiveLang=async()=>{
       const lang=await AsyncStorage.getItem("language");
       changeLanguage(lang)
-      // console.log(currentLanguage)
     }
     retreiveLang()
   }, []);

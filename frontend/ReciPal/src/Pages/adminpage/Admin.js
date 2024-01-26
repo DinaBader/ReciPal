@@ -30,7 +30,7 @@ const Admin = ({navigation}) => {
       `${BASE_URL}/recipe/getRecipe`).then(function(res){ 
         setRecipes(res.data.recipes)
       }).catch((error)=>{
-        console.log("Error fetching recipes",error);
+        console.error("Error fetching recipes",error);
       })
   };
 
@@ -44,7 +44,7 @@ const Admin = ({navigation}) => {
        ).then((res)=>{
        })
     }catch(error){
-      console.log("error deleting recipe",error)
+      console.error("error deleting recipe",error)
     }
   }
 
