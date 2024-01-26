@@ -296,73 +296,77 @@ const Recipedetail = ({ route, navigation }) => {
                 ))}
           {!showAllIngredients && (
             <TouchableOpacity onPress={toggleShowAllIngredients}>
-              <Text style={style.link}>Show more</Text>
+              <Text style={currentLanguage=="en"?style.link:style.link_ar}>{t('RecipeDetailPage.Show More')}</Text>
             </TouchableOpacity>
           )}
           {showAllIngredients && (
             <TouchableOpacity onPress={() => toggleShowAllIngredients(false)}>
-              <Text style={style.link}>Show less</Text>
+              <Text style={currentLanguage=="en"?style.link:style.link_ar}>{t('RecipeDetailPage.Show Less')}</Text>
             </TouchableOpacity>
           )}
         </>
       )}
 
-{!loading && (
-  <>
-    <View
-      style={
-        currentLanguage === "en" ? style.underline : style.underline_ar
-      }
-    >
-      <Text
-        style={[
-          currentLanguage === "en"
-            ? [common.white, common.bold, style.ingredientsTitle]
-            : [common.white, common.bold, style.arabic],
-        ]}
-      >
-        {t("RecipeDetailPage.Instructions")}
-      </Text>
-    </View>
-    {currentLanguage === "en"
-      ? recipeDetails.instructions &&
-        recipeDetails.instructions
-          .slice(0, showAllInstructions ? recipeDetails.instructions.length : 4)
-          .map((instruction, index) => (
+      {!loading && (
+        <>
+          <View
+            style={
+              currentLanguage === "en" ? style.underline : style.underline_ar
+            }
+          >
             <Text
-              key={index}
-              style={[common.white, style.ingredientsText]}
+              style={[
+                currentLanguage === "en"
+                  ? [common.white, common.bold, style.ingredientsTitle]
+                  : [common.white, common.bold, style.arabic],
+              ]}
             >
-              {instruction}
+              {t("RecipeDetailPage.Instructions")}
             </Text>
-          ))
-      : recipeDetails.instructions_ar &&
-        recipeDetails.instructions_ar
-          .slice(0, showAllInstructions ? recipeDetails.instructions_ar.length : 4)
-          .map((instruction, index) => (
-            <Text
-              key={index}
-              style={[common.white, style.ingredientsText]}
-            >
-              {instruction}
-            </Text>
-          ))}
-    {!showAllInstructions && recipeDetails.instructions && recipeDetails.instructions.length > 4 && (
-      <TouchableOpacity onPress={toggleShowAllInstructions}>
-        <Text style={style.link}>
-          Show More
-        </Text>
-      </TouchableOpacity>
-    )}
-    {showAllInstructions && (
-      <TouchableOpacity onPress={() => toggleShowAllInstructions(false)}>
-        <Text style={style.link}>
-        Show Less
-        </Text>
-      </TouchableOpacity>
-    )}
-  </>
-)}
+          </View>
+          {currentLanguage === "en"
+            ? recipeDetails.instructions &&
+              recipeDetails.instructions
+                .slice(
+                  0,
+                  showAllInstructions ? recipeDetails.instructions.length : 4
+                )
+                .map((instruction, index) => (
+                  <Text
+                    key={index}
+                    style={[common.white, style.ingredientsText]}
+                  >
+                    {instruction}
+                  </Text>
+                ))
+            : recipeDetails.instructions_ar &&
+              recipeDetails.instructions_ar
+                .slice(
+                  0,
+                  showAllInstructions ? recipeDetails.instructions_ar.length : 4
+                )
+                .map((instruction, index) => (
+                  <Text
+                    key={index}
+                    style={[common.white, style.ingredientsText]}
+                  >
+                    {instruction}
+                  </Text>
+                ))}
+          {!showAllInstructions &&
+            recipeDetails.instructions &&
+            recipeDetails.instructions.length > 4 && (
+              <TouchableOpacity onPress={toggleShowAllInstructions}>
+                <Text style={currentLanguage=="en"?style.link:style.link_ar}>{t('RecipeDetailPage.Show More')}</Text>
+              </TouchableOpacity>
+            )}
+          {showAllInstructions && (
+            <TouchableOpacity onPress={() => toggleShowAllInstructions(false)}>
+              <Text style={currentLanguage=="en"?style.link:style.link_ar}>{t('RecipeDetailPage.Show Less')}</Text>
+            </TouchableOpacity>
+          )}
+        </>
+      )}
 
       <View style={[common.flex, style.cylinder]}>
         {loading === false && (

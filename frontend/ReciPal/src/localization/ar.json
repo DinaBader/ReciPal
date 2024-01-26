@@ -77,7 +77,10 @@
     "RecipeDetailPage": {
         "Ingredients": "المكونات",
         "Instructions": "التعليمات",
-        "Completed": "تم"
+        "Completed": "تم",
+        "Show More": "أظهر المزيد",
+        "Show Less": "أظهر أقل"
+      
     }    
      
     

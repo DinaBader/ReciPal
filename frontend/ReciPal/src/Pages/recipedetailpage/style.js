@@ -64,6 +64,12 @@ const styles = StyleSheet.create({
       link:{
         color:'#FFBF4D',
         paddingLeft:150,
+        paddingTop:10
+      },
+      link_ar:{
+        color:'#FFBF4D',
+        paddingRight:150,
+        paddingTop:10
       }
     
 })
