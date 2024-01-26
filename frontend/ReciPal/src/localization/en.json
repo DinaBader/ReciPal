@@ -55,7 +55,7 @@
     "AwardsPage":{
         "Awards":"Awards",
         "Congrats":"Congrats you got an award from",
-        "Empty":"No rewards available. Complete recipes to get rewards."
+        "Empty":"No Awards available. Complete recipes to get awards."
     },
     "LoginPage":{
         "title":"LOG IN",

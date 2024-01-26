@@ -144,11 +144,7 @@ const Recipedetail = ({ route, navigation }) => {
   useEffect(() => {
     const getItem = async () => {
       const Completed = await AsyncStorage.getItem(`completed_${recipeId}`);
-      if (Completed == "false") {
-        SetCompleted(false);
-      } else {
-        SetCompleted(true);
-      }
+      SetCompleted(Completed === "true"); 
     };
     getItem();
   }, []);
@@ -181,6 +177,7 @@ const Recipedetail = ({ route, navigation }) => {
                 }
               );
             }
+            navigation.navigate('Awards')
           } catch (error) {
             console.error("Error adding reward:", error);
           }
