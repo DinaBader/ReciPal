@@ -43,7 +43,10 @@ const Styles=StyleSheet.create({
         borderRadius:10,
         paddingLeft:30,
         display:'flex',
-        flexWrap:'wrap'
+        flexWrap:'wrap',
+        justifyContent: 'center',
+        alignItems: 'center', 
+        paddingTop:4
     }
 
 })
