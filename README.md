@@ -24,7 +24,7 @@
 <!-- Tech stack -->
 <img src="./readme/title3.svg"/>
 
-###  Coffee Express is built using the following technologies:
+###  Recipal is built using the following technologies:
 
 - This project uses the React Native framework. React native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
 - For persistent storage (database), the app uses the MongoDB package which allows storing data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time.
@@ -65,7 +65,7 @@
 
 ### User Screens (Mobile)
 | Login screen  | Register screen | Landing screen |
-| ---| ---| ---| ---|
+| ---| ---| ---|
 | ![Landing](/readme/screenshots/login.jpg) | ![Landing](/readme/screenshots/signin.jpg) | ![Landing](/readme/screenshots/landing.jpg) |
 | Recipe Details screen  | Saved Screen | Awards Screen | Recommendation Screen | Languages Screen 
 | ![Landing](/readme/screenshots/recipedetails.jpg) | ![Landing](/readme/screenshots/saved.jpg) | ![Landing](/readme/screenshots/awards.jpg) | ![Landing](/readme/gifs/suggestion_kHUM20x1.mp4) | ![Landing](/readme/gifs/languages.mp4) |
