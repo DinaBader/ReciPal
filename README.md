@@ -72,7 +72,8 @@
 | ---| ---| ---|
 | ![Details](/readme/screenshots/recipedetails.jpg) | ![Saved](/readme/screenshots/saved.jpg) | ![Awards](/readme/screenshots/awards.jpg) |
 
-| Recommendation Screen | Languages Screen 
+| Recommendation Screen | Languages Screen |
+| ---| ---|
 | ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) |
 
 ### Admin Screens (Mobile)
