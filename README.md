@@ -1,68 +1,105 @@
-# ReciPal
-![title1](https://github.com/DinaBader/ReciPal/assets/131765110/a5913c84-68ac-4831-9147-7d9941ecfe73)
+<img src="./readme/title1.svg"/>
+
 <br><br>
 
-![title2](https://github.com/DinaBader/ReciPal/assets/131765110/34faaa2b-874d-4146-a0a5-3340f23833cf)
+<!-- project philosophy -->
+<img src="./readme/title2.svg"/>
+
 > A mobile app for getting recipes, making it easier for food lovers to get their favorite recipes without the hassle of searching online.
+>
+> ReciPal aims to streamline the cooking process by providing a user-friendly platform for customers to search for recipes and get recipes based on the ingrdients they have at home. We believe in enhancing the cooking experience by saving time and ensuring user satisfaction.
 
 ### User Stories
 **User**:
 - As a user, I want to be able to get recipes based on the ingredients that I have at home.
-- As a user, I want cooking to be more fun, so that I get excited to save money and make home cooked meals more often.
-- As a user, I want to be able to save my recipes so that I can access them whenever without having to look for it in a field of other recipes.
-<br><br>
+- As a user, I want to have multiple languages, so I can translate the ingredients that I don't understand.
+- As a user, I want to be able to save Recipes, so I that I don't have to search for the same recipe again.
 
 **Admin**:
-- As an admin, I want to be able to add new recipes based on the dieteray restrictions of each user.
-- As an admin, I want to be able to receive feedback to ensure a smooth user experience.
+- As a admin, I want to be able to see the statistics for the number of users and saved recipes .
+- As a admin, I want to be able to add and remove recipes.
+- As a admin, I want to be able to check user feedback so that I can offer a better user experience.
 
-![title3](https://github.com/DinaBader/ReciPal/assets/131765110/04db1aa7-1f5e-4482-aa9a-2fab6fd3de50)
+<br><br>
+<!-- Tech stack -->
+<img src="./readme/title3.svg"/>
+
+###  Recipal is built using the following technologies:
+
+- This project uses the React Native framework. React native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
+- For persistent storage (database), the app uses the MongoDB package which allows storing data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time.
+- The app uses the Imagga technologie for image recognition. Imagga offers powerful image recognition and tagging capabilities, allowing the application to analyze and understand the content of images with precision.
+- For translation, the app uses i18n (internationalization). i18n provides a robust framework for managing translations and localizations within the application.
+
+<br><br>
+<!-- UI UX -->
+<img src="./readme/title4.svg"/>
+
+
 > We designed ReciPal using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
-### Wireframes
-| Login screen  | Register screen |  Landing screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+- Project Figma design [figma](https://www.figma.com/file/77x4fDfFQlj0g2biaUPTjJ/Untitled?type=design&node-id=114%3A621&mode=design&t=sNpH2jnBRthMJnpY-1)
+
 
 ### Mockups
-| Home screen  | Menu Screen | Order Screen |
+| Home screen  | Settings Screen | Recipe Details Screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Home](/readme/screenshots/home-mock.jpg) | ![Settings](/readme/screenshots/settings-mock.jpg) | ![Details](/readme/screenshots/details-mock.jpg) |
 
 <br><br>
 
-![title4](https://github.com/DinaBader/ReciPal/assets/131765110/25b8cf31-424d-4403-add6-7f0d06fcb808)
-> Using the wireframes and mockups as a guide, we implemented the Coffee Express app with the following features:
+<!-- Database Design -->
+<img src="./readme/title5.svg"/>
+
+###  Architecting Data Excellence: Innovative Database Design Strategies:
+
+-![Database](/readme/screenshots/db.jpg)
+
+
+<br><br>
+
+
+<!-- Implementation -->
+<img src="./readme/title6.svg"/>
+
 
 ### User Screens (Mobile)
-| Login screen  | Register screen | Landing screen | Loading screen |
-| ---| ---| ---| ---|
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-| Home screen  | Menu Screen | Order Screen | Checkout Screen |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-
-### Admin Screens (Web)
-| Login screen  | Register screen |  Landing screen |
+| Login screen  | Register screen | Landing screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-| Home screen  | Menu Screen | Order Screen |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Login](/readme/screenshots/login.jpg) | ![Register](/readme/screenshots/signin.jpg) | ![Landing](/readme/screenshots/landing.jpg) |
+| Recipe Details screen  | Saved Screen | Awards Screen | Recommendation Screen | Languages Screen 
+| ---| ---| ---| ---| ---|
+| ![Landing](/readme/screenshots/recipedetails.jpg) | ![Landing](/readme/screenshots/saved.jpg) | ![Landing](/readme/screenshots/awards.jpg) | ![Landing](/readme/gifs/suggestion_kHUM20x1.mp4) | ![Landing](/readme/gifs/languages.mp4) |
 
-<br><br>
-
-![title5](https://github.com/DinaBader/ReciPal/assets/131765110/d24b798d-0485-4c78-821a-772291a74352)
-###  Coffee Express is built using the following technologies:
-
-- This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) package which supports Android, iOS, and macOS.
-  - 🚨 Currently, notifications aren't working on macOS. This is a known issue that we are working to resolve!
-- The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
-
+### Admin Screens (Mobile)
+| Home screen  | Feedback Screen |
+| ---| ---|
+| ![Landing](/readme/screenshots/home.jpg) | ![Landing](/readme/screenshots/feedback.jpg) | 
 <br><br>
 
 
-![title6](https://github.com/DinaBader/ReciPal/assets/131765110/457799c8-44c3-42e4-92eb-f6a0b993c2a6)
+<!-- AWS Deployment -->
+<img src="./readme/title8.svg"/>
+
+###  Efficient AI Deployment: Unleashing the Potential with AWS Integration:
+
+- This project leverages AWS deployment strategies to seamlessly integrate and deploy natural language processing models. With a focus on scalability, reliability, and performance, we ensure that AI applications powered by these models deliver robust and responsive solutions for diverse use cases.
+
+<br><br>
+
+<!-- Unit Testing -->
+<img src="./readme/title9.svg"/>
+
+###  Precision in Development: Harnessing the Power of Unit Testing:
+
+- This project employs rigorous unit testing methodologies to ensure the reliability and accuracy of code components. By systematically evaluating individual units of the software, we guarantee a robust foundation, identifying and addressing potential issues early in the development process.
+
+<br><br>
+
+
+<!-- How to run -->
+<img src="./readme/title10.svg"/>
+
 > To set up Coffee Express locally, follow these steps:
 
 ### Prerequisites
@@ -77,11 +114,9 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [example](https://example.com)
 2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
+   git clone [github](https://github.com/your_username_/Project-Name.git)
 3. Install NPM packages
    ```sh
    npm install
