@@ -44,7 +44,7 @@
 ### Mockups
 | Home screen  | Settings Screen | Recipe Details Screen |
 | ---| ---| ---|
-| ![Landing](/readme/screenshots/home-mock.jpg) | ![Landing](/readme/screenshots/settings-mock.jpg) | ![Landing](/readme/screenshots/details-mock.jpg) |
+| ![Home](/readme/screenshots/home-mock.jpg) | ![Settings](/readme/screenshots/settings-mock.jpg) | ![Details](/readme/screenshots/details-mock.jpg) |
 
 <br><br>
 
@@ -53,7 +53,7 @@
 
 ###  Architecting Data Excellence: Innovative Database Design Strategies:
 
--![Landing](/readme/screenshots/db.jpg)
+-![Database](/readme/screenshots/db.jpg)
 
 
 <br><br>
@@ -66,12 +66,13 @@
 ### User Screens (Mobile)
 | Login screen  | Register screen | Landing screen |
 | ---| ---| ---|
-| ![Landing](/readme/screenshots/login.jpg) | ![Landing](/readme/screenshots/signin.jpg) | ![Landing](/readme/screenshots/landing.jpg) |
+| ![Login](/readme/screenshots/login.jpg) | ![Register](/readme/screenshots/signin.jpg) | ![Landing](/readme/screenshots/landing.jpg) |
 | Recipe Details screen  | Saved Screen | Awards Screen | Recommendation Screen | Languages Screen 
-| ![Landing](/readme/screenshots/recipedetails.jpg) | ![Landing](/readme/screenshots/saved.jpg) | ![Landing](/readme/screenshots/awards.jpg) | ![Landing](/readme/gifs/suggestion_kHUM20x1.mp4) | ![Landing](/readme/gifs/languages.mp4) |
+| ![Details](/readme/screenshots/recipedetails.jpg) | ![Saved](/readme/screenshots/saved.jpg) | ![Awards](/readme/screenshots/awards.jpg) | ![Recommendation](/readme/gifs/suggestion_kHUM20x1.mp4) | ![Languages](/readme/gifs/languages.mp4) |
 
 ### Admin Screens (Mobile)
 | Home screen  | Feedback Screen |
+| ---| ---|
 | ![Landing](/readme/screenshots/home.jpg) | ![Landing](/readme/screenshots/feedback.jpg) | 
 <br><br>
 
