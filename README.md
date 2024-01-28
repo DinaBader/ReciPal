@@ -72,7 +72,7 @@
 
 ### Admin Screens (Mobile)
 | Home screen  | Feedback Screen |
-| ![Landing](/readme/screenshots/home.jpg) | ![fsdaf](/readme/screenshots/feedback.jpg) | 
+| ![Landing](/readme/screenshots/home.jpg) | ![Landing](/readme/screenshots/feedback.jpg) | 
 <br><br>
 
 
