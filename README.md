@@ -102,12 +102,12 @@
 | Feature Test 1  | Feature Test 2 |
 | ---| ---|
 | ![Landing](/readme/screenshots/test1.jpg) | ![Landing](/readme/screenshots/test2.jpg) | 
-| Feature Test 3  | Feature Test 4 |
 
+| Feature Test 3  | Feature Test 4 |
 | ---| ---|
 | ![Landing](/readme/screenshots/test3.jpg) | ![Landing](/readme/screenshots/test4.jpg) | 
-| Feature Test 5  | Feature Test 6 |
 
+| Feature Test 5  | Feature Test 6 |
 | ---| ---|
 | ![Landing](/readme/screenshots/test5.jpg) | ![Landing](/readme/screenshots/test6.jpg) | 
 
