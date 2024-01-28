@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { BASE_URL } from "@env";
+import {BASE_URL} from "@env"
 import common from "../../utils/common";
 import AwardsComp from "../../Components/awards/awards";
 import { useTranslation } from "react-i18next";

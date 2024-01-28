@@ -12,10 +12,7 @@ import axios from "axios";
 import styles from "./styles";
 import common from "../../utils/common";
 import { useTranslation } from "react-i18next";
-
-// import {BASE_URL} from '@env'
-// import { BASE_URL } from "@env";
-import {BASE_URL} from "@env"
+import {BASE_URL} from "@env" 
 const Login = ({ navigation }) => {
   const [usernameOrEmail, setName] = useState("");
   const [password, setPassword] = useState("");

@@ -4,6 +4,7 @@ import common from "../../utils/common";
 import style from "./style";
 import axios from "axios";
 import { BASE_URL } from "@env";
+// import { BASE_URL } from "@env";
 import { useTranslation } from "react-i18next";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 

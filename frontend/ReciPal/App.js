@@ -47,8 +47,6 @@ const App = () => {
   }, []);
 
   useEffect(()=>{
-    console.log(isLoggedIn);
-    console.log(typeof userRole);
   },[isLoggedIn]);
   const Tab=createBottomTabNavigator();
   return (

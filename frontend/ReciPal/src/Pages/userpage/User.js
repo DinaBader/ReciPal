@@ -7,7 +7,6 @@ import {
   Dimensions,
   ActivityIndicator,
 } from 'react-native';
-// import { BASE_URL } from '@env';
 import {BASE_URL} from "@env"
 import axios from 'axios';
 import foodCircleData from '../../Components/foodCircleData';

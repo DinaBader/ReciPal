@@ -78,6 +78,7 @@ const Signin = ({ navigation }) => {
 
   const handleSubmit = () => {
     if (BASE_URL) {
+      console.log(BASE_URL)
       axios
         .post(
           `${BASE_URL}/auth/register`,
