@@ -68,7 +68,8 @@
 | ---| ---| ---|
 | ![Login](/readme/screenshots/login.jpg) | ![Register](/readme/screenshots/signin.jpg) | ![Landing](/readme/screenshots/landing.jpg) |
 | Recipe Details screen  | Saved Screen | Awards Screen | Recommendation Screen | Languages Screen 
-| ![Details](/readme/screenshots/recipedetails.jpg) | ![Saved](/readme/screenshots/saved.jpg) | ![Awards](/readme/screenshots/awards.jpg) | ![Recommendation](/readme/gifs/suggestion_kHUM20x1.mp4) | ![Languages](/readme/gifs/languages.mp4) |
+| ---| ---| ---| ---| ---|
+| ![Landing](/readme/screenshots/recipedetails.jpg) | ![Landing](/readme/screenshots/saved.jpg) | ![Landing](/readme/screenshots/awards.jpg) | ![Landing](/readme/gifs/suggestion_kHUM20x1.mp4) | ![Landing](/readme/gifs/languages.mp4) |
 
 ### Admin Screens (Mobile)
 | Home screen  | Feedback Screen |
