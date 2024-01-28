@@ -89,6 +89,15 @@
 ###  Efficient AI Deployment: Unleashing the Potential with AWS Integration:
 
 - This project leverages AWS deployment strategies to seamlessly integrate and deploy natural language processing models. With a focus on scalability, reliability, and performance, we ensure that AI applications powered by these models deliver robust and responsive solutions for diverse use cases.
+| Feature Test 1  | Feature Test 2 |
+| ---| ---|
+| ![Landing](/readme/screenshots/test1.jpg) | ![Landing](/readme/screenshots/test2.jpg) | 
+| Feature Test 3  | Feature Test 4 |
+| ---| ---|
+| ![Landing](/readme/screenshots/test3.jpg) | ![Landing](/readme/screenshots/test4.jpg) | 
+| Feature Test 5  | Feature Test 6 |
+| ---| ---|
+| ![Landing](/readme/screenshots/test5.jpg) | ![Landing](/readme/screenshots/test6.jpg) | 
 
 <br><br>
 

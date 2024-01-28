@@ -58,11 +58,10 @@ describe("Registration", () => {
 
 describe("Login", () => {
     beforeEach(async () => {
-      // Create a user for testing
       await User.create({
         username: "testuser",
         email: "test@example.com",
-        password: await bcrypt.hash("testpassword", 10), // Hash the password for testing
+        password: await bcrypt.hash("testpassword", 10), 
       });
     });
     
@@ -169,24 +168,19 @@ describe("Login", () => {
             const reviewData = {
               feedback: "This is a great product!",
             };
-        
             const response = await request(app)
               .post("/review/addReview")
               .send(reviewData);
-        
             expect(response.status).toBe(200);
             expect(response.body).toHaveProperty("review");
-        
             const addedReview = await Review.findById(response.body.review._id);
             expect(addedReview).toBeTruthy();
             expect(addedReview.feedback).toEqual(reviewData.feedback);
           });
-        
           it("should return an error if review is empty", async () => {
             const reviewData = {
               feedback: "", 
             };
-        
             const response = await request(app)
               .post("/review/addReview")
               .send(reviewData);
