@@ -22,7 +22,7 @@ const EditProfile = ({ navigation }) => {
   const [userId, setUserId] = useState(null);
   const [currentLanguage, setLanguage] = useState("en");
   const [name,setname]=useState("");
-  const [mail,setMail]=useState([]);
+  const [mail,setMail]=useState("");
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (value) => {

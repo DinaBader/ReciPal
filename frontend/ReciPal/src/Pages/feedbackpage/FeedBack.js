@@ -4,7 +4,6 @@ import common from "../../utils/common";
 import style from "./style";
 import axios from "axios";
 import { BASE_URL } from "@env";
-// import { BASE_URL } from "@env";
 import { useTranslation } from "react-i18next";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -59,7 +58,11 @@ const FeedBack = ({ navigation }) => {
         })
         .catch((error) => {
           try {
-            console.error("Error", error.response.data);
+            if (error.response) {
+              console.error("Error", error.response.data);
+            } else {
+              console.error("Error:", error);
+            }
           } catch (error) {
             console.error("Error:", error);
           }
