@@ -11,6 +11,9 @@ const login = async (req, res) => {
   } else {
     user = await User.findOne({ username: usernameOrEmail });
   }
+  if (!password) {
+    return res.status(400).send({ message: "Password is required" });
+  }
 
   if (!user) {
     return res
@@ -44,13 +47,11 @@ const login = async (req, res) => {
 const register = async (req, res) => {
   const { email, password, role, username } = req.body;
   if (!password || !email || !username) {
-    res.status(400).send({ message: "all fields are required" });
+    return res.status(400).send({ message: "all fields are required" });
   }
   const existingUser = await User.findOne({ $or: [{ email }, { username }] });
-
   if (existingUser) {
-    res.status(400).send({ message: "Email or username already exists" });
-    return;
+    return res.status(400).send({ message: "Email or username already exists" });
   }
 
   try {
@@ -79,12 +80,12 @@ const register = async (req, res) => {
       }
     );
     res.status(200).send({ user: userDetails, token });
-    return;
-  } catch (e) {
-    console.error(e);
-    res.status(500).send({ error: e });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: "Internal Server Error" });
   }
 };
+
 
 module.exports = {
   login,
