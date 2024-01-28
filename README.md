@@ -70,9 +70,8 @@
 | Recipe Details screen  | Saved Screen | Awards Screen | 
 | ---| ---| ---| 
 | ![Details](/readme/screenshots/recipedetails.jpg) | ![Saved](/readme/screenshots/saved.jpg) | ![Awards](/readme/screenshots/awards.jpg) |
-| Recommendation Screen | Languages Screen | 
-| ---| ---|
-![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) |
+| Recommendation Screen | Languages Screen 
+| ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) |
 
 ### Admin Screens (Mobile)
 | Home screen  | Feedback Screen |
