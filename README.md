@@ -51,7 +51,7 @@
 <img src="./readme/title5.svg"/>
 
 
-(/readme/screenshots/db.jpg)
+![Database](/readme/screenshots/db.jpg)
 
 
 <br><br>
