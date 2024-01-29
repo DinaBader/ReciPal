@@ -74,7 +74,7 @@
 
 | Recommendation screen  | Languages Screen |
 | ---| ---|
-| ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/lang.gif) | 
+| ![Recommendation](/readme/gifs/sugg.gif) | ![Languages](/readme/gifs/languages.gif) | 
 
 
 ### Admin Screens (Mobile)
