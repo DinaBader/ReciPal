@@ -38,20 +38,20 @@
 
 > We designed ReciPal using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
-- Project Figma design [figma](https://www.figma.com/file/77x4fDfFQlj0g2biaUPTjJ/Untitled?type=design&node-id=114%3A621&mode=design&t=sNpH2jnBRthMJnpY-1)
 
 
-### Mockups
+### Mockup Examples
 | Home screen  | Settings Screen | Recipe Details Screen |
 | ---| ---| ---|
 | ![Home](/readme/screenshots/home-mock.jpg) | ![Settings](/readme/screenshots/settings-mock.jpg) | ![Details](/readme/screenshots/details-mock.jpg) |
+
+- Check more Mockups on [figma](https://www.figma.com/file/77x4fDfFQlj0g2biaUPTjJ/Untitled?type=design&node-id=114%3A621&mode=design&t=sNpH2jnBRthMJnpY-1)
 
 <br><br>
 
 <!-- Database Design -->
 <img src="./readme/title5.svg"/>
 
-###  Architecting Data Excellence: Innovative Database Design Strategies:
 
 -![Database](/readme/screenshots/db.jpg)
 
@@ -86,7 +86,6 @@
 <!-- AWS Deployment -->
 <img src="./readme/title7.svg"/>
 
-###  Efficient AI Deployment: Unleashing the Potential with AWS Integration:
 
 - This project leverages AWS deployment strategies to seamlessly integrate and deploy natural language processing models. With a focus on scalability, reliability, and performance, we ensure that AI applications powered by these models deliver robust and responsive solutions for diverse use cases.
 
@@ -95,7 +94,6 @@
 <!-- Unit Testing -->
 <img src="./readme/title8.svg"/>
 
-###  Precision in Development: Harnessing the Power of Unit Testing:
 
 - This project employs rigorous unit testing methodologies to ensure the reliability and accuracy of code components. By systematically evaluating individual units of the software, we guarantee a robust foundation, identifying and addressing potential issues early in the development process.
 
