@@ -3,8 +3,6 @@ const FormData = require('form-data');
 const fs = require('fs');
 
 async function getImageTags(req, res) {
-    const apiKey = 'acc_835aa1acaeac599';
-    const apiSecret = '657be76654c8c4d4546041f2445a753d';
 
     // const { image } = req.files;
     // if (!image) return res.sendStatus(400);
@@ -16,7 +14,7 @@ async function getImageTags(req, res) {
     
     try {
         const url = 'https://api.imagga.com/v2/tags?image_url=' + imageUrl;
-        const response = await got(url, { username: apiKey, password: apiSecret });
+        const response = await got(url, { username: process.env.apiKey, password: process.env.apiSecret });
 
         const imaggaApiResponse = JSON.parse(response.body);
         const tags = imaggaApiResponse.result.tags;

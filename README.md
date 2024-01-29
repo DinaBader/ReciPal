@@ -128,7 +128,7 @@
 
 ### Installation
 
-1. Get a free API Key at [example](https://imagga.com/auth/signin)
+1. Get a free API Key at [Imagga](https://imagga.com/auth/signin)
 2. Clone the repo
    git clone [github](https://github.com/DinaBader/ReciPal.git)
 3. Install NPM packages
