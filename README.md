@@ -74,7 +74,7 @@
 
 | Recommendation Screen | Languages Screen |
 | ---| ---|
-| ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) |
+| ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/lang.gif) |
 
 ### Admin Screens (Mobile)
 | Home screen  | Feedback Screen |
@@ -127,15 +127,28 @@
 ### Installation
 
 1. Get a free API Key at [Imagga](https://imagga.com/auth/signin)
-2. Clone the repo
+
+2. Get a free API password at [Imagga](https://imagga.com/auth/signin)
+
+3. Clone the repo
    git clone [github](https://github.com/DinaBader/ReciPal.git)
-3. Install NPM packages
+4. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `.env`
+5. Enter your API in `.env` in the backend
    ```js
    const API_KEY = 'ENTER YOUR API';
+   const API_SECRET = 'ENTER YOUR API';
    ```
+6. Run React app
+   ```sh
+   expo start
+   ```
+7. Run NodeJs
+   ```sh
+   npm start
+   ```
+
 
 Now, you should be able to run ReciPal locally and explore its features.
