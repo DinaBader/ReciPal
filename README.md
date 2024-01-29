@@ -87,13 +87,24 @@
 
 
 ### 1. Download and install PuTTY
-PuTTY is a free and open source terminal emulator that you will use to connect to your EC2 instance via SSH. You can download [PuTTY] (https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it on your PC.
+PuTTY is a free and open source terminal emulator that you will use to connect to your EC2 instance via SSH. You can download [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) and install it on your PC.
 
 ### 2. Connect to  EC2 instance via SSH
 To SSH into your EC2 instance, use the SSH command in your terminal with the instance's Public DNS address and your private key (.pem) file. Make sure the permissions for the .pem file are set correctly. Then, run the SSH command with the -i flag followed by the path to your .pem file and the EC2 instance's username (ec2-user for Amazon Linux). This command grants you access to the instance's command line interface.
 
 ### 3. Install Git, Node, and NPM
 Install Git, Node, and NPM on your EC2 instance.
+```bash
+   sudo yum update -y        
+
+   sudo yum install git -y   
+
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash 
+
+   . ~/.nvm/nvm.sh           
+   
+   nvm install node          
+```
 
 ### 4. Pull your project and run it
 To pull your project and run it, you need to run the following commands:
