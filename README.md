@@ -10,12 +10,10 @@
 > ReciPal aims to streamline the cooking process by providing a user-friendly platform for customers to search for recipes and get recipes based on the ingrdients they have at home. We believe in enhancing the cooking experience by saving time and ensuring user satisfaction.
 
 ### User Stories
-**User**:
 - As a user, I want to be able to get recipes based on the ingredients that I have at home.
 - As a user, I want to have multiple languages, so I can translate the ingredients that I don't understand.
 - As a user, I want to be able to save Recipes, so I that I don't have to search for the same recipe again.
 
-**Admin**:
 - As a admin, I want to be able to see the statistics for the number of users and saved recipes .
 - As a admin, I want to be able to add and remove recipes.
 - As a admin, I want to be able to check user feedback so that I can offer a better user experience.
@@ -26,10 +24,10 @@
 
 ###  Recipal is built using the following technologies:
 
-- This project uses the React Native framework. React native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-- For persistent storage (database), the app uses the MongoDB package which allows storing data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time.
-- The app uses the Imagga technologie for image recognition. Imagga offers powerful image recognition and tagging capabilities, allowing the application to analyze and understand the content of images with precision.
-- For translation, the app uses i18n (internationalization). i18n provides a robust framework for managing translations and localizations within the application.
+- This project uses the [React Native](https://reactnative.dev/docs/environment-setup) framework. React native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
+- For persistent storage (database), the app uses the [MongoDB](https://www.mongodb.com) package which allows storing data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time.
+- The app uses the [Imagga](https://imagga.com) technologie for image recognition. Imagga offers powerful image recognition and tagging capabilities, allowing the application to analyze and understand the content of images with precision.
+- For translation, the app uses [i18n](https://www.i18next.com) (internationalization). i18n provides a robust framework for managing translations and localizations within the application.
 
 <br><br>
 <!-- UI UX -->
@@ -53,7 +51,7 @@
 <img src="./readme/title5.svg"/>
 
 
--![Database](/readme/screenshots/db.jpg)
+(/readme/screenshots/db.jpg)
 
 
 <br><br>
