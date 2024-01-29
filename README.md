@@ -128,7 +128,7 @@ npm start
 
 
 | Result  |
-| ---| ---|
+| ---|
 | ![Landing](/readme/screenshots/result.jpg)  | 
 
 
