@@ -74,7 +74,7 @@
 | ![Details](/readme/screenshots/recipedetails.jpg) | ![Saved](/readme/screenshots/saved.jpg) | ![Awards](/readme/screenshots/awards.jpg) |
 
 | Recommendation screen  | Languages Screen | Feddback Screen |
-| ---| ---|
+| ---| ---| ---|
 | ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) | ![Languages](/readme/gifs/user-feedback.gif)
 
 
