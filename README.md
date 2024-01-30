@@ -106,6 +106,12 @@ Install Git, Node, and NPM on your EC2 instance.
    nvm install node          
 ```
 
+| Instance Running example:  | 
+| ---|
+| ![example](/readme/screenshots/aws.jpg) | 
+
+
+
 ### 4. Pull your project and run it
 To pull your project and run it, you need to run the following commands:
 ```bash
