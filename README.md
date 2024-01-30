@@ -78,8 +78,9 @@
 | ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) | 
 
 
-| Demo video|
- https://github.com/DinaBader/ReciPal/assets/131765110/2a9281ec-06bb-4272-b62d-5d9d79af2a45
+[Demo](https://github.com/DinaBader/ReciPal/assets/131765110/c48a6ea6-3ba2-4386-a00b-7d88ba20dfbc)
+
+
 
 ### Admin Screens (Mobile)
 | Home screen  | Feedback Screen |
