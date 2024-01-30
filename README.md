@@ -73,9 +73,9 @@
 | ---| ---| ---|
 | ![Details](/readme/screenshots/recipedetails.jpg) | ![Saved](/readme/screenshots/saved.jpg) | ![Awards](/readme/screenshots/awards.jpg) |
 
-| Feedback Screen |
-| ---|
-| ![Feedback](/readme/screenshots/user-feedback.jpg)|
+| Feedback Screen | User Profile | Edit Profile |
+| ---| ---| ---|
+| ![Feedback](/readme/screenshots/user-feedback.jpg)| ![Profile](/readme/screenshots/userprofile.jpg)| ![Edit](/readme/screenshots/editprofile.jpg)|
 
 
 | Recommendation screen  | Languages Screen |
