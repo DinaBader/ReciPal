@@ -78,7 +78,10 @@
 | ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) | 
 
 
-[Demo](https://github.com/DinaBader/ReciPal/assets/131765110/c48a6ea6-3ba2-4386-a00b-7d88ba20dfbc)
+[Demo](https://github.com/DinaBader/ReciPal/assets/131765110/3f06fcef-93d1-4390-bca9-2826018f7ac5)
+
+
+
 
 
 
