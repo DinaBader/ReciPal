@@ -78,9 +78,9 @@
 | ![Feedback](/readme/screenshots/user-feedback.jpg)| ![Profile](/readme/screenshots/userprofile.jpg)| ![Edit](/readme/screenshots/editprofile.jpg)|
 
 
-| Recommendation screen  | Languages Screen |
-| ---| ---|
-| ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) |
+| Recommendation screen  | Languages Screen | Search Feature |
+| ---| ---| ---|
+| ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) | ![Search](/readme/gifs/search.gif) |
 
 
 [Demo](https://github.com/DinaBader/ReciPal/assets/131765110/3f06fcef-93d1-4390-bca9-2826018f7ac5)
