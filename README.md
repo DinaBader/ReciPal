@@ -154,8 +154,18 @@ npm start
 ### Prerequisites
 
 * install npm
+```bash
+npm install npm@latest -g
+```
 * install Mongodb
+```bash
+npm install mongodb
+```
+
 * install nodemon
+```bash
+npm install nodemon
+```
 
 ### Installation
 
