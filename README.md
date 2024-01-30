@@ -10,10 +10,13 @@
 > ReciPal aims to streamline the cooking process by providing a user-friendly platform for customers to search for recipes and get recipes based on the ingrdients they have at home. We believe in enhancing the cooking experience by saving time and ensuring user satisfaction.
 
 ### User Stories
+
+## User
 - As a user, I want to be able to get recipes based on the ingredients that I have at home.
 - As a user, I want to have multiple languages, so I can translate the ingredients that I don't understand.
 - As a user, I want to be able to save Recipes, so I that I don't have to search for the same recipe again.
 
+## Admin
 - As a admin, I want to be able to see the statistics for the number of users and saved recipes .
 - As a admin, I want to be able to add and remove recipes.
 - As a admin, I want to be able to check user feedback so that I can offer a better user experience.
