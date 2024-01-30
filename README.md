@@ -125,15 +125,15 @@ npm start
 
 - This project employs rigorous unit testing methodologies to ensure the reliability and accuracy of code components. By systematically evaluating individual units of the software, we guarantee a robust foundation, identifying and addressing potential issues early in the development process.
 
-| Feature Test 1  | Feature Test 2 |
+| Registration Tests: New User Registration and Error Handling  |  Registration Test: Error Handling for Existing Email or Username  |
 | ---| ---|
 | ![Landing](/readme/screenshots/test1.jpg) | ![Landing](/readme/screenshots/test2.jpg) | 
 
-| Feature Test 3  | Feature Test 4 |
+| Login Test: Valid and Invalid Credential Scenarios  | Login Test: Password Presence Validation |
 | ---| ---|
 | ![Landing](/readme/screenshots/test3.jpg) | ![Landing](/readme/screenshots/test4.jpg) | 
 
-| Feature Test 5  | Feature Test 6 |
+| Review Tests: Get All Reviews and Remove Review  | Review Tests: Add New Review and Handle Empty Review |
 | ---| ---|
 | ![Landing](/readme/screenshots/test5.jpg) | ![Landing](/readme/screenshots/test6.jpg) | 
 
