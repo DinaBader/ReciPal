@@ -73,9 +73,14 @@
 | ---| ---| ---|
 | ![Details](/readme/screenshots/recipedetails.jpg) | ![Saved](/readme/screenshots/saved.jpg) | ![Awards](/readme/screenshots/awards.jpg) |
 
-| Recommendation screen  | Languages Screen | Feddback Screen |
-| ---| ---| ---|
-| ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) | ![Languages](/readme/screenshots/user-feedback.jpg)
+| Feedback Screen |
+| ---|
+| ![Feedback](/readme/screenshots/user-feedback.jpg)|
+
+
+| Recommendation screen  | Languages Screen |
+| ---| ---|
+| ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) |
 
 
 [Demo](https://github.com/DinaBader/ReciPal/assets/131765110/3f06fcef-93d1-4390-bca9-2826018f7ac5)
