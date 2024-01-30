@@ -78,11 +78,17 @@
 | ![Recommendation](/readme/gifs/suggestion.gif) | ![Languages](/readme/gifs/languages.gif) | 
 
 
+| Demo video|
+ https://github.com/DinaBader/ReciPal/assets/131765110/2a9281ec-06bb-4272-b62d-5d9d79af2a45
+
 ### Admin Screens (Mobile)
 | Home screen  | Feedback Screen |
 | ---| ---|
 | ![Landing](/readme/screenshots/home.jpg) | ![Landing](/readme/screenshots/feedback.png) | 
 <br><br>
+
+
+
 
 
 <!-- AWS Deployment -->
